@@ -1,0 +1,156 @@
+# Database for the records specific to the simulated detector driver
+# Mark Rivers
+# March 23, 2008
+
+# Macros:
+#% macro, P, Device Prefix
+#% macro, R, Device Suffix
+#% macro, PORT, Asyn Port name
+#% macro, TIMEOUT, Timeout
+#% macro, ADDR, Asyn Port address
+
+# This associates the template with an edm screen
+# % gui, $(PORT), edmtab, aravisCamera.edl, P=$(P),R=$(R)
+
+# % autosave 2 
+record(ao, "$(P)$(R)GainX")
+{
+   field(PINI, "YES")
+   field(DTYP, "asynFloat64")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_X")
+   field(PREC, "2")
+}
+
+record(ai, "$(P)$(R)GainX_RBV")
+{
+   field(DTYP, "asynFloat64")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_X")
+   field(PREC, "2")
+   field(SCAN, "I/O Intr")
+}
+
+# % autosave 2 
+record(ao, "$(P)$(R)GainY")
+{
+   field(PINI, "YES")
+   field(DTYP, "asynFloat64")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_Y")
+   field(PREC, "2")
+}
+
+record(ai, "$(P)$(R)GainY_RBV")
+{
+   field(DTYP, "asynFloat64")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_Y")
+   field(PREC, "2")
+   field(SCAN, "I/O Intr")
+}
+
+# % autosave 2 
+record(ao, "$(P)$(R)GainRed")
+{
+   field(PINI, "YES")
+   field(DTYP, "asynFloat64")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_RED")
+   field(PREC, "2")
+}
+
+record(ai, "$(P)$(R)GainRed_RBV")
+{
+   field(DTYP, "asynFloat64")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_RED")
+   field(PREC, "2")
+   field(SCAN, "I/O Intr")
+}
+
+# % autosave 2 
+record(ao, "$(P)$(R)GainGreen")
+{
+   field(PINI, "YES")
+   field(DTYP, "asynFloat64")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_GREEN")
+   field(PREC, "2")
+}
+
+record(ai, "$(P)$(R)GainGreen_RBV")
+{
+   field(DTYP, "asynFloat64")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_GREEN")
+   field(PREC, "2")
+   field(SCAN, "I/O Intr")
+}
+
+# % autosave 2 
+record(ao, "$(P)$(R)GainBlue")
+{
+   field(PINI, "YES")
+   field(DTYP, "asynFloat64")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_BLUE")
+   field(PREC, "2")
+}
+
+record(ai, "$(P)$(R)GainBlue_RBV")
+{
+   field(DTYP, "asynFloat64")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SIM_GAIN_BLUE")
+   field(PREC, "2")
+   field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)Reset")
+{
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))RESET_IMAGE")
+}
+
+record(longin, "$(P)$(R)Reset_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))RESET_IMAGE")
+   field(SCAN, "I/O Intr")
+}
+
+# Redefine the color mode choices from ADBase.template to only have those that the aravisCamera
+# driver supports.  Keep the same values (xxVL), but change the menu numbers.
+
+record(mbbo, "$(P)$(R)ColorMode")
+{
+   field(PINI, "YES")
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))COLOR_MODE")
+   field(ZRST, "Mono")
+   field(ZRVL, "0")
+   field(ONST, "RGB1")
+   field(ONVL, "2")
+   field(TWST, "RGB2")
+   field(TWVL, "3")
+   field(THST, "RGB3")
+   field(THVL, "4")
+   field(FRST, "")
+   field(FVST, "")
+   field(SXST, "")
+   field(SVST, "")
+   field(EIST, "")
+}
+
+record(mbbi, "$(P)$(R)ColorMode_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))COLOR_MODE")
+   field(ZRST, "Mono")
+   field(ZRVL, "0")
+   field(ONST, "RGB1")
+   field(ONVL, "2")
+   field(TWST, "RGB2")
+   field(TWVL, "3")
+   field(THST, "RGB3")
+   field(THVL, "4")
+   field(FRST, "")
+   field(FVST, "")
+   field(SXST, "")
+   field(SVST, "")
+   field(EIST, "")
+   field(SCAN, "I/O Intr")
+}
+
+

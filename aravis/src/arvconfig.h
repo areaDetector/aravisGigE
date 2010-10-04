@@ -2,10 +2,10 @@
 /* src/arvconfig.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Cairo support */
-#define ARAVIS_WITH_CAIRO 1
+/* #undef ARAVIS_WITH_CAIRO */
 
 /* Cairo support */
-#define ARAVIS_WITH_GSTREAMER 1
+/* #undef ARAVIS_WITH_GSTREAMER */
 
 /* always defined to indicate that i18n is enabled */
 #define ENABLE_NLS 1
