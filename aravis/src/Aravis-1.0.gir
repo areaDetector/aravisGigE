@@ -1,0 +1,4765 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.1"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <namespace name="Aravis"
+             version="1.0"
+             shared-library="libaravis.so.0"
+             c:prefix="Arv">
+    <enumeration name="AcquisitionMode"
+                 glib:type-name="ArvAcquisitionMode"
+                 glib:get-type="arv_acquisition_mode_get_type"
+                 c:type="ArvAcquisitionMode">
+      <member name="continuous"
+              value="0"
+              c:identifier="ARV_ACQUISITION_MODE_CONTINUOUS"
+              glib:nick="continuous"/>
+      <member name="single_frame"
+              value="1"
+              c:identifier="ARV_ACQUISITION_MODE_SINGLE_FRAME"
+              glib:nick="single-frame"/>
+    </enumeration>
+    <class name="Buffer"
+           c:type="ArvBuffer"
+           parent="GObject.Object"
+           glib:type-name="ArvBuffer"
+           glib:get-type="arv_buffer_get_type"
+           glib:type-struct="BufferClass">
+      <constructor name="new" c:identifier="arv_buffer_new">
+        <doc xml:whitespace="preserve">Creates a new buffer for the storage of the video stream images. 
+The data space can be either preallocated, and the caller is responsible
+for it's deallocation, or allocated by this function. If it is the case,
+data memory will be freed when the buffer is destroyed.</doc>
+        <return-value transfer-ownership="full">
+          <type name="Buffer" c:type="ArvBuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:whitespace="preserve">payload size</doc>
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+          <parameter name="preallocated" transfer-ownership="none">
+            <doc xml:whitespace="preserve">preallocated memory buffer</doc>
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="size">
+        <type name="gsize" c:type="size_t"/>
+      </field>
+      <field name="data">
+        <type name="any" c:type="void*"/>
+      </field>
+      <field name="is_preallocated">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="status">
+        <type name="BufferStatus" c:type="ArvBufferStatus"/>
+      </field>
+      <field name="frame_id">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="timestamp_ns">
+        <type name="uint64" c:type="guint64"/>
+      </field>
+      <field name="x_offset">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="y_offset">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="width">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="height">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="pixel_format">
+        <type name="PixelFormat" c:type="ArvPixelFormat"/>
+      </field>
+    </class>
+    <record name="BufferClass"
+            c:type="ArvBufferClass"
+            glib:is-gtype-struct-for="Buffer">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="BufferStatus"
+                 glib:type-name="ArvBufferStatus"
+                 glib:get-type="arv_buffer_status_get_type"
+                 c:type="ArvBufferStatus">
+      <member name="success"
+              value="0"
+              c:identifier="ARV_BUFFER_STATUS_SUCCESS"
+              glib:nick="success"/>
+      <member name="cleared"
+              value="1"
+              c:identifier="ARV_BUFFER_STATUS_CLEARED"
+              glib:nick="cleared"/>
+      <member name="missing_blocks"
+              value="2"
+              c:identifier="ARV_BUFFER_STATUS_MISSING_BLOCKS"
+              glib:nick="missing-blocks"/>
+      <member name="size_mismatch"
+              value="3"
+              c:identifier="ARV_BUFFER_STATUS_SIZE_MISMATCH"
+              glib:nick="size-mismatch"/>
+      <member name="filling"
+              value="4"
+              c:identifier="ARV_BUFFER_STATUS_FILLING"
+              glib:nick="filling"/>
+      <member name="aborted"
+              value="5"
+              c:identifier="ARV_BUFFER_STATUS_ABORTED"
+              glib:nick="aborted"/>
+    </enumeration>
+    <class name="Camera"
+           c:type="ArvCamera"
+           parent="GObject.Object"
+           glib:type-name="ArvCamera"
+           glib:get-type="arv_camera_get_type"
+           glib:type-struct="CameraClass">
+      <constructor name="new" c:identifier="arv_camera_new">
+        <doc xml:whitespace="preserve">Creates a new #ArvCamera. If @name is null, it will instantiate the
+first available camera</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #ArvCamera.</doc>
+          <type name="Camera" c:type="ArvCamera*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none" allow-none="1">
+            <doc xml:whitespace="preserve">name of the camera.</doc>
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_device" c:identifier="arv_camera_get_device">
+        <doc xml:whitespace="preserve">Retrieves the #ArvDevice object for more complete access to the camera features.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the underlying device object.</doc>
+          <type name="Device" c:type="ArvDevice*"/>
+        </return-value>
+      </method>
+      <method name="create_stream" c:identifier="arv_camera_create_stream">
+        <doc xml:whitespace="preserve">Creates a new #ArvStream for video stream handling. See</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a new #ArvStream.</doc>
+          <type name="Stream" c:type="ArvStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:whitespace="preserve">a frame processing callback</doc>
+            <type name="StreamCallback" c:type="ArvStreamCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <doc xml:whitespace="preserve">closure</doc>
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_vendor_name" c:identifier="arv_camera_get_vendor_name">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the camera vendor name.</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="get_model_name" c:identifier="arv_camera_get_model_name">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the camera model name.</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="get_device_id" c:identifier="arv_camera_get_device_id">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the camera device ID.</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="get_sensor_size" c:identifier="arv_camera_get_sensor_size">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="width"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">camera sensor width placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+          <parameter name="height"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">camera sensor height placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_region" c:identifier="arv_camera_set_region">
+        <doc xml:whitespace="preserve">Defines the region of interest which will be transmitted in the video
+stream.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="x" transfer-ownership="none">
+            <doc xml:whitespace="preserve">x offset</doc>
+            <type name="int" c:type="gint"/>
+          </parameter>
+          <parameter name="y" transfer-ownership="none">
+            <doc xml:whitespace="preserve">y_offset</doc>
+            <type name="int" c:type="gint"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:whitespace="preserve">region width</doc>
+            <type name="int" c:type="gint"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <doc xml:whitespace="preserve">region height</doc>
+            <type name="int" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_region" c:identifier="arv_camera_get_region">
+        <doc xml:whitespace="preserve">Retrieves the current region of interest.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="x"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">x offset placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+          <parameter name="y"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">y_offset placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+          <parameter name="width"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">region width placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+          <parameter name="height"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">region height placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_binning" c:identifier="arv_camera_set_binning">
+        <doc xml:whitespace="preserve">Defines the binning in both directions. Not all cameras support this
+feature.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="dx" transfer-ownership="none">
+            <doc xml:whitespace="preserve">horizontal binning</doc>
+            <type name="int" c:type="gint"/>
+          </parameter>
+          <parameter name="dy" transfer-ownership="none">
+            <doc xml:whitespace="preserve">vertical binning</doc>
+            <type name="int" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_binning" c:identifier="arv_camera_get_binning">
+        <doc xml:whitespace="preserve">Retrieves the binning in both directions.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="dx"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">horizontal binning placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+          <parameter name="dy"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:whitespace="preserve">vertical binning placeholder</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pixel_format"
+              c:identifier="arv_camera_set_pixel_format">
+        <doc xml:whitespace="preserve">Defines the pixel format.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="format" transfer-ownership="none">
+            <doc xml:whitespace="preserve">pixel format</doc>
+            <type name="PixelFormat" c:type="ArvPixelFormat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_pixel_format"
+              c:identifier="arv_camera_get_pixel_format">
+        <doc xml:whitespace="preserve">Retrieves the pixel format.</doc>
+        <return-value transfer-ownership="full">
+          <type name="PixelFormat" c:type="ArvPixelFormat"/>
+        </return-value>
+      </method>
+      <method name="start_acquisition"
+              c:identifier="arv_camera_start_acquisition">
+        <doc xml:whitespace="preserve">Starts the video stream acquisition.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="stop_acquisition"
+              c:identifier="arv_camera_stop_acquisition">
+        <doc xml:whitespace="preserve">Stops the video stream acquisition.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="set_acquisition_mode"
+              c:identifier="arv_camera_set_acquisition_mode">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="AcquisitionMode" c:type="ArvAcquisitionMode"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_acquisition_mode"
+              c:identifier="arv_camera_get_acquisition_mode">
+        <doc xml:whitespace="preserve">Retrieves the acquisition mode.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">the acquisition mode.</doc>
+          <type name="AcquisitionMode" c:type="ArvAcquisitionMode"/>
+        </return-value>
+      </method>
+      <method name="set_frame_rate" c:identifier="arv_camera_set_frame_rate">
+        <doc xml:whitespace="preserve">Configures a fixed frame rate mode. Once acquisition start is triggered, the
+video stream will be acquired with the given frame rate.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="frame_rate" transfer-ownership="none">
+            <doc xml:whitespace="preserve">frame rate, in Hz</doc>
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_frame_rate" c:identifier="arv_camera_get_frame_rate">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the actual frame rate, in Hz.</doc>
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+      <method name="set_trigger" c:identifier="arv_camera_set_trigger">
+        <doc xml:whitespace="preserve">Configures the camera in trigger mode. Typical values for source are "Line1"
+or "Line2". See the camera documentation for the allowed values. The
+activation is set to rising edge. It can be changed by accessing the
+underlying device object.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="source" transfer-ownership="none">
+            <doc xml:whitespace="preserve">trigger source as string</doc>
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_exposure_time"
+              c:identifier="arv_camera_set_exposure_time">
+        <doc xml:whitespace="preserve">Sets the exposure time. User should take care to set a value compatible with
+the desired frame rate.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="exposure_time_us" transfer-ownership="none">
+            <doc xml:whitespace="preserve">exposure time, in µs</doc>
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_exposure_time"
+              c:identifier="arv_camera_get_exposure_time">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the current exposure time, in µs.</doc>
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+      <method name="set_gain" c:identifier="arv_camera_set_gain">
+        <doc xml:whitespace="preserve">Sets the gain of the ADC converter.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="gain" transfer-ownership="none">
+            <doc xml:whitespace="preserve">gain value</doc>
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_gain" c:identifier="arv_camera_get_gain">
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the current gain setting.</doc>
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_payload" c:identifier="arv_camera_get_payload">
+        <doc xml:whitespace="preserve">Retrieves the size needed for the storage of an image. This value is used
+for the creation of the stream buffers.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the frame storage size, in bytes.</doc>
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="CameraPrivate" c:type="ArvCameraPrivate*"/>
+      </field>
+    </class>
+    <record name="CameraClass"
+            c:type="ArvCameraClass"
+            glib:is-gtype-struct-for="Camera">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="CameraPrivate" c:type="ArvCameraPrivate">
+    </record>
+    <enumeration name="CameraVendor"
+                 glib:type-name="ArvCameraVendor"
+                 glib:get-type="arv_camera_vendor_get_type"
+                 c:type="ArvCameraVendor">
+      <member name="unknown"
+              value="0"
+              c:identifier="ARV_CAMERA_VENDOR_UNKNOWN"
+              glib:nick="unknown"/>
+      <member name="basler"
+              value="1"
+              c:identifier="ARV_CAMERA_VENDOR_BASLER"
+              glib:nick="basler"/>
+      <member name="prosilica"
+              value="2"
+              c:identifier="ARV_CAMERA_VENDOR_PROSILICA"
+              glib:nick="prosilica"/>
+    </enumeration>
+    <class name="Device"
+           c:type="ArvDevice"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="ArvDevice"
+           glib:get-type="arv_device_get_type"
+           glib:type-struct="DeviceClass">
+      <virtual-method name="create_stream" invoker="create_stream">
+        <return-value transfer-ownership="full">
+          <type name="Stream" c:type="ArvStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="callback" transfer-ownership="none">
+            <type name="StreamCallback" c:type="ArvStreamCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none" closure="2">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_genicam" invoker="get_genicam">
+        <doc xml:whitespace="preserve">Retrieves the genicam interface of the given device.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the genicam interface.</doc>
+          <type name="Gc" c:type="ArvGc*"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="read_memory" invoker="read_memory">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="write_memory" invoker="write_memory">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="read_register" invoker="read_register">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="write_register" invoker="write_register">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="create_stream" c:identifier="arv_device_create_stream">
+        <return-value transfer-ownership="full">
+          <type name="Stream" c:type="ArvStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <type name="StreamCallback" c:type="ArvStreamCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_memory" c:identifier="arv_device_read_memory">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_memory" c:identifier="arv_device_write_memory">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_register" c:identifier="arv_device_read_register">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_register" c:identifier="arv_device_write_register">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_genicam" c:identifier="arv_device_get_genicam">
+        <doc xml:whitespace="preserve">Retrieves the genicam interface of the given device.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">the genicam interface.</doc>
+          <type name="Gc" c:type="ArvGc*"/>
+        </return-value>
+      </method>
+      <method name="execute_command" c:identifier="arv_device_execute_command">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_string_feature_value"
+              c:identifier="arv_device_set_string_feature_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_string_feature_value"
+              c:identifier="arv_device_get_string_feature_value">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_integer_feature_value"
+              c:identifier="arv_device_set_integer_feature_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_integer_feature_value"
+              c:identifier="arv_device_get_integer_feature_value">
+        <return-value transfer-ownership="none">
+          <type name="uint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_float_feature_value"
+              c:identifier="arv_device_set_float_feature_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_float_feature_value"
+              c:identifier="arv_device_get_float_feature_value">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="DeviceClass"
+            c:type="ArvDeviceClass"
+            glib:is-gtype-struct-for="Device">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="create_stream">
+        <callback name="create_stream" c:type="create_stream">
+          <return-value transfer-ownership="full">
+            <type name="Stream" c:type="ArvStream*"/>
+          </return-value>
+          <parameters>
+            <parameter name="device" transfer-ownership="none">
+              <type name="Device" c:type="ArvDevice*"/>
+            </parameter>
+            <parameter name="callback" transfer-ownership="none">
+              <type name="StreamCallback" c:type="ArvStreamCallback"/>
+            </parameter>
+            <parameter name="user_data" transfer-ownership="none" closure="2">
+              <type name="any" c:type="void*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_genicam">
+        <callback name="get_genicam" c:type="get_genicam">
+          <return-value transfer-ownership="none">
+            <doc xml:whitespace="preserve">the genicam interface.</doc>
+            <type name="Gc" c:type="ArvGc*"/>
+          </return-value>
+          <parameters>
+            <parameter name="device" transfer-ownership="none">
+              <type name="Device" c:type="ArvDevice*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="read_memory">
+        <callback name="read_memory" c:type="read_memory">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="device" transfer-ownership="none">
+              <type name="Device" c:type="ArvDevice*"/>
+            </parameter>
+            <parameter name="address" transfer-ownership="none">
+              <type name="uint32" c:type="guint32"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="uint32" c:type="guint32"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="any" c:type="void*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="write_memory">
+        <callback name="write_memory" c:type="write_memory">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="device" transfer-ownership="none">
+              <type name="Device" c:type="ArvDevice*"/>
+            </parameter>
+            <parameter name="address" transfer-ownership="none">
+              <type name="uint32" c:type="guint32"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="uint32" c:type="guint32"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="any" c:type="void*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="read_register">
+        <callback name="read_register" c:type="read_register">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="device" transfer-ownership="none">
+              <type name="Device" c:type="ArvDevice*"/>
+            </parameter>
+            <parameter name="address" transfer-ownership="none">
+              <type name="uint32" c:type="guint32"/>
+            </parameter>
+            <parameter name="value"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full">
+              <type name="uint32" c:type="guint32*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="write_register">
+        <callback name="write_register" c:type="write_register">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="device" transfer-ownership="none">
+              <type name="Device" c:type="ArvDevice*"/>
+            </parameter>
+            <parameter name="address" transfer-ownership="none">
+              <type name="uint32" c:type="guint32"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="uint32" c:type="guint32"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <constant name="ENABLE_NLS" value="1">
+      <type name="int"/>
+    </constant>
+    <class name="Evaluator"
+           c:type="ArvEvaluator"
+           parent="GObject.Object"
+           glib:type-name="ArvEvaluator"
+           glib:get-type="arv_evaluator_get_type"
+           glib:type-struct="EvaluatorClass">
+      <constructor name="new" c:identifier="arv_evaluator_new">
+        <return-value transfer-ownership="full">
+          <type name="Evaluator" c:type="ArvEvaluator*"/>
+        </return-value>
+        <parameters>
+          <parameter name="expression" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="set_expression"
+              c:identifier="arv_evaluator_set_expression">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="expression" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_expression"
+              c:identifier="arv_evaluator_get_expression">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="evaluate_as_double"
+              c:identifier="arv_evaluator_evaluate_as_double"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+      <method name="evaluate_as_int64"
+              c:identifier="arv_evaluator_evaluate_as_int64"
+              throws="1">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="set_double_variable"
+              c:identifier="arv_evaluator_set_double_variable">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="v_double" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_int64_variable"
+              c:identifier="arv_evaluator_set_int64_variable">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="v_int64" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="EvaluatorPrivate" c:type="ArvEvaluatorPrivate*"/>
+      </field>
+    </class>
+    <record name="EvaluatorClass"
+            c:type="ArvEvaluatorClass"
+            glib:is-gtype-struct-for="Evaluator">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <record name="EvaluatorPrivate" c:type="ArvEvaluatorPrivate">
+    </record>
+    <constant name="FAKE_CAMERA_ACQUISITION_FRAME_RATE_DEFAULT" value="25.0">
+      <type name="double"/>
+    </constant>
+    <constant name="FAKE_CAMERA_BINNING_HORIZONTAL_DEFAULT" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_BINNING_VERTICAL_DEFAULT" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_EXPOSURE_TIME_US_DEFAULT" value="10000.0">
+      <type name="double"/>
+    </constant>
+    <constant name="FAKE_CAMERA_HEIGHT_DEFAULT" value="512">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_MEMORY_SIZE" value="4096">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_ACQUISITION" value="292">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_ACQUISITION_FRAME_PERIOD_US"
+              value="312">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_ACQUISITION_MODE" value="300">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_ACQUISITION_START_OFFSET" value="32">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_BINNING_HORIZONTAL" value="264">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_BINNING_VERTICAL" value="268">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_EXPOSURE_TIME_US" value="288">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_FRAME_START_OFFSET" value="0">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_GAIN_MODE" value="276">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_GAIN_RAW" value="272">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_HEIGHT" value="260">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_PIXEL_FORMAT" value="296">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_SENSOR_HEIGHT" value="280">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_SENSOR_WIDTH" value="284">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_TRIGGER_ACTIVATION" value="776">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_TRIGGER_MODE" value="768">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_TRIGGER_SOURCE" value="772">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_WIDTH" value="256">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_X_OFFSET" value="304">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_REGISTER_Y_OFFSET" value="308">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_SENSOR_HEIGHT" value="2048">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_SENSOR_WIDTH" value="2048">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_CAMERA_WIDTH_DEFAULT" value="512">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_DEVICE_ID" value="Fake_1">
+      <type name="utf8"/>
+    </constant>
+    <constant name="FAKE_INTERFACE_DISCOVERY_TIMEOUT_MS" value="1000">
+      <type name="int"/>
+    </constant>
+    <constant name="FAKE_INTERFACE_SOCKET_BUFFER_SIZE" value="1024">
+      <type name="int"/>
+    </constant>
+    <class name="FakeCamera"
+           c:type="ArvFakeCamera"
+           parent="GObject.Object"
+           glib:type-name="ArvFakeCamera"
+           glib:get-type="arv_fake_camera_get_type"
+           glib:type-struct="FakeCameraClass">
+      <constructor name="new" c:identifier="arv_fake_camera_new">
+        <return-value transfer-ownership="full">
+          <type name="FakeCamera" c:type="ArvFakeCamera*"/>
+        </return-value>
+        <parameters>
+          <parameter name="serial_number" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="read_memory" c:identifier="arv_fake_camera_read_memory">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_memory" c:identifier="arv_fake_camera_write_memory">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_register"
+              c:identifier="arv_fake_camera_read_register">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write_register"
+              c:identifier="arv_fake_camera_write_register">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_payload" c:identifier="arv_fake_camera_get_payload">
+        <return-value transfer-ownership="none">
+          <type name="gsize" c:type="size_t"/>
+        </return-value>
+      </method>
+      <method name="wait_for_next_frame"
+              c:identifier="arv_fake_camera_wait_for_next_frame">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="fill_buffer" c:identifier="arv_fake_camera_fill_buffer">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Buffer" c:type="ArvBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_acquisition_status"
+              c:identifier="arv_fake_camera_get_acquisition_status">
+        <return-value transfer-ownership="none">
+          <type name="uint32" c:type="guint32"/>
+        </return-value>
+      </method>
+      <method name="get_stream_address"
+              c:identifier="arv_fake_camera_get_stream_address">
+        <return-value transfer-ownership="full">
+          <type name="Gio.SocketAddress" c:type="GSocketAddress*"/>
+        </return-value>
+      </method>
+      <method name="set_inet_address"
+              c:identifier="arv_fake_camera_set_inet_address">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="Gio.InetAddress" c:type="GInetAddress*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_control_channel_privilege"
+              c:identifier="arv_fake_camera_get_control_channel_privilege">
+        <return-value transfer-ownership="none">
+          <type name="uint32" c:type="guint32"/>
+        </return-value>
+      </method>
+      <method name="set_control_channel_privilege"
+              c:identifier="arv_fake_camera_set_control_channel_privilege">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="privilege" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_heartbeat_timeout"
+              c:identifier="arv_fake_camera_get_heartbeat_timeout">
+        <return-value transfer-ownership="none">
+          <type name="uint32" c:type="guint32"/>
+        </return-value>
+      </method>
+      <method name="set_fill_pattern"
+              c:identifier="arv_fake_camera_set_fill_pattern">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="fill_pattern"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <type name="FakeCameraFillPattern"
+                  c:type="ArvFakeCameraFillPattern"/>
+          </parameter>
+          <parameter name="fill_pattern_data" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_trigger_frequency"
+              c:identifier="arv_fake_camera_set_trigger_frequency">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="frequency" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="FakeCameraPrivate" c:type="ArvFakeCameraPrivate*"/>
+      </field>
+    </class>
+    <record name="FakeCameraClass"
+            c:type="ArvFakeCameraClass"
+            glib:is-gtype-struct-for="FakeCamera">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <callback name="FakeCameraFillPattern" c:type="ArvFakeCameraFillPattern">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="buffer" transfer-ownership="none">
+          <type name="Buffer" c:type="ArvBuffer*"/>
+        </parameter>
+        <parameter name="fill_pattern_data" transfer-ownership="none">
+          <type name="any" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="FakeCameraPrivate" c:type="ArvFakeCameraPrivate">
+    </record>
+    <class name="FakeDevice"
+           c:type="ArvFakeDevice"
+           parent="Device"
+           glib:type-name="ArvFakeDevice"
+           glib:get-type="arv_fake_device_get_type"
+           glib:type-struct="FakeDeviceClass">
+      <constructor name="new" c:identifier="arv_fake_device_new">
+        <return-value transfer-ownership="full">
+          <type name="FakeDevice" c:type="ArvDevice*"/>
+        </return-value>
+        <parameters>
+          <parameter name="serial_number" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_fake_camera"
+              c:identifier="arv_fake_device_get_fake_camera">
+        <return-value transfer-ownership="full">
+          <type name="FakeCamera" c:type="ArvFakeCamera*"/>
+        </return-value>
+      </method>
+      <field name="device">
+        <type name="Device" c:type="ArvDevice"/>
+      </field>
+      <field name="priv">
+        <type name="FakeDevicePrivate" c:type="ArvFakeDevicePrivate*"/>
+      </field>
+    </class>
+    <record name="FakeDeviceClass"
+            c:type="ArvFakeDeviceClass"
+            glib:is-gtype-struct-for="FakeDevice">
+      <field name="parent_class">
+        <type name="DeviceClass" c:type="ArvDeviceClass"/>
+      </field>
+    </record>
+    <record name="FakeDevicePrivate" c:type="ArvFakeDevicePrivate">
+    </record>
+    <class name="FakeInterface"
+           c:type="ArvFakeInterface"
+           parent="Interface"
+           glib:type-name="ArvFakeInterface"
+           glib:get-type="arv_fake_interface_get_type"
+           glib:type-struct="FakeInterfaceClass">
+      <function name="get_instance"
+                c:identifier="arv_fake_interface_get_instance">
+        <return-value transfer-ownership="full">
+          <type name="Interface" c:type="ArvInterface*"/>
+        </return-value>
+      </function>
+      <field name="interface">
+        <type name="Interface" c:type="ArvInterface"/>
+      </field>
+      <field name="priv">
+        <type name="FakeInterfacePrivate" c:type="ArvFakeInterfacePrivate*"/>
+      </field>
+    </class>
+    <record name="FakeInterfaceClass"
+            c:type="ArvFakeInterfaceClass"
+            glib:is-gtype-struct-for="FakeInterface">
+      <field name="parent_class">
+        <type name="InterfaceClass" c:type="ArvInterfaceClass"/>
+      </field>
+    </record>
+    <record name="FakeInterfacePrivate" c:type="ArvFakeInterfacePrivate">
+    </record>
+    <class name="FakeStream"
+           c:type="ArvFakeStream"
+           parent="Stream"
+           glib:type-name="ArvFakeStream"
+           glib:get-type="arv_fake_stream_get_type"
+           glib:type-struct="FakeStreamClass">
+      <constructor name="new" c:identifier="arv_fake_stream_new">
+        <return-value transfer-ownership="full">
+          <type name="FakeStream" c:type="ArvStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="camera" transfer-ownership="none">
+            <type name="FakeCamera" c:type="ArvFakeCamera*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <type name="StreamCallback" c:type="ArvStreamCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="stream">
+        <type name="Stream" c:type="ArvStream"/>
+      </field>
+      <field name="priv">
+        <type name="FakeStreamPrivate" c:type="ArvFakeStreamPrivate*"/>
+      </field>
+    </class>
+    <record name="FakeStreamClass"
+            c:type="ArvFakeStreamClass"
+            glib:is-gtype-struct-for="FakeStream">
+      <field name="parent_class">
+        <type name="StreamClass" c:type="ArvStreamClass"/>
+      </field>
+    </record>
+    <record name="FakeStreamPrivate" c:type="ArvFakeStreamPrivate">
+    </record>
+    <callback name="FrameCallback" c:type="ArvFrameCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="buffer" transfer-ownership="none">
+          <type name="Buffer" c:type="ArvBuffer*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <constant name="GETTEXT_PACKAGE" value="aravis">
+      <type name="utf8"/>
+    </constant>
+    <constant name="GVBS_CONTROL_CHANNEL_PRIVILEGE" value="2560">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_CURRENT_IP_ADDRESS" value="36">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_DEVICE_VERSION" value="136">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_DEVICE_VERSION_SIZE" value="32">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_DISCOVERY_DATA_SIZE" value="248">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_FIRST_STREAM_CHANNEL_IP_ADDRESS" value="3352">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_FIRST_STREAM_CHANNEL_PACKET_SIZE" value="3332">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_FIRST_STREAM_CHANNEL_PORT" value="3328">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_FIRST_XML_URL" value="512">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_HEARTBEAT_TIMEOUT" value="2360">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_MANUFACTURER_NAME" value="72">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_MANUFACTURER_NAME_SIZE" value="32">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_MODEL_NAME" value="104">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_MODEL_NAME_SIZE" value="32">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_SECOND_XML_URL" value="1024">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_SERIAL_NUMBER" value="216">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_SERIAL_NUMBER_SIZE" value="16">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_TIMESTAMP_TICK_FREQUENCY_HIGH" value="2364">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_TIMESTAMP_TICK_FREQUENCY_LOW" value="2368">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_USER_DEFINED_NAME" value="232">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_USER_DEFINED_NAME_SIZE" value="16">
+      <type name="int"/>
+    </constant>
+    <constant name="GVBS_XML_URL_SIZE" value="512">
+      <type name="int"/>
+    </constant>
+    <constant name="GVCP_DATA_SIZE_MAX" value="512">
+      <type name="int"/>
+    </constant>
+    <constant name="GVCP_PORT" value="3956">
+      <type name="int"/>
+    </constant>
+    <constant name="GV_DEVICE_BUFFER_SIZE" value="1024">
+      <type name="int"/>
+    </constant>
+    <constant name="GV_DEVICE_GVCP_N_RETRIES_DEFAULT" value="5">
+      <type name="int"/>
+    </constant>
+    <constant name="GV_DEVICE_GVCP_TIMEOUT_MS_DEFAULT" value="500">
+      <type name="int"/>
+    </constant>
+    <constant name="GV_INTERFACE_DISCOVERY_TIMEOUT_MS" value="1000">
+      <type name="int"/>
+    </constant>
+    <constant name="GV_INTERFACE_SOCKET_BUFFER_SIZE" value="1024">
+      <type name="int"/>
+    </constant>
+    <class name="Gc"
+           c:type="ArvGc"
+           parent="GObject.Object"
+           glib:type-name="ArvGc"
+           glib:get-type="arv_gc_get_type"
+           glib:type-struct="GcClass">
+      <constructor name="new" c:identifier="arv_gc_new">
+        <return-value transfer-ownership="full">
+          <type name="Gc" c:type="ArvGc*"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <type name="Device" c:type="ArvDevice*"/>
+          </parameter>
+          <parameter name="xml" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="integer_register_new"
+                c:identifier="arv_gc_integer_register_new">
+        <return-value transfer-ownership="full">
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </function>
+      <function name="masked_integer_register_new"
+                c:identifier="arv_gc_masked_integer_register_new">
+        <return-value transfer-ownership="full">
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </function>
+      <function name="float_register_new"
+                c:identifier="arv_gc_float_register_new">
+        <return-value transfer-ownership="full">
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </function>
+      <function name="string_register_new"
+                c:identifier="arv_gc_string_register_new">
+        <return-value transfer-ownership="full">
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </function>
+      <function name="int_swiss_knife_new"
+                c:identifier="arv_gc_int_swiss_knife_new">
+        <return-value transfer-ownership="full">
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </function>
+      <function name="int_converter_new"
+                c:identifier="arv_gc_int_converter_new">
+        <return-value transfer-ownership="full">
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </function>
+      <method name="get_int64_from_value"
+              c:identifier="arv_gc_get_int64_from_value">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_int64_to_value"
+              c:identifier="arv_gc_set_int64_to_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+          <parameter name="v_int64" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_double_from_value"
+              c:identifier="arv_gc_get_double_from_value">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_double_to_value"
+              c:identifier="arv_gc_set_double_to_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="GObject.Value" c:type="GValue*"/>
+          </parameter>
+          <parameter name="v_double" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_node" c:identifier="arv_gc_get_node">
+        <doc xml:whitespace="preserve">Retrieves a genicam node by name.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #ArvGcNode, null if not found.</doc>
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:whitespace="preserve">node name</doc>
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_device" c:identifier="arv_gc_get_device">
+        <doc xml:whitespace="preserve">Retrieves the device handled by this genicam interface. The device is used for register access.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #ArvDevice.</doc>
+          <type name="Device" c:type="ArvDevice*"/>
+        </return-value>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="nodes">
+        <type name="GLib.HashTable" c:type="GHashTable*"/>
+      </field>
+      <field name="device">
+        <type name="Device" c:type="ArvDevice*"/>
+      </field>
+    </class>
+    <enumeration name="GcAccessMode"
+                 glib:type-name="ArvGcAccessMode"
+                 glib:get-type="arv_gc_access_mode_get_type"
+                 c:type="ArvGcAccessMode">
+      <member name="ro"
+              value="0"
+              c:identifier="ARV_GC_ACCESS_MODE_RO"
+              glib:nick="ro"/>
+      <member name="wo"
+              value="1"
+              c:identifier="ARV_GC_ACCESS_MODE_WO"
+              glib:nick="wo"/>
+      <member name="rw"
+              value="2"
+              c:identifier="ARV_GC_ACCESS_MODE_RW"
+              glib:nick="rw"/>
+    </enumeration>
+    <class name="GcBoolean"
+           c:type="ArvGcBoolean"
+           parent="GcNode"
+           glib:type-name="ArvGcBoolean"
+           glib:get-type="arv_gc_boolean_get_type"
+           glib:type-struct="GcBooleanClass">
+      <constructor name="new" c:identifier="arv_gc_boolean_new">
+        <return-value transfer-ownership="full">
+          <type name="GcBoolean" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <method name="get_value" c:identifier="arv_gc_boolean_get_value">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_value" c:identifier="arv_gc_boolean_set_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="v_boolean" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="value">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="on_value">
+        <type name="int64" c:type="gint64"/>
+      </field>
+      <field name="off_value">
+        <type name="int64" c:type="gint64"/>
+      </field>
+    </class>
+    <record name="GcBooleanClass"
+            c:type="ArvGcBooleanClass"
+            glib:is-gtype-struct-for="GcBoolean">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <enumeration name="GcCachable"
+                 glib:type-name="ArvGcCachable"
+                 glib:get-type="arv_gc_cachable_get_type"
+                 c:type="ArvGcCachable">
+      <member name="no_cache"
+              value="0"
+              c:identifier="ARV_GC_CACHABLE_NO_CACHE"
+              glib:nick="no-cache"/>
+      <member name="write_trhough"
+              value="1"
+              c:identifier="ARV_GC_CACHABLE_WRITE_TRHOUGH"
+              glib:nick="write-trhough"/>
+      <member name="write_around"
+              value="2"
+              c:identifier="ARV_GC_CACHABLE_WRITE_AROUND"
+              glib:nick="write-around"/>
+    </enumeration>
+    <class name="GcCategory"
+           c:type="ArvGcCategory"
+           parent="GcNode"
+           glib:type-name="ArvGcCategory"
+           glib:get-type="arv_gc_category_get_type"
+           glib:type-struct="GcCategoryClass">
+      <constructor name="new" c:identifier="arv_gc_category_new">
+        <return-value transfer-ownership="full">
+          <type name="GcCategory" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+    </class>
+    <record name="GcCategoryClass"
+            c:type="ArvGcCategoryClass"
+            glib:is-gtype-struct-for="GcCategory">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <record name="GcClass" c:type="ArvGcClass" glib:is-gtype-struct-for="Gc">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="GcCommand"
+           c:type="ArvGcCommand"
+           parent="GcNode"
+           glib:type-name="ArvGcCommand"
+           glib:get-type="arv_gc_command_get_type"
+           glib:type-struct="GcCommandClass">
+      <constructor name="new" c:identifier="arv_gc_command_new">
+        <return-value transfer-ownership="full">
+          <type name="GcCommand" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <method name="execute" c:identifier="arv_gc_command_execute">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="command_value">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="value">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+    </class>
+    <record name="GcCommandClass"
+            c:type="ArvGcCommandClass"
+            glib:is-gtype-struct-for="GcCommand">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <class name="GcConverter"
+           c:type="ArvGcConverter"
+           parent="GcNode"
+           glib:type-name="ArvGcConverter"
+           glib:get-type="arv_gc_converter_get_type"
+           glib:type-struct="GcConverterClass">
+      <implements name="GcFloat"/>
+      <implements name="GcInteger"/>
+      <constructor name="new" c:identifier="arv_gc_converter_new">
+        <return-value transfer-ownership="full">
+          <type name="GcConverter" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="value_type">
+        <type name="GType" c:type="GType"/>
+      </field>
+      <field name="value">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="variables">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="formula_to">
+        <type name="Evaluator" c:type="ArvEvaluator*"/>
+      </field>
+      <field name="formula_from">
+        <type name="Evaluator" c:type="ArvEvaluator*"/>
+      </field>
+    </class>
+    <record name="GcConverterClass"
+            c:type="ArvGcConverterClass"
+            glib:is-gtype-struct-for="GcConverter">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <class name="GcEnumEntry"
+           c:type="ArvGcEnumEntry"
+           parent="GcNode"
+           glib:type-name="ArvGcEnumEntry"
+           glib:get-type="arv_gc_enum_entry_get_type"
+           glib:type-struct="GcEnumEntryClass">
+      <constructor name="new" c:identifier="arv_gc_enum_entry_new">
+        <return-value transfer-ownership="full">
+          <type name="GcEnumEntry" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <method name="get_value" c:identifier="arv_gc_enum_entry_get_value">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="value">
+        <type name="int64" c:type="gint64"/>
+      </field>
+    </class>
+    <record name="GcEnumEntryClass"
+            c:type="ArvGcEnumEntryClass"
+            glib:is-gtype-struct-for="GcEnumEntry">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <class name="GcEnumeration"
+           c:type="ArvGcEnumeration"
+           parent="GcNode"
+           glib:type-name="ArvGcEnumeration"
+           glib:get-type="arv_gc_enumeration_get_type"
+           glib:type-struct="GcEnumerationClass">
+      <constructor name="new" c:identifier="arv_gc_enumeration_new">
+        <return-value transfer-ownership="full">
+          <type name="GcEnumeration" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <method name="get_string_value"
+              c:identifier="arv_gc_enumeration_get_string_value">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="set_string_value"
+              c:identifier="arv_gc_enumeration_set_string_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int_value"
+              c:identifier="arv_gc_enumeration_get_int_value">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="set_int_value"
+              c:identifier="arv_gc_enumeration_set_int_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_entries"
+              c:identifier="arv_gc_enumeration_get_entries"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="any" c:type="gpointer"/>
+          </type>
+        </return-value>
+      </method>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="value">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+    </class>
+    <record name="GcEnumerationClass"
+            c:type="ArvGcEnumerationClass"
+            glib:is-gtype-struct-for="GcEnumeration">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <interface name="GcFloat"
+               c:type="ArvGcFloat"
+               glib:type-name="ArvGcFloat"
+               glib:get-type="arv_gc_float_get_type"
+               glib:type-struct="GcFloatInterface">
+      <virtual-method name="get_value" invoker="get_value">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="set_value" invoker="set_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_min" invoker="get_min">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_max" invoker="get_max">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_inc" invoker="get_inc">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_unit" invoker="get_unit">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="impose_min" invoker="impose_min">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="minimum" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="impose_max" invoker="impose_max">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="maximum" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_value" c:identifier="arv_gc_float_get_value">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+      <method name="set_value" c:identifier="arv_gc_float_set_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_min" c:identifier="arv_gc_float_get_min">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+      <method name="get_max" c:identifier="arv_gc_float_get_max">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+      <method name="get_inc" c:identifier="arv_gc_float_get_inc">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_unit" c:identifier="arv_gc_float_get_unit">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="impose_min" c:identifier="arv_gc_float_impose_min">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="minimum" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="impose_max" c:identifier="arv_gc_float_impose_max">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="maximum" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="GcFloatInterface"
+            c:type="ArvGcFloatInterface"
+            glib:is-gtype-struct-for="GcFloat">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_value">
+        <callback name="get_value" c:type="get_value">
+          <return-value transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_value">
+        <callback name="set_value" c:type="set_value">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="double" c:type="double"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_min">
+        <callback name="get_min" c:type="get_min">
+          <return-value transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_max">
+        <callback name="get_max" c:type="get_max">
+          <return-value transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_inc">
+        <callback name="get_inc" c:type="get_inc">
+          <return-value transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_unit">
+        <callback name="get_unit" c:type="get_unit">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="impose_min">
+        <callback name="impose_min" c:type="impose_min">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+            <parameter name="minimum" transfer-ownership="none">
+              <type name="double" c:type="double"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="impose_max">
+        <callback name="impose_max" c:type="impose_max">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_float" transfer-ownership="none">
+              <type name="GcFloat" c:type="ArvGcFloat*"/>
+            </parameter>
+            <parameter name="maximum" transfer-ownership="none">
+              <type name="double" c:type="double"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="GcFloatNode"
+           c:type="ArvGcFloatNode"
+           parent="GcNode"
+           glib:type-name="ArvGcFloatNode"
+           glib:get-type="arv_gc_float_node_get_type"
+           glib:type-struct="GcFloatNodeClass">
+      <implements name="GcFloat"/>
+      <constructor name="new" c:identifier="arv_gc_float_node_new">
+        <return-value transfer-ownership="full">
+          <type name="GcFloatNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="value">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="minimum">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="maximum">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="increment">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="unit">
+        <type name="utf8" c:type="char*"/>
+      </field>
+    </class>
+    <record name="GcFloatNodeClass"
+            c:type="ArvGcFloatNodeClass"
+            glib:is-gtype-struct-for="GcFloatNode">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <interface name="GcInteger"
+               c:type="ArvGcInteger"
+               glib:type-name="ArvGcInteger"
+               glib:get-type="arv_gc_integer_get_type"
+               glib:type-struct="GcIntegerInterface">
+      <virtual-method name="get_value" invoker="get_value">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="set_value" invoker="set_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_min" invoker="get_min">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_max" invoker="get_max">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_inc" invoker="get_inc">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="get_unit" invoker="get_unit">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="impose_min" invoker="impose_min">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="minimum" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="impose_max" invoker="impose_max">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="maximum" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_value" c:identifier="arv_gc_integer_get_value">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="set_value" c:identifier="arv_gc_integer_set_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_min" c:identifier="arv_gc_integer_get_min">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_max" c:identifier="arv_gc_integer_get_max">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_inc" c:identifier="arv_gc_integer_get_inc">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_unit" c:identifier="arv_gc_integer_get_unit">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="impose_min" c:identifier="arv_gc_integer_impose_min">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="minimum" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="impose_max" c:identifier="arv_gc_integer_impose_max">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="maximum" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="GcIntegerInterface"
+            c:type="ArvGcIntegerInterface"
+            glib:is-gtype-struct-for="GcInteger">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_value">
+        <callback name="get_value" c:type="get_value">
+          <return-value transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_value">
+        <callback name="set_value" c:type="set_value">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="int64" c:type="gint64"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_min">
+        <callback name="get_min" c:type="get_min">
+          <return-value transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_max">
+        <callback name="get_max" c:type="get_max">
+          <return-value transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_inc">
+        <callback name="get_inc" c:type="get_inc">
+          <return-value transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_unit">
+        <callback name="get_unit" c:type="get_unit">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="impose_min">
+        <callback name="impose_min" c:type="impose_min">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+            <parameter name="minimum" transfer-ownership="none">
+              <type name="int64" c:type="gint64"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="impose_max">
+        <callback name="impose_max" c:type="impose_max">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_integer" transfer-ownership="none">
+              <type name="GcInteger" c:type="ArvGcInteger*"/>
+            </parameter>
+            <parameter name="maximum" transfer-ownership="none">
+              <type name="int64" c:type="gint64"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="GcIntegerNode"
+           c:type="ArvGcIntegerNode"
+           parent="GcNode"
+           glib:type-name="ArvGcIntegerNode"
+           glib:get-type="arv_gc_integer_node_get_type"
+           glib:type-struct="GcIntegerNodeClass">
+      <implements name="GcInteger"/>
+      <constructor name="new" c:identifier="arv_gc_integer_node_new">
+        <return-value transfer-ownership="full">
+          <type name="GcIntegerNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="value">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="minimum">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="maximum">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="increment">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="unit">
+        <type name="utf8" c:type="char*"/>
+      </field>
+    </class>
+    <record name="GcIntegerNodeClass"
+            c:type="ArvGcIntegerNodeClass"
+            glib:is-gtype-struct-for="GcIntegerNode">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <enumeration name="GcNameSpace"
+                 glib:type-name="ArvGcNameSpace"
+                 glib:get-type="arv_gc_name_space_get_type"
+                 c:type="ArvGcNameSpace">
+      <member name="standard"
+              value="0"
+              c:identifier="ARV_GC_NAME_SPACE_STANDARD"
+              glib:nick="standard"/>
+      <member name="custom"
+              value="1"
+              c:identifier="ARV_GC_NAME_SPACE_CUSTOM"
+              glib:nick="custom"/>
+    </enumeration>
+    <class name="GcNode"
+           c:type="ArvGcNode"
+           parent="GObject.Object"
+           glib:type-name="ArvGcNode"
+           glib:get-type="arv_gc_node_get_type"
+           glib:type-struct="GcNodeClass">
+      <constructor name="new" c:identifier="arv_gc_node_new">
+        <return-value transfer-ownership="full">
+          <type name="GcNode" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <virtual-method name="set_attribute" invoker="set_attribute">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="add_element" invoker="add_element">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="content" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="attributes" transfer-ownership="none">
+            <array c:type="char**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_value_type" invoker="get_value_type">
+        <return-value transfer-ownership="none">
+          <type name="GType" c:type="GType"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="can_add_child" invoker="can_add_child">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="child" transfer-ownership="none">
+            <type name="GcNode" c:type="ArvGcNode*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_value_type" c:identifier="arv_gc_node_get_value_type">
+        <return-value transfer-ownership="none">
+          <type name="GType" c:type="GType"/>
+        </return-value>
+      </method>
+      <method name="set_genicam" c:identifier="arv_gc_node_set_genicam">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="genicam" transfer-ownership="none">
+            <type name="Gc" c:type="ArvGc*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_genicam" c:identifier="arv_gc_node_get_genicam">
+        <return-value transfer-ownership="full">
+          <type name="Gc" c:type="ArvGc*"/>
+        </return-value>
+      </method>
+      <method name="get_name" c:identifier="arv_gc_node_get_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="get_tooltip" c:identifier="arv_gc_node_get_tooltip">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="get_description"
+              c:identifier="arv_gc_node_get_description">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="set_attribute" c:identifier="arv_gc_node_set_attribute">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_element" c:identifier="arv_gc_node_add_element">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="content" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="attributes" transfer-ownership="none">
+            <array c:type="char**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="can_add_child" c:identifier="arv_gc_node_can_add_child">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="child" transfer-ownership="none">
+            <type name="GcNode" c:type="ArvGcNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_child" c:identifier="arv_gc_node_add_child">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="child" transfer-ownership="none">
+            <type name="GcNode" c:type="ArvGcNode*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_childs"
+              c:identifier="arv_gc_node_get_childs"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="any" c:type="gpointer"/>
+          </type>
+        </return-value>
+      </method>
+      <method name="inc_modification_count"
+              c:identifier="arv_gc_node_inc_modification_count">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="get_modification_count"
+              c:identifier="arv_gc_node_get_modification_count">
+        <return-value transfer-ownership="none">
+          <type name="int" c:type="gint"/>
+        </return-value>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="GcNodePrivate" c:type="ArvGcNodePrivate*"/>
+      </field>
+    </class>
+    <record name="GcNodeClass"
+            c:type="ArvGcNodeClass"
+            glib:is-gtype-struct-for="GcNode">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="set_attribute">
+        <callback name="set_attribute" c:type="set_attribute">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_node" transfer-ownership="none">
+              <type name="GcNode" c:type="ArvGcNode*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="char*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="utf8" c:type="char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_element">
+        <callback name="add_element" c:type="add_element">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_node" transfer-ownership="none">
+              <type name="GcNode" c:type="ArvGcNode*"/>
+            </parameter>
+            <parameter name="name" transfer-ownership="none">
+              <type name="utf8" c:type="char*"/>
+            </parameter>
+            <parameter name="content" transfer-ownership="none">
+              <type name="utf8" c:type="char*"/>
+            </parameter>
+            <parameter name="attributes" transfer-ownership="none">
+              <array c:type="char**">
+                <type name="utf8"/>
+              </array>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_value_type">
+        <callback name="get_value_type" c:type="get_value_type">
+          <return-value transfer-ownership="none">
+            <type name="GType" c:type="GType"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_node" transfer-ownership="none">
+              <type name="GcNode" c:type="ArvGcNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="can_add_child">
+        <callback name="can_add_child" c:type="can_add_child">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_node" transfer-ownership="none">
+              <type name="GcNode" c:type="ArvGcNode*"/>
+            </parameter>
+            <parameter name="child" transfer-ownership="none">
+              <type name="GcNode" c:type="ArvGcNode*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="GcNodePrivate" c:type="ArvGcNodePrivate">
+    </record>
+    <class name="GcPort"
+           c:type="ArvGcPort"
+           parent="GcNode"
+           glib:type-name="ArvGcPort"
+           glib:get-type="arv_gc_port_get_type"
+           glib:type-struct="GcPortClass">
+      <constructor name="new" c:identifier="arv_gc_port_new">
+        <return-value transfer-ownership="full">
+          <type name="GcPort" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <method name="read" c:identifier="arv_gc_port_read">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="write" c:identifier="arv_gc_port_write">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+    </class>
+    <record name="GcPortClass"
+            c:type="ArvGcPortClass"
+            glib:is-gtype-struct-for="GcPort">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <class name="GcRegister"
+           c:type="ArvGcRegister"
+           parent="GcNode"
+           glib:type-name="ArvGcRegister"
+           glib:get-type="arv_gc_register_get_type"
+           glib:type-struct="GcRegisterClass">
+      <implements name="GcFloat"/>
+      <implements name="GcInteger"/>
+      <implements name="GcString"/>
+      <constructor name="new" c:identifier="arv_gc_register_new">
+        <return-value transfer-ownership="full">
+          <type name="GcRegister" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <method name="get" c:identifier="arv_gc_register_get">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="Length" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set" c:identifier="arv_gc_register_set">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="Length" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_address" c:identifier="arv_gc_register_get_address">
+        <return-value transfer-ownership="none">
+          <type name="uint64" c:type="guint64"/>
+        </return-value>
+      </method>
+      <method name="get_length" c:identifier="arv_gc_register_get_length">
+        <return-value transfer-ownership="none">
+          <type name="uint64" c:type="guint64"/>
+        </return-value>
+      </method>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="type">
+        <type name="GcRegisterType" c:type="ArvGcRegisterType"/>
+      </field>
+      <field name="value_type">
+        <type name="GType" c:type="GType"/>
+      </field>
+      <field name="addresses">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="index">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="index_offset">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="length">
+        <type name="GObject.Value" c:type="GValue"/>
+      </field>
+      <field name="access_mode">
+        <type name="GcAccessMode" c:type="ArvGcAccessMode"/>
+      </field>
+      <field name="cachable">
+        <type name="GcCachable" c:type="ArvGcCachable"/>
+      </field>
+      <field name="polling_time">
+        <type name="uint64" c:type="guint64"/>
+      </field>
+      <field name="port_name">
+        <type name="utf8" c:type="char*"/>
+      </field>
+      <field name="endianess">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="sign">
+        <type name="GcSign" c:type="ArvGcSign"/>
+      </field>
+      <field name="msb">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="lsb">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="cache">
+        <type name="any" c:type="void*"/>
+      </field>
+      <field name="cache_size">
+        <type name="gsize" c:type="size_t"/>
+      </field>
+      <field name="is_cache_valid">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="invalidators">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </field>
+    </class>
+    <record name="GcRegisterClass"
+            c:type="ArvGcRegisterClass"
+            glib:is-gtype-struct-for="GcRegister">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <enumeration name="GcRegisterType"
+                 glib:type-name="ArvGcRegisterType"
+                 glib:get-type="arv_gc_register_type_get_type"
+                 c:type="ArvGcRegisterType">
+      <member name="register"
+              value="0"
+              c:identifier="ARV_GC_REGISTER_TYPE_REGISTER"
+              glib:nick="register"/>
+      <member name="integer"
+              value="1"
+              c:identifier="ARV_GC_REGISTER_TYPE_INTEGER"
+              glib:nick="integer"/>
+      <member name="masked_integer"
+              value="2"
+              c:identifier="ARV_GC_REGISTER_TYPE_MASKED_INTEGER"
+              glib:nick="masked-integer"/>
+      <member name="float"
+              value="3"
+              c:identifier="ARV_GC_REGISTER_TYPE_FLOAT"
+              glib:nick="float"/>
+      <member name="string"
+              value="4"
+              c:identifier="ARV_GC_REGISTER_TYPE_STRING"
+              glib:nick="string"/>
+    </enumeration>
+    <enumeration name="GcSign"
+                 glib:type-name="ArvGcSign"
+                 glib:get-type="arv_gc_sign_get_type"
+                 c:type="ArvGcSign">
+      <member name="signed"
+              value="0"
+              c:identifier="ARV_GC_SIGN_SIGNED"
+              glib:nick="signed"/>
+      <member name="unsigned"
+              value="1"
+              c:identifier="ARV_GC_SIGN_UNSIGNED"
+              glib:nick="unsigned"/>
+    </enumeration>
+    <interface name="GcString"
+               c:type="ArvGcString"
+               glib:type-name="ArvGcString"
+               glib:get-type="arv_gc_string_get_type"
+               glib:type-struct="GcStringInterface">
+      <virtual-method name="get_value" invoker="get_value">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </virtual-method>
+      <virtual-method name="set_value" invoker="set_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_max_length" invoker="get_max_length">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </virtual-method>
+      <method name="get_value" c:identifier="arv_gc_string_get_value">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="set_value" c:identifier="arv_gc_string_set_value">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_max_length"
+              c:identifier="arv_gc_string_get_max_length">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+    </interface>
+    <record name="GcStringInterface"
+            c:type="ArvGcStringInterface"
+            glib:is-gtype-struct-for="GcString">
+      <field name="parent">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_value">
+        <callback name="get_value" c:type="get_value">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_string" transfer-ownership="none">
+              <type name="GcString" c:type="ArvGcString*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_value">
+        <callback name="set_value" c:type="set_value">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_string" transfer-ownership="none">
+              <type name="GcString" c:type="ArvGcString*"/>
+            </parameter>
+            <parameter name="value" transfer-ownership="none">
+              <type name="utf8" c:type="char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_max_length">
+        <callback name="get_max_length" c:type="get_max_length">
+          <return-value transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </return-value>
+          <parameters>
+            <parameter name="gc_string" transfer-ownership="none">
+              <type name="GcString" c:type="ArvGcString*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="GcSwissKnife"
+           c:type="ArvGcSwissKnife"
+           parent="GcNode"
+           glib:type-name="ArvGcSwissKnife"
+           glib:get-type="arv_gc_swiss_knife_get_type"
+           glib:type-struct="GcSwissKnifeClass">
+      <implements name="GcFloat"/>
+      <implements name="GcInteger"/>
+      <constructor name="new" c:identifier="arv_gc_swiss_knife_new">
+        <return-value transfer-ownership="full">
+          <type name="GcSwissKnife" c:type="ArvGcNode*"/>
+        </return-value>
+      </constructor>
+      <field name="node">
+        <type name="GcNode" c:type="ArvGcNode"/>
+      </field>
+      <field name="value_type">
+        <type name="GType" c:type="GType"/>
+      </field>
+      <field name="variables">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="formula">
+        <type name="Evaluator" c:type="ArvEvaluator*"/>
+      </field>
+    </class>
+    <record name="GcSwissKnifeClass"
+            c:type="ArvGcSwissKnifeClass"
+            glib:is-gtype-struct-for="GcSwissKnife">
+      <field name="parent_class">
+        <type name="GcNodeClass" c:type="ArvGcNodeClass"/>
+      </field>
+    </record>
+    <class name="GvDevice"
+           c:type="ArvGvDevice"
+           parent="Device"
+           glib:type-name="ArvGvDevice"
+           glib:get-type="arv_gv_device_get_type"
+           glib:type-struct="GvDeviceClass">
+      <constructor name="new" c:identifier="arv_gv_device_new">
+        <return-value transfer-ownership="full">
+          <type name="GvDevice" c:type="ArvDevice*"/>
+        </return-value>
+        <parameters>
+          <parameter name="interface_address" transfer-ownership="none">
+            <type name="Gio.InetAddress" c:type="GInetAddress*"/>
+          </parameter>
+          <parameter name="device_address" transfer-ownership="none">
+            <type name="Gio.InetAddress" c:type="GInetAddress*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_timestamp_tick_frequency"
+              c:identifier="arv_gv_device_get_timestamp_tick_frequency">
+        <return-value transfer-ownership="none">
+          <type name="uint64" c:type="guint64"/>
+        </return-value>
+      </method>
+      <field name="device">
+        <type name="Device" c:type="ArvDevice"/>
+      </field>
+      <field name="priv">
+        <type name="GvDevicePrivate" c:type="ArvGvDevicePrivate*"/>
+      </field>
+    </class>
+    <record name="GvDeviceClass"
+            c:type="ArvGvDeviceClass"
+            glib:is-gtype-struct-for="GvDevice">
+      <field name="parent_class">
+        <type name="DeviceClass" c:type="ArvDeviceClass"/>
+      </field>
+    </record>
+    <record name="GvDevicePrivate" c:type="ArvGvDevicePrivate">
+    </record>
+    <class name="GvInterface"
+           c:type="ArvGvInterface"
+           parent="Interface"
+           glib:type-name="ArvGvInterface"
+           glib:get-type="arv_gv_interface_get_type"
+           glib:type-struct="GvInterfaceClass">
+      <function name="get_instance"
+                c:identifier="arv_gv_interface_get_instance">
+        <return-value transfer-ownership="full">
+          <type name="Interface" c:type="ArvInterface*"/>
+        </return-value>
+      </function>
+      <field name="interface">
+        <type name="Interface" c:type="ArvInterface"/>
+      </field>
+      <field name="priv">
+        <type name="GvInterfacePrivate" c:type="ArvGvInterfacePrivate*"/>
+      </field>
+    </class>
+    <record name="GvInterfaceClass"
+            c:type="ArvGvInterfaceClass"
+            glib:is-gtype-struct-for="GvInterface">
+      <field name="parent_class">
+        <type name="InterfaceClass" c:type="ArvInterfaceClass"/>
+      </field>
+    </record>
+    <record name="GvInterfacePrivate" c:type="ArvGvInterfacePrivate">
+    </record>
+    <class name="GvStream"
+           c:type="ArvGvStream"
+           parent="Stream"
+           glib:type-name="ArvGvStream"
+           glib:get-type="arv_gv_stream_get_type"
+           glib:type-struct="GvStreamClass">
+      <constructor name="new" c:identifier="arv_gv_stream_new">
+        <return-value transfer-ownership="full">
+          <type name="GvStream" c:type="ArvStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="device_address" transfer-ownership="none">
+            <type name="Gio.InetAddress" c:type="GInetAddress*"/>
+          </parameter>
+          <parameter name="port" transfer-ownership="none">
+            <type name="uint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="3">
+            <type name="StreamCallback" c:type="ArvStreamCallback"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="timestamp_tick_frequency" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_port" c:identifier="arv_gv_stream_get_port">
+        <return-value transfer-ownership="none">
+          <type name="uint16" c:type="guint16"/>
+        </return-value>
+      </method>
+      <method name="set_option" c:identifier="arv_gv_stream_set_option">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="option" transfer-ownership="none">
+            <type name="GvStreamOption" c:type="ArvGvStreamOption"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="int" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_packet_resend"
+              c:identifier="arv_gv_stream_set_packet_resend">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="resend" transfer-ownership="none">
+            <type name="GvStreamPacketResend"
+                  c:type="ArvGvStreamPacketResend"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_statistics"
+              c:identifier="arv_gv_stream_get_statistics">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="n_resent_blocks"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="n_missing_blocks"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="n_late_blocks"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="stream">
+        <type name="Stream" c:type="ArvStream"/>
+      </field>
+      <field name="socket">
+        <type name="Gio.Socket" c:type="GSocket*"/>
+      </field>
+      <field name="incoming_address">
+        <type name="Gio.SocketAddress" c:type="GSocketAddress*"/>
+      </field>
+      <field name="thread">
+        <type name="GLib.Thread" c:type="GThread*"/>
+      </field>
+      <field name="thread_data">
+        <type name="any" c:type="void*"/>
+      </field>
+    </class>
+    <record name="GvStreamClass"
+            c:type="ArvGvStreamClass"
+            glib:is-gtype-struct-for="GvStream">
+      <field name="parent_class">
+        <type name="StreamClass" c:type="ArvStreamClass"/>
+      </field>
+    </record>
+    <enumeration name="GvStreamOption"
+                 glib:type-name="ArvGvStreamOption"
+                 glib:get-type="arv_gv_stream_option_get_type"
+                 c:type="ArvGvStreamOption">
+      <member name="fixed"
+              value="0"
+              c:identifier="ARV_GV_STREAM_OPTION_SOCKET_BUFFER_FIXED"
+              glib:nick="fixed"/>
+      <member name="auto"
+              value="1"
+              c:identifier="ARV_GV_STREAM_OPTION_SOCKET_BUFFER_AUTO"
+              glib:nick="auto"/>
+    </enumeration>
+    <enumeration name="GvStreamPacketResend"
+                 glib:type-name="ArvGvStreamPacketResend"
+                 glib:get-type="arv_gv_stream_packet_resend_get_type"
+                 c:type="ArvGvStreamPacketResend">
+      <member name="never"
+              value="0"
+              c:identifier="ARV_GV_STREAM_PACKET_RESEND_NEVER"
+              glib:nick="never"/>
+      <member name="always"
+              value="1"
+              c:identifier="ARV_GV_STREAM_PACKET_RESEND_ALWAYS"
+              glib:nick="always"/>
+    </enumeration>
+    <enumeration name="GvcpCommand"
+                 glib:type-name="ArvGvcpCommand"
+                 glib:get-type="arv_gvcp_command_get_type"
+                 c:type="ArvGvcpCommand">
+      <member name="discovery_cmd"
+              value="2"
+              c:identifier="ARV_GVCP_COMMAND_DISCOVERY_CMD"
+              glib:nick="discovery-cmd"/>
+      <member name="discovery_ack"
+              value="3"
+              c:identifier="ARV_GVCP_COMMAND_DISCOVERY_ACK"
+              glib:nick="discovery-ack"/>
+      <member name="bye_cmd"
+              value="4"
+              c:identifier="ARV_GVCP_COMMAND_BYE_CMD"
+              glib:nick="bye-cmd"/>
+      <member name="bye_ack"
+              value="5"
+              c:identifier="ARV_GVCP_COMMAND_BYE_ACK"
+              glib:nick="bye-ack"/>
+      <member name="packet_resend_cmd"
+              value="64"
+              c:identifier="ARV_GVCP_COMMAND_PACKET_RESEND_CMD"
+              glib:nick="packet-resend-cmd"/>
+      <member name="packet_resend_ack"
+              value="65"
+              c:identifier="ARV_GVCP_COMMAND_PACKET_RESEND_ACK"
+              glib:nick="packet-resend-ack"/>
+      <member name="read_register_cmd"
+              value="128"
+              c:identifier="ARV_GVCP_COMMAND_READ_REGISTER_CMD"
+              glib:nick="read-register-cmd"/>
+      <member name="read_register_ack"
+              value="129"
+              c:identifier="ARV_GVCP_COMMAND_READ_REGISTER_ACK"
+              glib:nick="read-register-ack"/>
+      <member name="write_register_cmd"
+              value="130"
+              c:identifier="ARV_GVCP_COMMAND_WRITE_REGISTER_CMD"
+              glib:nick="write-register-cmd"/>
+      <member name="write_register_ack"
+              value="131"
+              c:identifier="ARV_GVCP_COMMAND_WRITE_REGISTER_ACK"
+              glib:nick="write-register-ack"/>
+      <member name="read_memory_cmd"
+              value="132"
+              c:identifier="ARV_GVCP_COMMAND_READ_MEMORY_CMD"
+              glib:nick="read-memory-cmd"/>
+      <member name="read_memory_ack"
+              value="133"
+              c:identifier="ARV_GVCP_COMMAND_READ_MEMORY_ACK"
+              glib:nick="read-memory-ack"/>
+      <member name="write_memory_cmd"
+              value="134"
+              c:identifier="ARV_GVCP_COMMAND_WRITE_MEMORY_CMD"
+              glib:nick="write-memory-cmd"/>
+      <member name="write_memory_ack"
+              value="135"
+              c:identifier="ARV_GVCP_COMMAND_WRITE_MEMORY_ACK"
+              glib:nick="write-memory-ack"/>
+    </enumeration>
+    <record name="GvcpHeader" c:type="ArvGvcpHeader">
+      <field name="packet_type" writable="1">
+        <type name="uint16" c:type="guint16"/>
+      </field>
+      <field name="command" writable="1">
+        <type name="uint16" c:type="guint16"/>
+      </field>
+      <field name="size" writable="1">
+        <type name="uint16" c:type="guint16"/>
+      </field>
+      <field name="count" writable="1">
+        <type name="uint16" c:type="guint16"/>
+      </field>
+    </record>
+    <record name="GvcpPacket" c:type="ArvGvcpPacket">
+      <field name="header" writable="1">
+        <type name="GvcpHeader" c:type="ArvGvcpHeader"/>
+      </field>
+      <field name="data" writable="1">
+        <array zero-terminated="0" c:type="unsigned">
+          <type name="uint"/>
+        </array>
+      </field>
+      <constructor name="new_read_memory_cmd"
+                   c:identifier="arv_gvcp_packet_new_read_memory_cmd">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_read_memory_ack"
+                   c:identifier="arv_gvcp_packet_new_read_memory_ack">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_write_memory_cmd"
+                   c:identifier="arv_gvcp_packet_new_write_memory_cmd">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_write_memory_ack"
+                   c:identifier="arv_gvcp_packet_new_write_memory_ack">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_read_register_cmd"
+                   c:identifier="arv_gvcp_packet_new_read_register_cmd">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_read_register_ack"
+                   c:identifier="arv_gvcp_packet_new_read_register_ack">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_write_register_cmd"
+                   c:identifier="arv_gvcp_packet_new_write_register_cmd">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_write_register_ack"
+                   c:identifier="arv_gvcp_packet_new_write_register_ack">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="address" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_discovery_cmd"
+                   c:identifier="arv_gvcp_packet_new_discovery_cmd">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_discovery_ack"
+                   c:identifier="arv_gvcp_packet_new_discovery_ack">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_packet_resend_cmd"
+                   c:identifier="arv_gvcp_packet_new_packet_resend_cmd">
+        <return-value transfer-ownership="full">
+          <type name="GvcpPacket" c:type="ArvGvcpPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="frame_id" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="first_block" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="last_block" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_count" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="packet_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="free" c:identifier="arv_gvcp_packet_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="to_string" c:identifier="arv_gvcp_packet_to_string">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="debug" c:identifier="arv_gvcp_packet_debug">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+    </record>
+    <enumeration name="GvcpPacketType"
+                 glib:type-name="ArvGvcpPacketType"
+                 glib:get-type="arv_gvcp_packet_type_get_type"
+                 c:type="ArvGvcpPacketType">
+      <member name="ack"
+              value="0"
+              c:identifier="ARV_GVCP_PACKET_TYPE_ACK"
+              glib:nick="ack"/>
+      <member name="resend"
+              value="16896"
+              c:identifier="ARV_GVCP_PACKET_TYPE_RESEND"
+              glib:nick="resend"/>
+      <member name="cmd"
+              value="16897"
+              c:identifier="ARV_GVCP_PACKET_TYPE_CMD"
+              glib:nick="cmd"/>
+      <member name="error"
+              value="32774"
+              c:identifier="ARV_GVCP_PACKET_TYPE_ERROR"
+              glib:nick="error"/>
+    </enumeration>
+    <record name="GvspDataLeader" c:type="ArvGvspDataLeader">
+      <field name="data0" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="timestamp_high" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="timestamp_low" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="pixel_format" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="width" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="height" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="x_offset" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="y_offset" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+    </record>
+    <record name="GvspDataTrailer" c:type="ArvGvspDataTrailer">
+      <field name="data0" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="data1" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+    </record>
+    <record name="GvspHeader" c:type="ArvGvspHeader">
+      <field name="frame_id" writable="1">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="packet_type" writable="1">
+        <type name="uint16" c:type="guint16"/>
+      </field>
+      <field name="block_id" writable="1">
+        <type name="uint16" c:type="guint16"/>
+      </field>
+    </record>
+    <record name="GvspPacket" c:type="ArvGvspPacket">
+      <field name="header" writable="1">
+        <type name="GvspHeader" c:type="ArvGvspHeader"/>
+      </field>
+      <field name="data" writable="1">
+        <array zero-terminated="0" c:type="guint8">
+          <type name="uint8"/>
+        </array>
+      </field>
+      <constructor name="new_data_leader"
+                   c:identifier="arv_gvsp_packet_new_data_leader">
+        <return-value transfer-ownership="full">
+          <type name="GvspPacket" c:type="ArvGvspPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="frame_id" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="block_id" transfer-ownership="none">
+            <type name="uint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="pixel_format" transfer-ownership="none">
+            <type name="PixelFormat" c:type="ArvPixelFormat"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="x_offset" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="y_offset" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="buffer_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_data_trailer"
+                   c:identifier="arv_gvsp_packet_new_data_trailer">
+        <return-value transfer-ownership="full">
+          <type name="GvspPacket" c:type="ArvGvspPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="frame_id" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="block_id" transfer-ownership="none">
+            <type name="uint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="buffer_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_data_block"
+                   c:identifier="arv_gvsp_packet_new_data_block">
+        <return-value transfer-ownership="full">
+          <type name="GvspPacket" c:type="ArvGvspPacket*"/>
+        </return-value>
+        <parameters>
+          <parameter name="frame_id" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="block_id" transfer-ownership="none">
+            <type name="uint16" c:type="guint16"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+          <parameter name="data" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="buffer_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="debug" c:identifier="arv_gvsp_packet_debug">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="packet_size" transfer-ownership="none">
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <enumeration name="GvspPacketType"
+                 glib:type-name="ArvGvspPacketType"
+                 glib:get-type="arv_gvsp_packet_type_get_type"
+                 c:type="ArvGvspPacketType">
+      <member name="leader"
+              value="256"
+              c:identifier="ARV_GVSP_PACKET_TYPE_DATA_LEADER"
+              glib:nick="leader"/>
+      <member name="trailer"
+              value="512"
+              c:identifier="ARV_GVSP_PACKET_TYPE_DATA_TRAILER"
+              glib:nick="trailer"/>
+      <member name="block"
+              value="768"
+              c:identifier="ARV_GVSP_PACKET_TYPE_DATA_BLOCK"
+              glib:nick="block"/>
+    </enumeration>
+    <constant name="HAVE_BIND_TEXTDOMAIN_CODESET" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_DCGETTEXT" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_DLFCN_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_GETTEXT" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_INTTYPES_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_LC_MESSAGES" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_LOCALE_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_MEMORY_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_STDINT_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_STDLIB_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_STRINGS_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_STRING_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_SYS_STAT_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_SYS_TYPES_H" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="HAVE_UNISTD_H" value="1">
+      <type name="int"/>
+    </constant>
+    <class name="Interface"
+           c:type="ArvInterface"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="ArvInterface"
+           glib:get-type="arv_interface_get_type"
+           glib:type-struct="InterfaceClass">
+      <virtual-method name="update_device_list">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="device_ids" transfer-ownership="none">
+            <array name="GLib.Array" c:type="GArray*">
+              <type name="any" c:type="gpointer"/>
+            </array>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="open_device" invoker="open_device">
+        <return-value transfer-ownership="full">
+          <type name="Device" c:type="ArvDevice*"/>
+        </return-value>
+        <parameters>
+          <parameter name="device_id" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="update_device_list"
+              c:identifier="arv_interface_update_device_list">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="get_n_devices" c:identifier="arv_interface_get_n_devices">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="unsigned int"/>
+        </return-value>
+      </method>
+      <method name="get_device_id" c:identifier="arv_interface_get_device_id">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="index" transfer-ownership="none">
+            <type name="uint" c:type="unsigned int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="open_device" c:identifier="arv_interface_open_device">
+        <return-value transfer-ownership="full">
+          <type name="Device" c:type="ArvDevice*"/>
+        </return-value>
+        <parameters>
+          <parameter name="device_id" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv">
+        <type name="InterfacePrivate" c:type="ArvInterfacePrivate*"/>
+      </field>
+    </class>
+    <record name="InterfaceClass"
+            c:type="ArvInterfaceClass"
+            glib:is-gtype-struct-for="Interface">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="update_device_list">
+        <callback name="update_device_list" c:type="update_device_list">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="interface" transfer-ownership="none">
+              <type name="Interface" c:type="ArvInterface*"/>
+            </parameter>
+            <parameter name="device_ids" transfer-ownership="none">
+              <array name="GLib.Array" c:type="GArray*">
+                <type name="any" c:type="gpointer"/>
+              </array>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="open_device">
+        <callback name="open_device" c:type="open_device">
+          <return-value transfer-ownership="full">
+            <type name="Device" c:type="ArvDevice*"/>
+          </return-value>
+          <parameters>
+            <parameter name="interface" transfer-ownership="none">
+              <type name="Interface" c:type="ArvInterface*"/>
+            </parameter>
+            <parameter name="device_id" transfer-ownership="none">
+              <type name="utf8" c:type="char*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <record name="InterfacePrivate" c:type="ArvInterfacePrivate">
+    </record>
+    <constant name="LT_OBJDIR" value=".libs/">
+      <type name="utf8"/>
+    </constant>
+    <constant name="PACKAGE" value="aravis">
+      <type name="utf8"/>
+    </constant>
+    <constant name="PACKAGE_BUGREPORT"
+              value="http://bugzilla.gnome.org/enter_bug.cgi?product=aravis">
+      <type name="utf8"/>
+    </constant>
+    <constant name="PACKAGE_NAME" value="aravis">
+      <type name="utf8"/>
+    </constant>
+    <constant name="PACKAGE_STRING" value="aravis 0.1.2">
+      <type name="utf8"/>
+    </constant>
+    <constant name="PACKAGE_TARNAME" value="aravis">
+      <type name="utf8"/>
+    </constant>
+    <constant name="PACKAGE_URL" value="">
+      <type name="utf8"/>
+    </constant>
+    <constant name="PACKAGE_VERSION" value="0.1.2">
+      <type name="utf8"/>
+    </constant>
+    <enumeration name="PixelFormat"
+                 glib:type-name="ArvPixelFormat"
+                 glib:get-type="arv_pixel_format_get_type"
+                 c:type="ArvPixelFormat">
+      <member name="mono_8"
+              value="17301505"
+              c:identifier="ARV_PIXEL_FORMAT_MONO_8"
+              glib:nick="mono-8"/>
+      <member name="mono_10"
+              value="17825795"
+              c:identifier="ARV_PIXEL_FORMAT_MONO_10"
+              glib:nick="mono-10"/>
+      <member name="mono_12"
+              value="17825797"
+              c:identifier="ARV_PIXEL_FORMAT_MONO_12"
+              glib:nick="mono-12"/>
+      <member name="mono_12_packed"
+              value="17563654"
+              c:identifier="ARV_PIXEL_FORMAT_MONO_12_PACKED"
+              glib:nick="mono-12-packed"/>
+      <member name="mono_16"
+              value="17825799"
+              c:identifier="ARV_PIXEL_FORMAT_MONO_16"
+              glib:nick="mono-16"/>
+      <member name="bayer_gr_8"
+              value="17301512"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GR_8"
+              glib:nick="bayer-gr-8"/>
+      <member name="bayer_rg_8"
+              value="17301513"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_RG_8"
+              glib:nick="bayer-rg-8"/>
+      <member name="bayer_gb_8"
+              value="17301514"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GB_8"
+              glib:nick="bayer-gb-8"/>
+      <member name="bayer_bg_8"
+              value="17301515"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_BG_8"
+              glib:nick="bayer-bg-8"/>
+      <member name="bayer_gr_10"
+              value="17825804"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GR_10"
+              glib:nick="bayer-gr-10"/>
+      <member name="bayer_rg_10"
+              value="17825805"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_RG_10"
+              glib:nick="bayer-rg-10"/>
+      <member name="bayer_gb_10"
+              value="17825806"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GB_10"
+              glib:nick="bayer-gb-10"/>
+      <member name="bayer_bg_10"
+              value="17825807"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_BG_10"
+              glib:nick="bayer-bg-10"/>
+      <member name="bayer_gr_12"
+              value="17825808"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GR_12"
+              glib:nick="bayer-gr-12"/>
+      <member name="bayer_rg_12"
+              value="17825809"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_RG_12"
+              glib:nick="bayer-rg-12"/>
+      <member name="bayer_gb_12"
+              value="17825810"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GB_12"
+              glib:nick="bayer-gb-12"/>
+      <member name="bayer_bg_12"
+              value="17825811"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_BG_12"
+              glib:nick="bayer-bg-12"/>
+      <member name="rgb_8_packed"
+              value="35127316"
+              c:identifier="ARV_PIXEL_FORMAT_RGB_8_PACKED"
+              glib:nick="rgb-8-packed"/>
+      <member name="bgr_8_packed"
+              value="35127317"
+              c:identifier="ARV_PIXEL_FORMAT_BGR_8_PACKED"
+              glib:nick="bgr-8-packed"/>
+      <member name="rgba_8_packed"
+              value="35651606"
+              c:identifier="ARV_PIXEL_FORMAT_RGBA_8_PACKED"
+              glib:nick="rgba-8-packed"/>
+      <member name="bgra_8_packed"
+              value="35651607"
+              c:identifier="ARV_PIXEL_FORMAT_BGRA_8_PACKED"
+              glib:nick="bgra-8-packed"/>
+      <member name="rgb_10_packed"
+              value="36700184"
+              c:identifier="ARV_PIXEL_FORMAT_RGB_10_PACKED"
+              glib:nick="rgb-10-packed"/>
+      <member name="bgr_10_packed"
+              value="36700185"
+              c:identifier="ARV_PIXEL_FORMAT_BGR_10_PACKED"
+              glib:nick="bgr-10-packed"/>
+      <member name="rgb_12_packed"
+              value="36700186"
+              c:identifier="ARV_PIXEL_FORMAT_RGB_12_PACKED"
+              glib:nick="rgb-12-packed"/>
+      <member name="bgr_12_packed"
+              value="36700187"
+              c:identifier="ARV_PIXEL_FORMAT_BGR_12_PACKED"
+              glib:nick="bgr-12-packed"/>
+      <member name="yuv_411_packed"
+              value="34340894"
+              c:identifier="ARV_PIXEL_FORMAT_YUV_411_PACKED"
+              glib:nick="yuv-411-packed"/>
+      <member name="yuv_422_packed"
+              value="34603039"
+              c:identifier="ARV_PIXEL_FORMAT_YUV_422_PACKED"
+              glib:nick="yuv-422-packed"/>
+      <member name="yuv_444_packed"
+              value="35127328"
+              c:identifier="ARV_PIXEL_FORMAT_YUV_444_PACKED"
+              glib:nick="yuv-444-packed"/>
+      <member name="bayer_gr_12_packed"
+              value="-2129919999"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GR_12_PACKED"
+              glib:nick="bayer-gr-12-packed"/>
+      <member name="bayer_rg_12_packed"
+              value="-2129919998"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_RG_12_PACKED"
+              glib:nick="bayer-rg-12-packed"/>
+      <member name="bayer_bg_12_packed"
+              value="-2129919996"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_BG_12_PACKED"
+              glib:nick="bayer-bg-12-packed"/>
+      <member name="bayer_gb_12_packed"
+              value="-2129919997"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GB_12_PACKED"
+              glib:nick="bayer-gb-12-packed"/>
+      <member name="yuv_422_yuyv_packed"
+              value="-2112880635"
+              c:identifier="ARV_PIXEL_FORMAT_YUV_422_YUYV_PACKED"
+              glib:nick="yuv-422-yuyv-packed"/>
+      <member name="bayer_gr_16"
+              value="-2129657850"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GR_16"
+              glib:nick="bayer-gr-16"/>
+      <member name="bayer_rg_16"
+              value="-2129657849"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_RG_16"
+              glib:nick="bayer-rg-16"/>
+      <member name="bayer_gb_16"
+              value="-2129657848"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_GB_16"
+              glib:nick="bayer-gb-16"/>
+      <member name="bayer_bg_16"
+              value="-2129657847"
+              c:identifier="ARV_PIXEL_FORMAT_BAYER_BG_16"
+              glib:nick="bayer-bg-16"/>
+    </enumeration>
+    <constant name="STDC_HEADERS" value="1">
+      <type name="int"/>
+    </constant>
+    <record name="Statistic" c:type="ArvStatistic">
+      <constructor name="new" c:identifier="arv_statistic_new">
+        <return-value transfer-ownership="full">
+          <type name="Statistic" c:type="ArvStatistic*"/>
+        </return-value>
+        <parameters>
+          <parameter name="n_histograms" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="n_bins" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="bin_step" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="int" c:type="int"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="free" c:identifier="arv_statistic_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="reset" c:identifier="arv_statistic_reset">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="fill" c:identifier="arv_statistic_fill">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="histogram_id" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <type name="int" c:type="int"/>
+          </parameter>
+          <parameter name="counter" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_name" c:identifier="arv_statistic_set_name">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="histogram_id" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="full">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="to_string" c:identifier="arv_statistic_to_string">
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+    </record>
+    <class name="Stream"
+           c:type="ArvStream"
+           parent="GObject.Object"
+           abstract="1"
+           glib:type-name="ArvStream"
+           glib:get-type="arv_stream_get_type"
+           glib:type-struct="StreamClass">
+      <virtual-method name="get_statistics" invoker="get_statistics">
+        <doc xml:whitespace="preserve">An accessor to the stream statistics.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="n_completed_buffers"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">number of complete received buffers</doc>
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="n_failures"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">number of reception failures</doc>
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="n_underruns"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">number of input buffer underruns</doc>
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="push_buffer" c:identifier="arv_stream_push_buffer">
+        <doc xml:whitespace="preserve">Pushes a #ArvBuffer to the @stream thread. The @stream takes ownership of @buffer,
+and will free all the buffers still in its queues when destroyed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="full">
+            <doc xml:whitespace="preserve">buffer to push</doc>
+            <type name="Buffer" c:type="ArvBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pop_buffer" c:identifier="arv_stream_pop_buffer">
+        <doc xml:whitespace="preserve">Pops a buffer from the output queue of @stream. The retrieved buffer
+may contain an invalid image. Caller should check the buffer status before using it.</doc>
+        <return-value transfer-ownership="full">
+          <doc xml:whitespace="preserve">a #ArvBuffer</doc>
+          <type name="Buffer" c:type="ArvBuffer*"/>
+        </return-value>
+      </method>
+      <method name="get_n_buffers" c:identifier="arv_stream_get_n_buffers">
+        <doc xml:whitespace="preserve">An accessor to the stream buffer queue lengths.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="n_input_buffers"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">input queue length</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+          <parameter name="n_output_buffers"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">output queue length</doc>
+            <type name="int" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_statistics" c:identifier="arv_stream_get_statistics">
+        <doc xml:whitespace="preserve">An accessor to the stream statistics.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="n_completed_buffers"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">number of complete received buffers</doc>
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="n_failures"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">number of reception failures</doc>
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="n_underruns"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     allow-none="1">
+            <doc xml:whitespace="preserve">number of input buffer underruns</doc>
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="input_queue">
+        <type name="GLib.AsyncQueue" c:type="GAsyncQueue*"/>
+      </field>
+      <field name="output_queue">
+        <type name="GLib.AsyncQueue" c:type="GAsyncQueue*"/>
+      </field>
+    </class>
+    <callback name="StreamCallback" c:type="ArvStreamCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="user_data" transfer-ownership="none" closure="0">
+          <type name="any" c:type="void*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="StreamCallbackType" c:type="ArvStreamCallbackType"/>
+        </parameter>
+        <parameter name="buffer" transfer-ownership="none">
+          <type name="Buffer" c:type="ArvBuffer*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="StreamCallbackType"
+                 glib:type-name="ArvStreamCallbackType"
+                 glib:get-type="arv_stream_callback_type_get_type"
+                 c:type="ArvStreamCallbackType">
+      <doc xml:whitespace="preserve">Describes when the stream callback is called.</doc>
+      <member name="init"
+              value="0"
+              c:identifier="ARV_STREAM_CALLBACK_TYPE_INIT"
+              glib:nick="init"/>
+      <member name="exit"
+              value="1"
+              c:identifier="ARV_STREAM_CALLBACK_TYPE_EXIT"
+              glib:nick="exit"/>
+      <member name="start_buffer"
+              value="2"
+              c:identifier="ARV_STREAM_CALLBACK_TYPE_START_BUFFER"
+              glib:nick="start-buffer"/>
+      <member name="buffer_done"
+              value="3"
+              c:identifier="ARV_STREAM_CALLBACK_TYPE_BUFFER_DONE"
+              glib:nick="buffer-done"/>
+    </enumeration>
+    <record name="StreamClass"
+            c:type="ArvStreamClass"
+            glib:is-gtype-struct-for="Stream">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="get_statistics">
+        <callback name="get_statistics" c:type="get_statistics">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Stream" c:type="ArvStream*"/>
+            </parameter>
+            <parameter name="n_completed_buffers"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full"
+                       allow-none="1">
+              <doc xml:whitespace="preserve">number of complete received buffers</doc>
+              <type name="uint64" c:type="guint64*"/>
+            </parameter>
+            <parameter name="n_failures"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full"
+                       allow-none="1">
+              <doc xml:whitespace="preserve">number of reception failures</doc>
+              <type name="uint64" c:type="guint64*"/>
+            </parameter>
+            <parameter name="n_underruns"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full"
+                       allow-none="1">
+              <doc xml:whitespace="preserve">number of input buffer underruns</doc>
+              <type name="uint64" c:type="guint64*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <constant name="VERSION" value="0.1.2">
+      <type name="utf8"/>
+    </constant>
+    <record name="Value" c:type="ArvValue">
+      <field name="type" writable="1">
+        <type name="GType" c:type="GType"/>
+      </field>
+      <union name="data" c:type="data">
+        <field name="v_int64" writable="1">
+          <type name="int64" c:type="gint64"/>
+        </field>
+        <field name="v_double" writable="1">
+          <type name="double" c:type="double"/>
+        </field>
+      </union>
+      <constructor name="new_double" c:identifier="arv_value_new_double">
+        <return-value transfer-ownership="full">
+          <type name="Value" c:type="ArvValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="v_double" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_int64" c:identifier="arv_value_new_int64">
+        <return-value transfer-ownership="full">
+          <type name="Value" c:type="ArvValue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="v_int64" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="free" c:identifier="arv_value_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="copy" c:identifier="arv_value_copy">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="from" transfer-ownership="none">
+            <type name="Value" c:type="ArvValue*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_int64" c:identifier="arv_value_set_int64">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="v_int64" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_double" c:identifier="arv_value_set_double">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="v_double" transfer-ownership="none">
+            <type name="double" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int64" c:identifier="arv_value_get_int64">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_double" c:identifier="arv_value_get_double">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+      <method name="holds_int64" c:identifier="arv_value_holds_int64">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="holds_double" c:identifier="arv_value_holds_double">
+        <return-value transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </return-value>
+      </method>
+    </record>
+    <constant name="WITH_CAIRO" value="1">
+      <type name="int"/>
+    </constant>
+    <constant name="WITH_GSTREAMER" value="1">
+      <type name="int"/>
+    </constant>
+    <record name="Zip" c:type="ArvZip">
+      <constructor name="new" c:identifier="arv_zip_new">
+        <return-value transfer-ownership="full">
+          <type name="Zip" c:type="ArvZip*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="any" c:type="void*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="free" c:identifier="arv_zip_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="get_file" c:identifier="arv_zip_get_file">
+        <return-value transfer-ownership="none">
+          <type name="any" c:type="void*"/>
+        </return-value>
+        <parameters>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_file_list"
+              c:identifier="arv_zip_get_file_list"
+              introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="GLib.SList" c:type="GSList*">
+            <type name="any" c:type="gpointer"/>
+          </type>
+        </return-value>
+      </method>
+    </record>
+    <record name="ZipFile" c:type="ArvZipFile">
+      <method name="get_name" c:identifier="arv_zip_file_get_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+      </method>
+      <method name="get_uncompressed_size"
+              c:identifier="arv_zip_file_get_uncompressed_size">
+        <return-value transfer-ownership="none">
+          <type name="gsize" c:type="size_t"/>
+        </return-value>
+      </method>
+    </record>
+    <function name="acquisition_mode_from_string"
+              c:identifier="arv_acquisition_mode_from_string">
+      <return-value transfer-ownership="full">
+        <type name="AcquisitionMode" c:type="ArvAcquisitionMode"/>
+      </return-value>
+      <parameters>
+        <parameter name="string" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="acquisition_mode_to_string"
+              c:identifier="arv_acquisition_mode_to_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="AcquisitionMode" c:type="ArvAcquisitionMode"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="copy_memory_with_endianess"
+              c:identifier="arv_copy_memory_with_endianess">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="to" transfer-ownership="none">
+          <type name="any" c:type="void*"/>
+        </parameter>
+        <parameter name="to_size" transfer-ownership="none">
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+        <parameter name="to_endianess" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="from" transfer-ownership="none">
+          <type name="any" c:type="void*"/>
+        </parameter>
+        <parameter name="from_size" transfer-ownership="none">
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+        <parameter name="from_endianess" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="debug" c:identifier="arv_debug" introspectable="0">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="domain" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+        <parameter transfer-ownership="none">
+          <varargs>
+          </varargs>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="debug_check" c:identifier="arv_debug_check">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="domain" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="debug_enable" c:identifier="arv_debug_enable">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="domains" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="decompress" c:identifier="arv_decompress">
+      <return-value transfer-ownership="none">
+        <type name="any" c:type="void*"/>
+      </return-value>
+      <parameters>
+        <parameter name="input_buffer" transfer-ownership="none">
+          <type name="any" c:type="void*"/>
+        </parameter>
+        <parameter name="input_size" transfer-ownership="none">
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+        <parameter name="output_size"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <type name="gsize" c:type="size_t*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="force_g_value_to_double"
+              c:identifier="arv_force_g_value_to_double">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="v_double" transfer-ownership="none">
+          <type name="double" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="force_g_value_to_int64"
+              c:identifier="arv_force_g_value_to_int64">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="v_int64" transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="force_g_value_to_string"
+              c:identifier="arv_force_g_value_to_string">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+        <parameter name="v_string" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="free_g_value" c:identifier="arv_free_g_value">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="GObject.Value" c:type="GValue*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_device_id" c:identifier="arv_get_device_id">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="index" transfer-ownership="none">
+          <type name="uint" c:type="unsigned int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_fake_camera_genicam_data"
+              c:identifier="arv_get_fake_camera_genicam_data">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="size"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <type name="gsize" c:type="size_t*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_interface_id" c:identifier="arv_get_interface_id">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="index" transfer-ownership="none">
+          <type name="uint" c:type="unsigned int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_n_devices" c:identifier="arv_get_n_devices">
+      <return-value transfer-ownership="none">
+        <type name="uint" c:type="unsigned int"/>
+      </return-value>
+    </function>
+    <function name="get_n_interfaces" c:identifier="arv_get_n_interfaces">
+      <return-value transfer-ownership="none">
+        <type name="uint" c:type="unsigned int"/>
+      </return-value>
+    </function>
+    <function name="new_g_value_int64" c:identifier="arv_new_g_value_int64">
+      <return-value transfer-ownership="full">
+        <type name="GObject.Value" c:type="GValue*"/>
+      </return-value>
+      <parameters>
+        <parameter name="v_int64" transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="new_g_value_string" c:identifier="arv_new_g_value_string">
+      <return-value transfer-ownership="full">
+        <type name="GObject.Value" c:type="GValue*"/>
+      </return-value>
+      <parameters>
+        <parameter name="v_string" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="open_device" c:identifier="arv_open_device">
+      <return-value transfer-ownership="full">
+        <type name="Device" c:type="ArvDevice*"/>
+      </return-value>
+      <parameters>
+        <parameter name="device_id" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="set_fake_camera_genicam_filename"
+              c:identifier="arv_set_fake_camera_genicam_filename">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="filename" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="str_parse_double" c:identifier="arv_str_parse_double">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="str" transfer-ownership="none">
+          <array c:type="char**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="x"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <type name="double" c:type="double*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="update_device_list" c:identifier="arv_update_device_list">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>
