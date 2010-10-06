@@ -27,7 +27,7 @@ CONFIGOPTIONS = --bindir=$(FULLTOP)/bin/$(EPICS_HOST_ARCH)
 CONFIGOPTIONS += --libdir=$(FULLTOP)/lib/$(EPICS_HOST_ARCH)
 CONFIGOPTIONS += --datarootdir=$(FULLTOP)/doc
 CONFIGOPTIONS += --prefix=$(FULLTOP)
-CONFIGOPTIONS += --disable-gtk-doc-html --disable-nls --disable-gstreamer --disable-cairo
+#CONFIGOPTIONS += --disable-gtk-doc-html --disable-nls --disable-gstreamer --disable-cairo
 
 $(TOP)/aravis/Makefile:
 	(cd aravis; export PKG_CONFIG_PATH=/dls_sw/work/common/glibnew/lib/pkgconfig; export PATH=${PATH}:/dls_sw/work/common/glibnew/bin; sh configure $(CONFIGOPTIONS))
