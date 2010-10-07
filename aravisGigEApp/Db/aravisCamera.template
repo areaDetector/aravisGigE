@@ -8,8 +8,7 @@
 #% macro, PORT, Asyn Port name
 #% macro, TIMEOUT, Timeout
 #% macro, ADDR, Asyn Port address
-
-# This associates the template with an edm screen
+# % macro, gda_name, Name to expose to GDA
 # % gui, $(PORT), edmtab, aravisCamera.edl, P=$(P),R=$(R)
 
 # % gdatag, pv, ro, $(gda_name=$(PORT)), COMPLETED_RBV, Readback for Frames Completed [[aravisCamera]]

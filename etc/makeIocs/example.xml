@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <components arch="linux-x86">
 	<aravisGigE.aravisCamera ADDR="0" ID="Prosilica-02-2166A-06844" P="ARAVISCAM" PORT="CAM" R=":CAM:" TIMEOUT="1"/>
+	<areaDetector.NDColorConvert ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CAM" P="ARAVISCAM" PORT="CC" R=":CC:" TIMEOUT="1"/>
 	<!--<areaDetector.prosilica ADDR="0" ID="107565" P="ARAVISCAM" PORT="CAM" R=":CAM:" TIMEOUT="1"/>-->
-	<ffmpegServer.ffmpegServer ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CAM" P="ARAVISCAM" PORT="MJPG" R=":MJPG:" TIMEOUT="1"/>
+	<ffmpegServer.ffmpegServer ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CC" P="ARAVISCAM" PORT="MJPG" R=":MJPG:" TIMEOUT="1"/>
 </components>
