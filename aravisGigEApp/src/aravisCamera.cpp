@@ -358,9 +358,9 @@ static const struct pix_lookup pix_lookup[] = {
     { ARV_PIXEL_FORMAT_BAYER_BG_8,   NDColorModeBayer, NDUInt8,  NDBayerBGGR },	
 	{ ARV_PIXEL_FORMAT_MONO_16,      NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_BAYER_GR_16,  NDColorModeBayer, NDUInt16, NDBayerGRBG },
-    { ARV_PIXEL_FORMAT_BAYER_RG_16,  NDColorModeBayer, NDUInt8,  NDBayerRGGB },
-    { ARV_PIXEL_FORMAT_BAYER_GB_16,  NDColorModeBayer, NDUInt8,  NDBayerGBRG },
-    { ARV_PIXEL_FORMAT_BAYER_BG_16,  NDColorModeBayer, NDUInt8,  NDBayerBGGR }	
+    { ARV_PIXEL_FORMAT_BAYER_RG_16,  NDColorModeBayer, NDUInt16, NDBayerRGGB },
+    { ARV_PIXEL_FORMAT_BAYER_GB_16,  NDColorModeBayer, NDUInt16, NDBayerGBRG },
+    { ARV_PIXEL_FORMAT_BAYER_BG_16,  NDColorModeBayer, NDUInt16, NDBayerBGGR }	
 };
 
 /** Lookup a colorMode, dataType and bayerFormat from an ArvPixelFormat */
@@ -370,7 +370,7 @@ asynStatus aravisCamera::lookupColorMode(ArvPixelFormat fmt, int *colorMode, int
 		if (pix_lookup[i].fmt == fmt) {
 			*colorMode   = pix_lookup[i].colorMode;
 			*dataType    = pix_lookup[i].dataType;
-			*bayerFormat = pix_lookup[i].bayerFormat;			
+			*bayerFormat = pix_lookup[i].bayerFormat;	
 			return asynSuccess;
 		}
 	return asynError;
