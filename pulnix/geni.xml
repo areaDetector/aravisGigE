@@ -1,0 +1,2038 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RegisterDescription ModelName="TMC1405GEV" VendorName="JAI" ToolTip="TMC1405GEV" StandardNameSpace="GEV" SchemaMajorVersion="1" SchemaMinorVersion="0" SchemaSubMinorVersion="1" MajorVersion="0" MinorVersion="8" SubMinorVersion="2" ProductGuid="D1706B58-13EE-4EF2-BAC8-42291BACB8B4" VersionGuid="12C29AA9-3F3D-4816-AFD2-B3FA7672930A" xmlns="http://www.genicam.org/GenApi/Version_1_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.genicam.org/GenApi/Version_1_0 ../GenApiSchema_Version_1_0.xsd">
+	<Group Comment="Root">
+		<Category Name="Root">
+			<pFeature>DeviceInformation</pFeature>
+			<pFeature>ImageSizeControl</pFeature>
+			<pFeature>AcquisitionAndTriggerControls</pFeature>
+			<pFeature>GigEVisionTransportLayer</pFeature>
+			<pFeature>UserSets</pFeature>
+			<pFeature>IPEngine</pFeature>
+			<pFeature>LUT</pFeature>
+			<pFeature>CustomFeatures</pFeature>
+			<pFeature>AnalogControls</pFeature>
+			<pFeature>ShutterControl</pFeature>
+		</Category>
+	</Group>
+	<Group Comment="DeviceInformation">
+		<Category Name="DeviceInformation">
+			<pFeature>DeviceVendorName</pFeature>
+			<pFeature>DeviceModelName</pFeature>
+			<pFeature>DeviceManufacturerInfo</pFeature>
+			<pFeature>DeviceVersion</pFeature>
+			<pFeature>DeviceID</pFeature>
+		</Category>
+		<StringReg Name="DeviceVendorName">
+			<ToolTip>This feature provides the name of the manufacturer of the device.</ToolTip>
+			<Description>This feature provides the name of the manufacturer of the device.</Description>
+			<Visibility>Beginner</Visibility>
+			<Address>0x0048</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceModelName">
+			<ToolTip>This feature provides the model of the device.</ToolTip>
+			<Description>This feature provides the model of the device.</Description>
+			<Visibility>Beginner</Visibility>
+			<Address>0x0068</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceManufacturerInfo">
+			<ToolTip>This feature provides extended manufacturer information about the device.</ToolTip>
+			<Description>This feature provides extended manufacturer information about the device.</Description>
+			<Visibility>Beginner</Visibility>
+			<Address>0x00A8</Address>
+			<Length>48</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceVersion">
+			<ToolTip>This feature provides the version of the device.</ToolTip>
+			<Description>This feature provides the version of the device.</Description>
+			<Visibility>Beginner</Visibility>
+			<Address>0x0088</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceID">
+			<ToolTip>This feature stores a camera identifier.</ToolTip>
+			<Description>This feature stores a camera identifier.</Description>
+			<Visibility>Beginner</Visibility>
+			<Address>0x00D8</Address>
+			<Length>16</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+		</StringReg>
+	</Group>
+	<Group Comment="ImageSizeControl">
+		<Category Name="ImageSizeControl">
+			<pFeature>SensorWidth</pFeature>
+			<pFeature>SensorHeight</pFeature>
+			<pFeature>SensorDigitizationTaps</pFeature>
+			<pFeature>Width</pFeature>
+			<pFeature>Height</pFeature>
+			<pFeature>PixelFormat</pFeature>
+			<pFeature>TestImageSelector</pFeature>
+			<pFeature>UserScanAreaStart</pFeature>
+			<pFeature>UserScanAreaLines</pFeature>
+			<pFeature>UserScanAreaSET</pFeature>
+			<pFeature>ScanMode</pFeature>
+		</Category> 
+		<Integer Name="SensorWidth">
+			<ToolTip>This feature indicates the effective width of the sensor in pixels.</ToolTip>
+			<Description>This feature indicates the effective width of the sensor in pixels.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Value>1392</Value>
+			<Min>1392</Min>
+			<Max>1392</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<Integer Name="SensorHeight">
+			<ToolTip>This feature indicates the effective height of the sensor in pixels.</ToolTip>
+			<Description>This feature indicates the effective height of the sensor in pixels.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Value>1040</Value>
+			<Min>1040</Min>
+			<Max>1040</Max>
+			<Inc>1</Inc>
+			<Representation>PureNumber</Representation>
+		</Integer>
+		<Enumeration Name="SensorDigitizationTaps">
+			<ToolTip>This feature represents the number of digitized samples outputted simultaneously by the camera A/D conversion stage.</ToolTip>
+			<Description>This feature represents the number of digitized samples outputted simultaneously by the camera A/D conversion stage.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<EnumEntry Name="One"><Value>0</Value></EnumEntry>
+			<pValue>SensorDigitizationTapsReg</pValue>
+		</Enumeration>
+		<IntReg Name="SensorDigitizationTapsReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xD324</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="Width">
+			<ToolTip>This feature represents the actual image width expelled by the camera (in pixels).</ToolTip>
+			<Description>This feature represents the actual image width expelled by the camera (in pixels).</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>WidthReg</pValue>
+			<Min>8</Min>
+			<pMax>WidthMaxExpr</pMax>
+			<Inc>8</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="WidthReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xD300</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="WidthMaxExpr">
+			<pVariable Name="VAR_SENSORWIDTH">SensorWidth</pVariable>
+			<Formula>VAR_SENSORWIDTH</Formula>
+		</IntSwissKnife>
+		<Integer Name="Height">
+			<ToolTip>This feature represents the actual image height expelled by the camera (in pixels).</ToolTip>
+			<Description>This feature represents the actual image height expelled by the camera (in pixels).</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>HeightReg</pValue>
+			<Min>1</Min>
+			<pMax>HeightMaxExpr</pMax>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="HeightReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xD304</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="HeightMaxExpr">
+			<pVariable Name="VAR_SCANMODE">ScanModeReg</pVariable>
+			<pVariable Name="VAR_SENSORHEIGHT">SensorHeight</pVariable>
+			<pVariable Name="VAR_USERSCANAREALINES">UserScanAreaLinesValConv</pVariable>
+			<Formula>(VAR_SCANMODE = 0) ? VAR_SENSORHEIGHT : VAR_USERSCANAREALINES</Formula>
+		</IntSwissKnife>
+		<Enumeration Name="PixelFormat">
+			<ToolTip>This feature indicates the format of the pixel to use during the acquisition.</ToolTip>
+			<Description>This feature indicates the format of the pixel to use during the acquisition.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<EnumEntry Name="Mono8"><Value>17301505</Value></EnumEntry>
+			<EnumEntry Name="Mono10"><Value>17825795</Value></EnumEntry>
+			<EnumEntry Name="Mono10Packed"><Value>17563652</Value></EnumEntry>
+			<EnumEntry Name="BayerRG8"><Value>17301513</Value></EnumEntry>
+			<EnumEntry Name="BayerRG10"><Value>17825805</Value></EnumEntry>
+			<pValue>PixelFormatReg</pValue>
+		</Enumeration>
+		<IntReg Name="PixelFormatReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xD308</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="TestImageSelector">
+			<ToolTip>This feature selects the type of test image that is expelled by the camera.</ToolTip>
+			<Description>This feature selects the type of test image that is expelled by the camera.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<EnumEntry Name="Off"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="iPORTTestPattern"><Value>2147483648</Value></EnumEntry>
+			<EnumEntry Name="TM1327TestPattern"><Value>1</Value></EnumEntry>
+			<pValue>TestImageSelectorReg</pValue>
+		</Enumeration>
+		<IntReg Name="TestImageSelectorReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xD33C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="UserScanAreaStart">
+			<ToolTip>UserScanAreaStart</ToolTip>
+			<Description>UserScanAreaStart</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>UserScanAreaStartValConv</pValue>
+			<Min>0</Min>
+			<pMax>UserScanAreaStartMaxExpr</pMax>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="UserScanAreaStartValConv">
+			<pVariable Name="VAR_SENSORHEIGHT">SensorHeight</pVariable>
+			<FormulaTo>FROM</FormulaTo>
+			<FormulaFrom>(TO &gt; (VAR_SENSORHEIGHT - 1)) ? (VAR_SENSORHEIGHT - 1) : TO</FormulaFrom>
+			<pValue>SCANAREASTARTVALUEReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<IntSwissKnife Name="UserScanAreaStartMaxExpr">
+			<pVariable Name="VAR_SENSORHEIGHT">SensorHeight</pVariable>
+			<Formula>VAR_SENSORHEIGHT - 1</Formula>
+		</IntSwissKnife>
+		<Integer Name="UserScanAreaLines">
+			<ToolTip>User Scan Area Number of Lines.</ToolTip>
+			<Description>User Scan Area Number of Lines</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>UserScanAreaLinesValConv</pValue>
+			<Min>1</Min>
+			<pMax>UserScanAreaLinesMaxExpr</pMax>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="UserScanAreaLinesValConv">
+			<pVariable Name="VAR_SENSORHEIGHT">SensorHeight</pVariable>
+			<pVariable Name="VAR_USERSCANAREASTART">UserScanAreaStartValConv</pVariable>
+			<FormulaTo>FROM</FormulaTo>
+			<FormulaFrom>(TO &gt; (VAR_SENSORHEIGHT - VAR_USERSCANAREASTART)) ? (VAR_SENSORHEIGHT - VAR_USERSCANAREASTART) : TO</FormulaFrom>
+			<pValue>SCANAREALINESVALUEReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<IntSwissKnife Name="UserScanAreaLinesMaxExpr">
+			<pVariable Name="VAR_SENSORHEIGHT">SensorHeight</pVariable>
+			<pVariable Name="VAR_USERSCANAREASTART">UserScanAreaStartValConv</pVariable>
+			<Formula>VAR_SENSORHEIGHT - VAR_USERSCANAREASTART</Formula>
+		</IntSwissKnife>
+		<Command Name="UserScanAreaSET">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+		<pIsAvailable>UserScanAreaSETAvailExpr</pIsAvailable>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>UserScanAreaSETReg</pValue>
+			<pCommandValue>UserScanAreaSETCmdValExpr</pCommandValue>
+		</Command>
+		<IntReg Name="UserScanAreaSETReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xE81C</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="UserScanAreaSETCmdValExpr">
+			<pVariable Name="VAR_USERSCANAREASTART">UserScanAreaStartValConv</pVariable>
+			<pVariable Name="VAR_USERSCANAREALINES">UserScanAreaLinesValConv</pVariable>
+			<Formula>VAR_USERSCANAREASTART * 65536 + VAR_USERSCANAREALINES</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="UserScanAreaSETAvailExpr">
+			<pVariable Name="VAR_SCANMODE">ScanModeReg</pVariable>
+			<Formula>VAR_SCANMODE = 1</Formula>
+		</IntSwissKnife>
+		<Enumeration Name="ScanMode">
+			<ToolTip>Allow switching between full scan mode and user programmable scan area.</ToolTip>
+			<Description>Changes camera&#39;s hardware ROI.  </Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<EnumEntry Name="FullScanMode"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="UserProgrammable"><Value>1</Value></EnumEntry>
+			<pValue>ScanModeReg</pValue>
+		</Enumeration>
+		<IntReg Name="ScanModeReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xE830</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<pInvalidator>UserScanAreaSET</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+	</Group>
+	<Group Comment="AcquisitionAndTriggerControls">
+		<Category Name="AcquisitionAndTriggerControls">
+			<pFeature>AcquisitionMode</pFeature>
+			<pFeature>AcquisitionStart</pFeature>
+			<pFeature>AcquisitionStop</pFeature>
+			<pFeature>AcquisitionFrameCount</pFeature>
+			<pFeature>ExternalTriggerPolarity</pFeature>
+		</Category>  
+		<Enumeration Name="AcquisitionMode">
+			<ToolTip>This feature controls the acquisition mode of the device.</ToolTip>
+			<Description>This feature controls the acquisition mode of the device.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<EnumEntry Name="Continuous"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="SingleFrame"><Value>1</Value></EnumEntry>
+			<EnumEntry Name="MultiFrame"><Value>2</Value></EnumEntry>
+			<EnumEntry Name="ContinuousRecording"><Value>3</Value></EnumEntry>
+			<EnumEntry Name="ContinuousReadout"><Value>4</Value></EnumEntry>
+			<EnumEntry Name="SingleFrameRecording"><Value>5</Value></EnumEntry>
+			<EnumEntry Name="SingleFrameReadout"><Value>6</Value></EnumEntry>
+			<pValue>AcquisitionModeReg</pValue>
+		</Enumeration>
+		<IntReg Name="AcquisitionModeReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xD310</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Command Name="AcquisitionStart">
+			<ToolTip>This feature starts the Acquisition of the device.</ToolTip>
+			<Description>This feature starts the Acquisition of the device.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>AcquisitionStartReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="AcquisitionStartReg">
+			<Address>0xD314</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Command Name="AcquisitionStop">
+			<ToolTip>This feature stops the Acquisition of the device at the end of the current Frame.</ToolTip>
+			<Description>This feature stops the Acquisition of the device at the end of the current Frame.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>AcquisitionStopReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="AcquisitionStopReg">
+			<Address>0xD318</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="AcquisitionFrameCount">
+			<ToolTip>This feature provides the number of frames to be acquired in MultiFrame Acquisition mode.</ToolTip>
+			<Description>This feature provides the number of frames to be acquired in MultiFrame Acquisition mode.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>AcquisitionFrameCountReg</pValue>
+			<Min>1</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="AcquisitionFrameCountReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xBB34</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="ExternalTriggerPolarity">
+			<ToolTip>Switch between low and high trigger signal.  Click on ExternalTriggerSET to set the value.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="ActiveLow"><Value>1</Value></EnumEntry>
+			<EnumEntry Name="ActiveHigh"><Value>3</Value></EnumEntry>
+			<pValue>ExternalTriggerPolarityValConv</pValue>
+		</Enumeration>
+		<IntConverter Name="ExternalTriggerPolarityValConv">
+			<FormulaTo>(FROM = 1) ? 0 : 1</FormulaTo>
+			<FormulaFrom>TO &amp; 3</FormulaFrom>
+			<pValue>TRIGGERPOLARITYFLAGReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+	</Group>
+	<Group Comment="GigEVisionTransportLayer">
+		<Category Name="GigEVisionTransportLayer">
+			<pFeature>PayloadSize</pFeature>
+			<pFeature>GevVersionMajor</pFeature>
+			<pFeature>GevVersionMinor</pFeature>
+			<pFeature>GevDeviceModeIsBigEndian</pFeature>
+			<pFeature>GevDeviceModeCharacterSet</pFeature>
+			<pFeature>GevInterfaceSelector</pFeature>
+			<pFeature>GevMACAddress</pFeature>
+			<pFeature>GevMACAddressHigh</pFeature>
+			<pFeature>GevMACAddressLow</pFeature>
+			<pFeature>GevSupportedIPConfigurationLLA</pFeature>
+			<pFeature>GevSupportedIPConfigurationDHCP</pFeature>
+			<pFeature>GevSupportedIPConfigurationPersistentIP</pFeature>
+			<pFeature>GevCurrentIPConfigurationLLA</pFeature>
+			<pFeature>GevCurrentIPConfigurationDHCP</pFeature>
+			<pFeature>GevCurrentIPConfigurationPersistentIP</pFeature>
+			<pFeature>GevCurrentIPAddress</pFeature>
+			<pFeature>GevCurrentSubnetMask</pFeature>
+			<pFeature>GevCurrentDefaultGateway</pFeature>
+			<pFeature>GevFirstURL</pFeature>
+			<pFeature>GevSecondURL</pFeature>
+			<pFeature>GevNumberOfInterfaces</pFeature>
+			<pFeature>GevMessageChannelCount</pFeature>
+			<pFeature>GevStreamChannelCount</pFeature>
+			<pFeature>GevSupportedOptionalCommandsUserDefinedName</pFeature>
+			<pFeature>GevSupportedOptionalCommandsSerialNumber</pFeature>
+			<pFeature>GevSupportedOptionalCommandsEVENTDATA</pFeature>
+			<pFeature>GevSupportedOptionalCommandsEVENT</pFeature>
+			<pFeature>GevSupportedOptionalCommandsPACKETRESEND</pFeature>
+			<pFeature>GevSupportedOptionalCommandsWRITEMEM</pFeature>
+			<pFeature>GevSupportedOptionalCommandsConcatenation</pFeature>
+			<pFeature>GevHeartbeatTimeout</pFeature>
+			<pFeature>GevTimestampTickFrequency</pFeature>
+			<pFeature>GevTimestampTickFrequencyHigh</pFeature>
+			<pFeature>GevTimestampTickFrequencyLow</pFeature>
+			<pFeature>GevTimestampControlLatch</pFeature>
+			<pFeature>GevTimestampControlReset</pFeature>
+			<pFeature>GevTimestampValue</pFeature>
+			<pFeature>GevTimestampValueHigh</pFeature>
+			<pFeature>GevTimestampValueLow</pFeature>
+			<pFeature>GevCCP</pFeature>
+			<pFeature>GevMCPHostPort</pFeature>
+			<pFeature>GevMCDA</pFeature>
+			<pFeature>GevMCTT</pFeature>
+			<pFeature>GevMCRC</pFeature>
+			<pFeature>GevStreamChannelSelector</pFeature>
+			<pFeature>GevSCPInterfaceIndex</pFeature>
+			<pFeature>GevSCPHostPort</pFeature>
+			<pFeature>GevSCPSFireTestPacket</pFeature>
+			<pFeature>GevSCPSDoNotFragment</pFeature>
+			<pFeature>GevSCPSBigEndian</pFeature>
+			<pFeature>GevSCPSPacketSize</pFeature>
+			<pFeature>GevSCPD</pFeature>
+			<pFeature>GevSCDA</pFeature>
+			<pFeature>GevTimestampControl</pFeature>
+		</Category>   
+		<Integer Name="PayloadSize">
+			<ToolTip>PayloadSize provides the number of bytes transferred for each image on the stream channel, including any end-of-line, end-of-frame statistics or other stamp data.</ToolTip>
+			<Description>PayloadSize provides the number of bytes transferred for each image on the stream channel, including any end-of-line, end-of-frame statistics or other stamp data.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>PayloadSizeReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="PayloadSizeReg">
+			<Address>0xD30C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevVersionMajor">
+			<ToolTip>This field represents the major version of the specification.</ToolTip>
+			<Description>This field represents the major version of the specification.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevVersionMajorReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="GevVersionMajorReg">
+			<Address>0x0000</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>15</LSB>
+			<MSB>0</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevVersionMinor">
+			<ToolTip>This field represents the minor version of the specification.</ToolTip>
+			<Description>This field represents the minor version of the specification.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevVersionMinorReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="GevVersionMinorReg">
+			<Address>0x0000</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevDeviceModeIsBigEndian">
+			<ToolTip>Endianess might be used to interpret multi-byte data for READMEM and WRITEMEM commands.</ToolTip>
+			<Description>Endianess might be used to interpret multi-byte data for READMEM and WRITEMEM commands.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevDeviceModeIsBigEndianReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevDeviceModeIsBigEndianReg">
+			<Address>0x0004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>0</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Enumeration Name="GevDeviceModeCharacterSet">
+			<ToolTip>This feature represents the character set used by all the strings of the bootstrap registers.</ToolTip>
+			<Description>This feature represents the character set used by all the strings of the bootstrap registers.</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="Reserved"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="UTF8"><Value>1</Value></EnumEntry>
+			<pValue>GevDeviceModeCharacterSetReg</pValue>
+		</Enumeration>
+		<MaskedIntReg Name="GevDeviceModeCharacterSetReg">
+			<Address>0x0004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevInterfaceSelector">
+			<ToolTip>This feature is a Selector that indicates to which physical network interface other features must reference.</ToolTip>
+			<Description>This feature is a Selector that indicates to which physical network interface other features must reference.</Description>
+			<Visibility>Beginner</Visibility>
+			<Value>0</Value>
+			<Min>0</Min>
+			<Max>0</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<Integer Name="GevMACAddress">
+			<ToolTip>This feature stores the MAC address of the given network interface.</ToolTip>
+			<Description>This feature stores the MAC address of the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevMACAddressValExpr</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntSwissKnife Name="GevMACAddressValExpr">
+			<pVariable Name="VAR_GEVMACADDRESSHIGH">GevMACAddressHighReg</pVariable>
+			<pVariable Name="VAR_GEVMACADDRESSLOW">GevMACAddressLowReg</pVariable>
+			<Formula>(VAR_GEVMACADDRESSHIGH &lt;&lt; 32) | VAR_GEVMACADDRESSLOW</Formula>
+		</IntSwissKnife>
+		<Integer Name="GevMACAddressHigh">
+			<ToolTip>This feature stores the upper two bytes of the MAC address of the given network interface.</ToolTip>
+			<Description>This feature stores the upper two bytes of the MAC address of the given network interface.</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>GevMACAddressHighReg</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<MaskedIntReg Name="GevMACAddressHighReg">
+			<Address>0x0008</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevMACAddressLow">
+			<ToolTip>This feature stores the lower four bytes of the MAC address of the given network interface.</ToolTip>
+			<Description>This feature stores the lower four bytes of the MAC address of the given network interface.</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>GevMACAddressLowReg</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="GevMACAddressLowReg">
+			<Address>0x000C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Boolean Name="GevSupportedIPConfigurationLLA">
+			<ToolTip>This feature indicates if Link Local Address IP configuration scheme is supported by the given network interface.</ToolTip>
+			<Description>This feature indicates if Link Local Address IP configuration scheme is supported by the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedIPConfigurationLLAReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedIPConfigurationLLAReg">
+			<Address>0x0010</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>29</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedIPConfigurationDHCP">
+			<ToolTip>This feature indicates if DHCP IP configuration scheme is supported by the given network interface.</ToolTip>
+			<Description>This feature indicates if DHCP IP configuration scheme is supported by the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedIPConfigurationDHCPReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedIPConfigurationDHCPReg">
+			<Address>0x0010</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>30</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedIPConfigurationPersistentIP">
+			<ToolTip>This feature indicates if PersistentIP configuration scheme is supported by the given network interface.</ToolTip>
+			<Description>This feature indicates if PersistentIP configuration scheme is supported by the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedIPConfigurationPersistentIPReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedIPConfigurationPersistentIPReg">
+			<Address>0x0010</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>31</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevCurrentIPConfigurationLLA">
+			<ToolTip>This feature indicates if Link Local Address IP configuration scheme is activated on the given network interface.</ToolTip>
+			<Description>This feature indicates if Link Local Address IP configuration scheme is activated on the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevCurrentIPConfigurationLLAReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevCurrentIPConfigurationLLAReg">
+			<Address>0x0014</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Bit>29</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevCurrentIPConfigurationDHCP">
+			<ToolTip>This feature indicates if DHCP IP configuration scheme is activated on the given network interface.</ToolTip>
+			<Description>This feature indicates if DHCP IP configuration scheme is activated on the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevCurrentIPConfigurationDHCPReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevCurrentIPConfigurationDHCPReg">
+			<Address>0x0014</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Bit>30</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevCurrentIPConfigurationPersistentIP">
+			<ToolTip>This feature indicates if PersistentIP configuration scheme is activated on the given network interface.</ToolTip>
+			<Description>This feature indicates if PersistentIP configuration scheme is activated on the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevCurrentIPConfigurationPersistentIPReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevCurrentIPConfigurationPersistentIPReg">
+			<Address>0x0014</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Bit>31</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevCurrentIPAddress">
+			<ToolTip>This feature reports the IP address for the given network interface once it has been configured.</ToolTip>
+			<Description>This feature reports the IP address for the given network interface once it has been configured.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevCurrentIPAddressReg</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="GevCurrentIPAddressReg">
+			<Address>0x0024</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevCurrentSubnetMask">
+			<ToolTip>This feature provides the subnet mask of the given interface.</ToolTip>
+			<Description>This feature provides the subnet mask of the given interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevCurrentSubnetMaskReg</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="GevCurrentSubnetMaskReg">
+			<Address>0x0034</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevCurrentDefaultGateway">
+			<ToolTip>This feature indicates the default gateway IP address to be used on the given network interface.</ToolTip>
+			<Description>This feature indicates the default gateway IP address to be used on the given network interface.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevCurrentDefaultGatewayReg</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="GevCurrentDefaultGatewayReg">
+			<Address>0x0044</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<StringReg Name="GevFirstURL">
+			<ToolTip>This feature stores the first URL to the XML device description file.</ToolTip>
+			<Description>This feature stores the first URL to the XML device description file.</Description>
+			<Visibility>Beginner</Visibility>
+			<Address>0x0200</Address>
+			<Length>512</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+		</StringReg>
+		<StringReg Name="GevSecondURL">
+			<ToolTip>This feature stores the second URL to the XML device description file.</ToolTip>
+			<Description>This feature stores the second URL to the XML device description file.</Description>
+			<Visibility>Beginner</Visibility>
+			<Address>0x0400</Address>
+			<Length>512</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+		</StringReg>
+		<Integer Name="GevNumberOfInterfaces">
+			<ToolTip>This feature indicates the number of physical network interfaces supported by this device.</ToolTip>
+			<Description>This feature indicates the number of physical network interfaces supported by this device.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevNumberOfInterfacesReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevNumberOfInterfacesReg">
+			<Address>0x0600</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevMessageChannelCount">
+			<ToolTip>This feature reports the number of message channels supported by this device.</ToolTip>
+			<Description>This feature reports the number of message channels supported by this device.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevMessageChannelCountReg</pValue>
+			<Min>0</Min>
+			<Max>1</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevMessageChannelCountReg">
+			<Address>0x0900</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevStreamChannelCount">
+			<ToolTip>This feature reports the number of stream channels supported by this device.</ToolTip>
+			<Description>This feature reports the number of stream channels supported by this device.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevStreamChannelCountReg</pValue>
+			<Min>1</Min>
+			<Max>512</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevStreamChannelCountReg">
+			<Address>0x0904</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Boolean Name="GevSupportedOptionalCommandsUserDefinedName">
+			<ToolTip>User-defined name register is supported.</ToolTip>
+			<Description>User-defined name register is supported.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedOptionalCommandsUserDefinedNameReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedOptionalCommandsUserDefinedNameReg">
+			<Address>0x0934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>0</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedOptionalCommandsSerialNumber">
+			<ToolTip>Serial number register is supported.</ToolTip>
+			<Description>Serial number register is supported.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedOptionalCommandsSerialNumberReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedOptionalCommandsSerialNumberReg">
+			<Address>0x0934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>1</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedOptionalCommandsEVENTDATA">
+			<ToolTip>EVENTDATA_CMD and EVENTDATA_ACK are supported.</ToolTip>
+			<Description>EVENTDATA_CMD and EVENTDATA_ACK are supported.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedOptionalCommandsEVENTDATAReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedOptionalCommandsEVENTDATAReg">
+			<Address>0x0934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>27</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedOptionalCommandsEVENT">
+			<ToolTip>EVENT_CMD and EVENT_ACK are supported.</ToolTip>
+			<Description>EVENT_CMD and EVENT_ACK are supported.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedOptionalCommandsEVENTReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedOptionalCommandsEVENTReg">
+			<Address>0x0934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>28</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedOptionalCommandsPACKETRESEND">
+			<ToolTip>PACKETRESEND_CMD is supported.</ToolTip>
+			<Description>PACKETRESEND_CMD is supported.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedOptionalCommandsPACKETRESENDReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedOptionalCommandsPACKETRESENDReg">
+			<Address>0x0934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>29</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedOptionalCommandsWRITEMEM">
+			<ToolTip>WRITEMEM_CMD and WRITEMEM_ACK are supported.</ToolTip>
+			<Description>WRITEMEM_CMD and WRITEMEM_ACK are supported.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedOptionalCommandsWRITEMEMReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedOptionalCommandsWRITEMEMReg">
+			<Address>0x0934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>30</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSupportedOptionalCommandsConcatenation">
+			<ToolTip>Multiple operations in a single message are supported.</ToolTip>
+			<Description>Multiple operations in a single message are supported.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSupportedOptionalCommandsConcatenationReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSupportedOptionalCommandsConcatenationReg">
+			<Address>0x0934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>31</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevHeartbeatTimeout">
+			<ToolTip>This feature indicates the current heartbeat timeout in milliseconds.</ToolTip>
+			<Description>This feature indicates the current heartbeat timeout in milliseconds.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevHeartbeatTimeoutReg</pValue>
+			<Min>500</Min>
+			<Max>4294967295</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevHeartbeatTimeoutReg">
+			<Address>0x0938</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevTimestampTickFrequency">
+			<ToolTip>This feature indicates the number of timestamp ticks during 1 second.</ToolTip>
+			<Description>This feature indicates the number of timestamp ticks during 1 second.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevTimestampTickFrequencyValExpr</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntSwissKnife Name="GevTimestampTickFrequencyValExpr">
+			<pVariable Name="VAR_GEVTIMESTAMPTICKFREQUENCYHIGH">GevTimestampTickFrequencyHighReg</pVariable>
+			<pVariable Name="VAR_GEVTIMESTAMPTICKFREQUENCYLOW">GevTimestampTickFrequencyLowReg</pVariable>
+			<Formula>(VAR_GEVTIMESTAMPTICKFREQUENCYHIGH &lt;&lt; 32) | VAR_GEVTIMESTAMPTICKFREQUENCYLOW</Formula>
+		</IntSwissKnife>
+		<Integer Name="GevTimestampTickFrequencyHigh">
+			<ToolTip>This feature indicates the 32 most significant bits of the number of timestamp ticks during 1 second.</ToolTip>
+			<Description>This feature indicates the 32 most significant bits of the number of timestamp ticks during 1 second.</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>GevTimestampTickFrequencyHighReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevTimestampTickFrequencyHighReg">
+			<Address>0x093C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevTimestampTickFrequencyLow">
+			<ToolTip>This feature indicates the 32 least significant bits of the number of timestamp ticks during 1 second.</ToolTip>
+			<Description>This feature indicates the 32 least significant bits of the number of timestamp ticks during 1 second.</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>GevTimestampTickFrequencyLowReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevTimestampTickFrequencyLowReg">
+			<Address>0x0940</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Command Name="GevTimestampControlLatch">
+			<ToolTip>Latch current timestamp counter into &quot;Timestamp value&quot; register.</ToolTip>
+			<Description>Latch current timestamp counter into &quot;Timestamp value&quot; register.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevTimestampControlReg</pValue>
+			<CommandValue>2</CommandValue>
+		</Command>
+		<Command Name="GevTimestampControlReset">
+			<ToolTip>Reset timestamp 64-bit counter to 0.</ToolTip>
+			<Description>Reset timestamp 64-bit counter to 0.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevTimestampControlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Integer Name="GevTimestampValue">
+			<ToolTip>This feature reports the latched value of the timestamp counter.</ToolTip>
+			<Description>This feature reports the latched value of the timestamp counter.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevTimestampValueValExpr</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntSwissKnife Name="GevTimestampValueValExpr">
+			<pVariable Name="VAR_GEVTIMESTAMPVALUEHIGH">GevTimestampValueHighReg</pVariable>
+			<pVariable Name="VAR_GEVTIMESTAMPVALUELOW">GevTimestampValueLowReg</pVariable>
+			<Formula>(VAR_GEVTIMESTAMPVALUEHIGH &lt;&lt; 32) | VAR_GEVTIMESTAMPVALUELOW</Formula>
+		</IntSwissKnife>
+		<Integer Name="GevTimestampValueHigh">
+			<ToolTip>This feature reports the 32 most significant bits of the latched value of the timestamp counter.</ToolTip>
+			<Description>This feature reports the 32 most significant bits of the latched value of the timestamp counter.</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>GevTimestampValueHighReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevTimestampValueHighReg">
+			<Address>0x0948</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<pInvalidator>GevTimestampControlLatch</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevTimestampValueLow">
+			<ToolTip>This feature reports the 32 least significant bits of the latched value of the timestamp counter.</ToolTip>
+			<Description>This feature reports the 32 least significant bits of the latched value of the timestamp counter.</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>GevTimestampValueLowReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevTimestampValueLowReg">
+			<Address>0x094C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<pInvalidator>GevTimestampControlLatch</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="GevCCP">
+			<ToolTip>This feature is used to grant privilege to an application.</ToolTip>
+			<Description>This feature is used to grant privilege to an application.</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="OpenAccess"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="ExclusiveAccess"><Value>1</Value></EnumEntry>
+			<EnumEntry Name="ControlAccess"><Value>2</Value></EnumEntry>
+			<pValue>GevCCPReg</pValue>
+		</Enumeration>
+		<IntReg Name="GevCCPReg">
+			<Address>0x0A00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevMCPHostPort">
+			<ToolTip>Indicates the port to which the device must send messages.</ToolTip>
+			<Description>Indicates the port to which the device must send messages.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevMCPHostPortReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="GevMCPHostPortReg">
+			<Address>0x0B00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevMCDA">
+			<ToolTip>This feature indicates the destination IP address for the message channel.</ToolTip>
+			<Description>This feature indicates the destination IP address for the message channel.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevMCDAReg</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="GevMCDAReg">
+			<Address>0x0B10</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevMCTT">
+			<ToolTip>This feature provides the transmission timeout value in milliseconds.</ToolTip>
+			<Description>This feature provides the transmission timeout value in milliseconds.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevMCTTReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevMCTTReg">
+			<Address>0x0B14</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevMCRC">
+			<ToolTip>This feature indicates the number of retransmissions allowed when a message channel message times out.</ToolTip>
+			<Description>This feature indicates the number of retransmissions allowed when a message channel message times out.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevMCRCReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevMCRCReg">
+			<Address>0x0B18</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevStreamChannelSelector">
+			<ToolTip>This Selector is used to index into the various stream channel features.</ToolTip>
+			<Description>This Selector is used to index into the various stream channel features.</Description>
+			<Visibility>Beginner</Visibility>
+			<Value>0</Value>
+			<Min>0</Min>
+			<Max>0</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<Integer Name="GevSCPInterfaceIndex">
+			<ToolTip>Index of network interface to use (from 0 to 3).</ToolTip>
+			<Description>Index of network interface to use (from 0 to 3).</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSCPInterfaceIndexReg</pValue>
+			<Min>0</Min>
+			<Max>0</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="GevSCPInterfaceIndexReg">
+			<Address>0x0D00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>15</LSB>
+			<MSB>12</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevSCPHostPort">
+			<ToolTip>Indicates the port to which the device must send data stream.</ToolTip>
+			<Description>Indicates the port to which the device must send data stream.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSCPHostPortReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="GevSCPHostPortReg">
+			<Address>0x0D00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSCPSFireTestPacket">
+			<ToolTip>When this bit is set, the device will fire one test packet.</ToolTip>
+			<Description>When this bit is set, the device will fire one test packet.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>GevSCPSFireTestPacketReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSCPSFireTestPacketReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0x0D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Bit>0</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSCPSDoNotFragment">
+			<ToolTip>This bit is copied into the &quot;do not fragment&quot; bit of IP header of each stream packet.</ToolTip>
+			<Description>This bit is copied into the &quot;do not fragment&quot; bit of IP header of each stream packet.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>GevSCPSDoNotFragmentReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSCPSDoNotFragmentReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0x0D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Bit>1</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Boolean Name="GevSCPSBigEndian">
+			<ToolTip>Endianess of multi-byte pixel data for this stream.</ToolTip>
+			<Description>Endianess of multi-byte pixel data for this stream.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>GevSCPSBigEndianReg</pValue>
+		</Boolean>
+		<MaskedIntReg Name="GevSCPSBigEndianReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0x0D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Bit>2</Bit>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevSCPSPacketSize">
+			<ToolTip>The stream packet size to send on this channel, except for data leader and data trailer; and the last data packet which might be of smaller size (since packet size is not necessarily a multiple of block size for stream channel).</ToolTip>
+			<Description>The stream packet size to send on this channel, except for data leader and data trailer; and the last data packet which might be of smaller size (since packet size is not necessarily a multiple of block size for stream channel).</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>GevSCPSPacketSizeReg</pValue>
+			<Min>72</Min>
+			<Max>16260</Max>
+			<Inc>4</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="GevSCPSPacketSizeReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0x0D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="GevSCPD">
+			<ToolTip>This feature indicates the delay (in timestamp counter unit) to insert between each packet for this stream channel.</ToolTip>
+			<Description>This feature indicates the delay (in timestamp counter unit) to insert between each packet for this stream channel.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GevSCPDReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevSCPDReg">
+			<Address>0x0D08</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevSCDA">
+			<ToolTip>This feature indicates the destination IP address for this stream channel.</ToolTip>
+			<Description>This feature indicates the destination IP address for this stream channel.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>GevSCDAReg</pValue>
+			<Inc>1</Inc>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="GevSCDAReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0x0D18</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GevTimestampControl">
+			<ToolTip>This register is used to control the timestamp counter.</ToolTip>
+			<Description>This register is used to control the timestamp counter.</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>GevTimestampControlReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GevTimestampControlReg">
+			<Address>0x0944</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+	</Group>
+	<Group Comment="UserSets">
+		<Category Name="UserSets">
+			<pFeature>UserSetSelector</pFeature>
+			<pFeature>UserSetLoad</pFeature>
+			<pFeature>UserSetSave</pFeature>
+		</Category>
+		<Enumeration Name="UserSetSelector">
+			<ToolTip>Selects the feature User Set to load, save or configure.  UserSet1 is start up page.</ToolTip>
+			<Description>Selects the feature User Set to load, save or configure.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<EnumEntry Name="Default"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="UserSet1"><Value>1</Value></EnumEntry>
+			<EnumEntry Name="UserSet2"><Value>2</Value></EnumEntry>
+			<EnumEntry Name="UserSet3"><Value>3</Value></EnumEntry>
+			<EnumEntry Name="UserSet4"><Value>4</Value></EnumEntry>
+			<EnumEntry Name="UserSet5"><Value>5</Value></EnumEntry>
+			<EnumEntry Name="UserSet6"><Value>6</Value></EnumEntry>
+			<pValue>UserSetSelectorVal</pValue>
+		</Enumeration>
+		<Integer Name="UserSetSelectorVal">
+			<Value>0</Value>
+		</Integer>
+		<Command Name="UserSetLoad">
+			<ToolTip>Loads the User Set specified by UserSetSelector to the device and makes it active.</ToolTip>
+			<Description>Loads the User Set specified by UserSetSelector to the device and makes it active.</Description>
+			<Visibility>Beginner</Visibility>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>UserSetLoadReg</pValue>
+			<pCommandValue>UserSetLoadCmdValExpr</pCommandValue>
+		</Command>
+		<IntReg Name="UserSetLoadReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xE800</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="UserSetLoadCmdValExpr">
+			<pVariable Name="VAR_USERSETSELECTOR">UserSetSelectorVal</pVariable>
+			<Formula>VAR_USERSETSELECTOR</Formula>
+		</IntSwissKnife>
+		<Command Name="UserSetSave">
+			<ToolTip>Save the User Set specified by UserSetSelector to the non-volatile memory of the device.</ToolTip>
+			<Description>Save the User Set specified by UserSetSelector to the non-volatile memory of the device.</Description>
+			<Visibility>Beginner</Visibility>
+		<pIsAvailable>UserSetSaveAvailExpr</pIsAvailable>
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<pValue>UserSetSaveReg</pValue>
+			<pCommandValue>UserSetSaveCmdValExpr</pCommandValue>
+		</Command>
+		<IntReg Name="UserSetSaveReg">
+			<pIsLocked>TLParamsLocked</pIsLocked>
+			<Address>0xE804</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="UserSetSaveCmdValExpr">
+			<pVariable Name="VAR_USERSETSELECTOR">UserSetSelectorVal</pVariable>
+			<Formula>VAR_USERSETSELECTOR</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="UserSetSaveAvailExpr">
+			<pVariable Name="VAR_USERSETSELECTOR">UserSetSelectorVal</pVariable>
+			<Formula>VAR_USERSETSELECTOR &gt; 0</Formula>
+		</IntSwissKnife>
+	</Group>
+	<Group Comment="IPEngine">
+		<Category Name="IPEngine">
+			<pFeature>IPEngineFirmwareVersionMajor</pFeature>
+			<pFeature>IPEngineFirmwareVersionMinor</pFeature>
+			<pFeature>IPEngineInitSequenceStatus</pFeature>
+		</Category> 
+		<Integer Name="IPEngineFirmwareVersionMajor">
+			<ToolTip>This field represents the major version of the iPORT IP Engine firmware.</ToolTip>
+			<Description>This field represents the major version of the iPORT IP Engine firmware.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>IPEngineFirmwareVersionMajorReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="IPEngineFirmwareVersionMajorReg">
+			<Address>0xA004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>15</LSB>
+			<MSB>0</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="IPEngineFirmwareVersionMinor">
+			<ToolTip>This field represents the minor version of the iPORT IP Engine firmware.</ToolTip>
+			<Description>This field represents the minor version of the iPORT IP Engine firmware.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>IPEngineFirmwareVersionMinorReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="IPEngineFirmwareVersionMinorReg">
+			<Address>0xA004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<Integer Name="IPEngineInitSequenceStatus">
+			<ToolTip>This field reports the status of the initialization sequence. A null value indicates that the initialization sequence ran successfully. Otherwise, it returns the index of the register write that failed in the sequence.</ToolTip>
+			<Description>This field reports the status of the initialization sequence. A null value indicates that the initialization sequence ran successfully. Otherwise, it returns the index of the register write that failed in the sequence.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>IPEngineInitSequenceStatusReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<MaskedIntReg Name="IPEngineInitSequenceStatusReg">
+			<Address>0xA028</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+	</Group>
+	<Group Comment="LUT">
+		<Category Name="LUT">
+			<pFeature>LUTMode</pFeature>
+			<pFeature>LUTInversion</pFeature>
+			<pFeature>KneeX1</pFeature>
+			<pFeature>KneeY1</pFeature>
+			<pFeature>KneeX2</pFeature>
+			<pFeature>KneeY2</pFeature>
+			<pFeature>KneeSet</pFeature>
+		</Category>  
+		<Enumeration Name="LUTMode">
+			<ToolTip>Look Up Table.  Setting mode to Knee enable KneeSet.</ToolTip>
+			<Description>LUT</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="Linear"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="Gamma45"><Value>1</Value></EnumEntry>
+			<EnumEntry Name="Knee"><Value>2</Value></EnumEntry>
+			<pValue>LUTModeReg</pValue>
+		</Enumeration>
+		<IntReg Name="LUTModeReg">
+			<Address>0xE808</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<pInvalidator>KneeSet</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="LUTInversion">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="Positive"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="Negative"><Value>1</Value></EnumEntry>
+			<pValue>LUTInversionValConv</pValue>
+		</Enumeration>
+		<IntConverter Name="LUTInversionValConv">
+			<FormulaTo>FROM</FormulaTo>
+			<FormulaFrom>(TO &amp; 8) &gt;&gt; 3</FormulaFrom>
+			<pValue>POSNEGLUTFLAGReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<Integer Name="KneeX1">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>KneeX1ValConv</pValue>
+			<Min>0</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="KneeX1ValConv">
+			<pVariable Name="VAR_KNEEBYTES">KNEEBYTESReg</pVariable>
+			<FormulaTo>(VAR_KNEEBYTES &amp; 0x00FFFFFF) | (FROM &lt;&lt; 24)</FormulaTo>
+			<FormulaFrom>(TO &amp; 0xFF000000) &gt;&gt; 24</FormulaFrom>
+			<pValue>KNEEBYTESReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<Integer Name="KneeY1">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>KneeY1ValConv</pValue>
+			<Min>0</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="KneeY1ValConv">
+			<pVariable Name="VAR_KNEEBYTES">KNEEBYTESReg</pVariable>
+			<FormulaTo>(VAR_KNEEBYTES &amp; 0xFF00FFFF) | (FROM &lt;&lt; 16)</FormulaTo>
+			<FormulaFrom>(TO &amp; 0xFF0000) &gt;&gt; 16</FormulaFrom>
+			<pValue>KNEEBYTESReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<Integer Name="KneeX2">
+			<ToolTip>Knee X2 coordinate.  Must be greater than X1.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>KneeX2ValConv</pValue>
+			<pMin>KneeX2MinExpr</pMin>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="KneeX2ValConv">
+			<pVariable Name="VAR_KNEEX1">KneeX1ValConv</pVariable>
+			<pVariable Name="VAR_KNEEBYTES">KNEEBYTESReg</pVariable>
+			<FormulaTo>(VAR_KNEEBYTES &amp; 0xFFFF00FF) | (FROM &lt;&lt; 8)</FormulaTo>
+			<FormulaFrom>(((TO &amp; 0x0000FF00) &gt;&gt; 8) &lt; (VAR_KNEEX1 + 1)) ? ((VAR_KNEEX1 = 255) ? 255 : (VAR_KNEEX1 + 1)) : ((TO &amp; 0xFF00) &gt;&gt; 8)</FormulaFrom>
+			<pValue>KNEEBYTESReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<IntSwissKnife Name="KneeX2MinExpr">
+			<pVariable Name="VAR_KNEEX1">KneeX1ValConv</pVariable>
+			<Formula>(VAR_KNEEX1 = 255) ? 255 : (VAR_KNEEX1 + 1)</Formula>
+		</IntSwissKnife>
+		<Integer Name="KneeY2">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>KneeY2ValConv</pValue>
+			<Min>0</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="KneeY2ValConv">
+			<pVariable Name="VAR_KNEEBYTES">KNEEBYTESReg</pVariable>
+			<FormulaTo>(VAR_KNEEBYTES &amp; 0xFFFFFF00) | FROM</FormulaTo>
+			<FormulaFrom>TO &amp; 0xFF</FormulaFrom>
+			<pValue>KNEEBYTESReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<Command Name="KneeSet">
+			<ToolTip>Set the Knee coordinates.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>KneeSetReg</pValue>
+			<pCommandValue>KneeSetCmdValExpr</pCommandValue>
+		</Command>
+		<IntReg Name="KneeSetReg">
+			<Address>0xE80C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="KneeSetCmdValExpr">
+			<pVariable Name="VAR_KNEEX1">KneeX1ValConv</pVariable>
+			<pVariable Name="VAR_KNEEY1">KneeY1ValConv</pVariable>
+			<pVariable Name="VAR_KNEEX2">KneeX2ValConv</pVariable>
+			<pVariable Name="VAR_KNEEY2">KneeY2ValConv</pVariable>
+			<Formula>(VAR_KNEEX1 * 16777216) + (VAR_KNEEY1 * 65536) + (VAR_KNEEX2 * 256) + VAR_KNEEY2</Formula>
+		</IntSwissKnife>
+	</Group>
+	<Group Comment="CustomFeatures">
+		<Category Name="CustomFeatures">
+			<pFeature>KNEEBYTES</pFeature>
+			<pFeature>POSNEGLUTFLAG</pFeature>
+			<pFeature>SCANAREASTARTVALUE</pFeature>
+			<pFeature>SCANAREALINESVALUE</pFeature>
+			<pFeature>FUNCFLG1</pFeature>
+			<pFeature>TRIGGERPOLARITYFLAG</pFeature>
+			<pFeature>MANUALDIRECTSHUTTERVALUE</pFeature>
+			<pFeature>ASYNCDIRECTSHUTTERVALUE</pFeature>
+			<pFeature>AUTOBLACKLEVELFLAG</pFeature>
+		</Category>   
+		<Integer Name="KNEEBYTES">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>KNEEBYTESReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="KNEEBYTESReg">
+			<Address>0xE810</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="POSNEGLUTFLAG">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>POSNEGLUTFLAGReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="POSNEGLUTFLAGReg">
+			<Address>0xE818</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="SCANAREASTARTVALUE">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>SCANAREASTARTVALUEReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="SCANAREASTARTVALUEReg">
+			<Address>0xE820</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="SCANAREALINESVALUE">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>SCANAREALINESVALUEReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="SCANAREALINESVALUEReg">
+			<Address>0xE824</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="FUNCFLG1">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>FUNCFLG1Reg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="FUNCFLG1Reg">
+			<Address>0xE848</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<pInvalidator>ManualNoShutterSET</pInvalidator>
+			<pInvalidator>AsyncNoShutterSET</pInvalidator>
+			<pInvalidator>PWCSET</pInvalidator>
+			<pInvalidator>MANUALDIRECTSHUTTERVALUE</pInvalidator>
+			<pInvalidator>ASYNCDIRECTSHUTTERVALUE</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="TRIGGERPOLARITYFLAG">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>TRIGGERPOLARITYFLAGReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="TRIGGERPOLARITYFLAGReg">
+			<Address>0xE84C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="MANUALDIRECTSHUTTERVALUE">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>MANUALDIRECTSHUTTERVALUEReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="MANUALDIRECTSHUTTERVALUEReg">
+			<Address>0xE850</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="ASYNCDIRECTSHUTTERVALUE">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>ASYNCDIRECTSHUTTERVALUEReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="ASYNCDIRECTSHUTTERVALUEReg">
+			<Address>0xE854</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="AUTOBLACKLEVELFLAG">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Invisible</Visibility>
+			<pValue>AUTOBLACKLEVELFLAGReg</pValue>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="AUTOBLACKLEVELFLAGReg">
+			<Address>0xE85C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteAround</Cachable>
+			<pInvalidator>AutoBlackLevelDisable</pInvalidator>
+			<pInvalidator>AutoBlackLevelValue</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+	</Group>
+	<Group Comment="AnalogControls">
+		<Category Name="AnalogControls">
+			<pFeature>AutoBlackLevelDisable</pFeature>
+			<pFeature>AutoBlackLevelValue</pFeature>
+			<pFeature>AutoBlackLevelStatus</pFeature>
+			<pFeature>VTop</pFeature>
+			<pFeature>VBottom</pFeature>
+			<pFeature>GainRaw</pFeature>
+		</Category>
+		<Command Name="AutoBlackLevelDisable">
+			<ToolTip>Disable Auto Black Level.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>AutoBlackLevelDisableReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="AutoBlackLevelDisableReg">
+			<Address>0xE860</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="AutoBlackLevelValue">
+			<ToolTip>Enable Auto Black Level.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>AutoBlackLevelValueReg</pValue>
+			<Min>0</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="AutoBlackLevelValueReg">
+			<Address>0xE858</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="AutoBlackLevelStatus">
+			<ToolTip>Must set AutoBlackLevelValue to actually enable Auto Black Level.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="Disable"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="Enable"><Value>1</Value></EnumEntry>
+			<pValue>AutoBlackLevelStatusValConv</pValue>
+		</Enumeration>
+		<IntConverter Name="AutoBlackLevelStatusValConv">
+			<FormulaTo>FROM</FormulaTo>
+			<FormulaFrom>(TO &amp; 0x8) &gt;&gt; 3</FormulaFrom>
+			<pValue>AUTOBLACKLEVELFLAGReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<Integer Name="VTop">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>VTopReg</pValue>
+			<Min>0</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="VTopReg">
+			<Address>0xE828</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="VBottom">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Adjust VBOTTOM.  Available only if Auto Black Level Control is disabled.</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>VBottomReg</pValue>
+			<Min>0</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="VBottomReg">
+			<Address>0xE82C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="GainRaw">
+			<ToolTip>ToolTip</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>GainRawReg</pValue>
+			<Min>0</Min>
+			<Max>255</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntReg Name="GainRawReg">
+			<Address>0xE838</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+	</Group>
+	<Group Comment="ShutterControl">
+		<Category Name="ShutterControl">
+			<pFeature>ShutterMode</pFeature>
+			<pFeature>ManualNoShutterSET</pFeature>
+			<pFeature>AsyncNoShutterSET</pFeature>
+			<pFeature>PWCSET</pFeature>
+			<pFeature>ManualDirectShutter</pFeature>
+			<pFeature>AsyncDirectShutter</pFeature>
+		</Category> 
+		<Enumeration Name="ShutterMode">
+			<ToolTip>Show the current Shutter Mode.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="ManualNoShutter"><Value>0</Value></EnumEntry>
+			<EnumEntry Name="ManualDirectShutter"><Value>1</Value></EnumEntry>
+			<EnumEntry Name="AsyncNoShutter"><Value>2</Value></EnumEntry>
+			<EnumEntry Name="AsyncDirectShutter"><Value>3</Value></EnumEntry>
+			<EnumEntry Name="PulseWidthControl"><Value>4</Value></EnumEntry>
+			<pValue>ShutterModeValConv</pValue>
+		</Enumeration>
+		<IntConverter Name="ShutterModeValConv">
+			<FormulaTo>FROM</FormulaTo>
+			<FormulaFrom>((TO &amp; 0x6F) = 0) ? 0 : ( (((TO &amp; 0x6F) = 96) || ((TO &amp; 0x6F) = 105))? 1 : (((TO &amp; 0x6F) = 32) ? 2 : ((((TO &amp; 0x6F) = 64) || ((TO &amp; 0x6F) = 73)) ? 3 : 4)))</FormulaFrom>
+			<pValue>FUNCFLG1Reg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<Command Name="ManualNoShutterSET">
+			<ToolTip>Manual No Shutter.  Continuous mode.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>ManualNoShutterSETReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="ManualNoShutterSETReg">
+			<Address>0xE83C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Command Name="AsyncNoShutterSET">
+			<ToolTip>Async No Shutter.  Trigger mode.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>AsyncNoShutterSETReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="AsyncNoShutterSETReg">
+			<Address>0xE840</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Command Name="PWCSET">
+			<ToolTip>Pulse Width Control.  Trigger mode.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>PWCSETReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="PWCSETReg">
+			<Address>0xE844</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>WriteThrough</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="ManualDirectShutter">
+			<ToolTip>Continuous user programmable shutter.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>ManualDirectShutterValConv</pValue>
+			<Min>0</Min>
+			<Max>1052</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="ManualDirectShutterValConv">
+			<FormulaTo>FROM</FormulaTo>
+			<FormulaFrom>(TO &gt; 1052) ? 1052 : TO</FormulaFrom>
+			<pValue>MANUALDIRECTSHUTTERVALUEReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+		<Integer Name="AsyncDirectShutter">
+			<ToolTip>User programmable shutter.  Trigger mode.</ToolTip>
+			<Description>Description</Description>
+			<Visibility>Beginner</Visibility>
+			<pValue>AsyncDirectShutterValConv</pValue>
+			<Min>0</Min>
+			<Max>2079</Max>
+			<Inc>1</Inc>
+			<Representation>Linear</Representation>
+		</Integer>
+		<IntConverter Name="AsyncDirectShutterValConv">
+			<FormulaTo>FROM</FormulaTo>
+			<FormulaFrom>(TO &gt; 2079) ? 2079 : TO</FormulaFrom>
+			<pValue>ASYNCDIRECTSHUTTERVALUEReg</pValue>
+			<Slope>Varying</Slope>
+		</IntConverter>
+	</Group>
+	<Integer Name="TLParamsLocked">
+		<ToolTip>Integer parameter: 1 when grabbing, 0 when not</ToolTip>
+		<Visibility>Invisible</Visibility>
+		<Value>0</Value>
+		<Min>0</Min>
+		<Max>1</Max>
+	</Integer>
+	<Port Name="Device">
+		<ToolTip>Port giving access to the device.</ToolTip>
+	</Port>
+</RegisterDescription>
