@@ -6,6 +6,11 @@ include $(TOP)/configure/CONFIG
 # Build an Diamond Support Module
 # -------------------------------
 
+# Build some little helper functions
+PROD_IOC += dumpXml
+dumpXml_SRCS_DEFAULT += dumpXml.c
+dumpXml_LIBS += $(EPICS_BASE_IOC_LIBS)
+
 LIBRARY_IOC += aravisCamera
 
 # The following are compiled and added to the support library

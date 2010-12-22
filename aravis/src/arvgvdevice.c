@@ -415,16 +415,22 @@ _load_genicam (ArvGvDevice *gv_device, guint32 address, size_t  *size)
 	return genicam;
 }
 
+char*
+arv_gv_device_get_xml (ArvGvDevice *gv_device, size_t *size)
+{
+	char *xml;
+	xml = _load_genicam (gv_device, ARV_GVBS_FIRST_XML_URL, size);
+	if (xml == NULL)
+		xml = _load_genicam (gv_device, ARV_GVBS_SECOND_XML_URL, size);
+	return xml;
+}
+
 static void
 arv_gv_device_load_genicam (ArvGvDevice *gv_device)
 {
-	char *genicam;
+	char * genicam;
 	size_t size;
-
-	genicam = _load_genicam (gv_device, ARV_GVBS_FIRST_XML_URL, &size);
-	if (genicam == NULL)
-		genicam = _load_genicam (gv_device, ARV_GVBS_SECOND_XML_URL, &size);
-
+	genicam = arv_gv_device_get_xml(gv_device, &size);
 	if (genicam != NULL) {
 		gv_device->priv->genicam = arv_gc_new (ARV_DEVICE (gv_device), genicam, size);
 		g_free (genicam);

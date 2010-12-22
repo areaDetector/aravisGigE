@@ -59,7 +59,17 @@ protected:
     #define FIRST_ARAVIS_CAMERA_PARAM AravisCompleted
     int AravisFailures;
     int AravisUnderruns;
-    #define LAST_ARAVIS_CAMERA_PARAM AravisUnderruns
+    int AravisWBAuto;
+    int AravisWBRed;
+    int AravisWBBlue;
+    int AravisExpAuto;
+    int AravisExpAutoTarget;
+    int AravisExpAutoAlg;
+    int AravisIrisAuto;
+    int AravisIrisAutoTarget;
+    int AravisGainAuto;
+    int AravisGainAutoTarget;
+    #define LAST_ARAVIS_CAMERA_PARAM AravisGainAutoTarget
 
 private:
     /* Our data */
@@ -69,17 +79,29 @@ private:
     int bufferSize;
     int bufferDims[2];
     asynStatus allocBuffer(int i);
-    asynStatus start();    
+    asynStatus start();
     asynStatus setGeometry();
     asynStatus lookupColorMode(ArvPixelFormat fmt, int *colorMode, int *dataType, int *bayerFormat);
     asynStatus lookupPixelFormat(int colorMode, int dataType, int bayerFormat, ArvPixelFormat *fmt);
     asynStatus setPixelFormat();
-
+    asynStatus setIntegerValue(const char *feature, epicsInt32 value, epicsInt32 *rbv);
+    asynStatus setFloatValue(const char *feature, epicsFloat64 value, epicsFloat64 *rbv);
+    gboolean hasFeature(const char *feature);
 };
 
-#define AravisCompletedString  "ARAVIS_COMPLETED"
-#define AravisFailuresString   "ARAVIS_FAILURES"
-#define AravisUnderrunsString  "ARAVIS_UNDERRUNS"
+#define AravisCompletedString      "ARAVIS_COMPLETED"
+#define AravisFailuresString       "ARAVIS_FAILURES"
+#define AravisUnderrunsString      "ARAVIS_UNDERRUNS"
+#define AravisWBAutoString         "ARAVIS_WBAUTO"
+#define AravisWBRedString          "ARAVIS_WBRED"
+#define AravisWBBlueString         "ARAVIS_WBBLUE"
+#define AravisExpAutoString        "ARAVIS_EXPAUTO"
+#define AravisExpAutoTargetString  "ARAVIS_EXPAUTOTARGET"
+#define AravisExpAutoAlgString     "ARAVIS_EXPAUTOALG"
+#define AravisIrisAutoString       "ARAVIS_IRISAUTO"
+#define AravisIrisAutoTargetString "ARAVIS_IRISAUTOTARGET"
+#define AravisGainAutoString       "ARAVIS_GAINAUTO"
+#define AravisGainAutoTargetString "ARAVIS_GAINAUTOTARGET"
 
 #define NUM_ARAVIS_CAMERA_PARAMS (&LAST_ARAVIS_CAMERA_PARAM - &FIRST_ARAVIS_CAMERA_PARAM + 1)
 
@@ -108,17 +130,17 @@ void aravisCamera::shutdown() {
     this->camera exists, lock taken */
 asynStatus aravisCamera::allocBuffer(int i) {
     const char *functionName = "allocBuffer";
-    ArvBuffer *buffer;    
-    
-    this->pRaw[i] = this->pNDArrayPool->alloc(2, this->bufferDims, NDInt8, this->bufferSize, NULL);    
+    ArvBuffer *buffer;
+
+    this->pRaw[i] = this->pNDArrayPool->alloc(2, this->bufferDims, NDInt8, this->bufferSize, NULL);
     if (this->pRaw[i]==NULL) {
         asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
                     "%s:%s: error allocating raw buffer\n",
                     driverName, functionName);
         return asynError;
-    } 
+    }
     buffer = arv_buffer_new(this->bufferSize, this->pRaw[i]->pData);
-//    printf("alloc buffer: %p, pRaw[%d]: %p, pData %p\n", buffer, i, this->pRaw[i], this->pRaw[i]->pData);    
+//    printf("alloc buffer: %p, pRaw[%d]: %p, pData %p\n", buffer, i, this->pRaw[i], this->pRaw[i]->pData);
     arv_stream_push_buffer (this->stream, buffer);
     return asynSuccess;
 }
@@ -149,7 +171,7 @@ void aravisCamera::callback(ArvStreamCallbackType type, ArvBuffer *buffer) {
             getIntegerParam(ADNumImagesCounter, &numImagesCounter);
             getIntegerParam(ADImageMode, &imageMode);
             getIntegerParam(NDArrayCallbacks, &arrayCallbacks);
-            getDoubleParam(ADAcquirePeriod, &acquirePeriod);            
+            getDoubleParam(ADAcquirePeriod, &acquirePeriod);
 
             /* The buffer structure does not contain the binning, get that from param lib,
              * but it could be wrong for this frame if recently changed */
@@ -163,7 +185,7 @@ void aravisCamera::callback(ArvStreamCallbackType type, ArvBuffer *buffer) {
             setIntegerParam(ADNumImagesCounter, numImagesCounter);
             if (imageMode == ADImageMultiple) {
                 setDoubleParam(ADTimeRemaining, (numImagesCounter - numImages) * acquirePeriod);
-            }            
+            }
 
             /* find the buffer */
             for (i = 0; i<NRAW; i++) {
@@ -172,19 +194,19 @@ void aravisCamera::callback(ArvStreamCallbackType type, ArvBuffer *buffer) {
             if (i >= NRAW) {
                 asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
                         "%s:%s: where did this buffer come from?\n",
-                        driverName, functionName);                           
+                        driverName, functionName);
                 return;
-            }        
-//            printf("callb buffer: %p, pRaw[%d]: %p, pData %p\n", buffer, i, this->pRaw[i], this->pRaw[i]->pData);    
+            }
+//            printf("callb buffer: %p, pRaw[%d]: %p, pData %p\n", buffer, i, this->pRaw[i], this->pRaw[i]->pData);
 
             /* Put the frame number and time stamp into the buffer */
             this->pRaw[i]->uniqueId = imageCounter;
             this->pRaw[i]->timeStamp = buffer->timestamp_ns / 1.e9;
-            
+
             /* Annotate it with its dimensions */
             this->lookupColorMode(buffer->pixel_format, &colorMode, &dataType, &bayerFormat);
             this->pRaw[i]->pAttributeList->add("BayerPattern", "Bayer Pattern", NDAttrInt32, &bayerFormat);
-            this->pRaw[i]->pAttributeList->add("ColorMode", "Color Mode", NDAttrInt32, &colorMode);    
+            this->pRaw[i]->pAttributeList->add("ColorMode", "Color Mode", NDAttrInt32, &colorMode);
             this->pRaw[i]->dataType = (NDDataType_t) dataType;
             switch (colorMode) {
                 case NDColorModeMono:
@@ -204,14 +226,14 @@ void aravisCamera::callback(ArvStreamCallbackType type, ArvBuffer *buffer) {
                 default:
                     asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
                                 "%s:%s: unknown colorMode\n",
-                                driverName, functionName);   
-            }                                                 
+                                driverName, functionName);
+            }
             this->pRaw[i]->dims[xDim].size    = buffer->width;
             this->pRaw[i]->dims[xDim].offset  = buffer->x_offset;
             this->pRaw[i]->dims[xDim].binning = binX;
             this->pRaw[i]->dims[yDim].size    = buffer->height;
             this->pRaw[i]->dims[yDim].offset  = buffer->y_offset;
-            this->pRaw[i]->dims[yDim].binning = binY;            
+            this->pRaw[i]->dims[yDim].binning = binY;
 
             /* Get any attributes that have been defined for this driver */
             this->getAttributes(this->pRaw[i]->pAttributeList);
@@ -237,15 +259,15 @@ void aravisCamera::callback(ArvStreamCallbackType type, ArvBuffer *buffer) {
                  (numImagesCounter >= numImages))) {
                 arv_camera_stop_acquisition (this->camera);
                 setIntegerParam(ADAcquire, 0);
-                setIntegerParam(ADStatus, ADStatusIdle);                
+                setIntegerParam(ADStatus, ADStatusIdle);
                 asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
                       "%s:%s: acquisition completed\n", driverName, functionName);
             } else {
                 /* free memory */
                 this->pRaw[i]->release();
                 this->pRaw[i] = NULL;
-                g_object_unref(buffer);                
-                /* Allocate the raw buffer we use to compute images. */                
+                g_object_unref(buffer);
+                /* Allocate the raw buffer we use to compute images. */
                 this->allocBuffer(i);
             }
 
@@ -258,7 +280,7 @@ void aravisCamera::callback(ArvStreamCallbackType type, ArvBuffer *buffer) {
         setDoubleParam(AravisCompleted, (double) n_completed_buffers);
         setDoubleParam(AravisFailures, (double) n_failures);
         setDoubleParam(AravisUnderruns, (double) n_underruns);
-        callParamCallbacks();        
+        callParamCallbacks();
     }
     this->unlock();
 }
@@ -274,7 +296,7 @@ asynStatus aravisCamera::start() {
         arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
     }
     for (int i=0; i<NRAW; i++) {
-        if (this->pRaw[i]==NULL) this->allocBuffer(i);    
+        if (this->pRaw[i]==NULL) this->allocBuffer(i);
     }
     setIntegerParam(ADNumImagesCounter, 0);
     setIntegerParam(ADStatus, ADStatusAcquire);
@@ -294,11 +316,11 @@ asynStatus aravisCamera::setGeometry() {
     getIntegerParam(ADMinX, &x);
     getIntegerParam(ADMinY, &y);
     getIntegerParam(ADSizeX, &w);
-    getIntegerParam(ADSizeY, &h);  
+    getIntegerParam(ADSizeY, &h);
     getIntegerParam(ADMaxSizeX, &maxW);
-    getIntegerParam(ADMaxSizeY, &maxH);    
+    getIntegerParam(ADMaxSizeY, &maxH);
     getIntegerParam(NDColorMode, &colorMode);
-    getIntegerParam(NDDataType, &dataType);     
+    getIntegerParam(NDDataType, &dataType);
     /* make sure they're sensible */
     if (binx<1) {
         binx = 1;
@@ -306,23 +328,23 @@ asynStatus aravisCamera::setGeometry() {
         status = asynError;
     }
     if (biny<1) {
-        biny = 1;  
+        biny = 1;
         setIntegerParam(ADBinY, biny);
         status = asynError;
-    }        
+    }
     if (w>maxW) {
         w = maxW;
         setIntegerParam(ADSizeX, w);
         status = asynError;
-    }                 
+    }
     if (h>maxH) {
-        h = maxH;        
+        h = maxH;
         setIntegerParam(ADSizeY, h);
         status = asynError;
-    }        
+    }
     /* Send them to the camera */
     arv_camera_set_binning(this->camera, binx, biny);
-    arv_camera_set_region(this->camera, x, y, w/binx, h/biny);    
+    arv_camera_set_region(this->camera, x, y, w/binx, h/biny);
     /* Check they match */
     arv_camera_get_binning(this->camera, &binx_rbv, &biny_rbv);
     arv_camera_get_region(this->camera, &x_rbv, &y_rbv, &w_rbv, &h_rbv);
@@ -332,15 +354,15 @@ asynStatus aravisCamera::setGeometry() {
         setIntegerParam(ADSizeX, w_rbv*binx);
         setIntegerParam(ADSizeY, h_rbv*biny);
         setIntegerParam(ADBinX, binx_rbv);
-        setIntegerParam(ADBinY, biny_rbv);        
+        setIntegerParam(ADBinY, biny_rbv);
         status = asynError;
-    }    
+    }
     /* Set sizes */
     if (colorMode == NDInt16) bps = 2;
-    if (dataType == NDColorModeRGB1) bps *= 3;    
+    if (dataType == NDColorModeRGB1) bps *= 3;
     setIntegerParam(NDArraySize, w_rbv*h_rbv*bps);
     setIntegerParam(NDArraySizeX, w_rbv);
-    setIntegerParam(NDArraySizeY, h_rbv);            
+    setIntegerParam(NDArraySizeY, h_rbv);
     return status;
 }
 
@@ -355,13 +377,13 @@ static const struct pix_lookup pix_lookup[] = {
     { ARV_PIXEL_FORMAT_BAYER_GR_8,    NDColorModeBayer, NDUInt8,  NDBayerGRBG },
     { ARV_PIXEL_FORMAT_BAYER_RG_8,    NDColorModeBayer, NDUInt8,  NDBayerRGGB },
     { ARV_PIXEL_FORMAT_BAYER_GB_8,    NDColorModeBayer, NDUInt8,  NDBayerGBRG },
-    { ARV_PIXEL_FORMAT_BAYER_BG_8,    NDColorModeBayer, NDUInt8,  NDBayerBGGR },    
+    { ARV_PIXEL_FORMAT_BAYER_BG_8,    NDColorModeBayer, NDUInt8,  NDBayerBGGR },
     { ARV_PIXEL_FORMAT_MONO_12,       NDColorModeMono,  NDUInt16, 0           },
-    { ARV_PIXEL_FORMAT_RGB_12_PACKED, NDColorModeRGB1,  NDUInt16, 0           },    
+    { ARV_PIXEL_FORMAT_RGB_12_PACKED, NDColorModeRGB1,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_BAYER_GR_12,   NDColorModeBayer, NDUInt16, NDBayerGRBG },
     { ARV_PIXEL_FORMAT_BAYER_RG_12,   NDColorModeBayer, NDUInt16, NDBayerRGGB },
     { ARV_PIXEL_FORMAT_BAYER_GB_12,   NDColorModeBayer, NDUInt16, NDBayerGBRG },
-    { ARV_PIXEL_FORMAT_BAYER_BG_12,   NDColorModeBayer, NDUInt16, NDBayerBGGR }    
+    { ARV_PIXEL_FORMAT_BAYER_BG_12,   NDColorModeBayer, NDUInt16, NDBayerBGGR }
 };
 
 /** Lookup a colorMode, dataType and bayerFormat from an ArvPixelFormat */
@@ -371,7 +393,7 @@ asynStatus aravisCamera::lookupColorMode(ArvPixelFormat fmt, int *colorMode, int
         if (pix_lookup[i].fmt == fmt) {
             *colorMode   = pix_lookup[i].colorMode;
             *dataType    = pix_lookup[i].dataType;
-            *bayerFormat = pix_lookup[i].bayerFormat;    
+            *bayerFormat = pix_lookup[i].bayerFormat;
             return asynSuccess;
         }
     return asynError;
@@ -383,7 +405,7 @@ asynStatus aravisCamera::lookupPixelFormat(int colorMode, int dataType, int baye
     for (int i = 0; i < N; i ++)
         if (colorMode   == pix_lookup[i].colorMode &&
             dataType    == pix_lookup[i].dataType &&
-            bayerFormat == pix_lookup[i].bayerFormat) {            
+            bayerFormat == pix_lookup[i].bayerFormat) {
             *fmt = pix_lookup[i].fmt;
             return asynSuccess;
         }
@@ -398,7 +420,7 @@ asynStatus aravisCamera::setPixelFormat() {
     int colorMode, dataType, bayerFormat=0;
     /* Get the demands */
     getIntegerParam(NDColorMode, &colorMode);
-    getIntegerParam(NDDataType, &dataType);    
+    getIntegerParam(NDDataType, &dataType);
     /* Lookup the pix format, fail if not supported */
     status = this->lookupPixelFormat(colorMode, dataType, bayerFormat, &fmt);
     if (status) return status;
@@ -412,12 +434,38 @@ asynStatus aravisCamera::setPixelFormat() {
         if (status) return status;
         /* Otherwise set things back */
         setIntegerParam(NDColorMode, colorMode);
-        setIntegerParam(NDDataType, dataType); 
+        setIntegerParam(NDDataType, dataType);
         status = asynError;
     } else {
         status = asynSuccess;
     }
     this->setGeometry();
+    return status;
+}
+
+asynStatus aravisCamera::setIntegerValue(const char *feature, epicsInt32 value, epicsInt32 *rbv) {
+    asynStatus status = asynSuccess;
+    ArvDevice *device = arv_camera_get_device(this->camera);
+	arv_device_set_integer_feature_value (device, feature, value);
+	if (rbv != NULL) {
+		*rbv = arv_device_get_integer_feature_value (device, feature);
+		if (value != *rbv) {
+			status = asynError;
+		}
+	}
+    return status;
+}
+
+asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, epicsFloat64 *rbv) {
+    asynStatus status = asynSuccess;
+    ArvDevice *device = arv_camera_get_device(this->camera);
+    arv_device_set_float_feature_value (device, feature, value);
+	if (rbv != NULL) {
+		*rbv = arv_device_get_float_feature_value (device, feature);
+		if (fabs(value - *rbv) > 0.001) {
+			status = asynError;
+		}
+	}
     return status;
 }
 
@@ -430,6 +478,7 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
 {
     int function = pasynUser->reason;
     asynStatus status = asynSuccess;
+    epicsInt32 rbv;
 
     /* Set the parameter and readback in the parameter library.  This may be overwritten when we read back the
      * status at the end, but that's OK */
@@ -445,13 +494,13 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
         } else {
             /* This was a command to stop acquisition */
             arv_camera_stop_acquisition (this->camera);
-            setIntegerParam(ADStatus, ADStatusIdle);                            
+            setIntegerParam(ADStatus, ADStatusIdle);
         }
     } else if (function == ADBinX || function == ADBinY || function == ADMinX || function == ADMinY || function == ADSizeX || function == ADSizeY) {
         status = this->setGeometry();
     } else if (function == ADReverseX || function == ADReverseY || function == ADFrameType) {
         /* not supported yet */
-        status = asynError;
+        if (value) status = asynError;
     } else if (function == ADTriggerMode) {
         /* need a lookup on value, but how to get possible strings? */
         status = asynError;
@@ -463,6 +512,31 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
         }
     } else if (function == NDDataType || function == NDColorMode) {
         status = this->setPixelFormat();
+    } else if (function == AravisGainAuto) {
+    	status = this->setIntegerValue("GainAuto", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
+    } else if (function == AravisGainAutoTarget) {
+    	status = this->setIntegerValue("GainAutoTarget", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
+    } else if (function == AravisIrisAuto) {
+    	printf("Iris Auto %d\n", value);
+    	status = this->setIntegerValue("IrisAuto", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
+    } else if (function == AravisIrisAutoTarget) {
+    	status = this->setIntegerValue("IrisAutoTarget", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
+    } else if (function == AravisExpAuto) {
+    	status = this->setIntegerValue("ExposureAuto", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
+    } else if (function == AravisExpAutoTarget) {
+    	status = this->setIntegerValue("ExposureAutoTarget", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
+    } else if (function == AravisExpAutoAlg) {
+    	status = this->setIntegerValue("ExposureAutoAlg", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
+    } else if (function == AravisWBAuto) {
+    	status = this->setIntegerValue("BalanceWhiteAuto", value, &rbv);
+    	if (status) setIntegerParam(function, rbv);
     } else {
         /* If this parameter belongs to a base class call its method */
         if (function < FIRST_ARAVIS_CAMERA_PARAM) {
@@ -485,6 +559,11 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
     return status;
 }
 
+gboolean aravisCamera::hasFeature(const char *feature) {
+	ArvGc *genicam;
+	genicam = arv_device_get_genicam(ARV_DEVICE(arv_camera_get_device(this->camera)));
+	return g_hash_table_lookup_extended(genicam->nodes, feature, NULL, NULL);
+}
 
 /** Called when asyn clients call pasynFloat64->write().
   * This function performs actions for some parameters, including ADAcquireTime, ADGain, etc.
@@ -505,19 +584,25 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
     if (this->camera == NULL) {
         status = asynError;
     } else if (function == ADGain) {
-        arv_camera_set_gain(this->camera, (gint64)value);
-        rbv = arv_camera_get_gain(this->camera);
-        if (fabs(rbv-value)>0.001) {
-            setDoubleParam(function, rbv);
-            status = asynError;
-        }
+    	if (this->hasFeature("Gain")) {
+    		status = this->setFloatValue("Gain", value, &rbv);
+    	} else {
+    		epicsInt32 i_rbv, i_value = (epicsInt32) value;
+    		status = this->setIntegerValue("GainRaw", i_value, &i_rbv);
+    		rbv = i_rbv;
+    	}
+    	if (status) setDoubleParam(function, rbv);
     } else if (function == ADAcquireTime) {
-        arv_camera_set_exposure_time(this->camera, value * 1000000);
-        rbv = arv_camera_get_exposure_time(this->camera) / 1000000;
-        if (fabs(rbv-value)>0.001) {
-            setDoubleParam(function, rbv);
-            status = asynError;
-        }
+    	status = this->setFloatValue("ExposureTimeAbs", value * 1000000, &rbv);
+    	if (status) setDoubleParam(function, rbv / 1000000);
+    } else if (function == AravisWBRed) {
+    	this->setIntegerValue("BalanceRatioSelector", 0, NULL);
+    	status = this->setFloatValue("BalanceRatioAbs", value, &rbv);
+    	if (status) setDoubleParam(function, rbv);
+    } else if (function == AravisWBBlue) {
+    	this->setIntegerValue("BalanceRatioSelector", 1, NULL);
+    	status = this->setFloatValue("BalanceRatioAbs", value, &rbv);
+    	if (status) setDoubleParam(function, rbv);
     } else if (function == ADAcquirePeriod) {
         if (value > 0) {
             arv_camera_set_frame_rate(this->camera, 1 / value);
@@ -571,9 +656,6 @@ void aravisCamera::report(FILE *fp, int details)
   * After calling the base class constructor this method creates a thread to compute the GigE detector data,
   * and sets reasonable default values for parameters defined in this class, asynNDArrayDriver and ADDriver.
   * \param[in] portName The name of the asyn port driver to be created.
-  * \param[in] maxSizeX The maximum X dimension of the images that this driver can create.
-  * \param[in] maxSizeY The maximum Y dimension of the images that this driver can create.
-  * \param[in] dataType The initial data type (NDDataType_t) of the images that this driver will create.
   * \param[in] maxBuffers The maximum number of NDArray buffers that the NDArrayPool for this driver is
   *            allowed to allocate. Set this to -1 to allow an unlimited number of buffers.
   * \param[in] maxMemory The maximum amount of memory that the NDArrayPool for this driver is
@@ -595,31 +677,45 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     const char *functionName = "aravisCamera";
     int x,y,w,h,binx,biny;
     ArvPixelFormat fmt;
-    int colorMode, dataType, bayerFormat=0;    
-    
+    int colorMode, dataType, bayerFormat=0;
+    const char *vendor, *model;
+
     /* Create some custom parameters */
-    createParam(AravisCompletedString, asynParamFloat64, &AravisCompleted);
-    createParam(AravisFailuresString,  asynParamFloat64, &AravisFailures);
-    createParam(AravisUnderrunsString, asynParamFloat64, &AravisUnderruns);
+    createParam(AravisCompletedString,      asynParamFloat64, &AravisCompleted);
+    createParam(AravisFailuresString,       asynParamFloat64, &AravisFailures);
+    createParam(AravisUnderrunsString,      asynParamFloat64, &AravisUnderruns);
+    createParam(AravisGainAutoString,       asynParamInt32,   &AravisGainAuto);
+    createParam(AravisGainAutoTargetString, asynParamInt32,   &AravisGainAutoTarget);
+    createParam(AravisIrisAutoString,       asynParamInt32,   &AravisIrisAuto);
+    createParam(AravisIrisAutoTargetString, asynParamInt32,   &AravisIrisAutoTarget);
+    createParam(AravisWBAutoString,         asynParamInt32,   &AravisWBAuto);
+    createParam(AravisWBRedString,          asynParamFloat64, &AravisWBRed);
+    createParam(AravisWBBlueString,         asynParamFloat64, &AravisWBBlue);
+    createParam(AravisExpAutoString,        asynParamInt32,   &AravisExpAuto);
+    createParam(AravisExpAutoTargetString,  asynParamInt32,   &AravisExpAutoTarget);
+    createParam(AravisExpAutoAlgString,     asynParamInt32,   &AravisExpAutoAlg);
 
     /* Connect to the camera */
     g_thread_init (NULL);
     g_type_init ();
-    g_print ("Looking for camera '%s'\n", cameraName);
+    g_print ("Looking for camera '%s'... ", cameraName);
     this->camera = arv_camera_new (cameraName);
     if (this->camera == NULL) {
         printf ("No camera found\n");
         return;
     } else {
+        printf ("Found %p\n", this->camera);
         this->stream = arv_camera_create_stream (this->camera, aravisCallback, (void *) this);
-        arv_gv_stream_set_option (ARV_GV_STREAM (this->stream), ARV_GV_STREAM_OPTION_SOCKET_BUFFER_AUTO, 0);      
+        arv_gv_stream_set_option (ARV_GV_STREAM (this->stream), ARV_GV_STREAM_OPTION_SOCKET_BUFFER_AUTO, 0);
         arv_gv_stream_set_packet_resend (ARV_GV_STREAM (this->stream), ARV_GV_STREAM_PACKET_RESEND_ALWAYS);
     }
-    
+
     /* Set some default values for parameters */
-    status =  setStringParam (ADManufacturer, arv_camera_get_vendor_name(this->camera));
-    status |= setStringParam (ADModel, arv_camera_get_model_name(this->camera));
-    status |= setDoubleParam(ADGain, arv_camera_get_gain(this->camera));    
+    vendor = arv_camera_get_vendor_name(this->camera);
+    if (vendor) status |= setStringParam (ADManufacturer, vendor);
+    model = arv_camera_get_model_name(this->camera);
+    if (model) status |= setStringParam (ADModel, model);
+    status = setDoubleParam(ADGain, arv_camera_get_gain(this->camera));
     arv_camera_get_sensor_size(this->camera, &w, &h);
     status |= setIntegerParam(ADMaxSizeX, w);
     status |= setIntegerParam(ADMaxSizeY, h);
@@ -627,16 +723,16 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     this->bufferSize = w * h * 3 * 2;
     this->bufferDims[0] = w;
     this->bufferDims[1] = h;
-    arv_camera_get_region(this->camera, &x, &y, &w, &h);    
+    arv_camera_get_region(this->camera, &x, &y, &w, &h);
     status |= setIntegerParam(ADMinX, x);
     status |= setIntegerParam(ADMinY, y);
-    arv_camera_get_binning(this->camera, &binx, &biny);    
+    arv_camera_get_binning(this->camera, &binx, &biny);
     status |= setIntegerParam(ADBinX, x);
-    status |= setIntegerParam(ADBinY, y);    
+    status |= setIntegerParam(ADBinY, y);
     status |= setIntegerParam(ADSizeX, binx*w);
     status |= setIntegerParam(ADSizeY, biny*h);
     status |= setIntegerParam(ADReverseX, 0);
-    status |= setIntegerParam(ADReverseY, 0);    
+    status |= setIntegerParam(ADReverseY, 0);
     status |= setIntegerParam(NDArraySize, x*y);
     status |= setIntegerParam(ADImageMode, ADImageContinuous);
     status |= setDoubleParam (ADAcquireTime, arv_camera_get_exposure_time(this->camera) / 1000000);
@@ -646,18 +742,17 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     status |= setDoubleParam(AravisFailures, 0);
     status |= setDoubleParam(AravisUnderruns, 0);
     fmt = arv_camera_get_pixel_format(this->camera);
-       status |= this->lookupColorMode(fmt, &colorMode, &dataType, &bayerFormat);
+    status |= this->lookupColorMode(fmt, &colorMode, &dataType, &bayerFormat);
     status |= setIntegerParam(NDColorMode, colorMode);
     status |= setIntegerParam(NDDataType, dataType);
     status |= this->setGeometry();
 
-    if (status) {
-        printf("%s: unable to set camera parameters\n", functionName);
-        return;
-    }
-
     /* Clear buffers */
     for (int i=0; i<NRAW; i++) this->pRaw[i]=NULL;
+
+    if (status) {
+        printf("%s: unable to set camera parameters\n", functionName);
+    }
 
     /* Register the shutdown function for epicsAtExit */
     epicsAtExit(aravisShutdown, (void*)this);

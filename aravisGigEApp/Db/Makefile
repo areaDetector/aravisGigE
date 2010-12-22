@@ -12,6 +12,7 @@ include $(TOP)/configure/CONFIG
 # templates like this
 #
 DB += aravisCamera.template
+DB += aravisProsilica.template
 
 include $(TOP)/configure/RULES
 #----------------------------------------
