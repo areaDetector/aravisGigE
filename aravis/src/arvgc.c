@@ -294,7 +294,6 @@ arv_gc_parse_xml (ArvGc *genicam, const char *xml, size_t size)
 	state.genicam = genicam;
 
 	xmlSAXUserParseMemory (&sax_handler, &state, xml, size);
-/*	printf("%s\n", xml);*/
 }
 
 /**
