@@ -18,13 +18,16 @@ aravisCamera_SRCS += aravisCamera.cpp
 
 DBD += aravisCameraSupport.dbd
 
+# If glib is not in a standard place, tell the build system where to look
+ifneq ($(GLIBPREFIX),)
+	USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
+	USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
+	glib-2.0_DIR = $(GLIBPREFIX)/lib
+endif	
+
 # We need to link against aravis
-USR_INCLUDES += -I/dls_sw/work/common/glibnew/lib/glib-2.0/include
-USR_INCLUDES += -I/dls_sw/work/common/glibnew/include/glib-2.0
 USR_INCLUDES += -I$(TOP)/include/aravis
 USR_LIBS += glib-2.0
 USR_LIBS += aravis
-glib-2.0_DIR = /dls_sw/work/common/glibnew/lib
-aravis_DIR = /dls_sw/work/common/glibnew/lib
 
 include $(TOP)/configure/RULES

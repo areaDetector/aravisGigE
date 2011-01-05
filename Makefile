@@ -22,12 +22,16 @@ DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard etc))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocs))
 include $(TOP)/configure/RULES_TOP
 
+# this makes aravis
 FULLTOP=$(shell pwd)
 CONFIGOPTIONS = --bindir=$(FULLTOP)/bin/$(EPICS_HOST_ARCH)
-CONFIGOPTIONS += --libdir=$(FULLTOP)/lib/$(EPICS_HOST_ARCH)
-CONFIGOPTIONS += --datarootdir=$(FULLTOP)/doc
-CONFIGOPTIONS += --prefix=$(FULLTOP)
+CONFIGOPTIONS += --libdir=$(FULLTOP)/lib/$(EPICS_HOST_ARCH)  
+CONFIGOPTIONS += --with-html-dir=$(FULLTOP)/documentation
+CONFIGOPTIONS += --prefix=/tmp/aravis-install
 CONFIGOPTIONS += --disable-nls --disable-gstreamer --disable-cairo
-
+ENVEXPORTS =
+ifneq ($(GLIBPREFIX),)
+	ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
+endif
 $(TOP)/aravis/Makefile:
-	(cd aravis; export PKG_CONFIG_PATH=/dls_sw/work/common/glibnew/lib/pkgconfig; export PATH=${PATH}:/dls_sw/work/common/glibnew/bin; sh configure $(CONFIGOPTIONS))
+	(cd aravis; $(ENVEXPORTS) sh configure $(CONFIGOPTIONS))
