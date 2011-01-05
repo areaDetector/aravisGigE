@@ -90,9 +90,56 @@ record(mbbi, "$(P)$(R)ColorMode_RBV")
    field(SVVL, "")
 }
 
+record(mbbo, "$(P)$(R)TriggerMode")
+{
+   field(ZRST, "Freerun")
+   field(ZRVL, "0")
+   field(ONST, "Line1")
+   field(ONVL, "1")
+   field(TWST, "Line2")
+   field(TWVL, "2")
+   field(THST, "Line3")
+   field(THVL, "3")
+   field(FRST, "Line4")
+   field(FRVL, "4")
+   field(FVST, "FixedRate")
+   field(FVVL, "5")
+   field(SXST, "Software")
+   field(SXVL, "6")
+   field(PINI, "NO")
+}
+
+record(mbbi, "$(P)$(R)TriggerMode_RBV")
+{
+   field(ZRST, "Freerun")
+   field(ZRVL, "0")
+   field(ONST, "Line1")
+   field(ONVL, "1")
+   field(TWST, "Line2")
+   field(TWVL, "2")
+   field(THST, "Line3")
+   field(THVL, "3")
+   field(FRST, "Line4")
+   field(FRVL, "4")
+   field(FVST, "FixedRate")
+   field(FVVL, "5")
+   field(SXST, "Software")
+   field(SXVL, "6")
+}
+
+record(ao, "$(P)$(R)Gain")
+{
+   field(PREC, "0")
+}
+
+record(ai, "$(P)$(R)Gain_RBV")
+{
+   field(PREC, "0")
+   field(EGU,  "dB")   
+}
+
 record(mbbo, "$(P)$(R)GainAuto")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_GAINAUTO")
    field(ZRST, "Off")
@@ -101,7 +148,6 @@ record(mbbo, "$(P)$(R)GainAuto")
    field(ONVL, "3")
    field(TWST, "Continuous")
    field(TWVL, "2")
-   field(VAL,  "0")
 }
 
 record(mbbi, "$(P)$(R)GainAuto_RBV")
@@ -120,12 +166,10 @@ record(mbbi, "$(P)$(R)GainAuto_RBV")
 
 record(ao, "$(P)$(R)GainAutoTarget")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_GAINAUTOTARGET")
    field(DRVH, "100")
    field(DRVL, "0")
-   field(VAL,  "0")
 }
 
 record(ai, "$(P)$(R)GainAutoTarget_RBV")
@@ -133,11 +177,11 @@ record(ai, "$(P)$(R)GainAutoTarget_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_GAINAUTOTARGET")
    field(SCAN, "I/O Intr")   
+   field(EGU,  "%")   
 }
 
 record(mbbo, "$(P)$(R)WBAuto")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_WBAUTO")
    field(ZRST, "Off")
@@ -146,7 +190,6 @@ record(mbbo, "$(P)$(R)WBAuto")
    field(ONVL, "3")
    field(TWST, "Continuous")
    field(TWVL, "2")
-   field(VAL,  "0")
 }
 
 record(mbbi, "$(P)$(R)WBAuto_RBV")
@@ -165,12 +208,10 @@ record(mbbi, "$(P)$(R)WBAuto_RBV")
 
 record(ao, "$(P)$(R)WBRed")
 {
-   field(PINI, "YES")
    field(DTYP, "asynFloat64")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_WBRED")
    field(DRVH, "3.1")
    field(DRVL, "0.8")
-   field(VAL,  "1")
    field(PREC, "2")
 }
 
@@ -184,12 +225,10 @@ record(ai, "$(P)$(R)WBRed_RBV")
 
 record(ao, "$(P)$(R)WBBlue")
 {
-   field(PINI, "YES")
    field(DTYP, "asynFloat64")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_WBBLUE")
    field(DRVH, "3.1")
    field(DRVL, "0.8")
-   field(VAL,  "1")
    field(PREC, "2")   
 }
 
@@ -203,7 +242,6 @@ record(ai, "$(P)$(R)WBBlue_RBV")
 
 record(mbbo, "$(P)$(R)ExpAuto")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_EXPAUTO")
    field(ZRST, "Off")
@@ -212,7 +250,6 @@ record(mbbo, "$(P)$(R)ExpAuto")
    field(ONVL, "3")
    field(TWST, "Continuous")
    field(TWVL, "2")
-   field(VAL,  "0")
 }
 
 record(mbbi, "$(P)$(R)ExpAuto_RBV")
@@ -230,31 +267,28 @@ record(mbbi, "$(P)$(R)ExpAuto_RBV")
 
 record(ao, "$(P)$(R)ExpAutoTarget")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_EXPAUTOTARGET")
    field(DRVH, "100")
    field(DRVL, "0")
-   field(VAL,  "0")
 }
 
 record(ai, "$(P)$(R)ExpAutoTarget_RBV")
 {
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_EXPAUTOTARGET")
-   field(SCAN, "I/O Intr")   
+   field(SCAN, "I/O Intr")
+   field(EGU,  "%")
 }
 
 record(mbbo, "$(P)$(R)ExpAutoAlg")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_EXPAUTOALG")
    field(ZRST, "Mean")
    field(ZRVL, "0")
    field(ONST, "FitRange")
    field(ONVL, "1")
-   field(VAL,  "0")
 }
 
 record(mbbi, "$(P)$(R)ExpAutoAlg_RBV")
@@ -270,7 +304,6 @@ record(mbbi, "$(P)$(R)ExpAutoAlg_RBV")
 
 record(mbbo, "$(P)$(R)IrisAuto")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_IRISAUTO")
    field(ZRST, "Disabled")
@@ -281,7 +314,6 @@ record(mbbo, "$(P)$(R)IrisAuto")
    field(TWVL, "3")
    field(THST, "VideoClosed")
    field(THVL, "4")   
-   field(VAL,  "0")
 }
 
 record(mbbi, "$(P)$(R)IrisAuto_RBV")
@@ -301,17 +333,40 @@ record(mbbi, "$(P)$(R)IrisAuto_RBV")
 
 record(ao, "$(P)$(R)IrisAutoTarget")
 {
-   field(PINI, "YES")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_IRISAUTOTARGET")
    field(DRVH, "100")
    field(DRVL, "0")
-   field(VAL,  "0")
 }
 
 record(ai, "$(P)$(R)IrisAutoTarget_RBV")
 {
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_IRISAUTOTARGET")
+   field(SCAN, "I/O Intr") 
+   field(EGU,  "%")
+}
+
+record(ai, "$(P)$(R)IrisVideoLevel_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_IRISVIDEOLEVEL")
    field(SCAN, "I/O Intr")   
+   field(EGU,  "mV pp")
+}
+
+record(ai, "$(P)$(R)IrisVideoLevelMin_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_IRISVIDEOLEVELMIN")
+   field(SCAN, "I/O Intr")   
+   field(EGU,  "mV pp")   
+}
+
+record(ai, "$(P)$(R)IrisVideoLevelMax_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_IRISVIDEOLEVELMAX")
+   field(SCAN, "I/O Intr") 
+   field(EGU,  "mV pp")
 }

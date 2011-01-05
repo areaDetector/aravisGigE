@@ -8,6 +8,7 @@
 #% macro, PORT, Asyn Port name
 #% macro, TIMEOUT, Timeout
 #% macro, ADDR, Asyn Port address
+#% macro, UPDATE, Update rate
 # % macro, gda_name, Name to expose to GDA
 # % gui, $(PORT), edmtab, aravisCamera.edl, P=$(P),R=$(R)
 
@@ -35,3 +36,9 @@ record(ai, "$(P)$(R)UNDERRUNS_RBV")
    field(SCAN, "I/O Intr")
 }
 
+record(longout, "$(P)$(R)UPDATE")
+{
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_UPDATE")
+   field(SCAN, "$(UPDATE=5 second)")
+}

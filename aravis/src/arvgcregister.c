@@ -169,7 +169,7 @@ _read_cache (ArvGcRegister *gc_register)
 
 	if (gc_register->is_cache_valid == TRUE) {
 		arv_debug ("genicam", "[GcRegister::read_cache] Cache is valid");
-		return;
+/*		return;*/
 	}
 
 	genicam = arv_gc_node_get_genicam (ARV_GC_NODE (gc_register));
