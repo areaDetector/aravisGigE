@@ -1,0 +1,24 @@
+GevCCPReg                     (0a00) = 00000002
+GevHeartbeatTimeoutReg        (0938) = 000007d0
+unknown                       (b804) = 00000000
+unknown                       (b804) = 00000000
+GevSCDAReg                    (0d18) = c0a80001
+GevSCPHostPortReg             (0d00) = 00000816
+GevSCPSPacketSizeReg          (0d04) = c0001fe4
+GevSCPSPacketSizeReg          (0d04) = c0000fe4
+GevSCPSPacketSizeReg          (0d04) = c00007e4
+GevSCPSPacketSizeReg          (0d04) = c00003e4
+GevSCPSPacketSizeReg          (0d04) = c00005a4
+GevSCPHostPortReg             (0d00) = 00000000
+GevSCDAReg                    (0d18) = c0a80001
+GevSCPHostPortReg             (0d00) = 00000817
+GevMCDAReg                    (0b10) = c0a80001
+GevMCPHostPortReg             (0b00) = 00000818
+GevSCPSPacketSizeReg          (0d04) = 40000580
+GevHeartbeatTimeoutReg        (0938) = 000007d0
+AcquisitionModeReg            (d310) = 00000000
+AcquisitionStartReg           (d314) = 00000001
+
+The important one is the SCDA which must be set as a register write before
+starting acquisition, see test6740
+
