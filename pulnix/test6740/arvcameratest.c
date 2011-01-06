@@ -184,8 +184,12 @@ main (int argc, char **argv)
 		if (arv_option_trigger != NULL)
 			arv_camera_set_trigger (camera, arv_option_trigger);
 
-                /* JR - needed for pulnix cameras */
-                pulnix_set_stream_address(camera);
+                /* JR - needed for pulnix cameras
+                   before patching create_stream to use register_write
+                   not needed after patch
+                */
+
+                // pulnix_set_stream_address(camera);
 
 		arv_camera_start_acquisition (camera);
 
