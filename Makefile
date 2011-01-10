@@ -26,6 +26,7 @@ include $(TOP)/configure/RULES_TOP
 FULLTOP=$(shell pwd)
 CONFIGOPTIONS = --bindir=$(FULLTOP)/bin/$(EPICS_HOST_ARCH)
 CONFIGOPTIONS += --libdir=$(FULLTOP)/lib/$(EPICS_HOST_ARCH)  
+CONFIGOPTIONS += --includedir=$(FULLTOP)/include
 CONFIGOPTIONS += --with-html-dir=$(FULLTOP)/documentation
 CONFIGOPTIONS += --prefix=/tmp/aravis-install
 CONFIGOPTIONS += --disable-nls --disable-gstreamer --disable-cairo

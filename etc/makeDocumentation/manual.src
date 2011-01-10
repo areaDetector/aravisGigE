@@ -1,28 +1,38 @@
 /**
 \mainpage aravisGigE EPICS Support Module
 \section intro_sec Introduction
-I'm going to describe the module here, possibly with a <a href="http://www.google.co.uk">web link to the manufacturers webpage</a>. \n
-You can also link to \ref thing.vdb "internally generated documentation" with alternate text, or by just by mentioning its name, e.g. thing.vdb
+This module is a thin wrapper to the aravis library for GigE cameras. It 
+supports any GigE vision camera, and an epics driver is provided for common
+parameters, but complicated cameras will still need a separate database, screen,
+and code for their advanced functions.
+
+The documentation here is top level documentation on creating an IOC with an
+aravisCamera areaDetector driver:
+- aravisCamera: areaDetector driver class
+- aravisCamera.template: Basic template that should be instantiated for any 
+  camera
+- aravisProsilica.template: Add-on template with some extra records for a 
+  prosilica camera.
+  
+If you need to add another type of similar camera, you should copy 
+aravisProsilica.template and make your additions there, before changing 
+aravisCamera.cpp to add the new epics parameters. If you have a more complicated
+camera you will need to subclass aravisCamera()
+
+If you need to change the code, please read the <a href="../aravis/index.html">
+documentation for the aravis library</a>.
 
 \section inst_sec Installation
 - Need glib >= 2.22 (tested with 2.24)
 - Modify configure/RELEASE if you have installed glib in an unusual place
+- Requires areaDetector 1-6
 
 \section bugs_sec Known Bugs
-- I'm going to describe any known bugs here
-
-\section user_sec User Manual
-The \subpage user_manual page contains instructions for the end user
+- Unplugging the camera while it's acquiring causes a crash
 
 \section build_sec Build Instructions 
 - \subpage build_instructions_example
 
 IOCs build using these build instructions are available in iocs/
-**/
 
-/* Build instructions page will be generated from the xml file given to dls-xml-iocbuilder.py --doc */
-
-/**
-\page user_manual User Manual
-This needs to be hand generated. You can link directly to this page from the edm screen if you want
-**/
+*/
