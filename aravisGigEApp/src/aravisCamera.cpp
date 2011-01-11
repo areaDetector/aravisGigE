@@ -627,7 +627,7 @@ asynStatus aravisCamera::getAllFeatures() {
 	if (status) printf("Error getting float values\n");
 
 	/* Special cases for white balance red and blue */
-	if (this->hasFeature("BalanceRationSelector")) {
+	if (this->hasFeature("BalanceRatioSelector")) {
 		this->setIntegerValue("BalanceRatioSelector", 0, NULL);
 		floatValue = arv_device_get_float_feature_value (this->device, "BalanceRatioAbs");
 		status |= setDoubleParam(AravisWBRed, floatValue);
