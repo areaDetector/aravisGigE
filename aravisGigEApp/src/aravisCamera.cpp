@@ -93,6 +93,8 @@ private:
     GHashTable* featureFloat;
     asynStatus allocBuffer(int i);
     asynStatus start();
+    asynStatus getBinning(int *binx, int *biny);
+    asynStatus setBinning(int binx, int biny);
     asynStatus setGeometry();
     asynStatus lookupColorMode(ArvPixelFormat fmt, int *colorMode, int *dataType, int *bayerFormat);
     asynStatus lookupPixelFormat(int colorMode, int dataType, int bayerFormat, ArvPixelFormat *fmt);
@@ -354,12 +356,66 @@ asynStatus aravisCamera::start() {
     return asynSuccess;
 }
 
+struct bin_lookup {
+    const char * mode;
+    int binx, biny;
+};
+
+static const struct bin_lookup bin_lookup[] = {
+    { "Binning1x1", 1, 1 },
+    { "Binning1x2", 1, 2 },
+    { "Binning1x4", 1, 4 },
+    { "Binning2x1", 2, 1 },
+    { "Binning2x2", 2, 2 },
+    { "Binning2x4", 2, 4 },
+    { "Binning4x1", 4, 1 },
+    { "Binning4x2", 4, 2 },
+    { "Binning4x4", 4, 4 }
+};
+
+asynStatus aravisCamera::getBinning(int *binx, int *biny) {
+	if (this->hasFeature("BinningMode")) {
+		/* lookup the enum */
+	    const int N = sizeof(bin_lookup) / sizeof(struct bin_lookup);
+	    const char *mode = arv_device_get_string_feature_value (this->device, "BinningMode");
+	    for (int i = 0; i < N; i ++)
+	        if (strcmp(bin_lookup[i].mode, mode) == 0) {
+	            *binx   = bin_lookup[i].binx;
+	            *biny   = bin_lookup[i].biny;
+	            return asynSuccess;
+	        }
+	    return asynError;
+	} else {
+		*binx = arv_device_get_integer_feature_value (this->device, "BinningHorizontal");
+		*biny = arv_device_get_integer_feature_value (this->device, "BinningVertical");
+		return asynSuccess;
+	}
+}
+
+asynStatus aravisCamera::setBinning(int binx, int biny) {
+	if (this->hasFeature("BinningMode")) {
+		/* lookup the enum */
+	    const int N = sizeof(bin_lookup) / sizeof(struct bin_lookup);
+	    for (int i = 0; i < N; i ++)
+	        if (binx == bin_lookup[i].binx &&
+	        	biny == bin_lookup[i].biny) {
+	            arv_device_set_string_feature_value (this->device, "BinningMode", bin_lookup[i].mode);
+	            return asynSuccess;
+	        }
+	    return asynError;
+	} else {
+		arv_device_set_integer_feature_value (this->device, "BinningHorizontal", binx);
+		arv_device_set_integer_feature_value (this->device, "BinningVertical", biny);
+		return asynSuccess;
+	}
+}
+
 /** Change camera binning
     this->camera exists, lock taken */
 asynStatus aravisCamera::setGeometry() {
     asynStatus status = asynSuccess;
-    gint binx_rbv, biny_rbv, x_rbv, y_rbv, w_rbv, h_rbv;
-    int binx, biny, x, y, w, h, maxW, maxH, colorMode, dataType, bps=1;
+    gint x_rbv, y_rbv, w_rbv, h_rbv;
+    int binx_rbv, biny_rbv, binx, biny, x, y, w, h, maxW, maxH, colorMode, dataType, bps=1;
     /* Get the demands */
     getIntegerParam(ADBinX, &binx);
     getIntegerParam(ADBinY, &biny);
@@ -393,10 +449,10 @@ asynStatus aravisCamera::setGeometry() {
         status = asynError;
     }
     /* Send them to the camera */
-    arv_camera_set_binning(this->camera, binx, biny);
+    this->setBinning(binx, biny);
     arv_camera_set_region(this->camera, x, y, w/binx, h/biny);
     /* Check they match */
-    arv_camera_get_binning(this->camera, &binx_rbv, &biny_rbv);
+    this->getBinning(&binx_rbv, &biny_rbv);
     arv_camera_get_region(this->camera, &x_rbv, &y_rbv, &w_rbv, &h_rbv);
     if (x != x_rbv || y != y_rbv || w/binx != w_rbv || h/biny != h_rbv || binx != binx_rbv || biny != biny_rbv) {
         setIntegerParam(ADMinX, x_rbv);
@@ -516,6 +572,7 @@ gboolean aravisCamera::hasFeature(const char *feature) {
 
 asynStatus aravisCamera::setIntegerValue(const char *feature, epicsInt32 value, epicsInt32 *rbv) {
     asynStatus status = asynSuccess;
+    if (feature == NULL) return asynError;
 	arv_device_set_integer_feature_value (this->device, feature, value);
 	if (rbv != NULL) {
 		*rbv = arv_device_get_integer_feature_value (this->device, feature);
@@ -528,6 +585,7 @@ asynStatus aravisCamera::setIntegerValue(const char *feature, epicsInt32 value, 
 
 asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, epicsFloat64 *rbv) {
     asynStatus status = asynSuccess;
+    if (feature == NULL) return asynError;
     arv_device_set_float_feature_value (this->device, feature, value);
 	if (rbv != NULL) {
 		*rbv = arv_device_get_float_feature_value (this->device, feature);
@@ -540,6 +598,7 @@ asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, 
 
 asynStatus aravisCamera::setStringValue(const char *feature, const char *value) {
     asynStatus status = asynSuccess;
+    if (feature == NULL) return asynError;
     arv_device_set_string_feature_value (this->device, feature, value);
     return status;
 }
@@ -568,13 +627,15 @@ asynStatus aravisCamera::getAllFeatures() {
 	if (status) printf("Error getting float values\n");
 
 	/* Special cases for white balance red and blue */
-	this->setIntegerValue("BalanceRatioSelector", 0, NULL);
-	floatValue = arv_device_get_float_feature_value (this->device, "BalanceRatioAbs");
-	status |= setDoubleParam(AravisWBRed, floatValue);
-	this->setIntegerValue("BalanceRatioSelector", 1, NULL);
-	floatValue = arv_device_get_float_feature_value (this->device, "BalanceRatioAbs");
-	status |= setDoubleParam(AravisWBBlue, floatValue);
-	if (status) printf("Error getting wb values\n");
+	if (this->hasFeature("BalanceRationSelector")) {
+		this->setIntegerValue("BalanceRatioSelector", 0, NULL);
+		floatValue = arv_device_get_float_feature_value (this->device, "BalanceRatioAbs");
+		status |= setDoubleParam(AravisWBRed, floatValue);
+		this->setIntegerValue("BalanceRatioSelector", 1, NULL);
+		floatValue = arv_device_get_float_feature_value (this->device, "BalanceRatioAbs");
+		status |= setDoubleParam(AravisWBBlue, floatValue);
+		if (status) printf("Error getting wb values\n");
+	}
 
 	/* Set integer values */
 	keys = g_hash_table_get_keys(this->featureInteger);
@@ -582,8 +643,8 @@ asynStatus aravisCamera::getAllFeatures() {
 		index = (int *) g_list_nth_data(keys, j);
 		feature = (const char *) g_hash_table_lookup(this->featureInteger, index);
 		integerValue = arv_device_get_integer_feature_value (this->device, feature);
-		if (strcmp(feature, "GainRaw") == 0) {
-			/* GainRaw happens to be an integer, no idea why... */
+		if (*index == ADGain) {
+			/* Gain is sometimes an integer */
 			status |= setDoubleParam(*index, integerValue);
 		} else {
 			status |= setIntegerParam(*index, integerValue);
@@ -613,6 +674,7 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
 
     /* Set the parameter and readback in the parameter library.  This may be overwritten when we read back the
      * status at the end, but that's OK */
+    getIntegerParam(function, &rbv);
     status = setIntegerParam(function, value);
 
     /* If we have no camera, then just fail */
@@ -682,15 +744,18 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
 
     /* Set the parameter and readback in the parameter library.  This may be overwritten when we read back the
      * status at the end, but that's OK */
+    getDoubleParam(function, &rbv);
     status = setDoubleParam(function, value);
 
     /* If we have no camera, then just fail */
     if (this->camera == NULL) {
         status = asynError;
     } else if (function == ADGain) {
-    	if (this->hasFeature("GainRaw")) {
+    	if (g_hash_table_lookup_extended(this->featureInteger, &function, NULL, NULL)) {
     		epicsInt32 i_rbv, i_value = (epicsInt32) value;
-    		status = this->setIntegerValue("GainRaw", i_value, &i_rbv);
+    		featureName = (char *) g_hash_table_lookup(this->featureInteger, &function);
+    		status = this->setIntegerValue(featureName, i_value, &i_rbv);
+    		if (strcmp("GainRawChannelA", featureName) == 0) this->setIntegerValue("GainRawChannelB", i_value, NULL);
     		rbv = i_rbv;
     	} else {
     		featureName = (char *) g_hash_table_lookup(this->featureFloat, &function);
@@ -818,7 +883,9 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     if (model) status |= setStringParam (ADModel, model);
 
     /* Set gain */
-	if (this->hasFeature("Gain")) {
+    if (this->hasFeature("GainRawChannelA")) {
+    	g_hash_table_insert(this->featureInteger, &ADGain, (gpointer)"GainRawChannelA");
+    } else if (this->hasFeature("Gain")) {
 		g_hash_table_insert(this->featureFloat, &ADGain, (gpointer)"Gain");
 	} else if (this->hasFeature("GainRaw")){
 		g_hash_table_insert(this->featureInteger, &ADGain, (gpointer)"GainRaw");
@@ -837,8 +904,10 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
 	}
 
 	/* These are needed for prosilica/AVT cameras to use triggering for each frame */
-	this->setStringValue("TriggerSelector", "FrameStart");
-	this->setStringValue("TriggerMode", "On");
+	if (this->hasFeature("TriggerSelector")) {
+		this->setStringValue("TriggerSelector", "FrameStart");
+		this->setStringValue("TriggerMode", "On");
+	}
 
 	/* Set sensor size */
     arv_camera_get_sensor_size(this->camera, &w, &h);
@@ -853,7 +922,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     arv_camera_get_region(this->camera, &x, &y, &w, &h);
     status |= setIntegerParam(ADMinX, x);
     status |= setIntegerParam(ADMinY, y);
-    arv_camera_get_binning(this->camera, &binx, &biny);
+    this->getBinning(&binx, &biny);
     status |= setIntegerParam(ADBinX, binx);
     status |= setIntegerParam(ADBinY, biny);
     status |= setIntegerParam(ADSizeX, binx*w);
