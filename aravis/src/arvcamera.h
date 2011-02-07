@@ -28,19 +28,6 @@
 
 G_BEGIN_DECLS
 
-/**
- * ArvCameraVendor:
- * @ARV_CAMERA_VENDOR_UNKNOWN: unknown camera vendor
- * @ARV_CAMERA_VENDOR_BASLER: Basler
- * @ARV_CAMERA_VENDOR_PROSILICA: Prosilica
- */
-
-typedef enum {
-	ARV_CAMERA_VENDOR_UNKNOWN,
-	ARV_CAMERA_VENDOR_BASLER,
-	ARV_CAMERA_VENDOR_PROSILICA
-} ArvCameraVendor;
-
 #define ARV_TYPE_CAMERA             (arv_camera_get_type ())
 #define ARV_CAMERA(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), ARV_TYPE_CAMERA, ArvCamera))
 #define ARV_CAMERA_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), ARV_TYPE_CAMERA, ArvCameraClass))
@@ -98,11 +85,17 @@ void		arv_camera_set_trigger			(ArvCamera *camera, const char *source);
 
 void 		arv_camera_set_exposure_time 		(ArvCamera *camera, double exposure_time_us);
 double 		arv_camera_get_exposure_time 		(ArvCamera *camera);
+void		arv_camera_get_exposure_time_bounds	(ArvCamera *camera, double *min, double *max);
+void		arv_camera_set_exposure_time_auto	(ArvCamera *camera, ArvAuto auto_mode);
+ArvAuto		arv_camera_get_exposure_time_auto	(ArvCamera *camera);
 
 /* Analog control */
 
 void 		arv_camera_set_gain	 	(ArvCamera *camera, gint64 gain);
 gint64 		arv_camera_get_gain 		(ArvCamera *camera);
+void		arv_camera_get_gain_bounds	(ArvCamera *camera, gint64 *min, gint64 *max);
+void		arv_camera_set_gain_auto	(ArvCamera *camera, ArvAuto auto_mode);
+ArvAuto		arv_camera_get_gain_auto	(ArvCamera *camera);
 
 /* Transport layer control */
 

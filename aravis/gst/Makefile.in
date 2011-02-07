@@ -42,11 +42,7 @@ DIST_COMMON = $(am__noinst_HEADERS_DIST) $(srcdir)/Makefile.am \
 	$(top_srcdir)/Makefile.decl
 subdir = gst
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/gtk-doc.m4 \
-	$(top_srcdir)/m4/intltool.m4 $(top_srcdir)/m4/introspection.m4 \
-	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
-	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
-	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -131,6 +127,8 @@ AMTAR = @AMTAR@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
 AR = @AR@
 ARAVIS_CFLAGS = @ARAVIS_CFLAGS@
+ARAVIS_EXTRA_CFLAGS = @ARAVIS_EXTRA_CFLAGS@
+ARAVIS_EXTRA_LIBS = @ARAVIS_EXTRA_LIBS@
 ARAVIS_LIBS = @ARAVIS_LIBS@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
@@ -168,6 +166,8 @@ GST_PLUGIN_LDFLAGS = @GST_PLUGIN_LDFLAGS@
 GTKDOC_CHECK = @GTKDOC_CHECK@
 GTKDOC_MKPDF = @GTKDOC_MKPDF@
 GTKDOC_REBASE = @GTKDOC_REBASE@
+GTK_CFLAGS = @GTK_CFLAGS@
+GTK_LIBS = @GTK_LIBS@
 HTML_DIR = @HTML_DIR@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -292,9 +292,10 @@ GTESTER_REPORT = gtester-report
 # initialize variables for unconditional += appending
 TEST_PROGS = 
 INCLUDES = \
+	-I$(top_srcdir)/src/ \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
-	-DPACKAGE_DATA_DIR=\""$(datadir)"\" $(ARAVIS_CFLAGS) \
+	-DPACKAGE_DATA_DIR=\""$(datadir)"\" $(ARAVIS_EXTRA_CFLAGS) \
 	-DG_LOG_DOMAIN=\"Aravis\"
 
 AM_CFLAGS = \
@@ -305,8 +306,8 @@ AM_CFLAGS = \
 
 @ARAVIS_WITH_GSTREAMER_TRUE@gstplugin_LTLIBRARIES = libgstaravis.la
 @ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_la_SOURCES = gstaravis.c gstaravis.h
-@ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_la_CFLAGS = $(ARAVIS_CFLAGS)
-@ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_la_LIBADD = $(ARAVIS_LIBS)
+@ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_la_CFLAGS = $(ARAVIS_EXTRA_CFLAGS)
+@ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_la_LIBADD = $(ARAVIS_EXTRA_LIBS)
 @ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS)
 @ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_la_LIBTOOLFLAGS = --tag=disable-static
 @ARAVIS_WITH_GSTREAMER_TRUE@libgstaravis_ladir = $(includedir)/aravis

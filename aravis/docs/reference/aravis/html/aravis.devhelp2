@@ -57,7 +57,9 @@
     <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
-    <keyword type="enum" name="enum ArvCameraVendor" link="ArvCamera.html#ArvCameraVendor"/>
+    <keyword type="enum" name="enum ArvAuto" link="ArvCamera.html#ArvAuto"/>
+    <keyword type="function" name="arv_auto_from_string ()" link="ArvCamera.html#arv-auto-from-string"/>
+    <keyword type="function" name="arv_auto_to_string ()" link="ArvCamera.html#arv-auto-to-string"/>
     <keyword type="struct" name="ArvCamera" link="ArvCamera.html#ArvCamera-struct"/>
     <keyword type="function" name="arv_camera_new ()" link="ArvCamera.html#arv-camera-new"/>
     <keyword type="function" name="arv_camera_create_stream ()" link="ArvCamera.html#arv-camera-create-stream"/>
@@ -81,8 +83,14 @@
     <keyword type="function" name="arv_camera_set_trigger ()" link="ArvCamera.html#arv-camera-set-trigger"/>
     <keyword type="function" name="arv_camera_set_exposure_time ()" link="ArvCamera.html#arv-camera-set-exposure-time"/>
     <keyword type="function" name="arv_camera_get_exposure_time ()" link="ArvCamera.html#arv-camera-get-exposure-time"/>
+    <keyword type="function" name="arv_camera_get_exposure_time_bounds ()" link="ArvCamera.html#arv-camera-get-exposure-time-bounds"/>
+    <keyword type="function" name="arv_camera_set_exposure_time_auto ()" link="ArvCamera.html#arv-camera-set-exposure-time-auto"/>
+    <keyword type="function" name="arv_camera_get_exposure_time_auto ()" link="ArvCamera.html#arv-camera-get-exposure-time-auto"/>
     <keyword type="function" name="arv_camera_set_gain ()" link="ArvCamera.html#arv-camera-set-gain"/>
     <keyword type="function" name="arv_camera_get_gain ()" link="ArvCamera.html#arv-camera-get-gain"/>
+    <keyword type="function" name="arv_camera_get_gain_bounds ()" link="ArvCamera.html#arv-camera-get-gain-bounds"/>
+    <keyword type="function" name="arv_camera_set_gain_auto ()" link="ArvCamera.html#arv-camera-set-gain-auto"/>
+    <keyword type="function" name="arv_camera_get_gain_auto ()" link="ArvCamera.html#arv-camera-get-gain-auto"/>
     <keyword type="function" name="arv_camera_get_payload ()" link="ArvCamera.html#arv-camera-get-payload"/>
     <keyword type="enum" name="enum ArvAcquisitionMode" link="ArvCamera.html#ArvAcquisitionMode"/>
     <keyword type="function" name="arv_acquisition_mode_to_string ()" link="ArvCamera.html#arv-acquisition-mode-to-string"/>
@@ -104,14 +112,17 @@
     <keyword type="function" name="arv_device_write_memory ()" link="ArvDevice.html#arv-device-write-memory"/>
     <keyword type="function" name="arv_device_read_register ()" link="ArvDevice.html#arv-device-read-register"/>
     <keyword type="function" name="arv_device_write_register ()" link="ArvDevice.html#arv-device-write-register"/>
+    <keyword type="function" name="arv_device_get_genicam_xml ()" link="ArvDevice.html#arv-device-get-genicam-xml"/>
     <keyword type="function" name="arv_device_get_genicam ()" link="ArvDevice.html#arv-device-get-genicam"/>
     <keyword type="function" name="arv_device_execute_command ()" link="ArvDevice.html#arv-device-execute-command"/>
     <keyword type="function" name="arv_device_set_string_feature_value ()" link="ArvDevice.html#arv-device-set-string-feature-value"/>
     <keyword type="function" name="arv_device_get_string_feature_value ()" link="ArvDevice.html#arv-device-get-string-feature-value"/>
     <keyword type="function" name="arv_device_set_integer_feature_value ()" link="ArvDevice.html#arv-device-set-integer-feature-value"/>
     <keyword type="function" name="arv_device_get_integer_feature_value ()" link="ArvDevice.html#arv-device-get-integer-feature-value"/>
+    <keyword type="function" name="arv_device_get_integer_feature_bounds ()" link="ArvDevice.html#arv-device-get-integer-feature-bounds"/>
     <keyword type="function" name="arv_device_set_float_feature_value ()" link="ArvDevice.html#arv-device-set-float-feature-value"/>
     <keyword type="function" name="arv_device_get_float_feature_value ()" link="ArvDevice.html#arv-device-get-float-feature-value"/>
+    <keyword type="function" name="arv_device_get_float_feature_bounds ()" link="ArvDevice.html#arv-device-get-float-feature-bounds"/>
     <keyword type="enum" name="enum ArvStreamCallbackType" link="ArvStream.html#ArvStreamCallbackType"/>
     <keyword type="function" name="ArvStreamCallback ()" link="ArvStream.html#ArvStreamCallback"/>
     <keyword type="struct" name="ArvStream" link="ArvStream.html#ArvStream-struct"/>
@@ -119,6 +130,10 @@
     <keyword type="function" name="arv_stream_pop_buffer ()" link="ArvStream.html#arv-stream-pop-buffer"/>
     <keyword type="function" name="arv_stream_get_n_buffers ()" link="ArvStream.html#arv-stream-get-n-buffers"/>
     <keyword type="function" name="arv_stream_get_statistics ()" link="ArvStream.html#arv-stream-get-statistics"/>
+    <keyword type="function" name="arv_stream_get_emit_signals ()" link="ArvStream.html#arv-stream-get-emit-signals" since="0.1.3"/>
+    <keyword type="function" name="arv_stream_set_emit_signals ()" link="ArvStream.html#arv-stream-set-emit-signals" since="0.1.3"/>
+    <keyword type="property" name="The &quot;emit-signals&quot; property" link="ArvStream.html#ArvStream--emit-signals"/>
+    <keyword type="signal" name="The &quot;new-buffer&quot; signal" link="ArvStream.html#ArvStream-new-buffer"/>
     <keyword type="function" name="ArvFrameCallback ()" link="ArvBuffer.html#ArvFrameCallback"/>
     <keyword type="enum" name="enum ArvBufferStatus" link="ArvBuffer.html#ArvBufferStatus"/>
     <keyword type="struct" name="ArvBuffer" link="ArvBuffer.html#ArvBuffer-struct"/>
@@ -265,7 +280,7 @@
     <keyword type="function" name="arv_fake_camera_set_trigger_frequency ()" link="ArvFakeCamera.html#arv-fake-camera-set-trigger-frequency"/>
     <keyword type="function" name="arv_fake_device_get_fake_camera ()" link="ArvFakeCamera.html#arv-fake-device-get-fake-camera"/>
     <keyword type="function" name="arv_set_fake_camera_genicam_filename ()" link="ArvFakeCamera.html#arv-set-fake-camera-genicam-filename"/>
-    <keyword type="function" name="arv_get_fake_camera_genicam_data ()" link="ArvFakeCamera.html#arv-get-fake-camera-genicam-data"/>
+    <keyword type="function" name="arv_get_fake_camera_genicam_xml ()" link="ArvFakeCamera.html#arv-get-fake-camera-genicam-xml"/>
     <keyword type="function" name="arv_debug ()" link="aravis-ArvDebug.html#arv-debug"/>
     <keyword type="function" name="arv_debug_check ()" link="aravis-ArvDebug.html#arv-debug-check"/>
     <keyword type="function" name="arv_debug_enable ()" link="aravis-ArvDebug.html#arv-debug-enable"/>
@@ -308,9 +323,9 @@
     <keyword type="function" name="arv_zip_get_file_list ()" link="aravis-ArvZip.html#arv-zip-get-file-list"/>
     <keyword type="function" name="arv_zip_file_get_name ()" link="aravis-ArvZip.html#arv-zip-file-get-name"/>
     <keyword type="function" name="arv_zip_file_get_uncompressed_size ()" link="aravis-ArvZip.html#arv-zip-file-get-uncompressed-size"/>
-    <keyword type="constant" name="ARV_CAMERA_VENDOR_UNKNOWN" link="ArvCamera.html#ARV-CAMERA-VENDOR-UNKNOWN:CAPS"/>
-    <keyword type="constant" name="ARV_CAMERA_VENDOR_BASLER" link="ArvCamera.html#ARV-CAMERA-VENDOR-BASLER:CAPS"/>
-    <keyword type="constant" name="ARV_CAMERA_VENDOR_PROSILICA" link="ArvCamera.html#ARV-CAMERA-VENDOR-PROSILICA:CAPS"/>
+    <keyword type="constant" name="ARV_AUTO_OFF" link="ArvCamera.html#ARV-AUTO-OFF:CAPS"/>
+    <keyword type="constant" name="ARV_AUTO_ONCE" link="ArvCamera.html#ARV-AUTO-ONCE:CAPS"/>
+    <keyword type="constant" name="ARV_AUTO_CONTINUOUS" link="ArvCamera.html#ARV-AUTO-CONTINUOUS:CAPS"/>
     <keyword type="constant" name="ARV_ACQUISITION_MODE_CONTINUOUS" link="ArvCamera.html#ARV-ACQUISITION-MODE-CONTINUOUS:CAPS"/>
     <keyword type="constant" name="ARV_ACQUISITION_MODE_SINGLE_FRAME" link="ArvCamera.html#ARV-ACQUISITION-MODE-SINGLE-FRAME:CAPS"/>
     <keyword type="constant" name="ARV_STREAM_CALLBACK_TYPE_INIT" link="ArvStream.html#ARV-STREAM-CALLBACK-TYPE-INIT:CAPS"/>

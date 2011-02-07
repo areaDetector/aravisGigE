@@ -46,6 +46,9 @@ struct _ArvGvDevicePrivate {
 	void *heartbeat_data;
 
 	ArvGc *genicam;
+
+	char *genicam_xml;
+	size_t genicam_xml_size;
 };
 
 /* Shared data (main thread - heartbeat) */
@@ -415,26 +418,39 @@ _load_genicam (ArvGvDevice *gv_device, guint32 address, size_t  *size)
 	return genicam;
 }
 
-char*
-arv_gv_device_get_xml (ArvGvDevice *gv_device, size_t *size)
+static const char *
+arv_gv_device_get_genicam_xml (ArvDevice *device, size_t *size)
 {
 	char *xml;
+
+	ArvGvDevice *gv_device = ARV_GV_DEVICE (device);
+
+	if (gv_device->priv->genicam_xml != NULL) {
+		*size = gv_device->priv->genicam_xml_size;
+		return gv_device->priv->genicam_xml;
+	}
+
+	*size = 0;
+
 	xml = _load_genicam (gv_device, ARV_GVBS_FIRST_XML_URL, size);
 	if (xml == NULL)
 		xml = _load_genicam (gv_device, ARV_GVBS_SECOND_XML_URL, size);
+
+	gv_device->priv->genicam_xml = xml;
+	gv_device->priv->genicam_xml_size = *size;
+
 	return xml;
 }
 
 static void
 arv_gv_device_load_genicam (ArvGvDevice *gv_device)
 {
-	char * genicam;
+	const char *genicam;
 	size_t size;
-	genicam = arv_gv_device_get_xml(gv_device, &size);
-	if (genicam != NULL) {
+
+	genicam = arv_gv_device_get_genicam_xml (ARV_DEVICE (gv_device), &size);
+	if (genicam != NULL)
 		gv_device->priv->genicam = arv_gc_new (ARV_DEVICE (gv_device), genicam, size);
-		g_free (genicam);
-	}
 }
 
 /* ArvDevice implemenation */
@@ -595,6 +611,8 @@ arv_gv_device_init (ArvGvDevice *gv_device)
 	gv_device->priv = G_TYPE_INSTANCE_GET_PRIVATE (gv_device, ARV_TYPE_GV_DEVICE, ArvGvDevicePrivate);
 
 	gv_device->priv->genicam = NULL;
+	gv_device->priv->genicam_xml = NULL;
+	gv_device->priv->genicam_xml_size = 0;
 }
 
 static void
@@ -630,6 +648,8 @@ arv_gv_device_finalize (GObject *object)
 	if (gv_device->priv->genicam != NULL)
 		g_object_unref (gv_device->priv->genicam);
 
+	g_free (gv_device->priv->genicam_xml);
+
 	parent_class->finalize (object);
 }
 
@@ -646,6 +666,7 @@ arv_gv_device_class_init (ArvGvDeviceClass *gv_device_class)
 	object_class->finalize = arv_gv_device_finalize;
 
 	device_class->create_stream = arv_gv_device_create_stream;
+	device_class->get_genicam_xml = arv_gv_device_get_genicam_xml;
 	device_class->get_genicam = arv_gv_device_get_genicam;
 	device_class->read_memory = arv_gv_device_read_memory;
 	device_class->write_memory = arv_gv_device_write_memory;

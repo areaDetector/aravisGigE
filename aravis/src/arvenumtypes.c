@@ -80,6 +80,32 @@ arv_gc_cachable_get_type (void)
 }
 
 GType
+arv_auto_get_type (void)
+{
+	static GType the_type = 0;
+
+	if (the_type == 0)
+	{
+		static const GEnumValue values[] = {
+			{ ARV_AUTO_OFF,
+			  "ARV_AUTO_OFF",
+			  "off" },
+			{ ARV_AUTO_ONCE,
+			  "ARV_AUTO_ONCE",
+			  "once" },
+			{ ARV_AUTO_CONTINUOUS,
+			  "ARV_AUTO_CONTINUOUS",
+			  "continuous" },
+			{ 0, NULL, NULL }
+		};
+		the_type = g_enum_register_static (
+				g_intern_static_string ("ArvAuto"),
+				values);
+	}
+	return the_type;
+}
+
+GType
 arv_acquisition_mode_get_type (void)
 {
 	static GType the_type = 0;
@@ -225,34 +251,6 @@ arv_pixel_format_get_type (void)
 		};
 		the_type = g_enum_register_static (
 				g_intern_static_string ("ArvPixelFormat"),
-				values);
-	}
-	return the_type;
-}
-
-#include "arvcamera.h"
-
-GType
-arv_camera_vendor_get_type (void)
-{
-	static GType the_type = 0;
-
-	if (the_type == 0)
-	{
-		static const GEnumValue values[] = {
-			{ ARV_CAMERA_VENDOR_UNKNOWN,
-			  "ARV_CAMERA_VENDOR_UNKNOWN",
-			  "unknown" },
-			{ ARV_CAMERA_VENDOR_BASLER,
-			  "ARV_CAMERA_VENDOR_BASLER",
-			  "basler" },
-			{ ARV_CAMERA_VENDOR_PROSILICA,
-			  "ARV_CAMERA_VENDOR_PROSILICA",
-			  "prosilica" },
-			{ 0, NULL, NULL }
-		};
-		the_type = g_enum_register_static (
-				g_intern_static_string ("ArvCameraVendor"),
 				values);
 	}
 	return the_type;

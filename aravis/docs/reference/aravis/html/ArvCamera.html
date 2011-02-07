@@ -39,7 +39,9 @@
 </tr></table></div>
 <div class="refsynopsisdiv" title="Synopsis">
 <a name="ArvCamera.synopsis"></a><h2>Synopsis</h2>
-<pre class="synopsis">enum                <a class="link" href="ArvCamera.html#ArvCameraVendor" title="enum ArvCameraVendor">ArvCameraVendor</a>;
+<pre class="synopsis">enum                <a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto">ArvAuto</a>;
+<a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="returnvalue">ArvAuto</span></a>             <a class="link" href="ArvCamera.html#arv-auto-from-string" title="arv_auto_from_string ()">arv_auto_from_string</a>                (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="ArvCamera.html#arv-auto-to-string" title="arv_auto_to_string ()">arv_auto_to_string</a>                  (<em class="parameter"><code><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="type">ArvAuto</span></a> value</code></em>);
                     <a class="link" href="ArvCamera.html#ArvCamera-struct" title="ArvCamera">ArvCamera</a>;
 <a class="link" href="ArvCamera.html" title="ArvCamera"><span class="returnvalue">ArvCamera</span></a> *         <a class="link" href="ArvCamera.html#arv-camera-new" title="arv_camera_new ()">arv_camera_new</a>                      (<em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
 <a class="link" href="ArvStream.html" title="ArvStream"><span class="returnvalue">ArvStream</span></a> *         <a class="link" href="ArvCamera.html#arv-camera-create-stream" title="arv_camera_create_stream ()">arv_camera_create_stream</a>            (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
@@ -84,9 +86,21 @@ const <span class="returnvalue">char</span> *        <a class="link" href="ArvCa
 <span class="returnvalue">void</span>                <a class="link" href="ArvCamera.html#arv-camera-set-exposure-time" title="arv_camera_set_exposure_time ()">arv_camera_set_exposure_time</a>        (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
                                                          <em class="parameter"><code><span class="type">double</span> exposure_time_us</code></em>);
 <span class="returnvalue">double</span>              <a class="link" href="ArvCamera.html#arv-camera-get-exposure-time" title="arv_camera_get_exposure_time ()">arv_camera_get_exposure_time</a>        (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvCamera.html#arv-camera-get-exposure-time-bounds" title="arv_camera_get_exposure_time_bounds ()">arv_camera_get_exposure_time_bounds</a> (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvCamera.html#arv-camera-set-exposure-time-auto" title="arv_camera_set_exposure_time_auto ()">arv_camera_set_exposure_time_auto</a>   (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="type">ArvAuto</span></a> auto_mode</code></em>);
+<a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="returnvalue">ArvAuto</span></a>             <a class="link" href="ArvCamera.html#arv-camera-get-exposure-time-auto" title="arv_camera_get_exposure_time_auto ()">arv_camera_get_exposure_time_auto</a>   (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="ArvCamera.html#arv-camera-set-gain" title="arv_camera_set_gain ()">arv_camera_set_gain</a>                 (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> gain</code></em>);
 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="returnvalue">gint64</span></a>              <a class="link" href="ArvCamera.html#arv-camera-get-gain" title="arv_camera_get_gain ()">arv_camera_get_gain</a>                 (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvCamera.html#arv-camera-get-gain-bounds" title="arv_camera_get_gain_bounds ()">arv_camera_get_gain_bounds</a>          (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> *min</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> *max</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvCamera.html#arv-camera-set-gain-auto" title="arv_camera_set_gain_auto ()">arv_camera_set_gain_auto</a>            (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="type">ArvAuto</span></a> auto_mode</code></em>);
+<a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="returnvalue">ArvAuto</span></a>             <a class="link" href="ArvCamera.html#arv-camera-get-gain-auto" title="arv_camera_get_gain_auto ()">arv_camera_get_gain_auto</a>            (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>);
 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="ArvCamera.html#arv-camera-get-payload" title="arv_camera_get_payload ()">arv_camera_get_payload</a>              (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>);
 enum                <a class="link" href="ArvCamera.html#ArvAcquisitionMode" title="enum ArvAcquisitionMode">ArvAcquisitionMode</a>;
 const <span class="returnvalue">char</span> *        <a class="link" href="ArvCamera.html#arv-acquisition-mode-to-string" title="arv_acquisition_mode_to_string ()">arv_acquisition_mode_to_string</a>      (<em class="parameter"><code><a class="link" href="ArvCamera.html#ArvAcquisitionMode" title="enum ArvAcquisitionMode"><span class="type">ArvAcquisitionMode</span></a> value</code></em>);
@@ -111,34 +125,44 @@ drawback of not exposing all the available features. See <a class="link" href="A
 </div>
 <div class="refsect1" title="Details">
 <a name="ArvCamera.details"></a><h2>Details</h2>
-<div class="refsect2" title="enum ArvCameraVendor">
-<a name="ArvCameraVendor"></a><h3>enum ArvCameraVendor</h3>
+<div class="refsect2" title="enum ArvAuto">
+<a name="ArvAuto"></a><h3>enum ArvAuto</h3>
 <pre class="programlisting">typedef enum {
-	ARV_CAMERA_VENDOR_UNKNOWN,
-	ARV_CAMERA_VENDOR_BASLER,
-	ARV_CAMERA_VENDOR_PROSILICA
-} ArvCameraVendor;
+	ARV_AUTO_OFF,
+	ARV_AUTO_ONCE,
+	ARV_AUTO_CONTINUOUS
+} ArvAuto;
 </pre>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><a name="ARV-CAMERA-VENDOR-UNKNOWN:CAPS"></a><span class="term"><code class="literal">ARV_CAMERA_VENDOR_UNKNOWN</code></span></p></td>
-<td>unknown camera vendor
+<td><p><a name="ARV-AUTO-OFF:CAPS"></a><span class="term"><code class="literal">ARV_AUTO_OFF</code></span></p></td>
+<td>manual setting
 </td>
 </tr>
 <tr>
-<td><p><a name="ARV-CAMERA-VENDOR-BASLER:CAPS"></a><span class="term"><code class="literal">ARV_CAMERA_VENDOR_BASLER</code></span></p></td>
-<td>Basler
+<td><p><a name="ARV-AUTO-ONCE:CAPS"></a><span class="term"><code class="literal">ARV_AUTO_ONCE</code></span></p></td>
+<td>automatic setting done once, then returns to manual
 </td>
 </tr>
 <tr>
-<td><p><a name="ARV-CAMERA-VENDOR-PROSILICA:CAPS"></a><span class="term"><code class="literal">ARV_CAMERA_VENDOR_PROSILICA</code></span></p></td>
-<td>Prosilica
+<td><p><a name="ARV-AUTO-CONTINUOUS:CAPS"></a><span class="term"><code class="literal">ARV_AUTO_CONTINUOUS</code></span></p></td>
+<td>setting is adjusted continuously
 </td>
 </tr>
 </tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2" title="arv_auto_from_string ()">
+<a name="arv-auto-from-string"></a><h3>arv_auto_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="returnvalue">ArvAuto</span></a>             arv_auto_from_string                (<em class="parameter"><code>const <span class="type">char</span> *string</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_auto_to_string ()">
+<a name="arv-auto-to-string"></a><h3>arv_auto_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        arv_auto_to_string                  (<em class="parameter"><code><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="type">ArvAuto</span></a> value</code></em>);</pre>
 </div>
 <hr>
 <div class="refsect2" title="ArvCamera">
@@ -628,6 +652,24 @@ Return value: the current exposure time, in µs.
 </table></div>
 </div>
 <hr>
+<div class="refsect2" title="arv_camera_get_exposure_time_bounds ()">
+<a name="arv-camera-get-exposure-time-bounds"></a><h3>arv_camera_get_exposure_time_bounds ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_camera_get_exposure_time_bounds (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_camera_set_exposure_time_auto ()">
+<a name="arv-camera-set-exposure-time-auto"></a><h3>arv_camera_set_exposure_time_auto ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_camera_set_exposure_time_auto   (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="type">ArvAuto</span></a> auto_mode</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_camera_get_exposure_time_auto ()">
+<a name="arv-camera-get-exposure-time-auto"></a><h3>arv_camera_get_exposure_time_auto ()</h3>
+<pre class="programlisting"><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="returnvalue">ArvAuto</span></a>             arv_camera_get_exposure_time_auto   (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>);</pre>
+</div>
+<hr>
 <div class="refsect2" title="arv_camera_set_gain ()">
 <a name="arv-camera-set-gain"></a><h3>arv_camera_set_gain ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                arv_camera_set_gain                 (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
@@ -664,6 +706,24 @@ Return value: the current gain setting.
 </td>
 </tr></tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2" title="arv_camera_get_gain_bounds ()">
+<a name="arv-camera-get-gain-bounds"></a><h3>arv_camera_get_gain_bounds ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_camera_get_gain_bounds          (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> *min</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> *max</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_camera_set_gain_auto ()">
+<a name="arv-camera-set-gain-auto"></a><h3>arv_camera_set_gain_auto ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_camera_set_gain_auto            (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="type">ArvAuto</span></a> auto_mode</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_camera_get_gain_auto ()">
+<a name="arv-camera-get-gain-auto"></a><h3>arv_camera_get_gain_auto ()</h3>
+<pre class="programlisting"><a class="link" href="ArvCamera.html#ArvAuto" title="enum ArvAuto"><span class="returnvalue">ArvAuto</span></a>             arv_camera_get_gain_auto            (<em class="parameter"><code><a class="link" href="ArvCamera.html" title="ArvCamera"><span class="type">ArvCamera</span></a> *camera</code></em>);</pre>
 </div>
 <hr>
 <div class="refsect2" title="arv_camera_get_payload ()">

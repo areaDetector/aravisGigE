@@ -26,6 +26,23 @@ and/or use gtk-doc annotations.  -->
               c:identifier="ARV_ACQUISITION_MODE_SINGLE_FRAME"
               glib:nick="single-frame"/>
     </enumeration>
+    <enumeration name="Auto"
+                 glib:type-name="ArvAuto"
+                 glib:get-type="arv_auto_get_type"
+                 c:type="ArvAuto">
+      <member name="off"
+              value="0"
+              c:identifier="ARV_AUTO_OFF"
+              glib:nick="off"/>
+      <member name="once"
+              value="1"
+              c:identifier="ARV_AUTO_ONCE"
+              glib:nick="once"/>
+      <member name="continuous"
+              value="2"
+              c:identifier="ARV_AUTO_CONTINUOUS"
+              glib:nick="continuous"/>
+    </enumeration>
     <class name="Buffer"
            c:type="ArvBuffer"
            parent="GObject.Object"
@@ -418,6 +435,43 @@ the desired frame rate.</doc>
           <type name="double" c:type="double"/>
         </return-value>
       </method>
+      <method name="get_exposure_time_bounds"
+              c:identifier="arv_camera_get_exposure_time_bounds">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="double*"/>
+          </parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="double*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_exposure_time_auto"
+              c:identifier="arv_camera_set_exposure_time_auto">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="auto_mode" transfer-ownership="none">
+            <type name="Auto" c:type="ArvAuto"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_exposure_time_auto"
+              c:identifier="arv_camera_get_exposure_time_auto">
+        <return-value transfer-ownership="full">
+          <type name="Auto" c:type="ArvAuto"/>
+        </return-value>
+      </method>
       <method name="set_gain" c:identifier="arv_camera_set_gain">
         <doc xml:whitespace="preserve">Sets the gain of the ADC converter.</doc>
         <return-value transfer-ownership="none">
@@ -434,6 +488,40 @@ the desired frame rate.</doc>
         <return-value transfer-ownership="none">
           <doc xml:whitespace="preserve">the current gain setting.</doc>
           <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="get_gain_bounds" c:identifier="arv_camera_get_gain_bounds">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
+          </parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_gain_auto" c:identifier="arv_camera_set_gain_auto">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="auto_mode" transfer-ownership="none">
+            <type name="Auto" c:type="ArvAuto"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_gain_auto" c:identifier="arv_camera_get_gain_auto">
+        <return-value transfer-ownership="full">
+          <type name="Auto" c:type="ArvAuto"/>
         </return-value>
       </method>
       <method name="get_payload" c:identifier="arv_camera_get_payload">
@@ -460,23 +548,6 @@ for the creation of the stream buffers.</doc>
     </record>
     <record name="CameraPrivate" c:type="ArvCameraPrivate">
     </record>
-    <enumeration name="CameraVendor"
-                 glib:type-name="ArvCameraVendor"
-                 glib:get-type="arv_camera_vendor_get_type"
-                 c:type="ArvCameraVendor">
-      <member name="unknown"
-              value="0"
-              c:identifier="ARV_CAMERA_VENDOR_UNKNOWN"
-              glib:nick="unknown"/>
-      <member name="basler"
-              value="1"
-              c:identifier="ARV_CAMERA_VENDOR_BASLER"
-              glib:nick="basler"/>
-      <member name="prosilica"
-              value="2"
-              c:identifier="ARV_CAMERA_VENDOR_PROSILICA"
-              glib:nick="prosilica"/>
-    </enumeration>
     <class name="Device"
            c:type="ArvDevice"
            parent="GObject.Object"
@@ -494,6 +565,19 @@ for the creation of the stream buffers.</doc>
           </parameter>
           <parameter name="user_data" transfer-ownership="none" closure="2">
             <type name="any" c:type="void*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_genicam_xml" invoker="get_genicam_xml">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
           </parameter>
         </parameters>
       </virtual-method>
@@ -642,6 +726,19 @@ for the creation of the stream buffers.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="get_genicam_xml" c:identifier="arv_device_get_genicam_xml">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <parameter name="size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="gsize" c:type="size_t*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_genicam" c:identifier="arv_device_get_genicam">
         <doc xml:whitespace="preserve">Retrieves the genicam interface of the given device.</doc>
         <return-value transfer-ownership="none">
@@ -694,18 +791,41 @@ for the creation of the stream buffers.</doc>
             <type name="utf8" c:type="char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
-            <type name="uint64" c:type="guint64"/>
+            <type name="int64" c:type="gint64"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_integer_feature_value"
               c:identifier="arv_device_get_integer_feature_value">
         <return-value transfer-ownership="none">
-          <type name="uint64" c:type="guint64"/>
+          <type name="int64" c:type="gint64"/>
         </return-value>
         <parameters>
           <parameter name="feature" transfer-ownership="none">
             <type name="utf8" c:type="char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_integer_feature_bounds"
+              c:identifier="arv_device_get_integer_feature_bounds">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
+          </parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
           </parameter>
         </parameters>
       </method>
@@ -734,6 +854,29 @@ for the creation of the stream buffers.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="get_float_feature_bounds"
+              c:identifier="arv_device_get_float_feature_bounds">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="feature" transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </parameter>
+          <parameter name="min"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="double*"/>
+          </parameter>
+          <parameter name="max"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="double*"/>
+          </parameter>
+        </parameters>
+      </method>
       <field name="object">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
@@ -758,6 +901,24 @@ for the creation of the stream buffers.</doc>
             </parameter>
             <parameter name="user_data" transfer-ownership="none" closure="2">
               <type name="any" c:type="void*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_genicam_xml">
+        <callback name="get_genicam_xml" c:type="get_genicam_xml">
+          <return-value transfer-ownership="none">
+            <type name="utf8" c:type="char*"/>
+          </return-value>
+          <parameters>
+            <parameter name="device" transfer-ownership="none">
+              <type name="Device" c:type="ArvDevice*"/>
+            </parameter>
+            <parameter name="size"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full">
+              <type name="gsize" c:type="size_t*"/>
             </parameter>
           </parameters>
         </callback>
@@ -1247,6 +1408,15 @@ for the creation of the stream buffers.</doc>
         </parameter>
         <parameter name="fill_pattern_data" transfer-ownership="none">
           <type name="any" c:type="void*"/>
+        </parameter>
+        <parameter name="exposure_time_us" transfer-ownership="none">
+          <type name="uint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="gain" transfer-ownership="none">
+          <type name="uint32" c:type="guint32"/>
+        </parameter>
+        <parameter name="pixel_format" transfer-ownership="none">
+          <type name="PixelFormat" c:type="ArvPixelFormat"/>
         </parameter>
       </parameters>
     </callback>
@@ -3902,7 +4072,7 @@ for the creation of the stream buffers.</doc>
     <constant name="PACKAGE_NAME" value="aravis">
       <type name="utf8"/>
     </constant>
-    <constant name="PACKAGE_STRING" value="aravis 0.1.2">
+    <constant name="PACKAGE_STRING" value="aravis 0.1.4">
       <type name="utf8"/>
     </constant>
     <constant name="PACKAGE_TARNAME" value="aravis">
@@ -3911,7 +4081,7 @@ for the creation of the stream buffers.</doc>
     <constant name="PACKAGE_URL" value="">
       <type name="utf8"/>
     </constant>
-    <constant name="PACKAGE_VERSION" value="0.1.2">
+    <constant name="PACKAGE_VERSION" value="0.1.4">
       <type name="utf8"/>
     </constant>
     <enumeration name="PixelFormat"
@@ -4251,15 +4421,62 @@ may contain an invalid image. Caller should check the buffer status before using
           </parameter>
         </parameters>
       </method>
+      <method name="set_emit_signals"
+              c:identifier="arv_stream_set_emit_signals"
+              version="0.1.3">
+        <doc xml:whitespace="preserve">Make stream emit signals. This option is
+by default disabled because signal emission is expensive and unneeded when
+the application prefers to operate in pull mode.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="emit_signals" transfer-ownership="none">
+            <doc xml:whitespace="preserve">the new state</doc>
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_emit_signals"
+              c:identifier="arv_stream_get_emit_signals"
+              version="0.1.3">
+        <doc xml:whitespace="preserve">Check if stream will emit its signals.</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:whitespace="preserve">%TRUE if @appsink is emiting its signals.</doc>
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="pop_input_buffer"
+              c:identifier="arv_stream_pop_input_buffer">
+        <return-value transfer-ownership="full">
+          <type name="Buffer" c:type="ArvBuffer*"/>
+        </return-value>
+      </method>
+      <method name="push_output_buffer"
+              c:identifier="arv_stream_push_output_buffer">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Buffer" c:type="ArvBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="emit-signals" writable="1" transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
       <field name="object">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
-      <field name="input_queue">
-        <type name="GLib.AsyncQueue" c:type="GAsyncQueue*"/>
+      <field name="priv">
+        <type name="StreamPrivate" c:type="ArvStreamPrivate*"/>
       </field>
-      <field name="output_queue">
-        <type name="GLib.AsyncQueue" c:type="GAsyncQueue*"/>
-      </field>
+      <glib:signal name="new-buffer">
+        <return-value transfer-ownership="full">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
     </class>
     <callback name="StreamCallback" c:type="ArvStreamCallback">
       <return-value transfer-ownership="none">
@@ -4341,8 +4558,22 @@ may contain an invalid image. Caller should check the buffer status before using
           </parameters>
         </callback>
       </field>
+      <field name="new_buffer">
+        <callback name="new_buffer" c:type="new_buffer">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="stream" transfer-ownership="none">
+              <type name="Stream" c:type="ArvStream*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
     </record>
-    <constant name="VERSION" value="0.1.2">
+    <record name="StreamPrivate" c:type="ArvStreamPrivate">
+    </record>
+    <constant name="VERSION" value="0.1.4">
       <type name="utf8"/>
     </constant>
     <record name="Value" c:type="ArvValue">
@@ -4439,6 +4670,9 @@ may contain an invalid image. Caller should check the buffer status before using
     <constant name="WITH_GSTREAMER" value="1">
       <type name="int"/>
     </constant>
+    <constant name="WITH_GTK" value="1">
+      <type name="int"/>
+    </constant>
     <record name="Zip" c:type="ArvZip">
       <constructor name="new" c:identifier="arv_zip_new">
         <return-value transfer-ownership="full">
@@ -4516,6 +4750,26 @@ may contain an invalid image. Caller should check the buffer status before using
       <parameters>
         <parameter name="value" transfer-ownership="none">
           <type name="AcquisitionMode" c:type="ArvAcquisitionMode"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="auto_from_string" c:identifier="arv_auto_from_string">
+      <return-value transfer-ownership="full">
+        <type name="Auto" c:type="ArvAuto"/>
+      </return-value>
+      <parameters>
+        <parameter name="string" transfer-ownership="none">
+          <type name="utf8" c:type="char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="auto_to_string" c:identifier="arv_auto_to_string">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="value" transfer-ownership="none">
+          <type name="Auto" c:type="ArvAuto"/>
         </parameter>
       </parameters>
     </function>
@@ -4663,8 +4917,8 @@ may contain an invalid image. Caller should check the buffer status before using
         </parameter>
       </parameters>
     </function>
-    <function name="get_fake_camera_genicam_data"
-              c:identifier="arv_get_fake_camera_genicam_data">
+    <function name="get_fake_camera_genicam_xml"
+              c:identifier="arv_get_fake_camera_genicam_xml">
       <return-value transfer-ownership="none">
         <type name="utf8" c:type="char*"/>
       </return-value>

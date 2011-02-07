@@ -102,6 +102,32 @@ arv_device_get_genicam (ArvDevice *device)
 	return ARV_DEVICE_GET_CLASS (device)->get_genicam (device);
 }
 
+static const char *
+_get_genicam_xml (ArvDevice *device, size_t *size)
+{
+	*size = 0;
+
+	return NULL;
+}
+
+/**
+ * arv_device_get_xml:
+ * @device: a #ArvDevice
+ * @size: placeholder for the returned data size (bytes)
+ * Return value: a pointer to the Genicam XML data, owned by the device.
+ *
+ * Gets the Genicam XML data stored in the device memory.
+ **/
+
+const char *
+arv_device_get_genicam_xml (ArvDevice *device, size_t *size)
+{
+	g_return_val_if_fail (ARV_IS_DEVICE (device), NULL);
+	g_return_val_if_fail (size != NULL, NULL);
+
+	return ARV_DEVICE_GET_CLASS (device)->get_genicam_xml (device, size);
+}
+
 void
 arv_device_execute_command (ArvDevice *device, const char *feature)
 {
@@ -151,7 +177,7 @@ arv_device_get_string_feature_value (ArvDevice *device, const char *feature)
 }
 
 void
-arv_device_set_integer_feature_value (ArvDevice *device, const char *feature, guint64 value)
+arv_device_set_integer_feature_value (ArvDevice *device, const char *feature, gint64 value)
 {
 	ArvGc *genicam;
 	ArvGcNode *node;
@@ -168,7 +194,7 @@ arv_device_set_integer_feature_value (ArvDevice *device, const char *feature, gu
 		arv_gc_boolean_set_value (ARV_GC_BOOLEAN (node), value);
 }
 
-guint64
+gint64
 arv_device_get_integer_feature_value (ArvDevice *device, const char *feature)
 {
 	ArvGc *genicam;
@@ -189,6 +215,25 @@ arv_device_get_integer_feature_value (ArvDevice *device, const char *feature)
 }
 
 void
+arv_device_get_integer_feature_bounds (ArvDevice *device, const char *feature, gint64 *min, gint64 *max)
+{
+	ArvGc *genicam;
+	ArvGcNode *node;
+
+	genicam = arv_device_get_genicam (device);
+	g_return_if_fail (ARV_IS_GC (genicam));
+
+	node = arv_gc_get_node (genicam, feature);
+	if (ARV_IS_GC_INTEGER (node)) {
+		if (min != NULL)
+			*min = arv_gc_integer_get_min (ARV_GC_INTEGER (node));
+		if (max != NULL)
+			*max = arv_gc_integer_get_max (ARV_GC_INTEGER (node));
+		return;
+	}
+}
+
+void
 arv_device_set_float_feature_value (ArvDevice *device, const char *feature, double value)
 {
 	ArvGc *genicam;
@@ -204,6 +249,19 @@ arv_device_get_float_feature_value (ArvDevice *device, const char *feature)
 
 	genicam = arv_device_get_genicam (device);
 	return arv_gc_float_get_value (ARV_GC_FLOAT (arv_gc_get_node (genicam, feature)));
+}
+
+void
+arv_device_get_float_feature_bounds (ArvDevice *device, const char *feature, double *min, double *max)
+{
+	ArvGc *genicam;
+
+	genicam = arv_device_get_genicam (device);
+
+	if (min != NULL)
+		*min = arv_gc_float_get_min (ARV_GC_FLOAT (arv_gc_get_node (genicam, feature)));
+	if (max != NULL)
+		*max = arv_gc_float_get_max (ARV_GC_FLOAT (arv_gc_get_node (genicam, feature)));
 }
 
 static void
@@ -225,6 +283,8 @@ arv_device_class_init (ArvDeviceClass *device_class)
 	parent_class = g_type_class_peek_parent (device_class);
 
 	object_class->finalize = arv_device_finalize;
+
+	device_class->get_genicam_xml = _get_genicam_xml;
 }
 
 G_DEFINE_ABSTRACT_TYPE (ArvDevice, arv_device, G_TYPE_OBJECT)

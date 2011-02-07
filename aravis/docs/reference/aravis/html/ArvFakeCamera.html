@@ -80,7 +80,7 @@
 <a class="link" href="ArvFakeCamera.html" title="ArvFakeCamera"><span class="returnvalue">ArvFakeCamera</span></a> *     <a class="link" href="ArvFakeCamera.html#arv-fake-device-get-fake-camera" title="arv_fake_device_get_fake_camera ()">arv_fake_device_get_fake_camera</a>     (<em class="parameter"><code><a class="link" href="ArvFakeDevice.html" title="ArvFakeDevice"><span class="type">ArvFakeDevice</span></a> *device</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="ArvFakeCamera.html#arv-set-fake-camera-genicam-filename" title="arv_set_fake_camera_genicam_filename ()">arv_set_fake_camera_genicam_filename</a>
                                                         (<em class="parameter"><code>const <span class="type">char</span> *filename</code></em>);
-const <span class="returnvalue">char</span> *        <a class="link" href="ArvFakeCamera.html#arv-get-fake-camera-genicam-data" title="arv_get_fake_camera_genicam_data ()">arv_get_fake_camera_genicam_data</a>    (<em class="parameter"><code><span class="type">size_t</span> *size</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="ArvFakeCamera.html#arv-get-fake-camera-genicam-xml" title="arv_get_fake_camera_genicam_xml ()">arv_get_fake_camera_genicam_xml</a>     (<em class="parameter"><code><span class="type">size_t</span> *size</code></em>);
 </pre>
 </div>
 <div class="refsect1" title="Object Hierarchy">
@@ -94,9 +94,10 @@ const <span class="returnvalue">char</span> *        <a class="link" href="ArvFa
 <a name="ArvFakeCamera.description"></a><h2>Description</h2>
 <p>
 <a class="link" href="ArvFakeCamera.html" title="ArvFakeCamera"><span class="type">ArvFakeCamera</span></a> is a class that simulate a real camera, which provides
-methods for the implementation of <a class="link" href="ArvFakeDevice.html" title="ArvFakeDevice"><span class="type">ArvFakeDevice</span></a> and <a class="link" href="ArvFakeStream.html" title="ArvFakeStream"><span class="type">ArvFakeStream</span></a>. It's
-foresen to use this class for the implementation of a fake ethernet camera
-too, but it's still a TODO.
+methods for the implementation of <a class="link" href="ArvFakeDevice.html" title="ArvFakeDevice"><span class="type">ArvFakeDevice</span></a> and <a class="link" href="ArvFakeStream.html" title="ArvFakeStream"><span class="type">ArvFakeStream</span></a>.
+</p>
+<p>
+arv-fake-gv-camera is a GV camera simulator based on this class.
 </p>
 </div>
 <div class="refsect1" title="Details">
@@ -218,9 +219,9 @@ too, but it's still a TODO.
                                                         (<em class="parameter"><code>const <span class="type">char</span> *filename</code></em>);</pre>
 </div>
 <hr>
-<div class="refsect2" title="arv_get_fake_camera_genicam_data ()">
-<a name="arv-get-fake-camera-genicam-data"></a><h3>arv_get_fake_camera_genicam_data ()</h3>
-<pre class="programlisting">const <span class="returnvalue">char</span> *        arv_get_fake_camera_genicam_data    (<em class="parameter"><code><span class="type">size_t</span> *size</code></em>);</pre>
+<div class="refsect2" title="arv_get_fake_camera_genicam_xml ()">
+<a name="arv-get-fake-camera-genicam-xml"></a><h3>arv_get_fake_camera_genicam_xml ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        arv_get_fake_camera_genicam_xml     (<em class="parameter"><code><span class="type">size_t</span> *size</code></em>);</pre>
 </div>
 </div>
 </div>

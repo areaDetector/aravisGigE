@@ -28,7 +28,9 @@
 
 G_BEGIN_DECLS
 
-typedef void (*ArvFakeCameraFillPattern) (ArvBuffer *buffer, void *fill_pattern_data);
+typedef void (*ArvFakeCameraFillPattern) (ArvBuffer *buffer, void *fill_pattern_data,
+					  guint32 exposure_time_us, guint32 gain,
+					  ArvPixelFormat pixel_format);
 
 #define ARV_FAKE_CAMERA_MEMORY_SIZE	0x1000
 
@@ -125,7 +127,7 @@ void		arv_fake_camera_set_fill_pattern	(ArvFakeCamera *camera,
 void 		arv_fake_camera_set_trigger_frequency 	(ArvFakeCamera *camera, double frequency);
 
 void 		arv_set_fake_camera_genicam_filename 	(const char *filename);
-const char *	arv_get_fake_camera_genicam_data	(size_t *size);
+const char *	arv_get_fake_camera_genicam_xml		(size_t *size);
 
 G_END_DECLS
 

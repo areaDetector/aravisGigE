@@ -19,16 +19,14 @@ GType arv_gc_access_mode_get_type	(void) G_GNUC_CONST;
 #define ARV_TYPE_GC_CACHABLE	(arv_gc_cachable_get_type())
 GType arv_gc_cachable_get_type	(void) G_GNUC_CONST;
 
+#define ARV_TYPE_AUTO	(arv_auto_get_type())
+GType arv_auto_get_type	(void) G_GNUC_CONST;
+
 #define ARV_TYPE_ACQUISITION_MODE	(arv_acquisition_mode_get_type())
 GType arv_acquisition_mode_get_type	(void) G_GNUC_CONST;
 
 #define ARV_TYPE_PIXEL_FORMAT	(arv_pixel_format_get_type())
 GType arv_pixel_format_get_type	(void) G_GNUC_CONST;
-
-/* Enumerations from "arvcamera.h" */
-
-#define ARV_TYPE_CAMERA_VENDOR	(arv_camera_vendor_get_type())
-GType arv_camera_vendor_get_type	(void) G_GNUC_CONST;
 
 /* Enumerations from "arvgcregister.h" */
 

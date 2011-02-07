@@ -26,6 +26,10 @@
                   <a href="#ArvStream.description" class="shortcut">Description</a>
                    | 
                   <a href="#ArvStream.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#ArvStream.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#ArvStream.signals" class="shortcut">Signals</a>
 </td></tr>
 </table>
 <div class="refentry" title="ArvStream">
@@ -54,6 +58,9 @@
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_completed_buffers</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_failures</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_underruns</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ArvStream.html#arv-stream-get-emit-signals" title="arv_stream_get_emit_signals ()">arv_stream_get_emit_signals</a>         (<em class="parameter"><code><a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a> *stream</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvStream.html#arv-stream-set-emit-signals" title="arv_stream_set_emit_signals ()">arv_stream_set_emit_signals</a>         (<em class="parameter"><code><a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> emit_signals</code></em>);
 </pre>
 </div>
 <div class="refsect1" title="Object Hierarchy">
@@ -63,6 +70,18 @@
    +----ArvStream
          +----<a class="link" href="ArvFakeStream.html" title="ArvFakeStream">ArvFakeStream</a>
          +----<a class="link" href="ArvGvStream.html" title="ArvGvStream">ArvGvStream</a>
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="ArvStream.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="ArvStream.html#ArvStream--emit-signals" title='The "emit-signals" property'>emit-signals</a>"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="ArvStream.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="ArvStream.html#ArvStream-new-buffer" title='The "new-buffer" signal'>new-buffer</a>"                                     : Run Last
 </pre>
 </div>
 <div class="refsect1" title="Description">
@@ -231,6 +250,103 @@ An accessor to the stream statistics.
 <td><p><span class="term"><em class="parameter"><code>n_underruns</code></em> :</span></p></td>
 <td> number of input buffer underruns. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="arv_stream_get_emit_signals ()">
+<a name="arv-stream-get-emit-signals"></a><h3>arv_stream_get_emit_signals ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            arv_stream_get_emit_signals         (<em class="parameter"><code><a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a> *stream</code></em>);</pre>
+<p>
+Check if stream will emit its signals.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>appsink</code></em> is emiting its signals.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.1.3</p>
+</div>
+<hr>
+<div class="refsect2" title="arv_stream_set_emit_signals ()">
+<a name="arv-stream-set-emit-signals"></a><h3>arv_stream_set_emit_signals ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_stream_set_emit_signals         (<em class="parameter"><code><a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> emit_signals</code></em>);</pre>
+<p>
+Make stream emit signals. This option is
+by default disabled because signal emission is expensive and unneeded when
+the application prefers to operate in pull mode.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emit_signals</code></em> :</span></p></td>
+<td>the new state
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.1.3</p>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="ArvStream.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "emit-signals" property'>
+<a name="ArvStream--emit-signals"></a><h3>The <code class="literal">"emit-signals"</code> property</h3>
+<pre class="programlisting">  "emit-signals"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Emit signals.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="ArvStream.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "new-buffer" signal'>
+<a name="ArvStream-new-buffer"></a><h3>The <code class="literal">"new-buffer"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a> *stream,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)      : Run Last</pre>
+<p>
+Signal that a new buffer is available.
+</p>
+<p>
+This signal is emited from the stream receive thread and only when the
+"emit-signals" property is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
+</p>
+<p>
+The new buffer can be retrieved with <a class="link" href="ArvStream.html#arv-stream-pop-buffer" title="arv_stream_pop_buffer ()"><code class="function">arv_stream_pop_buffer()</code></a>.
+</p>
+<p>
+Note that this signal is only emited when the "emit-signals" property is
+set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, which it is not by default for performance reasons.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>the stream that emited the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
 </tr>
 </tbody>
 </table></div>
