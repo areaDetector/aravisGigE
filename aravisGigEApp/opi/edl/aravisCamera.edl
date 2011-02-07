@@ -219,9 +219,9 @@ major 4
 minor 0
 release 0
 x 5
-y 615
+y 610
 w 185
-h 85
+h 80
 lineColor index 14
 fill
 fillColor index 3
@@ -234,7 +234,7 @@ major 4
 minor 1
 release 0
 x 5
-y 610
+y 600
 w 40
 h 14
 font "arial-medium-r-12.0"
@@ -254,7 +254,7 @@ major 4
 minor 0
 release 0
 x 90
-y 625
+y 615
 w 95
 h 20
 fgColor index 25
@@ -274,7 +274,7 @@ major 4
 minor 1
 release 0
 x 10
-y 625
+y 615
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -293,7 +293,7 @@ major 10
 minor 0
 release 0
 x 140
-y 650
+y 640
 w 45
 h 20
 controlPv "$(P)$(R)GainAutoTarget_RBV"
@@ -312,7 +312,7 @@ major 4
 minor 1
 release 0
 x 10
-y 650
+y 640
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -331,7 +331,7 @@ major 10
 minor 0
 release 0
 x 140
-y 675
+y 665
 w 45
 h 20
 controlPv "$(P)$(R)Gain_RBV"
@@ -350,7 +350,7 @@ major 4
 minor 1
 release 0
 x 10
-y 675
+y 665
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -369,9 +369,9 @@ major 4
 minor 0
 release 0
 x 5
-y 715
+y 710
 w 185
-h 85
+h 80
 lineColor index 14
 fill
 fillColor index 3
@@ -384,7 +384,7 @@ major 4
 minor 1
 release 0
 x 5
-y 710
+y 700
 w 67
 h 14
 font "arial-medium-r-12.0"
@@ -404,7 +404,7 @@ major 4
 minor 0
 release 0
 x 90
-y 725
+y 715
 w 95
 h 20
 fgColor index 25
@@ -424,7 +424,7 @@ major 4
 minor 1
 release 0
 x 10
-y 725
+y 715
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -443,7 +443,7 @@ major 10
 minor 0
 release 0
 x 140
-y 750
+y 740
 w 45
 h 20
 controlPv "$(P)$(R)WBRed_RBV"
@@ -462,7 +462,7 @@ major 4
 minor 1
 release 0
 x 10
-y 775
+y 765
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -481,7 +481,7 @@ major 10
 minor 0
 release 0
 x 140
-y 775
+y 765
 w 45
 h 20
 controlPv "$(P)$(R)WBBlue_RBV"
@@ -500,7 +500,7 @@ major 4
 minor 1
 release 0
 x 10
-y 750
+y 740
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -519,7 +519,7 @@ major 10
 minor 0
 release 0
 x 90
-y 750
+y 740
 w 45
 h 20
 controlPv "$(P)$(R)WBRed"
@@ -537,7 +537,7 @@ major 10
 minor 0
 release 0
 x 90
-y 775
+y 765
 w 45
 h 20
 controlPv "$(P)$(R)WBBlue"
@@ -555,9 +555,9 @@ major 4
 minor 0
 release 0
 x 200
-y 480
+y 485
 w 185
-h 110
+h 105
 lineColor index 14
 fill
 fillColor index 3
@@ -780,7 +780,7 @@ major 10
 minor 0
 release 0
 x 90
-y 675
+y 665
 w 45
 h 20
 controlPv "$(P)$(R)Gain"
@@ -798,7 +798,7 @@ major 10
 minor 0
 release 0
 x 90
-y 650
+y 640
 w 45
 h 20
 controlPv "$(P)$(R)GainAutoTarget"
@@ -816,9 +816,9 @@ major 4
 minor 0
 release 0
 x 200
-y 605
+y 610
 w 185
-h 100
+h 95
 lineColor index 14
 fill
 fillColor index 3
@@ -1093,5 +1093,79 @@ bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 200
+y 725
+w 185
+h 30
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 200
+y 715
+w 38
+h 14
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 5
+value {
+  "  Misc  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 285
+y 730
+w 95
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)UseTriggerMode"
+indicatorPv "$(P)$(R)UseTriggerMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 205
+y 730
+w 80
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Use Trigger"
+}
 endObjectProperties
 

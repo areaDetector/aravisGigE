@@ -370,3 +370,24 @@ record(ai, "$(P)$(R)IrisVideoLevelMax_RBV")
    field(SCAN, "I/O Intr") 
    field(EGU,  "mV pp")
 }
+
+record(mbbo, "$(P)$(R)UseTriggerMode")
+{
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_TRIGGERMODE")
+   field(ZRST, "Off")
+   field(ZRVL, "0")
+   field(ONST, "On")
+   field(ONVL, "1")
+}
+
+record(mbbi, "$(P)$(R)UseTriggerMode_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_TRIGGERMODE")
+   field(ZRST, "Off")
+   field(ZRVL, "2")
+   field(ONST, "On")
+   field(ONVL, "1")
+   field(SCAN, "I/O Intr")
+}

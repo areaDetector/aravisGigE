@@ -154,7 +154,7 @@ _close_buffer (ArvGvStreamThreadData *thread_data, ArvGvStreamThreadState *state
 		return;
 
 	if (state->buffer->status == ARV_BUFFER_STATUS_FILLING) {
-	       if (state->read_data_size <= state->buffer->size &&
+	       if (state->read_data_size == state->buffer->size &&
 		   state->n_missing_blocks == 0)
 		       state->buffer->status = ARV_BUFFER_STATUS_SUCCESS;
 	       else
