@@ -1,10 +1,15 @@
 /**
 \mainpage aravisGigE EPICS Support Module
 \section intro_sec Introduction
-This module is a thin wrapper to the aravis library for GigE cameras. It 
-supports any GigE vision camera, and an epics driver is provided for common
-parameters, but complicated cameras will still need a separate database, screen,
-and code for their advanced functions.
+This module is a thin wrapper to the 
+<a href="http://blogs.gnome.org/emmanuel/category/aravis">aravis</a> 
+library for GigE cameras. It supports any GigE vision camera, and an epics 
+driver is provided for common parameters, but complicated cameras will still 
+need a separate database, screen, and code for their advanced functions.
+
+Tested cameras:
+- AVT Manta series
+- Prosilica GC series
 
 The documentation here is top level documentation on creating an IOC with an
 aravisCamera areaDetector driver:
@@ -17,15 +22,24 @@ aravisCamera areaDetector driver:
 If you need to add another type of similar camera, you should copy 
 aravisProsilica.template and make your additions there, before changing 
 aravisCamera.cpp to add the new epics parameters. If you have a more complicated
-camera you will need to subclass aravisCamera()
+camera you will need to subclass aravisCamera
 
 If you need to change the code, please read the <a href="../aravis/index.html">
 documentation for the aravis library</a>.
 
 \section inst_sec Installation
-- Need glib >= 2.22 (tested with 2.24)
-- Modify configure/RELEASE if you have installed glib in an unusual place
-- Requires areaDetector 1-6
+- Download and untar the module
+- Modify configure/RELEASE
+ - If you have glib >= 2.22 then comment out GLIBPREFIX, otherwise download and 
+   install glib and set that macro to the install prefix you used  
+ - Set AREADETECTOR to the path of areaDetector 1-6 or 1-7beta
+- Type make
+- Run bin/linux-x86/arv-show-devices to see GigE visible devices
+- Run bin/linux-x86/dumpXml to download the genicam xml data from all visible
+  cameras
+- Take the name of the camera and put it into the startup script of the example 
+  application instead of the "Prosilica..." identifier
+- make and run the example and see if it works!
 
 \section bugs_sec Known Bugs
 - Unplugging the camera while it's acquiring causes a crash
@@ -33,66 +47,5 @@ documentation for the aravis library</a>.
 \section build_sec Build Instructions 
 - \subpage build_instructions_example
 
-IOCs build using these build instructions are available in iocs/
-
+IOCs built using these build instructions are available in iocs/
 */
-
-
-Ok, my guess is that everything is working correctly, but it's waiting for a trigger of some kind. Try the following:
-* Use dumpXml to get the xml file out of your camera
-* Power cycle your camera to get it into a known state. 
-* Change the trigger mode record in your database to match the definition in the xml:
-record(mbbo, "$(P)$(R)TriggerMode")
-{
-   field(ZRST, "Line1")
-   field(ZRVL, "0")
-   field(ONST, "Line2")
-   field(ONVL, "1")
-   field(TWST, "Line3")
-   field(TWVL, "2")
-   field(THST, "Line4")
-   field(THVL, "3")
-   field(FRST, "Software")
-   field(FRVL, "7")
-   field(PINI, "NO")
-}
-* Comment out the following lines in aravisCamera.cpp (line 906):
-	/* These are needed for prosilica/AVT cameras to use triggering for each frame */
-	if (this->hasFeature("TriggerSelector")) {
-		this->setStringValue("TriggerSelector", "FrameStart");
-		this->setStringValue("TriggerMode", "On");
-	} * Recompile and try it again
-* If this doesn't work, uncomment the lines, and try each of the things below, recompiling and power cycling the camera each time:
-** Try setting "TriggerSelector" to "AcquisitionStart" instead of "FrameStart"
-** Try this->setIntegerValue("AcquisitionFrameRateEnable",1) after setting TriggerMode On
-** Try this->setStringValue("TriggerMode", "Off")
-** Look at the xml and try changing other parameters in the same way
-
-Hopefully some combination of those will help. Do all the other features work correctly? If you set exposure/gain does the readback change? If you set exposure/gain too small does it give you an error?
-
-Oh, and feel free to email to the guy who wrote aravis if you have any suggestions for the library, his email is at the top of each file in the aravis directory, I just wrote the EPICS wrapper...
-
-Finally, there should be a set_debug.sh file in the root of the directory, if you run this it sets an environment variable which aravis looks at to see if it should output debug messages.
-
-
-I've done a release and put it on our website:
-http://controls.diamond.ac.uk/downloads/support/aravisGigE
-
-Could you try the following please?
-* download and untar the module
-* modify configure/RELEASE, if you have glib >= 2.22 then comment out the GLIBPREFIX, otherwise download and install glib and set that macro to the install prefix you used if non-standard
-* run bin/linux-x86/arv-show-devices and see if there is a JAI camera there
-* run bin/ linux-x86/dumpXml and send me a copy of the xml file from the JAI camera
-* Take the name of the camera and put it into the startup script of the example application instead of the "Prosilica..." identifier
-* make and run the example and see if it works!
-
-I've done a release and put it on our website:
-http://controls.diamond.ac.uk/downloads/support/aravisGigE
-
-Could you try the following please?
-* download and untar the module
-* modify configure/RELEASE, if you have glib >= 2.22 then comment out the GLIBPREFIX, otherwise download and install glib and set that macro to the install prefix you used if non-standard
-* run bin/linux-x86/arv-show-devices and see if there is a JAI camera there
-* run bin/ linux-x86/dumpXml and send me a copy of the xml file from the JAI camera
-* Take the name of the camera and put it into the startup script of the example application instead of the "Prosilica..." identifier
-* make and run the example and see if it works!
