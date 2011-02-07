@@ -36,3 +36,63 @@ documentation for the aravis library</a>.
 IOCs build using these build instructions are available in iocs/
 
 */
+
+
+Ok, my guess is that everything is working correctly, but it's waiting for a trigger of some kind. Try the following:
+* Use dumpXml to get the xml file out of your camera
+* Power cycle your camera to get it into a known state. 
+* Change the trigger mode record in your database to match the definition in the xml:
+record(mbbo, "$(P)$(R)TriggerMode")
+{
+   field(ZRST, "Line1")
+   field(ZRVL, "0")
+   field(ONST, "Line2")
+   field(ONVL, "1")
+   field(TWST, "Line3")
+   field(TWVL, "2")
+   field(THST, "Line4")
+   field(THVL, "3")
+   field(FRST, "Software")
+   field(FRVL, "7")
+   field(PINI, "NO")
+}
+* Comment out the following lines in aravisCamera.cpp (line 906):
+	/* These are needed for prosilica/AVT cameras to use triggering for each frame */
+	if (this->hasFeature("TriggerSelector")) {
+		this->setStringValue("TriggerSelector", "FrameStart");
+		this->setStringValue("TriggerMode", "On");
+	} * Recompile and try it again
+* If this doesn't work, uncomment the lines, and try each of the things below, recompiling and power cycling the camera each time:
+** Try setting "TriggerSelector" to "AcquisitionStart" instead of "FrameStart"
+** Try this->setIntegerValue("AcquisitionFrameRateEnable",1) after setting TriggerMode On
+** Try this->setStringValue("TriggerMode", "Off")
+** Look at the xml and try changing other parameters in the same way
+
+Hopefully some combination of those will help. Do all the other features work correctly? If you set exposure/gain does the readback change? If you set exposure/gain too small does it give you an error?
+
+Oh, and feel free to email to the guy who wrote aravis if you have any suggestions for the library, his email is at the top of each file in the aravis directory, I just wrote the EPICS wrapper...
+
+Finally, there should be a set_debug.sh file in the root of the directory, if you run this it sets an environment variable which aravis looks at to see if it should output debug messages.
+
+
+I've done a release and put it on our website:
+http://controls.diamond.ac.uk/downloads/support/aravisGigE
+
+Could you try the following please?
+* download and untar the module
+* modify configure/RELEASE, if you have glib >= 2.22 then comment out the GLIBPREFIX, otherwise download and install glib and set that macro to the install prefix you used if non-standard
+* run bin/linux-x86/arv-show-devices and see if there is a JAI camera there
+* run bin/ linux-x86/dumpXml and send me a copy of the xml file from the JAI camera
+* Take the name of the camera and put it into the startup script of the example application instead of the "Prosilica..." identifier
+* make and run the example and see if it works!
+
+I've done a release and put it on our website:
+http://controls.diamond.ac.uk/downloads/support/aravisGigE
+
+Could you try the following please?
+* download and untar the module
+* modify configure/RELEASE, if you have glib >= 2.22 then comment out the GLIBPREFIX, otherwise download and install glib and set that macro to the install prefix you used if non-standard
+* run bin/linux-x86/arv-show-devices and see if there is a JAI camera there
+* run bin/ linux-x86/dumpXml and send me a copy of the xml file from the JAI camera
+* Take the name of the camera and put it into the startup script of the example application instead of the "Prosilica..." identifier
+* make and run the example and see if it works!

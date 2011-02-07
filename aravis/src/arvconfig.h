@@ -8,7 +8,7 @@
 /* #undef ARAVIS_WITH_GSTREAMER */
 
 /* Gtk support */
-#define ARAVIS_WITH_GTK 1
+/* #undef ARAVIS_WITH_GTK */
 
 /* always defined to indicate that i18n is enabled */
 #define ENABLE_NLS 1

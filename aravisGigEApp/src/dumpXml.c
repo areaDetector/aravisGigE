@@ -7,8 +7,8 @@ int
 main (int argc, char **argv)
 {
 	unsigned int n_devices;
-	char *xml;
-	ArvGvDevice *gv_device;
+	const char *xml;
+	ArvDevice *device;
 	size_t size;
 	const char *device_id;	
 	char filename[256];
@@ -27,7 +27,7 @@ main (int argc, char **argv)
 		for (i = 0; i < n_devices; i++) {
 			device_id = arv_get_device_id (i);
 			if (device_id != NULL && strcmp(device_id, "Fake_1") != 0) {
-				gv_device = ARV_GV_DEVICE(arv_open_device(device_id));
+				device = ARV_DEVICE(arv_open_device(device_id));
 /*				ArvGc *genicam;
 				genicam = arv_device_get_genicam(ARV_DEVICE(gv_device));
 				GList *keys;
@@ -35,7 +35,7 @@ main (int argc, char **argv)
 				for (j = 0; j<g_list_length(keys); j++) {
 					printf("%s\n", g_list_nth_data(keys, j));
 				}*/
-				xml = arv_gv_device_get_xml(gv_device, &size);
+				xml = arv_device_get_genicam_xml(device, &size);
 				if (xml != NULL) {
 					sprintf(filename, "./%s.xml", device_id);
 					printf("Writing xml file '%s' ... ",  filename);
@@ -43,7 +43,6 @@ main (int argc, char **argv)
 					size = fwrite(xml, 1, size, fd);
 					fclose(fd);
 					printf("Done\n");					
-					g_free (xml);
 				}
 			}
 		}
