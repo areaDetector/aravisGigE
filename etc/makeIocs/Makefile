@@ -25,11 +25,11 @@ install: $(IOC_DIRS)
 
 # General rule for building a Standard IOC from an XML file
 $(TOP)/iocs/%: %.xml
-	$(XMLBUILDER) $(DEBUG) -e $<
+	$(XMLBUILDER) $(DEBUG) -e -b $<
 
 # General rule for building a Simulation IOC from an XML file
 $(TOP)/iocs/%_sim: %.xml
-	$(XMLBUILDER) $(DEBUG) --sim=linux-x86 -e $<
+	$(XMLBUILDER) $(DEBUG) -b --sim=linux-x86 -e $<
 
 # Alternate rule for building a Standard IOC from a python file
 $(TOP)/iocs/%: %.py
