@@ -3,7 +3,6 @@ TOP = .
 include $(TOP)/configure/CONFIG
 install: $(TOP)/aravis/Makefile
 
-
 DIRS := $(DIRS) $(filter-out $(DIRS), aravis)
 DIRS := $(DIRS) $(filter-out $(DIRS), configure)
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *App))

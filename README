@@ -1,5 +1,8 @@
 When doing a vendor update:
-* tar -xzf aravis-0.1.3.tar.gz 
-* mkdir aravis-0.1.3-import
-* mv aravis-0.1.3 aravis-0.1.3-import/aravis
-* dls-vendor-update.py aravis-0.1.3-import aravisGigE 0-1-2 0-1-3
+* remove aravis dir 
+* svn commit
+* change version in install.sh and uncomment http_proxy
+* run install.sh
+* comment out http_proxy in install.sh
+* svn add aravis
+* test and commit
