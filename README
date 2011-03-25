@@ -5,4 +5,5 @@ When doing a vendor update:
 * run install.sh
 * comment out http_proxy in install.sh
 * svn add aravis
+* find aravis -name .svn -prune -o -type d -exec ~tmc43/bin/set-svn-ignore {} \;
 * test and commit
