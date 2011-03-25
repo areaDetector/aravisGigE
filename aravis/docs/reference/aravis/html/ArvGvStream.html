@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ArvGvStream</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Aravis Reference Manual">
+<link rel="up" href="ch04.html" title="Ethernet cameras">
+<link rel="prev" href="ArvGvDevice.html" title="ArvGvDevice">
+<link rel="next" href="aravis-ArvGvcp.html" title="ArvGvcp">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ArvGvDevice.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Aravis Reference Manual</th>
+<td><a accesskey="n" href="aravis-ArvGvcp.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ArvGvStream.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ArvGvStream.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ArvGvStream.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="ArvGvStream">
+<a name="ArvGvStream"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ArvGvStream.top_of_page"></a>ArvGvStream</span></h2>
+<p>ArvGvStream — Gigabit ethernet camera stream</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="ArvGvStream.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="ArvGvStream.html#ArvGvStreamOption" title="enum ArvGvStreamOption">ArvGvStreamOption</a>;
+enum                <a class="link" href="ArvGvStream.html#ArvGvStreamPacketResend" title="enum ArvGvStreamPacketResend">ArvGvStreamPacketResend</a>;
+                    <a class="link" href="ArvGvStream.html#ArvGvStream-struct" title="ArvGvStream">ArvGvStream</a>;
+<a class="link" href="ArvStream.html" title="ArvStream"><span class="returnvalue">ArvStream</span></a> *         <a class="link" href="ArvGvStream.html#arv-gv-stream-new" title="arv_gv_stream_new ()">arv_gv_stream_new</a>                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GInetAddress.html"><span class="type">GInetAddress</span></a> *device_address</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> port</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvStream.html#ArvStreamCallback" title="ArvStreamCallback ()"><span class="type">ArvStreamCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> timestamp_tick_frequency</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             <a class="link" href="ArvGvStream.html#arv-gv-stream-get-port" title="arv_gv_stream_get_port ()">arv_gv_stream_get_port</a>              (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvGvStream.html#arv-gv-stream-set-option" title="arv_gv_stream_set_option ()">arv_gv_stream_set_option</a>            (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvGvStream.html#ArvGvStreamOption" title="enum ArvGvStreamOption"><span class="type">ArvGvStreamOption</span></a> option</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvGvStream.html#arv-gv-stream-set-packet-resend" title="arv_gv_stream_set_packet_resend ()">arv_gv_stream_set_packet_resend</a>     (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvGvStream.html#ArvGvStreamPacketResend" title="enum ArvGvStreamPacketResend"><span class="type">ArvGvStreamPacketResend</span></a> resend</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ArvGvStream.html#arv-gv-stream-get-statistics" title="arv_gv_stream_get_statistics ()">arv_gv_stream_get_statistics</a>        (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_resent_blocks</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_missing_blocks</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_late_blocks</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="ArvGvStream.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="ArvStream.html" title="ArvStream">ArvStream</a>
+         +----ArvGvStream
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="ArvGvStream.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1" title="Details">
+<a name="ArvGvStream.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum ArvGvStreamOption">
+<a name="ArvGvStreamOption"></a><h3>enum ArvGvStreamOption</h3>
+<pre class="programlisting">typedef enum {
+	ARV_GV_STREAM_OPTION_SOCKET_BUFFER_FIXED,
+	ARV_GV_STREAM_OPTION_SOCKET_BUFFER_AUTO
+} ArvGvStreamOption;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="ARV-GV-STREAM-OPTION-SOCKET-BUFFER-FIXED:CAPS"></a><span class="term"><code class="literal">ARV_GV_STREAM_OPTION_SOCKET_BUFFER_FIXED</code></span></p></td>
+<td>socket buffer is set to a given fixed value
+</td>
+</tr>
+<tr>
+<td><p><a name="ARV-GV-STREAM-OPTION-SOCKET-BUFFER-AUTO:CAPS"></a><span class="term"><code class="literal">ARV_GV_STREAM_OPTION_SOCKET_BUFFER_AUTO</code></span></p></td>
+<td>sockect buffer is set with respect to the payload size
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum ArvGvStreamPacketResend">
+<a name="ArvGvStreamPacketResend"></a><h3>enum ArvGvStreamPacketResend</h3>
+<pre class="programlisting">typedef enum {
+	ARV_GV_STREAM_PACKET_RESEND_NEVER,
+	ARV_GV_STREAM_PACKET_RESEND_ALWAYS
+} ArvGvStreamPacketResend;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="ARV-GV-STREAM-PACKET-RESEND-NEVER:CAPS"></a><span class="term"><code class="literal">ARV_GV_STREAM_PACKET_RESEND_NEVER</code></span></p></td>
+<td>never request a packet resend
+</td>
+</tr>
+<tr>
+<td><p><a name="ARV-GV-STREAM-PACKET-RESEND-ALWAYS:CAPS"></a><span class="term"><code class="literal">ARV_GV_STREAM_PACKET_RESEND_ALWAYS</code></span></p></td>
+<td>request a packet resend if a packet was missing
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ArvGvStream">
+<a name="ArvGvStream-struct"></a><h3>ArvGvStream</h3>
+<pre class="programlisting">typedef struct _ArvGvStream ArvGvStream;</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_gv_stream_new ()">
+<a name="arv-gv-stream-new"></a><h3>arv_gv_stream_new ()</h3>
+<pre class="programlisting"><a class="link" href="ArvStream.html" title="ArvStream"><span class="returnvalue">ArvStream</span></a> *         arv_gv_stream_new                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GInetAddress.html"><span class="type">GInetAddress</span></a> *device_address</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> port</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvStream.html#ArvStreamCallback" title="ArvStreamCallback ()"><span class="type">ArvStreamCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> timestamp_tick_frequency</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_gv_stream_get_port ()">
+<a name="arv-gv-stream-get-port"></a><h3>arv_gv_stream_get_port ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             arv_gv_stream_get_port              (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_gv_stream_set_option ()">
+<a name="arv-gv-stream-set-option"></a><h3>arv_gv_stream_set_option ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_gv_stream_set_option            (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvGvStream.html#ArvGvStreamOption" title="enum ArvGvStreamOption"><span class="type">ArvGvStreamOption</span></a> option</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> value</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_gv_stream_set_packet_resend ()">
+<a name="arv-gv-stream-set-packet-resend"></a><h3>arv_gv_stream_set_packet_resend ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_gv_stream_set_packet_resend     (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvGvStream.html#ArvGvStreamPacketResend" title="enum ArvGvStreamPacketResend"><span class="type">ArvGvStreamPacketResend</span></a> resend</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_gv_stream_get_statistics ()">
+<a name="arv-gv-stream-get-statistics"></a><h3>arv_gv_stream_get_statistics ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_gv_stream_get_statistics        (<em class="parameter"><code><a class="link" href="ArvGvStream.html" title="ArvGvStream"><span class="type">ArvGvStream</span></a> *gv_stream</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_resent_blocks</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_missing_blocks</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *n_late_blocks</code></em>);</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>
