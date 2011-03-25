@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ArvGvDevice</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Aravis Reference Manual">
+<link rel="up" href="ch04.html" title="Ethernet cameras">
+<link rel="prev" href="ArvGvInterface.html" title="ArvGvInterface">
+<link rel="next" href="ArvGvStream.html" title="ArvGvStream">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ArvGvInterface.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Aravis Reference Manual</th>
+<td><a accesskey="n" href="ArvGvStream.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ArvGvDevice.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ArvGvDevice.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ArvGvDevice.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="ArvGvDevice">
+<a name="ArvGvDevice"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ArvGvDevice.top_of_page"></a>ArvGvDevice</span></h2>
+<p>ArvGvDevice — Gigabit ethernet camera device</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="ArvGvDevice.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="ArvGvDevice.html#ArvGvDevice-struct" title="ArvGvDevice">ArvGvDevice</a>;
+<a class="link" href="ArvDevice.html" title="ArvDevice"><span class="returnvalue">ArvDevice</span></a> *         <a class="link" href="ArvGvDevice.html#arv-gv-device-new" title="arv_gv_device_new ()">arv_gv_device_new</a>                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GInetAddress.html"><span class="type">GInetAddress</span></a> *interface_address</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GInetAddress.html"><span class="type">GInetAddress</span></a> *device_address</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             <a class="link" href="ArvGvDevice.html#arv-gv-device-get-timestamp-tick-frequency" title="arv_gv_device_get_timestamp_tick_frequency ()">arv_gv_device_get_timestamp_tick_frequency</a>
+                                                        (<em class="parameter"><code><a class="link" href="ArvGvDevice.html" title="ArvGvDevice"><span class="type">ArvGvDevice</span></a> *gv_device</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="ArvGvDevice.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="ArvDevice.html" title="ArvDevice">ArvDevice</a>
+         +----ArvGvDevice
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="ArvGvDevice.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1" title="Details">
+<a name="ArvGvDevice.details"></a><h2>Details</h2>
+<div class="refsect2" title="ArvGvDevice">
+<a name="ArvGvDevice-struct"></a><h3>ArvGvDevice</h3>
+<pre class="programlisting">typedef struct _ArvGvDevice ArvGvDevice;</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_gv_device_new ()">
+<a name="arv-gv-device-new"></a><h3>arv_gv_device_new ()</h3>
+<pre class="programlisting"><a class="link" href="ArvDevice.html" title="ArvDevice"><span class="returnvalue">ArvDevice</span></a> *         arv_gv_device_new                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GInetAddress.html"><span class="type">GInetAddress</span></a> *interface_address</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GInetAddress.html"><span class="type">GInetAddress</span></a> *device_address</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2" title="arv_gv_device_get_timestamp_tick_frequency ()">
+<a name="arv-gv-device-get-timestamp-tick-frequency"></a><h3>arv_gv_device_get_timestamp_tick_frequency ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             arv_gv_device_get_timestamp_tick_frequency
+                                                        (<em class="parameter"><code><a class="link" href="ArvGvDevice.html" title="ArvGvDevice"><span class="type">ArvGvDevice</span></a> *gv_device</code></em>);</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>
