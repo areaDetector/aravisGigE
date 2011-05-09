@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ArvGvsp</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Aravis Reference Manual">
+<link rel="up" href="ch04.html" title="Ethernet cameras">
+<link rel="prev" href="aravis-ArvGvcp.html" title="ArvGvcp">
+<link rel="next" href="ch05.html" title="Fake camera">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="aravis-ArvGvcp.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Aravis Reference Manual</th>
+<td><a accesskey="n" href="ch05.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#aravis-ArvGvsp.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#aravis-ArvGvsp.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="aravis-ArvGvsp"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="aravis-ArvGvsp.top_of_page"></a>ArvGvsp</span></h2>
+<p>ArvGvsp — Gvsp packet handling (stream)</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="aravis-ArvGvsp.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">char</span> * 			          <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-to-string" title="arv_gvsp_packet_to_string ()">arv_gvsp_packet_to_string</a>           (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> packet_size</code></em>);
+<span class="returnvalue">size_t</span>              <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-data-size" title="arv_gvsp_packet_get_data_size ()">arv_gvsp_packet_get_data_size</a>       (<em class="parameter"><code><span class="type">size_t</span> packet_size</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-frame-id" title="arv_gvsp_packet_get_frame_id ()">arv_gvsp_packet_get_frame_id</a>        (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-height" title="arv_gvsp_packet_get_height ()">arv_gvsp_packet_get_height</a>          (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-packet-id" title="arv_gvsp_packet_get_packet_id ()">arv_gvsp_packet_get_packet_id</a>       (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<span class="returnvalue">ArvGvspPacketType</span>   <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-packet-type" title="arv_gvsp_packet_get_packet_type ()">arv_gvsp_packet_get_packet_type</a>     (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<span class="returnvalue">ArvPixelFormat</span>      <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-pixel-format" title="arv_gvsp_packet_get_pixel_format ()">arv_gvsp_packet_get_pixel_format</a>    (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-timestamp" title="arv_gvsp_packet_get_timestamp ()">arv_gvsp_packet_get_timestamp</a>       (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> timestamp_tick_frequency</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-width" title="arv_gvsp_packet_get_width ()">arv_gvsp_packet_get_width</a>           (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-x-offset" title="arv_gvsp_packet_get_x_offset ()">arv_gvsp_packet_get_x_offset</a>        (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-get-y-offset" title="arv_gvsp_packet_get_y_offset ()">arv_gvsp_packet_get_y_offset</a>        (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-debug" title="arv_gvsp_packet_debug ()">arv_gvsp_packet_debug</a>               (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> packet_size</code></em>);
+<span class="returnvalue">ArvGvspPacket</span> *		   <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-new-data-block" title="arv_gvsp_packet_new_data_block ()">arv_gvsp_packet_new_data_block</a>      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> frame_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> packet_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buffer_size</code></em>);
+<span class="returnvalue">ArvGvspPacket</span> *		   <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-new-data-leader" title="arv_gvsp_packet_new_data_leader ()">arv_gvsp_packet_new_data_leader</a>     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> frame_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> packet_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> timestamp</code></em>,
+                                                         <em class="parameter"><code><span class="type">ArvPixelFormat</span> pixel_format</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> x_offset</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> y_offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buffer_size</code></em>);
+<span class="returnvalue">ArvGvspPacket</span> *		   <a class="link" href="aravis-ArvGvsp.html#arv-gvsp-packet-new-data-trailer" title="arv_gvsp_packet_new_data_trailer ()">arv_gvsp_packet_new_data_trailer</a>    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> frame_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> packet_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buffer_size</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="aravis-ArvGvsp.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="aravis-ArvGvsp.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="arv-gvsp-packet-to-string"></a><h3>arv_gvsp_packet_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> * 			          arv_gvsp_packet_to_string           (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> packet_size</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-data-size"></a><h3>arv_gvsp_packet_get_data_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">size_t</span>              arv_gvsp_packet_get_data_size       (<em class="parameter"><code><span class="type">size_t</span> packet_size</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-frame-id"></a><h3>arv_gvsp_packet_get_frame_id ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             arv_gvsp_packet_get_frame_id        (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-height"></a><h3>arv_gvsp_packet_get_height ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             arv_gvsp_packet_get_height          (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-packet-id"></a><h3>arv_gvsp_packet_get_packet_id ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             arv_gvsp_packet_get_packet_id       (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-packet-type"></a><h3>arv_gvsp_packet_get_packet_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">ArvGvspPacketType</span>   arv_gvsp_packet_get_packet_type     (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-pixel-format"></a><h3>arv_gvsp_packet_get_pixel_format ()</h3>
+<pre class="programlisting"><span class="returnvalue">ArvPixelFormat</span>      arv_gvsp_packet_get_pixel_format    (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-timestamp"></a><h3>arv_gvsp_packet_get_timestamp ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             arv_gvsp_packet_get_timestamp       (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> timestamp_tick_frequency</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-width"></a><h3>arv_gvsp_packet_get_width ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             arv_gvsp_packet_get_width           (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-x-offset"></a><h3>arv_gvsp_packet_get_x_offset ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             arv_gvsp_packet_get_x_offset        (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-get-y-offset"></a><h3>arv_gvsp_packet_get_y_offset ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             arv_gvsp_packet_get_y_offset        (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-debug"></a><h3>arv_gvsp_packet_debug ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                arv_gvsp_packet_debug               (<em class="parameter"><code>const <span class="type">ArvGvspPacket</span> *packet</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> packet_size</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-new-data-block"></a><h3>arv_gvsp_packet_new_data_block ()</h3>
+<pre class="programlisting"><span class="returnvalue">ArvGvspPacket</span> *		   arv_gvsp_packet_new_data_block      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> frame_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> packet_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> size</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buffer_size</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-new-data-leader"></a><h3>arv_gvsp_packet_new_data_leader ()</h3>
+<pre class="programlisting"><span class="returnvalue">ArvGvspPacket</span> *		   arv_gvsp_packet_new_data_leader     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> frame_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> packet_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> timestamp</code></em>,
+                                                         <em class="parameter"><code><span class="type">ArvPixelFormat</span> pixel_format</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> x_offset</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> y_offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buffer_size</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-gvsp-packet-new-data-trailer"></a><h3>arv_gvsp_packet_new_data_trailer ()</h3>
+<pre class="programlisting"><span class="returnvalue">ArvGvspPacket</span> *		   arv_gvsp_packet_new_data_trailer    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> frame_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> packet_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buffer_size</code></em>);</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
