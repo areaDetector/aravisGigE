@@ -42,3 +42,9 @@ record(longout, "$(P)$(R)UPDATE")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_UPDATE")
    field(SCAN, "$(UPDATE=5 second)")
 }
+
+record(longout, "$(P)$(R)RESET")
+{
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_RESET")
+}

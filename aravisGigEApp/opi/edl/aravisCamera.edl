@@ -48,7 +48,7 @@ release 0
 x 5
 y 485
 w 185
-h 105
+h 130
 lineColor index 14
 fill
 fillColor index 3
@@ -62,13 +62,13 @@ minor 1
 release 0
 x 5
 y 475
-w 51
+w 58
 h 14
 font "arial-medium-r-12.0"
 fgColor index 14
 bgColor index 5
 value {
-  "  Buffers  "
+  "  General  "
 }
 autoSize
 border
@@ -80,9 +80,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 110
+x 90
 y 515
-w 75
+w 95
 h 20
 controlPv "$(P)$(R)COMPLETED_RBV"
 fgColor index 16
@@ -112,34 +112,15 @@ value {
 }
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 565
-w 75
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Underruns"
-}
-endObjectProperties
-
 # (Textupdate)
 object TextupdateClass
 beginObjectProperties
 major 10
 minor 0
 release 0
-x 110
+x 90
 y 540
-w 75
+w 95
 h 20
 controlPv "$(P)$(R)FAILURES_RBV"
 fgColor index 16
@@ -175,9 +156,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 110
+x 90
 y 565
-w 75
+w 95
 h 20
 controlPv "$(P)$(R)UNDERRUNS_RBV"
 fgColor index 16
@@ -219,7 +200,7 @@ major 4
 minor 0
 release 0
 x 5
-y 610
+y 635
 w 185
 h 80
 lineColor index 14
@@ -234,7 +215,7 @@ major 4
 minor 1
 release 0
 x 5
-y 600
+y 625
 w 40
 h 14
 font "arial-medium-r-12.0"
@@ -254,7 +235,7 @@ major 4
 minor 0
 release 0
 x 90
-y 615
+y 640
 w 95
 h 20
 fgColor index 25
@@ -274,7 +255,7 @@ major 4
 minor 1
 release 0
 x 10
-y 615
+y 640
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -293,7 +274,7 @@ major 10
 minor 0
 release 0
 x 140
-y 640
+y 665
 w 45
 h 20
 controlPv "$(P)$(R)GainAutoTarget_RBV"
@@ -312,7 +293,7 @@ major 4
 minor 1
 release 0
 x 10
-y 640
+y 665
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -331,7 +312,7 @@ major 10
 minor 0
 release 0
 x 140
-y 665
+y 690
 w 45
 h 20
 controlPv "$(P)$(R)Gain_RBV"
@@ -350,7 +331,7 @@ major 4
 minor 1
 release 0
 x 10
-y 665
+y 690
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -369,7 +350,7 @@ major 4
 minor 0
 release 0
 x 5
-y 710
+y 735
 w 185
 h 80
 lineColor index 14
@@ -384,7 +365,7 @@ major 4
 minor 1
 release 0
 x 5
-y 700
+y 725
 w 67
 h 14
 font "arial-medium-r-12.0"
@@ -404,7 +385,7 @@ major 4
 minor 0
 release 0
 x 90
-y 715
+y 740
 w 95
 h 20
 fgColor index 25
@@ -424,7 +405,7 @@ major 4
 minor 1
 release 0
 x 10
-y 715
+y 740
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -443,7 +424,7 @@ major 10
 minor 0
 release 0
 x 140
-y 740
+y 765
 w 45
 h 20
 controlPv "$(P)$(R)WBRed_RBV"
@@ -462,7 +443,7 @@ major 4
 minor 1
 release 0
 x 10
-y 765
+y 790
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -481,7 +462,7 @@ major 10
 minor 0
 release 0
 x 140
-y 765
+y 790
 w 45
 h 20
 controlPv "$(P)$(R)WBBlue_RBV"
@@ -500,7 +481,7 @@ major 4
 minor 1
 release 0
 x 10
-y 740
+y 765
 w 80
 h 20
 font "arial-bold-r-12.0"
@@ -519,7 +500,7 @@ major 10
 minor 0
 release 0
 x 90
-y 740
+y 765
 w 45
 h 20
 controlPv "$(P)$(R)WBRed"
@@ -537,7 +518,7 @@ major 10
 minor 0
 release 0
 x 90
-y 765
+y 790
 w 45
 h 20
 controlPv "$(P)$(R)WBBlue"
@@ -780,7 +761,7 @@ major 10
 minor 0
 release 0
 x 90
-y 665
+y 690
 w 45
 h 20
 controlPv "$(P)$(R)Gain"
@@ -798,7 +779,7 @@ major 10
 minor 0
 release 0
 x 90
-y 640
+y 665
 w 45
 h 20
 controlPv "$(P)$(R)GainAutoTarget"
@@ -1167,5 +1148,66 @@ useDisplayBg
 value {
   "Use Trigger"
 }
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 565
+w 75
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Underruns"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 590
+w 95
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Reset Cam"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 90
+y 590
+w 95
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)RESET.PROC"
+pressValue "1"
+onLabel "Reconnect"
+offLabel "Reconnect"
+3d
+font "arial-bold-r-12.0"
 endObjectProperties
 
