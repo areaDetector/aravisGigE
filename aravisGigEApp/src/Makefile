@@ -7,9 +7,11 @@ include $(TOP)/configure/CONFIG
 # -------------------------------
 
 # Build some little helper functions
-PROD_IOC += dumpXml
+PROD_IOC += dumpXml aravisTest
 dumpXml_SRCS_DEFAULT += dumpXml.c
 dumpXml_LIBS += $(EPICS_BASE_IOC_LIBS)
+aravisTest_SRCS_DEFAULT += aravisTest.c
+aravisTest_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 LIBRARY_IOC += aravisCamera
 
@@ -26,8 +28,8 @@ ifneq ($(GLIBPREFIX),)
 endif	
 
 # We need to link against aravis
-USR_INCLUDES += -I$(TOP)/include/aravis
+USR_INCLUDES += -I$(TOP)/include/aravis-0.2
 USR_LIBS += glib-2.0
-USR_LIBS += aravis
+USR_LIBS += aravis-0.2
 
 include $(TOP)/configure/RULES

@@ -28,7 +28,8 @@ CONFIGOPTIONS += --libdir=$(FULLTOP)/lib/$(EPICS_HOST_ARCH)
 CONFIGOPTIONS += --includedir=$(FULLTOP)/include
 CONFIGOPTIONS += --with-html-dir=$(FULLTOP)/documentation
 CONFIGOPTIONS += --prefix=/tmp/aravis-install
-CONFIGOPTIONS += --disable-nls --disable-gstreamer --disable-cairo
+CONFIGOPTIONS += --enable-gst-plugin --enable-viewer 
+#CONFIGOPTIONS += --disable-nls --disable-cairo --disable-gtk-doc-html --enable-viewer
 ENVEXPORTS =
 ifneq ($(GLIBPREFIX),)
 	ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
