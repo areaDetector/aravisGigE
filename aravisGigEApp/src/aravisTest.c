@@ -109,7 +109,8 @@ main (int argc,char *argv[])
     g_type_init ();
     mutex = g_mutex_new ();
     g_mutex_lock(mutex);
-    camera = arv_camera_new("Prosilica-02-2166A-06844");
+    camera = arv_camera_new("Allied Vision Technologies-50-0503318719");
+    printf("%p\n", camera);
 	/* create the stream */
 	stream = arv_camera_create_stream (camera, NULL, NULL);
 	arv_stream_set_emit_signals (stream, TRUE);
@@ -125,11 +126,6 @@ main (int argc,char *argv[])
     g_mutex_unlock(mutex);
 
     /* do test */
-    getFramesAttempt1(800, 600);
-    getFramesAttempt1(1024, 768);
-    getFramesAttempt1(800, 600);
-    getFramesAttempt1(1024, 768);
-    
     getFramesAttempt2(800, 600);
     getFramesAttempt2(1024, 768);
     getFramesAttempt2(800, 600);

@@ -85,7 +85,6 @@ protected:
 
 private:
     /* Our data */
-    NDArray *pRaw[NRAW];
     ArvStream *stream;
     ArvCamera *camera;
     ArvDevice *device;
@@ -164,14 +163,12 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt)
 	buffer = arv_stream_timed_pop_buffer(stream, 100000);
 	if (buffer == NULL)	return;
 	if (buffer->status == ARV_BUFFER_STATUS_SUCCESS) {
-        printf("Post frame\n");
         status = epicsMessageQueueTrySend(pPvt->msgQId,
         		&buffer,
         		sizeof(&buffer));
         if (status) {
         	printf("Message queue full, dropped buffer\n");
-            /* This buffer needs to be released */
-            g_object_unref(buffer);
+    		arv_stream_push_buffer (stream, buffer);
         }
 	} else {
         printf("Bad frame\n");
@@ -301,7 +298,7 @@ void aravisCamera::callback() {
 				xDim = 0;
 				yDim = 1;
 				pRaw->ndims = 2;
-				expected_size = buffer->width * buffer->size;
+				expected_size = buffer->width * buffer->height;
 				break;
 			case NDColorModeRGB1:
 				xDim = 1;
@@ -310,7 +307,7 @@ void aravisCamera::callback() {
 				pRaw->dims[0].size    = 3;
 				pRaw->dims[0].offset  = 0;
 				pRaw->dims[0].binning = 1;
-				expected_size = buffer->width * buffer->size * 3;
+				expected_size = buffer->width * buffer->height * 3;
 				break;
 			default:
 				asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
@@ -347,7 +344,7 @@ void aravisCamera::callback() {
 		}
 
 		if (expected_size != buffer->size) {
-			printf("w: %d, h: %d, size: %d\n", buffer->width, buffer->height, buffer->size);
+			printf("w: %d, h: %d, size: %d, expected_size: %d\n", buffer->width, buffer->height, buffer->size, expected_size);
 			this->freeBufferAndUnlock(buffer);
 			continue;
 		}
@@ -414,9 +411,9 @@ asynStatus aravisCamera::stop() {
     const char *functionName = "stop";
 	arv_camera_stop_acquisition (this->camera);
 	/* free memory */
-/*	if (this->stream != NULL) {
+	if (this->stream != NULL) {
+		arv_stream_get_n_buffers(this->stream, &in_buffers, &out_buffers);
 		for (int i=0;; i++) {
-			arv_stream_get_n_buffers(this->stream, &in_buffers, &out_buffers);
 			if (in_buffers+out_buffers == 0) {
 				// nothing to do
 				return asynSuccess;
@@ -453,7 +450,7 @@ asynStatus aravisCamera::stop() {
 				g_object_unref(buffer);
 			}
 		}
-	}*/
+	}
 	return asynSuccess;
 }	
 
@@ -477,7 +474,7 @@ asynStatus aravisCamera::start() {
     setIntegerParam(ADStatus, ADStatusAcquire);
 
     /* fill the queue */
-/*    for (int i=0; i<NRAW; i++) {
+    for (int i=0; i<NRAW; i++) {
     	if (this->allocBuffer() != asynSuccess) {
 			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
 						"%s:%s: allocBuffer returned error\n",
@@ -485,7 +482,7 @@ asynStatus aravisCamera::start() {
     		return asynError;
     	}
     }
-*/
+
     arv_camera_start_acquisition (this->camera);
 	this->stopping = 0;
     return asynSuccess;
@@ -571,9 +568,9 @@ asynStatus aravisCamera::setGeometry() {
     getIntegerParam(NDColorMode, &colorMode);
     getIntegerParam(NDDataType, &dataType);
     getIntegerParam(ADAcquire, &acquiring);
-    /*if (acquiring) {
+    if (acquiring) {
     	this->stop();
-    }*/
+    }
 
     /* make sure they're sensible */
     if (binx<1) {
@@ -617,9 +614,9 @@ asynStatus aravisCamera::setGeometry() {
     setIntegerParam(NDArraySize, w_rbv*h_rbv*bps);
     setIntegerParam(NDArraySizeX, w_rbv);
     setIntegerParam(NDArraySizeY, h_rbv);
-    /*if (acquiring) {
+    if (acquiring) {
     	this->start();
-    }*/
+    }
     return status;
 }
 
@@ -1038,7 +1035,7 @@ asynStatus aravisCamera::connectToCamera() {
     int colorMode, dataType, bayerFormat=0;
     const char *vendor, *model;
 	const char *functionName = "connectToCamera";
-	int status;
+	int status = asynSuccess;
     /* stop old camera if it exists */
     if (this->camera != NULL) {
     	this->stop();
@@ -1136,8 +1133,8 @@ asynStatus aravisCamera::connectToCamera() {
     arv_camera_get_sensor_size(this->camera, &w, &h);
     status |= setIntegerParam(ADMaxSizeX, w);
     status |= setIntegerParam(ADMaxSizeY, h);
-    this->bufferDims[0] = 2;
-    this->bufferDims[1] = 2;
+    //this->bufferDims[0] = 2;
+    //this->bufferDims[1] = 2;
 
     /* set ROI */
     arv_camera_get_region(this->camera, &x, &y, &w, &h);
@@ -1265,7 +1262,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     this->featureFloat = g_hash_table_new(g_int_hash, g_int_equal);
     this->cameraName = epicsStrDup(cameraName);
 
-    this->msgQId = epicsMessageQueueCreate(1, sizeof(ArvBuffer*));
+    this->msgQId = epicsMessageQueueCreate(2, sizeof(ArvBuffer*));
     if (!this->msgQId) {
         printf("%s:%s: epicsMessageQueueCreate failure\n", driverName, functionName);
         return;
