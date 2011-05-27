@@ -1,4 +1,4 @@
-# Database for the records specific to the simulated detector driver
+# Database for the records specific to the aravis GigE driver
 # Mark Rivers
 # March 23, 2008
 
@@ -9,10 +9,12 @@
 #% macro, TIMEOUT, Timeout
 #% macro, ADDR, Asyn Port address
 #% macro, UPDATE, Update rate
-# % macro, gda_name, Name to expose to GDA
 # % gui, $(PORT), edmtab, aravisCamera.edl, P=$(P),R=$(R)
 
-# % gdatag, pv, ro, $(gda_name=$(PORT)), COMPLETED_RBV, Readback for Frames Completed [[aravisCamera]]
+# All tags starting with gdatag are DLS specific for GDA
+# % gdatag, template, aravisCamera, $(PORT)_aravisCamera, $(PORT) aravisCamera class instance
+
+# % gdatag, pv, ro, $(PORT)_aravisCamera, COMPLETED_RBV, Readback for Frames Completed
 record(ai, "$(P)$(R)COMPLETED_RBV")
 {
    field(DTYP, "asynFloat64")
@@ -20,7 +22,7 @@ record(ai, "$(P)$(R)COMPLETED_RBV")
    field(SCAN, "I/O Intr")
 }
 
-# % gdatag, pv, ro, $(gda_name=$(PORT)), FAILURES_RBV, Readback for Frame Failures [[aravisCamera]]
+# % gdatag, pv, ro, $(PORT)_aravisCamera, FAILURES_RBV, Readback for Frame Failures
 record(ai, "$(P)$(R)FAILURES_RBV")
 {
    field(DTYP, "asynFloat64")
@@ -28,7 +30,7 @@ record(ai, "$(P)$(R)FAILURES_RBV")
    field(SCAN, "I/O Intr")
 }
 
-# % gdatag, pv, ro, $(gda_name=$(PORT)), UNDERRUNS_RBV, Readback for Frame Underruns [[aravisCamera]]
+# % gdatag, pv, ro, $(PORT)_aravisCamera, UNDERRUNS_RBV, Readback for Frame Underruns
 record(ai, "$(P)$(R)UNDERRUNS_RBV")
 {
    field(DTYP, "asynFloat64")
