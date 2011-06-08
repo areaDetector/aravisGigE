@@ -3,13 +3,15 @@
 	<!--<areaDetector.prosilica ADDR="0" ID="5001044" P="ARAVISCAM1" PORT="CAM1" R=":CAM:" TIMEOUT="1"/>-->
 	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Allied Vision Technologies-50-0503318719" P="ARAVISCAM1" PORT="CAM1" R=":CAM:" TIMEOUT="1"/>
 	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Allied Vision Technologies-50-0503317944" P="ARAVISCAM1" PORT="CAM1" R=":CAM:" TIMEOUT="1"/>-->
-	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Prosilica-02-2165A-06632" P="ARAVISCAM2" PORT="CAM2" R=":CAM:" TIMEOUT="1"/>-->
+	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Prosilica-02-2166A-06844" P="ARAVISCAM1" PORT="CAM1" R=":CAM:" TIMEOUT="1"/>-->
 	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Prosilica-02-2175A-06246" P="ARAVISCAM3" PORT="CAM3" R=":CAM:" TIMEOUT="1"/>-->
 	<!--<aravisGigE.aravisCamera ADDR="0" BUFFERS="50" CLASS="Prosilica" ID="Allied Vision Technologies-50-0503318719" MEMORY="-1" P="ARAVISCAM3" PORT="CAM3" R=":CAM:" TIMEOUT="1" gda_name="$(PORT)"/>-->
+	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Prosilica-02-2166A-07143" P="ARAVISCAM1" PORT="CAM1" R=":CAM:" TIMEOUT="1"/>-->
+	<!--<areaDetector.NDColorConvert ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" P="ARAVISCAM1" PORT="CC" R=":CC:" TIMEOUT="1"/>-->
 	<!--<areaDetector.NDProcess ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" P="ARAVISCAM1" PORT="PROC" R=":PROC:" TIMEOUT="1"/>-->
 	<!--<areaDetector.NDStats ADDR="0" HIST_SIZE="256" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" P="ARAVISCAM1" PORT="STAT" R=":STAT:" TIMEOUT="1" XSIZE="1390" YSIZE="1038"/>-->
-	<!--<areaDetector.NDStdArrays ADDR="0" Enabled="1" FTVL="UCHAR" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" NELEMENTS="1442820" P="ARAVISCAM1" PORT="ARR1" R=":ARR:" TIMEOUT="1" TYPE="Int8"/>-->
-	<ffmpegServer.ffmpegStream ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" P="ARAVISCAM1" PORT="MJPG1" R=":MJPG:" TIMEOUT="1"/>
+	<areaDetector.NDStdArrays ADDR="0" Enabled="1" FTVL="UCHAR" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" NELEMENTS="1442820" P="ARAVISCAM1" PORT="ARR1" R=":ARR:" TIMEOUT="1" TYPE="Int8"/>
+	<ffmpegServer.ffmpegStream ADDR="0" HTTP_PORT="8090" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" P="ARAVISCAM1" PORT="MJPG1" R=":MJPG:" TIMEOUT="1"/>
 	<!--<ffmpegServer.ffmpegStream ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CAM2" P="ARAVISCAM2" PORT="MJPG2" R=":MJPG:" TIMEOUT="1"/>-->
 	<!--<ffmpegServer.ffmpegStream ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="CAM1" P="ARAVISCAM3" PORT="MJPG3" R=":MJPG:" TIMEOUT="1"/>-->
 </components>

@@ -12,7 +12,7 @@ DEBUG :=
 IOCS := $(patsubst %.xml, %, $(wildcard *.xml)) $(patsubst %.py, %, $(wildcard *.py))
 
 # These are the IOCS we don't want to make simulations out of
-NO_SIMS :=
+NO_SIMS := hdftest
 
 # Make simulations from all IOCS not in NO_SIMS
 SIMS := $(patsubst %, %_sim, $(filter-out $(NO_SIMS), $(IOCS)))

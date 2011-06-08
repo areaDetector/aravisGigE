@@ -161,6 +161,7 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt)
 	ArvBuffer *buffer;
 	int status;
 	buffer = arv_stream_timed_pop_buffer(stream, 100000);
+    //printf("Buffer: %p\n", buffer);
 	if (buffer == NULL)	return;
 	if (buffer->status == ARV_BUFFER_STATUS_SUCCESS) {
         status = epicsMessageQueueTrySend(pPvt->msgQId,
@@ -171,7 +172,7 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt)
     		arv_stream_push_buffer (stream, buffer);
         }
 	} else {
-        printf("Bad frame\n");
+        printf("Bad frame %d\n", buffer->status);
 		arv_stream_push_buffer (stream, buffer);
 	}
 }
@@ -209,6 +210,7 @@ asynStatus aravisCamera::allocBuffer() {
     }
 
     buffer = arv_buffer_new_full(payload, pRaw->pData, (void *)pRaw, destroyBuffer);
+    //printf("Push buffer: %p, payload: %d\n", buffer, payload);
     arv_stream_push_buffer (this->stream, buffer);
     return asynSuccess;
 }
@@ -238,13 +240,12 @@ void aravisCamera::callback() {
         /* Wait for an array to arrive from the queue */
         epicsMessageQueueReceive(this->msgQId, &buffer, sizeof(&buffer));
         //maybe do allocFrame here
-
 		this->lock();
-		if (this->stopping) {
+		/*if (this->stopping) {
 			printf("stopping...\n");
 			this->freeBufferAndUnlock(buffer);
 			continue;
-		}
+		}*/
 
 		/* Get the current parameters */
 		getIntegerParam(NDArrayCallbacks, &arrayCallbacks);
@@ -344,7 +345,9 @@ void aravisCamera::callback() {
 		}
 
 		if (expected_size != buffer->size) {
-			printf("w: %d, h: %d, size: %d, expected_size: %d\n", buffer->width, buffer->height, buffer->size, expected_size);
+			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+						"%s:%s: w: %d, h: %d, size: %d, expected_size: %d\n",
+						driverName, functionName, buffer->width, buffer->height, buffer->size, expected_size);
 			this->freeBufferAndUnlock(buffer);
 			continue;
 		}
@@ -406,30 +409,20 @@ void aravisCamera::freeBufferAndUnlock(ArvBuffer *buffer) {
 /** Stop acquisition
     this->camera exists, lock taken */
 asynStatus aravisCamera::stop() {
+    arv_camera_stop_acquisition (this->camera);
+	return asynSuccess;
+}
+
+/** Start acquisition
+    this->camera exists, lock taken */
+asynStatus aravisCamera::start() {
+    int imageMode;
+    const char *functionName = "start";
 	gint in_buffers, out_buffers;
 	ArvBuffer *buffer;
-    const char *functionName = "stop";
-	arv_camera_stop_acquisition (this->camera);
-	/* free memory */
+    /* This will pop buffers from the stream */
 	if (this->stream != NULL) {
 		arv_stream_get_n_buffers(this->stream, &in_buffers, &out_buffers);
-		for (int i=0;; i++) {
-			if (in_buffers+out_buffers == 0) {
-				// nothing to do
-				return asynSuccess;
-			}
-			if (in_buffers+out_buffers == NRAW || i>20) {
-				// We've waited long enough for buffers, now clear them
-				break;
-			}
-			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-						"%s:%s: In: %d, out: %d, Waiting 0.1s for buffers...\n",
-						driverName, functionName, in_buffers, out_buffers);
-			this->stopping = 1;
-			this->unlock();
-			epicsThreadSleep(0.1);
-			this->lock();
-		}
 		for (int i=0; i<in_buffers; i++) {
 			buffer = arv_stream_pop_input_buffer(this->stream);
 			if (buffer == NULL) {
@@ -451,17 +444,6 @@ asynStatus aravisCamera::stop() {
 			}
 		}
 	}
-	return asynSuccess;
-}	
-
-/** Start acquisition
-    this->camera exists, lock taken */
-asynStatus aravisCamera::start() {
-    int imageMode;
-    const char *functionName = "start";
-
-    /* This will stop the camera and pop buffers from the stream */
-    this->stop();
     
     getIntegerParam(ADImageMode, &imageMode);
     if (imageMode == ADImageSingle) {
@@ -484,7 +466,7 @@ asynStatus aravisCamera::start() {
     }
 
     arv_camera_start_acquisition (this->camera);
-	this->stopping = 0;
+	//this->stopping = 0;
     return asynSuccess;
 }
 
@@ -570,6 +552,9 @@ asynStatus aravisCamera::setGeometry() {
     getIntegerParam(ADAcquire, &acquiring);
     if (acquiring) {
     	this->stop();
+    	this->unlock();
+    	epicsThreadSleep(0.5);
+    	this->lock();
     }
 
     /* make sure they're sensible */
@@ -615,6 +600,9 @@ asynStatus aravisCamera::setGeometry() {
     setIntegerParam(NDArraySizeX, w_rbv);
     setIntegerParam(NDArraySizeY, h_rbv);
     if (acquiring) {
+    	this->unlock();
+    	epicsThreadSleep(0.5);
+    	this->lock();
     	this->start();
     }
     return status;
@@ -896,9 +884,9 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
             status = this->start();
         } else {
             /* This was a command to stop acquisition */
-        	setIntegerParam(function, rbv);
+        	//setIntegerParam(function, rbv);
             this->stop();
-            setIntegerParam(function, value);
+            //setIntegerParam(function, value);
             setIntegerParam(ADStatus, ADStatusIdle);
         }
     } else if (function == ADBinX || function == ADBinY || function == ADMinX || function == ADMinY || function == ADSizeX || function == ADSizeY) {
@@ -1087,8 +1075,8 @@ asynStatus aravisCamera::connectToCamera() {
 		return asynError;
     }
 	g_object_set (ARV_GV_STREAM (this->stream),
-			  "packet-timeout", 20000,
-			  "frame-retention", 100000,
+			  "packet-timeout", 50000, //50ms
+			  "frame-retention", 200000, //200ms
 			  NULL);
 	arv_stream_set_emit_signals (this->stream, TRUE);
 	g_signal_connect (this->stream, "new-buffer", G_CALLBACK (newBufferCallback), this);
