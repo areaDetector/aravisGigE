@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86">
+	<EPICS_BASE.StartupCommand command="asynSetTraceMask gige.hdf 0 0x11" name="trace" post_init="True"/>
+	<EPICS_BASE.StartupCommand command="dbpf GIGE:HDF:FilePath, /scratch/tmp/hdf5" name="filepath" post_init="True"/>
+	<EPICS_BASE.StartupCommand command="dbpf GIGE:HDF:FileName, test" name="filename" post_init="True"/>
+	<EPICS_BASE.StartupCommand command="dbpf GIGE:HDF:FileTemplate, %s%s_%d.hdf" name="filetemplate" post_init="True"/>
+	<EPICS_BASE.StartupCommand command="dbpf GIGE:HDF:NDAttributesFile, /scratch/support/ad1-7_hdf5/hdf5attributes.xml" name="attrxml" post_init="True"/>
+	<EPICS_BASE.StartupCommand command="dbpf GIGE:CAM:NDAttributesFile, /scratch/support/ad1-7_hdf5/simattributes.xml" name="camattrxml" post_init="True"/>
+	<records.waveform FTVL="CHAR" name="CAMattr" record="GIGE:CAM:NDAttributesFile"/>
+	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Prosilica-02-2165A-06632" P="GIGE" PORT="gige.cam" R=":CAM:" TIMEOUT="1"/>
+	<areaDetector.NDFileHDF5 ADDR="0" Enabled="1" NDARRAY_ADDR="0" NDARRAY_PORT="gige.cam" P="GIGE" PORT="gige.hdf" QUEUE="40" R=":HDF:" TIMEOUT="1"/>
+	<EPICS_BASE.EpicsEnvSet key="EPICS_CA_MAX_ARRAY_BYTES" value="4000000"/>
+</components>
