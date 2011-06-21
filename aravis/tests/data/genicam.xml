@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RegisterDescription
+	ModelName="Model"
+	VendorName="Emmanuel"
+	StandardNameSpace="None"
+	SchemaMajorVersion="1"
+	SchemaMinorVersion="0"
+	SchemaSubMinorVersion="0"
+	MajorVersion="292"
+	MinorVersion="0"
+	SubMinorVersion="0"
+	ToolTip="TestTooltip"
+	ProductGuid="111-222"
+	VersionGuid="222-333"
+	xmlns="http://www.genicam.org/GenApi/Version_1_0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.genicam.org/GenApi/Version_1_0 GenApiSchema.xsd">
+
+	<Category Name="Root" NameSpace="Standard">
+		<pFeature>RWInteger</pFeature>
+		<pFeature>Enumeration</pFeature>
+	</Category>
+
+	<Float Name="RWFloat">
+		<Value>0.1</Value>
+	</Float>
+
+	<Boolean Name="RWBoolean">
+		<Value>1</Value>
+	</Boolean>
+
+	<Integer Name="RWInteger">
+		<Value>1</Value>
+	</Integer>
+
+	<Enumeration Name="Enumeration">
+		<EnumEntry Name="Entry0">
+			<Value>0</Value>
+		</EnumEntry>
+		<EnumEntry Name="Entry1">
+			<Value>1</Value>
+		</EnumEntry>
+		<EnumEntry Name="EntryNotAvailable">
+			<pIsAvailable>NotAvailable</pIsAvailable>
+			<Value>2</Value>
+		</EnumEntry>
+		<EnumEntry Name="EntryNotImplemented">
+			<pIsImplemented>NotAvailable</pIsImplemented>
+			<Value>3</Value>
+		</EnumEntry>
+		<pValue>EnumerationValue</pValue>
+	</Enumeration>
+
+	<Integer Name="NotImplemented">
+		<Value>0</Value>
+	</Integer>
+
+	<Integer Name="NotAvailable">
+		<Value>0</Value>
+	</Integer>
+
+	<Integer Name="EnumerationValue">
+		<Value>0</Value>
+	</Integer>
+
+</RegisterDescription>
