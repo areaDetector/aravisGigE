@@ -2,7 +2,7 @@
 \mainpage aravisGigE EPICS Support Module
 \section intro_sec Introduction
 This module is a thin wrapper to the 
-<a href="http://blogs.gnome.org/emmanuel/category/aravis">aravis</a> 
+<a href="http://live.gnome.org/Aravis">aravis</a> 
 library for GigE cameras. It supports any GigE vision camera, and an epics 
 driver is provided for common parameters, but complicated cameras will still 
 need a separate database, screen, and code for their advanced functions.
@@ -30,7 +30,7 @@ documentation for the aravis library</a>.
 \section inst_sec Installation
 As this module is just a wrapper to aravis, it is not distributed with aravis, so you need to download and compile aravis in order to use the module. After downloading and untarring aravisGigE, either:
 - Run the bash script <tt>install.sh</tt> in the root of the module, or
-- Download and unzip the <a href="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-0.1.4.tar.bz2">aravis source</a> in the root of the module, renaming it to aravis
+- Download and unzip the <a href="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-0.1.8.tar.bz2">aravis source</a> in the root of the module, renaming it to aravis
 
 You are now ready to build the module.
 - Modify configure/RELEASE
@@ -38,15 +38,17 @@ You are now ready to build the module.
    install glib and set that macro to the install prefix you used  
  - Set AREADETECTOR to the path of areaDetector 1-6 or 1-7beta
 - Type make
-- Run bin/linux-x86/arv-show-devices to see GigE visible devices
-- Run bin/linux-x86/dumpXml to download the genicam xml data from all visible
+- Run bin/linux-x86/arv-tool-0.2 to see GigE visible devices
+- Run bin/linux-x86/arv-tool-0.2 -n "<device_name>" genicam > "<camera_model>.xml" to download the genicam xml data from the selected device
   cameras
+- E.g. bin/linux-x86/arv-tool-0.2 -n "Allied Vision Technologies-50-0503318719" genicam > AVT_Manta_G125B.xml  
 - Take the name of the camera and put it into the startup script of the example 
   application instead of the "Prosilica..." identifier
 - make and run the example and see if it works!
 
 \section bugs_sec Known Bugs
 - Unplugging the camera while it's acquiring causes a crash
+- Changing resolution or colour mode while acquiring is unreliable, it is better to stop the camera first
 
 \section build_sec Build Instructions 
 - \subpage build_instructions_example
