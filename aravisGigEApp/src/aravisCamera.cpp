@@ -1107,6 +1107,9 @@ asynStatus aravisCamera::connectToCamera() {
 	} else if (this->hasFeature("AcquisitionFrameRateAbs")) {
 		g_hash_table_insert(this->featureFloat, &ADAcquirePeriod, (gpointer)"AcquisitionFrameRateAbs");
 	}
+	if (this->hasFeature("AcquisitionFrameRateEnable")) {
+		this->setIntegerValue("AcquisitionFrameRateEnable", 1, NULL);
+	}
 
 	/* These are needed to use triggering for each frame */
 	if (this->hasFeature("TriggerSelector")) {
@@ -1250,7 +1253,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     this->featureFloat = g_hash_table_new(g_int_hash, g_int_equal);
     this->cameraName = epicsStrDup(cameraName);
 
-    this->msgQId = epicsMessageQueueCreate(2, sizeof(ArvBuffer*));
+    this->msgQId = epicsMessageQueueCreate(5, sizeof(ArvBuffer*));
     if (!this->msgQId) {
         printf("%s:%s: epicsMessageQueueCreate failure\n", driverName, functionName);
         return;
