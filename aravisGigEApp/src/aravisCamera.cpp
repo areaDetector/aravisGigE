@@ -1124,8 +1124,8 @@ asynStatus aravisCamera::connectToCamera() {
     arv_camera_get_sensor_size(this->camera, &w, &h);
     status |= setIntegerParam(ADMaxSizeX, w);
     status |= setIntegerParam(ADMaxSizeY, h);
-    //this->bufferDims[0] = 2;
-    //this->bufferDims[1] = 2;
+    this->bufferDims[0] = 640;
+    this->bufferDims[1] = 480;
 
     /* set ROI */
     arv_camera_get_region(this->camera, &x, &y, &w, &h);
