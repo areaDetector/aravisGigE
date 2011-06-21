@@ -49,6 +49,7 @@ You are now ready to build the module.
 \section bugs_sec Known Bugs
 - Unplugging the camera while it's acquiring causes a crash
 - Changing resolution or colour mode while acquiring is unreliable, it is better to stop the camera first
+- <tt>pthread_attr_setstacksize error Invalid argument</tt> error messages are caused by glib and can be ignored
 
 \section build_sec Build Instructions 
 - \subpage build_instructions_example
