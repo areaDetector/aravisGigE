@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # DLS specific http proxy
-export http_proxy=wwwcache.rl.ac.uk:8080
+#export http_proxy=wwwcache.rl.ac.uk:8080
 
 # Variables telling us where to get things
 HERE="$(dirname "$0")"

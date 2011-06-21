@@ -1,4 +1,5 @@
 When doing a vendor update:
+* make clean uninstall
 * remove aravis dir 
 * svn commit
 * change version in install.sh and uncomment http_proxy
@@ -6,5 +7,6 @@ When doing a vendor update:
 * comment out http_proxy in install.sh
 * svn add aravis
 * make
+* update version numbers in documentation
 * find aravis -name .svn -prune -o -type d -exec ~tmc43/bin/set-svn-ignore {} \;
 * test and commit
