@@ -600,6 +600,43 @@ value {
 }
 endObjectProperties   
 
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram0"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram0_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
@@ -651,6 +688,43 @@ value {
   "AcquisitionFrameRateLimit"
 }
 endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram1"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram1_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
