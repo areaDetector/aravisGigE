@@ -11,8 +11,7 @@ include $(TOP)/configure/CONFIG
 # In a Diamond Support Module, install
 # templates like this
 #
-DB += aravisCamera.template
-DB += aravisProsilica.template
+DB += $(patsubst ../%, %, $(wildcard ../*.template))
 
 include $(TOP)/configure/RULES
 #----------------------------------------

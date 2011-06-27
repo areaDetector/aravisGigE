@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 181
-y 93
+x 815
+y 263
 w 390
-h 820
+h 110
 font "arial-bold-r-12.0"
 ctlFont "arial-bold-r-12.0"
 btnFont "arial-bold-r-12.0"
@@ -22,6 +22,7 @@ botShadowColor index 11
 showGrid
 snapToGrid
 gridSize 5
+disableScroll
 endScreenProperties
 
 # (Rectangle)
@@ -31,9 +32,9 @@ major 4
 minor 0
 release 0
 x 0
-y 470
+y 0
 w 390
-h 350
+h 110
 lineColor index 5
 fill
 fillColor index 5
@@ -46,9 +47,9 @@ major 4
 minor 0
 release 0
 x 5
-y 485
-w 185
-h 130
+y 15
+w 380
+h 90
 lineColor index 14
 fill
 fillColor index 3
@@ -61,7 +62,7 @@ major 4
 minor 1
 release 0
 x 5
-y 475
+y 5
 w 58
 h 14
 font "arial-medium-r-12.0"
@@ -81,7 +82,7 @@ major 10
 minor 0
 release 0
 x 90
-y 515
+y 25
 w 95
 h 20
 controlPv "$(P)$(R)COMPLETED_RBV"
@@ -100,7 +101,7 @@ major 4
 minor 1
 release 0
 x 10
-y 515
+y 25
 w 75
 h 20
 font "arial-bold-r-12.0"
@@ -119,7 +120,7 @@ major 10
 minor 0
 release 0
 x 90
-y 540
+y 50
 w 95
 h 20
 controlPv "$(P)$(R)FAILURES_RBV"
@@ -138,7 +139,7 @@ major 4
 minor 1
 release 0
 x 10
-y 540
+y 50
 w 75
 h 20
 font "arial-bold-r-12.0"
@@ -157,7 +158,7 @@ major 10
 minor 0
 release 0
 x 90
-y 565
+y 75
 w 95
 h 20
 controlPv "$(P)$(R)UNDERRUNS_RBV"
@@ -169,85 +170,6 @@ font "arial-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 0
-y 0
-w 390
-h 470
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-displaySource "file"
-file "ADBase"
-sizeOfs 5
-numDsps 1
-displayFileName {
-  0 "NDPluginBase"
-}
-noScroll
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 635
-w 185
-h 80
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 625
-w 40
-h 14
-font "arial-medium-r-12.0"
-fgColor index 14
-bgColor index 5
-value {
-  "  Gain  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 90
-y 640
-w 95
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)GainAuto"
-indicatorPv "$(P)$(R)GainAuto_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -255,909 +177,7 @@ major 4
 minor 1
 release 0
 x 10
-y 640
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Gain Auto"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 140
-y 665
-w 45
-h 20
-controlPv "$(P)$(R)GainAutoTarget_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 665
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Auto Target"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 140
-y 690
-w 45
-h 20
-controlPv "$(P)$(R)Gain_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 690
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Gain Manual"
-}
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 735
-w 185
-h 80
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 725
-w 67
-h 14
-font "arial-medium-r-12.0"
-fgColor index 14
-bgColor index 5
-value {
-  "  White Bal  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 90
-y 740
-w 95
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)WBAuto"
-indicatorPv "$(P)$(R)WBAuto_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 740
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Balance Auto"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 140
-y 765
-w 45
-h 20
-controlPv "$(P)$(R)WBRed_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 790
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Blue Ratio"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 140
-y 790
-w 45
-h 20
-controlPv "$(P)$(R)WBBlue_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 765
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Red Ratio"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 90
-y 765
-w 45
-h 20
-controlPv "$(P)$(R)WBRed"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 90
-y 790
-w 45
-h 20
-controlPv "$(P)$(R)WBBlue"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 200
-y 485
-w 185
-h 105
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 200
-y 475
-w 64
-h 14
-font "arial-medium-r-12.0"
-fgColor index 14
-bgColor index 5
-value {
-  "  Exposure  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 285
-y 490
-w 95
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)ExpAuto"
-indicatorPv "$(P)$(R)ExpAuto_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 490
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Exp Auto"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 335
-y 540
-w 45
-h 20
-controlPv "$(P)$(R)ExpAutoTarget_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 540
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Auto Target"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 335
-y 565
-w 45
-h 20
-controlPv "$(P)$(R)AcquireTime_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 565
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Exp Manual"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 515
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Algorithm"
-}
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 285
-y 515
-w 95
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)ExpAutoAlg"
-indicatorPv "$(P)$(R)ExpAutoAlg_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 285
-y 565
-w 45
-h 20
-controlPv "$(P)$(R)AcquireTime"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 285
-y 540
-w 45
-h 20
-controlPv "$(P)$(R)ExpAutoTarget"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 90
-y 690
-w 45
-h 20
-controlPv "$(P)$(R)Gain"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 90
-y 665
-w 45
-h 20
-controlPv "$(P)$(R)GainAutoTarget"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 200
-y 610
-w 185
-h 95
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 200
-y 600
-w 28
-h 14
-font "arial-medium-r-12.0"
-fgColor index 14
-bgColor index 5
-value {
-  "  Iris  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 285
-y 615
-w 95
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)IrisAuto"
-indicatorPv "$(P)$(R)IrisAuto_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 615
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Iris Auto"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 335
-y 640
-w 45
-h 20
-controlPv "$(P)$(R)IrisAutoTarget_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 640
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Auto Target"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 285
-y 640
-w 45
-h 20
-controlPv "$(P)$(R)IrisAutoTarget"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 490
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Update rate"
-}
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 90
-y 490
-w 95
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)UPDATE.SCAN"
-indicatorPv "$(P)$(R)UPDATE.SCAN"
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 665
-w 55
-h 15
-font "arial-bold-r-12.0"
-fontAlign "center"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Min"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 265
-y 665
-w 55
-h 15
-font "arial-bold-r-12.0"
-fontAlign "center"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Current"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 325
-y 665
-w 55
-h 15
-font "arial-bold-r-12.0"
-fontAlign "center"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Max"
-}
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 325
-y 680
-w 55
-h 20
-controlPv "$(P)$(R)IrisVideoLevelMax_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 205
-y 680
-w 55
-h 20
-controlPv "$(P)$(R)IrisVideoLevelMin_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 265
-y 680
-w 55
-h 20
-controlPv "$(P)$(R)IrisVideoLevel_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 200
-y 725
-w 185
-h 30
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 200
-y 715
-w 38
-h 14
-font "arial-medium-r-12.0"
-fgColor index 14
-bgColor index 5
-value {
-  "  Misc  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 285
-y 730
-w 95
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)UseTriggerMode"
-indicatorPv "$(P)$(R)UseTriggerMode_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 730
-w 80
-h 20
-font "arial-bold-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Use Trigger"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 10
-y 565
+y 75
 w 75
 h 20
 font "arial-bold-r-12.0"
@@ -1175,8 +195,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 10
-y 590
+x 205
+y 25
 w 95
 h 20
 font "arial-bold-r-12.0"
@@ -1194,8 +214,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 90
-y 590
+x 285
+y 25
 w 95
 h 20
 fgColor index 25

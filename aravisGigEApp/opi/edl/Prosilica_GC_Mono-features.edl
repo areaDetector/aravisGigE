@@ -1,0 +1,5511 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 50
+y 50
+w 785
+h 825
+font "arial-bold-r-12.0"
+ctlFont "arial-bold-r-12.0"
+btnFont "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 25
+ctlBgColor1 index 3
+ctlBgColor2 index 3
+topShadowColor index 1
+botShadowColor index 11
+title "Manta features - $(P)$(R)"
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 785
+h 30
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 785
+h 30
+lineColor index 3
+fill
+fillColor index 3
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 0
+y 2
+w 785
+h 24
+lineColor index 11
+fillColor index 0
+numPoints 3
+xPoints {
+  0 0
+  1 785
+  2 785
+}
+yPoints {
+  0 26
+  1 26
+  2 2
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 2
+w 785
+h 24
+font "arial-bold-r-16.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 48
+value {
+  "Prosilica_GC_Mono features - $(P)$(R)"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 0
+y 2
+w 785
+h 24
+lineColor index 1
+fillColor index 0
+numPoints 3
+xPoints {
+  0 0
+  1 0
+  2 785
+}
+yPoints {
+  0 26
+  1 2
+  2 2
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 50
+w 255
+h 355
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 40
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  AcquisitionControl  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 55
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionStart ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 55
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionStart"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 55
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionStart.PROC"
+pressValue "1"
+onLabel "AcquisitionStart"
+offLabel "AcquisitionStart"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 80
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionStop ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 80
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionStop"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 80
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionStop.PROC"
+pressValue "1"
+onLabel "AcquisitionStop"
+offLabel "AcquisitionStop"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 105
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionAbort ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 105
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionAbort"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 105
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionAbort.PROC"
+pressValue "1"
+onLabel "AcquisitionAbort"
+offLabel "AcquisitionAbort"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 130
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionMode"
+indicatorPv "$(P)$(R)AcquisitionMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionFrameCount ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionFrameCount"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFrame"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFrame_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionFrameRateAbs ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionFrameRateAbs"
+}
+endObjectProperties   
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 205
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionFrameRateLimit ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 205
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionFrameRateLimit"
+}
+endObjectProperties   
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 230
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=RecorderPreEventCount ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 230
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "RecorderPreEventCount"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)RecorderPreEvent"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)RecorderPreEvent_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 255
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=TriggerSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 255
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 255
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerSelector"
+indicatorPv "$(P)$(R)TriggerSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 280
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=TriggerMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 280
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 280
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerMode"
+indicatorPv "$(P)$(R)TriggerMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 305
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=TriggerSoftware ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 305
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerSoftware"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 305
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerSoftware.PROC"
+pressValue "1"
+onLabel "TriggerSoftware"
+offLabel "TriggerSoftware"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 330
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=TriggerSource ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 330
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerSource"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 330
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerSource"
+indicatorPv "$(P)$(R)TriggerSource_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 355
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=TriggerActivation ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 355
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerActivation"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 355
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerActivatio"
+indicatorPv "$(P)$(R)TriggerActivatio_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 380
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=TriggerDelayAbs ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 380
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerDelayAbs"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 380
+w 60
+h 20
+controlPv "$(P)$(R)TriggerDelayAbs"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 380
+w 60
+h 20
+controlPv "$(P)$(R)TriggerDelayAbs_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 420
+w 255
+h 55
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 410
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  StreamHold  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 425
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StreamHoldEnable ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 425
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StreamHoldEnable"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 425
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)StreamHoldEnable"
+indicatorPv "$(P)$(R)StreamHoldEnable_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 450
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StreamHoldCapacity ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 450
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StreamHoldCapacity"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 450
+w 60
+h 20
+controlPv "$(P)$(R)StreamHoldCapaci"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 450
+w 60
+h 20
+controlPv "$(P)$(R)StreamHoldCapaci_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 490
+w 255
+h 55
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 480
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Bandwidth  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 495
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StreamBytesPerSecond ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 495
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StreamBytesPerSecond"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 495
+w 60
+h 20
+controlPv "$(P)$(R)StreamBytesPerSe"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 495
+w 60
+h 20
+controlPv "$(P)$(R)StreamBytesPerSe_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 520
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BandwidthControlMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 520
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BandwidthControlMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 520
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)BandwidthControl"
+indicatorPv "$(P)$(R)BandwidthControl_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 560
+w 255
+h 105
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 550
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  ImageMode  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 565
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SensorWidth ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 565
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SensorWidth"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 565
+w 60
+h 20
+controlPv "$(P)$(R)SensorWidth"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 565
+w 60
+h 20
+controlPv "$(P)$(R)SensorWidth_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 590
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SensorHeight ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 590
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SensorHeight"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 590
+w 60
+h 20
+controlPv "$(P)$(R)SensorHeight"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 590
+w 60
+h 20
+controlPv "$(P)$(R)SensorHeight_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 615
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BinningHorizontal ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 615
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BinningHorizontal"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 615
+w 60
+h 20
+controlPv "$(P)$(R)BinningHorizonta"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 615
+w 60
+h 20
+controlPv "$(P)$(R)BinningHorizonta_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 640
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BinningVertical ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 640
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BinningVertical"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 640
+w 60
+h 20
+controlPv "$(P)$(R)BinningVertical"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 640
+w 60
+h 20
+controlPv "$(P)$(R)BinningVertical_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 50
+w 255
+h 205
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 40
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  ImageFormat  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 55
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=WidthMax ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 55
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "WidthMax"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)WidthMax"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)WidthMax_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 80
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=HeightMax ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 80
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "HeightMax"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)HeightMax"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)HeightMax_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 105
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=PixelFormat ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 105
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "PixelFormat"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 105
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)PixelFormat"
+indicatorPv "$(P)$(R)PixelFormat_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Width ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Width"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 130
+w 60
+h 20
+controlPv "$(P)$(R)Width"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 130
+w 60
+h 20
+controlPv "$(P)$(R)Width_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Height ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Height"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)Height"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)Height_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=OffsetX ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "OffsetX"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)OffsetX"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)OffsetX_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 205
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=OffsetY ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 205
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "OffsetY"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)OffsetY"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)OffsetY_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 230
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=PayloadSize ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 230
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "PayloadSize"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)PayloadSize"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)PayloadSize_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 270
+w 255
+h 205
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 260
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  FeatureControl  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 275
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ExposureMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 275
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ExposureMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 275
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ExposureMode"
+indicatorPv "$(P)$(R)ExposureMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 300
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ExposureTimeAbs ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 300
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ExposureTimeAbs"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 300
+w 60
+h 20
+controlPv "$(P)$(R)ExposureTimeAbs"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 300
+w 60
+h 20
+controlPv "$(P)$(R)ExposureTimeAbs_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 325
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ExposureAuto ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 325
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ExposureAuto"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 325
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ExposureAuto"
+indicatorPv "$(P)$(R)ExposureAuto_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 350
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GainSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 350
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GainSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 350
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GainSelector"
+indicatorPv "$(P)$(R)GainSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 375
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GainRaw ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 375
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GainRaw"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 375
+w 60
+h 20
+controlPv "$(P)$(R)GainRaw"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 375
+w 60
+h 20
+controlPv "$(P)$(R)GainRaw_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 400
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BalanceRatioSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 400
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BalanceRatioSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 400
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)BalanceRatioSele"
+indicatorPv "$(P)$(R)BalanceRatioSele_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 425
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BalanceRatioAbs ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 425
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BalanceRatioAbs"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 425
+w 60
+h 20
+controlPv "$(P)$(R)BalanceRatioAbs"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 425
+w 60
+h 20
+controlPv "$(P)$(R)BalanceRatioAbs_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 450
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BalanceWhiteAuto ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 450
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BalanceWhiteAuto"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 450
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)BalanceWhiteAuto"
+indicatorPv "$(P)$(R)BalanceWhiteAuto_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 490
+w 255
+h 105
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 480
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  DSPSubregion  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 495
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=DSPSubregionLeft ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 495
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DSPSubregionLeft"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 495
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionLeft"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 495
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionLeft_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 520
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=DSPSubregionTop ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 520
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DSPSubregionTop"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 520
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionTop"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 520
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionTop_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 545
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=DSPSubregionRight ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 545
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DSPSubregionRight"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 545
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionRigh"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 545
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionRigh_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 570
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=DSPSubregionBottom ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 570
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DSPSubregionBottom"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 570
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionBott"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 570
+w 60
+h 20
+controlPv "$(P)$(R)DSPSubregionBott_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 610
+w 255
+h 130
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 600
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Iris  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 615
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=IrisMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 615
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "IrisMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 615
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)IrisMode"
+indicatorPv "$(P)$(R)IrisMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 640
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=IrisAutoTarget ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 640
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "IrisAutoTarget"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 640
+w 60
+h 20
+controlPv "$(P)$(R)IrisAutoTarget"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 640
+w 60
+h 20
+controlPv "$(P)$(R)IrisAutoTarget_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 665
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=IrisVideoLevel ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 665
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "IrisVideoLevel"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 665
+w 60
+h 20
+controlPv "$(P)$(R)IrisVideoLevel"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 665
+w 60
+h 20
+controlPv "$(P)$(R)IrisVideoLevel_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 690
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=IrisVideoLevelMin ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 690
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "IrisVideoLevelMin"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 690
+w 60
+h 20
+controlPv "$(P)$(R)IrisVideoLevelMi"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 690
+w 60
+h 20
+controlPv "$(P)$(R)IrisVideoLevelMi_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 715
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=IrisVideoLevelMax ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 715
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "IrisVideoLevelMax"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 715
+w 60
+h 20
+controlPv "$(P)$(R)IrisVideoLevelMa"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 715
+w 60
+h 20
+controlPv "$(P)$(R)IrisVideoLevelMa_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 755
+w 255
+h 55
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 745
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  DefectMask  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 760
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=DefectMaskColumnEnable ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 760
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DefectMaskColumnEnable"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 760
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)DefectMaskColumn"
+indicatorPv "$(P)$(R)DefectMaskColumn_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 785
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=DefectMaskPixelEnable ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 785
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DefectMaskPixelEnable"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 785
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)DefectMaskPixelE"
+indicatorPv "$(P)$(R)DefectMaskPixelE_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 525
+y 50
+w 255
+h 230
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 525
+y 40
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  IoControl  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 55
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SyncInLevels ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 55
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SyncInLevels"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 650
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)SyncInLevels"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 715
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)SyncInLevels_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 80
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SyncOutLevels ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 80
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SyncOutLevels"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 650
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)SyncOutLevels"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 715
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)SyncOutLevels_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 105
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SyncOutSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 105
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SyncOutSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 105
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)SyncOutSelector"
+indicatorPv "$(P)$(R)SyncOutSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SyncOutSource ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SyncOutSource"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 130
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)SyncOutSource"
+indicatorPv "$(P)$(R)SyncOutSource_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SyncOutPolarity ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SyncOutPolarity"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 155
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)SyncOutPolarity"
+indicatorPv "$(P)$(R)SyncOutPolarity_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StrobeSource ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StrobeSource"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 180
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)StrobeSource"
+indicatorPv "$(P)$(R)StrobeSource_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 205
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StrobeDurationMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 205
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StrobeDurationMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 205
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)StrobeDurationMo"
+indicatorPv "$(P)$(R)StrobeDurationMo_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 230
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StrobeDelay ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 230
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StrobeDelay"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 650
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)StrobeDelay"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 715
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)StrobeDelay_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 255
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StrobeDuration ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 255
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StrobeDuration"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 650
+y 255
+w 60
+h 20
+controlPv "$(P)$(R)StrobeDuration"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 715
+y 255
+w 60
+h 20
+controlPv "$(P)$(R)StrobeDuration_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 525
+y 295
+w 255
+h 105
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 525
+y 285
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  SavedUserSets  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 300
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=UserSetSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 300
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "UserSetSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 300
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)UserSetSelector"
+indicatorPv "$(P)$(R)UserSetSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 325
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=UserSetLoad ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 325
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "UserSetLoad"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 325
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)UserSetLoad.PROC"
+pressValue "1"
+onLabel "UserSetLoad"
+offLabel "UserSetLoad"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 350
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=UserSetSave ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 350
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "UserSetSave"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 350
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)UserSetSave.PROC"
+pressValue "1"
+onLabel "UserSetSave"
+offLabel "UserSetSave"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 375
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=UserSetDefaultSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 375
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "UserSetDefaultSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 375
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)UserSetDefaultSe"
+indicatorPv "$(P)$(R)UserSetDefaultSe_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 685
+y 795
+w 95
+h 25
+fgColor index 46
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+label "EXIT"
+font "arial-bold-r-14.0"
+3d
+endObjectProperties

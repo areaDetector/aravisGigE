@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <components arch="linux-x86">
-	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Baumer Optronic-0089850611" P="ARAVISCAM1" PORT="BAUMER.CAM" R=":CAM:" TIMEOUT="1"/>
-	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Prosilica-02-2165A-06632" P="ARAVISCAM2" PORT="GC1020.CAM" R=":CAM:" TIMEOUT="1"/>
-	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Prosilica-02-2166A-06844" P="ARAVISCAM3" PORT="GC1020C.CAM" R=":CAM:" TIMEOUT="1"/>
-	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica" ID="Allied Vision Technologies-50-0503318719" P="ARAVISCAM4" PORT="MANTA.CAM" R=":CAM:" TIMEOUT="1"/>
+	<aravisGigE.aravisCamera ADDR="0" CLASS="Baumer" ID="Baumer Optronic-0089850611" P="ARAVISCAM1" PORT="BAUMER.CAM" R=":CAM:" TIMEOUT="1"/>
+	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica_GC_Mono" ID="Prosilica-02-2165A-06632" P="ARAVISCAM2" PORT="GC1020.CAM" R=":CAM:" TIMEOUT="1"/>
+	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica_GC_Colour" ID="Prosilica-02-2166A-06844" P="ARAVISCAM3" PORT="GC1020C.CAM" R=":CAM:" TIMEOUT="1"/>
+	<aravisGigE.aravisCamera ADDR="0" CLASS="AVT_Manta" ID="Allied Vision Technologies-50-0503318719" P="ARAVISCAM4" PORT="MANTA.CAM" R=":CAM:" TIMEOUT="1"/>
 	<ffmpegServer.ffmpegStream ADDR="0" HTTP_PORT="8090" NDARRAY_ADDR="0" NDARRAY_PORT="BAUMER.CAM" P="ARAVISCAM1" PORT="BAUMER.MJPG" R=":MJPG:" TIMEOUT="1"/>
 	<ffmpegServer.ffmpegStream ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="GC1020.CAM" P="ARAVISCAM2" PORT="GC1020.MJPG" R=":MJPG:" TIMEOUT="1"/>
 	<ffmpegServer.ffmpegStream ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="GC1020C.CAM" P="ARAVISCAM3" PORT="GC1020C.MJPG" R=":MJPG:" TIMEOUT="1"/>

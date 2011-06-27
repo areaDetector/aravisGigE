@@ -7,9 +7,6 @@ class _aravisCamera(AutoSubstitution):
     TemplateFile="aravisCamera.template"
     SubstitutionOverwrites = [_ADBaseTemplate]
     
-class _aravisProsilica(AutoSubstitution):
-    TemplateFile="aravisProsilica.template"
-
 class aravisCamera(_ADBase):
     '''Creates a aravisCamera camera areaDetector driver'''
     _SpecificTemplate = _aravisCamera
@@ -17,15 +14,18 @@ class aravisCamera(_ADBase):
         # Init the superclass
         self.__super.__init__(**args)
         # Init the camera specific class
-        _cameraSpecific = globals()["_aravis%s" % CLASS]
-        self.specific = _cameraSpecific(**filter_dict(args, _cameraSpecific.ArgInfo.Names()))
+        class _tmp(AutoSubstitution):
+            ModuleName = aravisCamera.ModuleName
+            TrueName = "_%s" % CLASS
+            TemplateFile = "%s.template" % CLASS
+        self.specific = _tmp(**filter_dict(args, _tmp.ArgInfo.Names()))
         # Store the args
         self.__dict__.update(locals())
 
     # __init__ arguments
     ArgInfo = _ADBase.ArgInfo + _aravisCamera.ArgInfo + makeArgInfo(__init__,
         ID      = Simple('Cam ID, <manufacturer>-<serial>, (e.g. Prosilica-02-2166A-06844)', str),    
-        CLASS   = Choice('Camera class for custom commands', ["Prosilica"]),
+        CLASS   = Choice('Camera class for custom commands', ["AVT_Manta", "Prosilica_GC_Mono", "Prosilica_GC_Colour", "Baumer"]),
         BUFFERS = Simple('Maximum number of NDArray buffers to be created for '
             'plugin callbacks', int),
         MEMORY  = Simple('Max memory to allocate, should be maxw*maxh*nbuffer '
@@ -40,8 +40,6 @@ class aravisCamera(_ADBase):
             'maxBuffers, maxMemory)'
         print 'aravisCameraConfig("%(PORT)s", "%(ID)s", ' \
             '%(BUFFERS)d, %(MEMORY)d)' % self.__dict__
-
-
 
 def aravisCamera_sim(**kwargs):
     return simDetector(1024, 768, **kwargs)

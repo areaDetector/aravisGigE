@@ -7,11 +7,9 @@ include $(TOP)/configure/CONFIG
 # -------------------------------
 
 # Build some little helper functions
-PROD_IOC += dumpXml aravisTest
-dumpXml_SRCS_DEFAULT += dumpXml.c
-dumpXml_LIBS += $(EPICS_BASE_IOC_LIBS)
-aravisTest_SRCS_DEFAULT += aravisTest.c
-aravisTest_LIBS += $(EPICS_BASE_IOC_LIBS)
+#PROD_IOC += aravisTest
+#aravisTest_SRCS_DEFAULT += aravisTest.c
+#aravisTest_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 LIBRARY_IOC += aravisCamera
 
