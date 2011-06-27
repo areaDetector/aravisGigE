@@ -650,21 +650,28 @@ void aravisCamera::callback() {
     int xDim=0, yDim=1, binX, binY;
     double acquirePeriod;
     const char *functionName = "callback";
+    epicsTimeStamp lastFeatureGet, now;
     NDArray *pRaw;
     ArvBuffer *buffer;
     guint64 n_completed_buffers, n_failures, n_underruns;
+    epicsTimeGetCurrent(&lastFeatureGet);
 
     /* Loop forever */
     while (1) {
-        /* Wait for an array to arrive from the queue */
-        if (epicsMessageQueueReceiveWithTimeout(this->msgQId, &buffer, sizeof(&buffer), 0.004) == -1) {
+        /* Wait 5ms for an array to arrive from the queue */
+        if (epicsMessageQueueReceiveWithTimeout(this->msgQId, &buffer, sizeof(&buffer), 0.005) == -1) {
         	/* If no camera, wait for one to appear */
         	if (this->camera == NULL) continue;
-        	/* If no buffer appears in 4ms get a feature */
-        	this->lock();
-        	this->getNextFeature();
-        	callParamCallbacks();
-        	this->unlock();
+        	/* We only want to get a feature once every 25ms (max 40 features/s)
+        	 * so compare timestamp against last feature get
+        	 */
+        	epicsTimeGetCurrent(&now);
+        	if (epicsTimeDiffInSeconds(&now, &lastFeatureGet) > 0.025) {
+        		this->lock();
+        		this->getNextFeature();
+        		callParamCallbacks();
+        		this->unlock();
+        	}
         	continue;
         }
 

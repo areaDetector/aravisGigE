@@ -41,6 +41,20 @@ nodes = elements(elements(xml_root)[0])
 lookup = {}
 # lookup from nodeName -> recordName
 records = {}
+# add ADBase names to avoid
+#ADNames = ["PortName", "Manufacturer", "Model", "MaxSizeX", "MaxSizeY", 
+#"DataType", "ColorMode", "BinX", "BinY", "MinX", "MinY", "SizeX", "SizeY",
+#"ReverseX", "ReverseY", "ArraySizeX", "ArraySizeY", "ArraySizeZ", "ArraySize",
+#"AcquireTime", "AcquirePeriod", "TimeRemaining", "Gain", "FrameType", 
+#"ImageMode", "TriggerMode", "NumExposures", "NumExposuresCounter", "NumImages",
+#"NumImagesCounter", "Acquire", "ArrayCounter", "ArrayRate", "DetectorState",
+#"ArrayCallbacks", "NDAttributesFile", "StatusMessage", "StringToServer",
+#"StringFromServer", "ReadStatus", "ShutterMode", "ShutterControl",
+#"ShutterStatus", "ShutterOpenDelay", "ShutterCloseDelay", "ShutterControlEPICS",
+#"ShutterFanout", "ShutterOpenEPICS", "ShutterCloseEPICS", "ShutterStatusEPICS",
+#"Temperature", "AsynIO", "PortName"]
+#for name in ADNames:
+#	records[name] = name
 categories = []
 for node in nodes:
     if node.hasAttribute("Name"):
