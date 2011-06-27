@@ -48,11 +48,11 @@ for node in nodes:
         lookup[name] = node
         recordName = name
         if len(recordName) > 16:
-        	recordName = recordName[:16]
+            recordName = recordName[:16]
         i = 0
         while recordName in records.values():
-        	recordName = recordName[:-len(str(i))] + str(i)
-        	i += 1
+            recordName = recordName[:-len(str(i))] + str(i)
+            i += 1
         records[name] = recordName
         if node.nodeName == "Category":
             categories.append(name)
@@ -355,7 +355,7 @@ fontAlign "center"
 endObjectProperties        
 
 """ % globals()         
-        elif node.nodeName in ["Integer", "Float", "Boolean"]:  
+        elif node.nodeName in ["Integer", "Float", "Boolean", "Converter"]:  
             text += """# (Textentry)
 object TextentryClass
 beginObjectProperties
@@ -443,6 +443,8 @@ font "arial-bold-r-12.0"
 endObjectProperties
 
 """ % globals()
+        else:
+            print "Don't know what to do with", node.nodeName
         y += 25
     y += 15
     h = max(y, h)    
