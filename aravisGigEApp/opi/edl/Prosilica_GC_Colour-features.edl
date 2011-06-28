@@ -5,8 +5,8 @@ minor 0
 release 1
 x 50
 y 50
-w 1045
-h 830
+w 1565
+h 820
 font "arial-bold-r-12.0"
 ctlFont "arial-bold-r-12.0"
 btnFont "arial-bold-r-12.0"
@@ -33,7 +33,7 @@ minor 0
 release 0
 x 0
 y 0
-w 1045
+w 1565
 h 30
 
 beginGroup
@@ -46,7 +46,7 @@ minor 0
 release 0
 x 0
 y 0
-w 1045
+w 1565
 h 30
 lineColor index 3
 fill
@@ -61,15 +61,15 @@ minor 0
 release 1
 x 0
 y 2
-w 1045
+w 1565
 h 24
 lineColor index 11
 fillColor index 0
 numPoints 3
 xPoints {
   0 0
-  1 1045
-  2 1045
+  1 1565
+  2 1565
 }
 yPoints {
   0 26
@@ -86,7 +86,7 @@ minor 1
 release 0
 x 0
 y 2
-w 1045
+w 1565
 h 24
 font "arial-bold-r-16.0"
 fontAlign "center"
@@ -105,7 +105,7 @@ minor 0
 release 1
 x 0
 y 2
-w 1045
+w 1565
 h 24
 lineColor index 1
 fillColor index 0
@@ -113,7 +113,7 @@ numPoints 3
 xPoints {
   0 0
   1 0
-  2 1045
+  2 1565
 }
 yPoints {
   0 26
@@ -135,7 +135,7 @@ release 0
 x 5
 y 50
 w 255
-h 355
+h 280
 lineColor index 14
 fill
 fillColor index 5
@@ -156,7 +156,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  AcquisitionControl  "
+  "  Info  "
 }
 autoSize
 border
@@ -190,7 +190,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Start acquisition. Before image acquisition can occur; acquisition must be ,desc1=started; either by a hardware trigger or this software command. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FirmwareVerMajor ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -210,31 +210,45 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "AcquisitionStart"
+  "FirmwareVerMajor"
 }
 endObjectProperties   
 
-# (Message Button)
-object activeMessageButtonClass
+# (Textentry)
+object TextentryClass
 beginObjectProperties
-major 4
+major 10
 minor 0
 release 0
 x 130
 y 55
-w 125
+w 60
 h 20
+controlPv "$(P)$(R)FirmwareVerMajor"
 fgColor index 25
-onColor index 3
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)AcquisitionStart.PROC"
-pressValue "1"
-onLabel "AcquisitionStart"
-offLabel "AcquisitionStart"
-3d
+fgAlarm
+bgColor index 3
+fill
 font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)FirmwareVerMajor_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
 endObjectProperties
 
 # (Related Display)
@@ -265,7 +279,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Stop acquisition. Acquisition will stop after acquisition of the current frame ,desc1=is complete. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FirmwareVerMinor ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -285,31 +299,45 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "AcquisitionStop"
+  "FirmwareVerMinor"
 }
 endObjectProperties   
 
-# (Message Button)
-object activeMessageButtonClass
+# (Textentry)
+object TextentryClass
 beginObjectProperties
-major 4
+major 10
 minor 0
 release 0
 x 130
 y 80
-w 125
+w 60
 h 20
+controlPv "$(P)$(R)FirmwareVerMinor"
 fgColor index 25
-onColor index 3
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)AcquisitionStop.PROC"
-pressValue "1"
-onLabel "AcquisitionStop"
-offLabel "AcquisitionStop"
-3d
+fgAlarm
+bgColor index 3
+fill
 font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)FirmwareVerMinor_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
 endObjectProperties
 
 # (Related Display)
@@ -340,7 +368,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Abort acquisition. Acquisition will stop immediately; but a partially ,desc1=transferred image will be completed. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FirmwareVerBuild ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -360,31 +388,45 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "AcquisitionAbort"
+  "FirmwareVerBuild"
 }
 endObjectProperties   
 
-# (Message Button)
-object activeMessageButtonClass
+# (Textentry)
+object TextentryClass
 beginObjectProperties
-major 4
+major 10
 minor 0
 release 0
 x 130
 y 105
-w 125
+w 60
 h 20
+controlPv "$(P)$(R)FirmwareVerBuild"
 fgColor index 25
-onColor index 3
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)AcquisitionAbort.PROC"
-pressValue "1"
-onLabel "AcquisitionAbort"
-offLabel "AcquisitionAbort"
-3d
+fgAlarm
+bgColor index 3
+fill
 font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 105
+w 60
+h 20
+controlPv "$(P)$(R)FirmwareVerBuild_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
 endObjectProperties
 
 # (Related Display)
@@ -415,7 +457,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=The acquisition mode determines the behavior of the camera when acquisition ,desc1=start is triggered. \"Continuous\" mode: the camera will acquire images until ,desc2=acquisition stop is triggered. \"SingleFrame\" mode: the camera will acquire a ,desc3=single image. \"MultiFrame\" mode: the camera will acquire the number of images ,desc4=specified by AcquisitionFrameCount. \"Recorder\" mode: the camera will run ,desc5=continuously; and when the recorder event is triggered; send pre-trigger and "
+  0 "desc0=Type of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -435,7 +477,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "AcquisitionMode"
+  "SensorType"
 }
 endObjectProperties   
 
@@ -454,8 +496,8 @@ bgColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P)$(R)AcquisitionMode"
-indicatorPv "$(P)$(R)AcquisitionMode_RBV"
+controlPv "$(P)$(R)SensorType"
+indicatorPv "$(P)$(R)SensorType_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties        
 
@@ -487,7 +529,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the number of images to acquire when in MultiFrame and Recorder ,desc1=acquisition modes. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Maximum bit depth of sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -507,7 +549,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "AcquisitionFrameCount"
+  "SensorBits"
 }
 endObjectProperties   
 
@@ -521,7 +563,7 @@ x 130
 y 155
 w 60
 h 20
-controlPv "$(P)$(R)AcquisitionFrame"
+controlPv "$(P)$(R)SensorBits"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -539,7 +581,7 @@ x 195
 y 155
 w 60
 h 20
-controlPv "$(P)$(R)AcquisitionFrame_RBV"
+controlPv "$(P)$(R)SensorBits_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
@@ -576,7 +618,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Frame rate; in frames per second. This is applicable when either the FrameStart ,desc1=trigger mode is disabled; or the FrameStart trigger source is FixedRate. ,desc2=Depending on the exposure duration; the camera may not achieve the frame rate ,desc3=set here. ,desc4='',desc5=''"
+  0 "desc0=DeviceVendorName ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -596,27 +638,9 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "AcquisitionFrameRateAbs"
+  "DeviceVendorName"
 }
 endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 180
-w 60
-h 20
-controlPv "$(P)$(R)AcquisitionFram0"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
 
 # (Textupdate)
 object TextupdateClass
@@ -624,18 +648,18 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 195
+x 130
 y 180
-w 60
+w 125
 h 20
-controlPv "$(P)$(R)AcquisitionFram0_RBV"
+controlPv "$(P)$(R)DeviceVendorName_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
-endObjectProperties
+endObjectProperties        
 
 # (Related Display)
 object relatedDisplayClass
@@ -665,7 +689,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the maximum frame rate possible for the current exposure duration and ,desc1=image format. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Camera model name. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -685,27 +709,9 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "AcquisitionFrameRateLimit"
+  "DeviceModelName"
 }
 endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 205
-w 60
-h 20
-controlPv "$(P)$(R)AcquisitionFram1"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
 
 # (Textupdate)
 object TextupdateClass
@@ -713,18 +719,18 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 195
+x 130
 y 205
-w 60
+w 125
 h 20
-controlPv "$(P)$(R)AcquisitionFram1_RBV"
+controlPv "$(P)$(R)DeviceModelName_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
-endObjectProperties
+endObjectProperties        
 
 # (Related Display)
 object relatedDisplayClass
@@ -754,7 +760,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the number of pre-event images to acquire in the Recorder acquisition ,desc1=mode. This must be less than or equal to AcquisitionFrameCount. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Firmware version of this Prosilica GigE camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -774,27 +780,9 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "RecorderPreEventCount"
+  "DeviceFirmwareVersion"
 }
 endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 230
-w 60
-h 20
-controlPv "$(P)$(R)RecorderPreEvent"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
 
 # (Textupdate)
 object TextupdateClass
@@ -802,18 +790,18 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 195
+x 130
 y 230
-w 60
+w 125
 h 20
-controlPv "$(P)$(R)RecorderPreEvent_RBV"
+controlPv "$(P)$(R)DeviceFirmwareVe_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
-endObjectProperties
+endObjectProperties        
 
 # (Related Display)
 object relatedDisplayClass
@@ -843,7 +831,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Select a trigger here; then use the controls \{TriggerMode; TriggerSoftware; ,desc1=TriggerSource; TriggerActivation; TriggerDelayAbs\} to setup and read the trigger ,desc2=attributes. FrameStart is the trigger which starts each image (when acquisition ,desc3=is running). AcquisitionStart is the trigger which starts the acquisition ,desc4=process. ,desc5=''"
+  0 "desc0=Serial number. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -863,28 +851,27 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "TriggerSelector"
+  "DeviceID"
 }
 endObjectProperties   
 
-# (Menu Button)
-object activeMenuButtonClass
+# (Textupdate)
+object TextupdateClass
 beginObjectProperties
-major 4
+major 10
 minor 0
 release 0
 x 130
 y 255
 w 125
 h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)TriggerSelector"
-indicatorPv "$(P)$(R)TriggerSelector_RBV"
+controlPv "$(P)$(R)DeviceID_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
 font "arial-bold-r-12.0"
+fontAlign "center"
 endObjectProperties        
 
 # (Related Display)
@@ -915,7 +902,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Enable or disable this trigger. Note: when the FrameStart trigger is disabled; ,desc1=images are triggered at a fixed rate specified by AcquisitionFrameRateAbs. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Device part number. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -935,318 +922,9 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "TriggerMode"
+  "DevicePartNumber"
 }
 endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 130
-y 280
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)TriggerMode"
-indicatorPv "$(P)$(R)TriggerMode_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 305
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=This software command effects a trigger. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 305
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "TriggerSoftware"
-}
-endObjectProperties   
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 130
-y 305
-w 125
-h 20
-fgColor index 25
-onColor index 3
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)TriggerSoftware.PROC"
-pressValue "1"
-onLabel "TriggerSoftware"
-offLabel "TriggerSoftware"
-3d
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 330
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Source of trigger; when TriggerMode is On. This might be an hardware trigger; a ,desc1=fixed rate generator; or software trigger only. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 330
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "TriggerSource"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 130
-y 330
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)TriggerSource"
-indicatorPv "$(P)$(R)TriggerSource_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 355
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Type of activation; for hardware triggers. This controls edge/level and polarity ,desc1=sensitivities. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 355
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "TriggerActivation"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 130
-y 355
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)TriggerActivatio"
-indicatorPv "$(P)$(R)TriggerActivatio_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 380
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Delay from hardware trigger activation to trigger effect; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 380
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "TriggerDelayAbs"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 380
-w 60
-h 20
-controlPv "$(P)$(R)TriggerDelayAbs"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
 
 # (Textupdate)
 object TextupdateClass
@@ -1254,18 +932,90 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 195
-y 380
-w 60
+x 130
+y 280
+w 125
 h 20
-controlPv "$(P)$(R)TriggerDelayAbs_RBV"
+controlPv "$(P)$(R)DevicePartNumber_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
-endObjectProperties
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 305
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=DeviceScanType ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 305
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DeviceScanType"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 305
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)DeviceScanType"
+indicatorPv "$(P)$(R)DeviceScanType_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
 
 # (Rectangle)
 object activeRectangleClass
@@ -1274,9 +1024,9 @@ major 4
 minor 0
 release 0
 x 5
-y 420
+y 345
 w 255
-h 55
+h 180
 lineColor index 14
 fill
 fillColor index 5
@@ -1289,7 +1039,7 @@ major 4
 minor 1
 release 0
 x 5
-y 410
+y 335
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -1297,7 +1047,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  StreamHold  "
+  "  GigE  "
 }
 autoSize
 border
@@ -1310,204 +1060,7 @@ major 4
 minor 2
 release 0
 x 10
-y 425
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Control on-camera image storage; this control is like a \"pause\" button for the ,desc1=image stream. When enabled; images remain stored on the camera; and are not ,desc2=transmitted to the host. When disabled; the image stream resumes; and any stored ,desc3=images are sent to the host. ,desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 425
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "StreamHoldEnable"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 130
-y 425
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)StreamHoldEnable"
-indicatorPv "$(P)$(R)StreamHoldEnable_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 450
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Maximum number of images (for the current size and format) which can be stored ,desc1=on the camera when StreamHold is enabled. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 450
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "StreamHoldCapacity"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 450
-w 60
-h 20
-controlPv "$(P)$(R)StreamHoldCapaci"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 195
-y 450
-w 60
-h 20
-controlPv "$(P)$(R)StreamHoldCapaci_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 490
-w 255
-h 55
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 480
-w 150
-h 14
-font "arial-medium-r-12.0"
-fontAlign "center"
-fgColor index 14
-bgColor index 8
-value {
-  "  Bandwidth  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 495
+y 350
 w 10
 h 20
 fgColor index 14
@@ -1540,7 +1093,7 @@ major 4
 minor 1
 release 0
 x 20
-y 495
+y 350
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1559,7 +1112,7 @@ major 10
 minor 0
 release 0
 x 130
-y 495
+y 350
 w 60
 h 20
 controlPv "$(P)$(R)StreamBytesPerSe"
@@ -1577,7 +1130,7 @@ major 10
 minor 0
 release 0
 x 195
-y 495
+y 350
 w 60
 h 20
 controlPv "$(P)$(R)StreamBytesPerSe_RBV"
@@ -1596,7 +1149,7 @@ major 4
 minor 2
 release 0
 x 10
-y 520
+y 375
 w 10
 h 20
 fgColor index 14
@@ -1629,7 +1182,7 @@ major 4
 minor 1
 release 0
 x 20
-y 520
+y 375
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1648,7 +1201,7 @@ major 4
 minor 0
 release 0
 x 130
-y 520
+y 375
 w 125
 h 20
 fgColor index 25
@@ -1661,6 +1214,451 @@ indicatorPv "$(P)$(R)BandwidthControl_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties        
 
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 400
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPSPacketSize ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 400
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPSPacketSize"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 400
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSPacketSiz"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 400
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSPacketSiz_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 425
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ChunkModeActive ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 425
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ChunkModeActive"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 425
+w 60
+h 20
+controlPv "$(P)$(R)ChunkModeActive"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 425
+w 60
+h 20
+controlPv "$(P)$(R)ChunkModeActive_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 450
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Maximum size of image block payload. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 450
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "PayloadSize"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 450
+w 60
+h 20
+controlPv "$(P)$(R)PayloadSize"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 450
+w 60
+h 20
+controlPv "$(P)$(R)PayloadSize_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 475
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Maximum size of chunk data; not including the image chunk; in the image block ,desc1=payload. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 475
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "NonImagePayloadSize"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 475
+w 60
+h 20
+controlPv "$(P)$(R)NonImagePayloadS"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 475
+w 60
+h 20
+controlPv "$(P)$(R)NonImagePayloadS_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 500
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=When enabled; the frame rate of the camera is constrained by available ,desc1=bandwidth. When disabled; the camera can image faster than it can send data. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 500
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StreamFrameRateConstrain"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 500
+w 60
+h 20
+controlPv "$(P)$(R)StreamFrameRateC"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 500
+w 60
+h 20
+controlPv "$(P)$(R)StreamFrameRateC_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -1668,7 +1666,204 @@ major 4
 minor 0
 release 0
 x 5
-y 560
+y 540
+w 255
+h 55
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 530
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  StreamHold  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 545
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Control on-camera image storage; this control is like a \"pause\" button for the ,desc1=image stream. When enabled; images remain stored on the camera; and are not ,desc2=transmitted to the host. When disabled; the image stream resumes; and any stored ,desc3=images are sent to the host. ,desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 545
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StreamHoldEnable"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 545
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)StreamHoldEnable"
+indicatorPv "$(P)$(R)StreamHoldEnable_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 570
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Maximum number of images (for the current size and format) which can be stored ,desc1=on the camera when StreamHold is enabled. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 570
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "StreamHoldCapacity"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 570
+w 60
+h 20
+controlPv "$(P)$(R)StreamHoldCapaci"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 570
+w 60
+h 20
+controlPv "$(P)$(R)StreamHoldCapaci_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 610
 w 255
 h 105
 lineColor index 14
@@ -1683,7 +1878,7 @@ major 4
 minor 1
 release 0
 x 5
-y 550
+y 600
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -1691,7 +1886,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  ImageMode  "
+  "  Timestamp  "
 }
 autoSize
 border
@@ -1704,184 +1899,6 @@ major 4
 minor 2
 release 0
 x 10
-y 565
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Full width of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 565
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "SensorWidth"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 565
-w 60
-h 20
-controlPv "$(P)$(R)SensorWidth"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 195
-y 565
-w 60
-h 20
-controlPv "$(P)$(R)SensorWidth_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 590
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Full height of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 20
-y 590
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "SensorHeight"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 130
-y 590
-w 60
-h 20
-controlPv "$(P)$(R)SensorHeight"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 195
-y 590
-w 60
-h 20
-controlPv "$(P)$(R)SensorHeight_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
 y 615
 w 10
 h 20
@@ -1903,7 +1920,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Binning in horizontal direction. Binning is the summing of charge of adjacent ,desc1=pixels. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Frequency of image timestamp; in Hertz. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1923,7 +1940,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "BinningHorizontal"
+  "GevTimestampTickFrequency"
 }
 endObjectProperties   
 
@@ -1937,7 +1954,7 @@ x 130
 y 615
 w 60
 h 20
-controlPv "$(P)$(R)BinningHorizonta"
+controlPv "$(P)$(R)GevTimestampTick"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -1955,7 +1972,7 @@ x 195
 y 615
 w 60
 h 20
-controlPv "$(P)$(R)BinningHorizonta_RBV"
+controlPv "$(P)$(R)GevTimestampTick_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
@@ -1992,7 +2009,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Binning in vertical direction. Binning is the summing of charge of adjacent ,desc1=pixels. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Capture timestamp and store in GevTimestampValue. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2012,7 +2029,157 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "BinningVertical"
+  "GevTimestampControlLatch"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 640
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GevTimestampCont.PROC"
+pressValue "1"
+onLabel "GevTimestampControlLatch"
+offLabel "GevTimestampControlLatch"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 665
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Reset the timestamp. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 665
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevTimestampControlReset"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 665
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GevTimestampCon0.PROC"
+pressValue "1"
+onLabel "GevTimestampControlReset"
+offLabel "GevTimestampControlReset"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 690
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Value of timestamp; when latched by GevTimestampControlLatch. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 690
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevTimestampValue"
 }
 endObjectProperties   
 
@@ -2023,10 +2190,10 @@ major 10
 minor 0
 release 0
 x 130
-y 640
+y 690
 w 60
 h 20
-controlPv "$(P)$(R)BinningVertical"
+controlPv "$(P)$(R)GevTimestampValu"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -2041,10 +2208,10 @@ major 10
 minor 0
 release 0
 x 195
-y 640
+y 690
 w 60
 h 20
-controlPv "$(P)$(R)BinningVertical_RBV"
+controlPv "$(P)$(R)GevTimestampValu_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
@@ -2083,7 +2250,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  ImageFormat  "
+  "  Acquisition  "
 }
 autoSize
 border
@@ -2097,6 +2264,1647 @@ minor 2
 release 0
 x 270
 y 55
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Start acquisition. Before image acquisition can occur; acquisition must be ,desc1=started; either by a hardware trigger or this software command. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 55
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionStart"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 55
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionStart.PROC"
+pressValue "1"
+onLabel "AcquisitionStart"
+offLabel "AcquisitionStart"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 80
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Stop acquisition. Acquisition will stop after acquisition of the current frame ,desc1=is complete. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 80
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionStop"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 80
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionStop.PROC"
+pressValue "1"
+onLabel "AcquisitionStop"
+offLabel "AcquisitionStop"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 105
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Abort acquisition. Acquisition will stop immediately; but a partially ,desc1=transferred image will be completed. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 105
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionAbort"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 105
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionAbort.PROC"
+pressValue "1"
+onLabel "AcquisitionAbort"
+offLabel "AcquisitionAbort"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=The acquisition mode determines the behavior of the camera when acquisition ,desc1=start is triggered. \"Continuous\" mode: the camera will acquire images until ,desc2=acquisition stop is triggered. \"SingleFrame\" mode: the camera will acquire a ,desc3=single image. \"MultiFrame\" mode: the camera will acquire the number of images ,desc4=specified by AcquisitionFrameCount. \"Recorder\" mode: the camera will run ,desc5=continuously; and when the recorder event is triggered; send pre-trigger and "
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 130
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionMode"
+indicatorPv "$(P)$(R)AcquisitionMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=This is the number of images to acquire when in MultiFrame and Recorder ,desc1=acquisition modes. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionFrameCount"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFrame"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFrame_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Frame rate; in frames per second. This is applicable when either the FrameStart ,desc1=trigger mode is disabled; or the FrameStart trigger source is FixedRate. ,desc2=Depending on the exposure duration; the camera may not achieve the frame rate ,desc3=set here. ,desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionFrameRateAbs"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram0"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram0_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 205
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=This is the maximum frame rate possible for the current exposure duration and ,desc1=image format. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 205
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "AcquisitionFrameRateLimit"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram1"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFram1_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 230
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=This is the number of pre-event images to acquire in the Recorder acquisition ,desc1=mode. This must be less than or equal to AcquisitionFrameCount. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 230
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "RecorderPreEventCount"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)RecorderPreEvent"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)RecorderPreEvent_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 270
+w 255
+h 180
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 260
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Trigger  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 275
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Select a trigger here; then use the controls \{TriggerMode; TriggerSoftware; ,desc1=TriggerSource; TriggerActivation; TriggerOverlap; TriggerDelayAbs\} to setup and ,desc2=read the trigger attributes. FrameStart is the trigger which starts each image ,desc3=(when acquisition is running). AcquisitionStart is the trigger which starts the ,desc4=acquisition process. ,desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 275
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 275
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerSelector"
+indicatorPv "$(P)$(R)TriggerSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 300
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Enable or disable this trigger. Note: when the FrameStart trigger is disabled; ,desc1=images are triggered at a fixed rate specified by AcquisitionFrameRateAbs. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 300
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 300
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerMode"
+indicatorPv "$(P)$(R)TriggerMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 325
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=This software command effects a trigger. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 325
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerSoftware"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 325
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerSoftware.PROC"
+pressValue "1"
+onLabel "TriggerSoftware"
+offLabel "TriggerSoftware"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 350
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Source of trigger; when TriggerMode is On. This might be an hardware trigger; a ,desc1=fixed rate generator; or software trigger only. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 350
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerSource"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 350
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerSource"
+indicatorPv "$(P)$(R)TriggerSource_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 375
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Type of activation; for hardware triggers. This controls edge/level and polarity ,desc1=sensitivities. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 375
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerActivation"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 375
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerActivatio"
+indicatorPv "$(P)$(R)TriggerActivatio_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 400
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Permitted window of trigger activation; relative to previous frame. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 400
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerOverlap"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 400
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)TriggerOverlap"
+indicatorPv "$(P)$(R)TriggerOverlap_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 425
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Delay from hardware trigger activation to trigger effect; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 425
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TriggerDelayAbs"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 425
+w 60
+h 20
+controlPv "$(P)$(R)TriggerDelayAbs"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 425
+w 60
+h 20
+controlPv "$(P)$(R)TriggerDelayAbs_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 465
+w 255
+h 105
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 455
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  ImageMode  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 470
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Full width of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 470
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SensorWidth"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 470
+w 60
+h 20
+controlPv "$(P)$(R)SensorWidth"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 470
+w 60
+h 20
+controlPv "$(P)$(R)SensorWidth_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 495
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Full height of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 495
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SensorHeight"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 495
+w 60
+h 20
+controlPv "$(P)$(R)SensorHeight"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 495
+w 60
+h 20
+controlPv "$(P)$(R)SensorHeight_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 520
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Binning in horizontal direction. Binning is the summing of charge of adjacent ,desc1=pixels. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 520
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BinningHorizontal"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 520
+w 60
+h 20
+controlPv "$(P)$(R)BinningHorizonta"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 520
+w 60
+h 20
+controlPv "$(P)$(R)BinningHorizonta_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 545
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Binning in vertical direction. Binning is the summing of charge of adjacent ,desc1=pixels. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 280
+y 545
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BinningVertical"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 545
+w 60
+h 20
+controlPv "$(P)$(R)BinningVertical"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 455
+y 545
+w 60
+h 20
+controlPv "$(P)$(R)BinningVertical_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 585
+w 255
+h 205
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 265
+y 575
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  ImageFormat  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 270
+y 590
 w 10
 h 20
 fgColor index 14
@@ -2129,7 +3937,7 @@ major 4
 minor 1
 release 0
 x 280
-y 55
+y 590
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2148,7 +3956,7 @@ major 10
 minor 0
 release 0
 x 390
-y 55
+y 590
 w 60
 h 20
 controlPv "$(P)$(R)WidthMax"
@@ -2166,7 +3974,7 @@ major 10
 minor 0
 release 0
 x 455
-y 55
+y 590
 w 60
 h 20
 controlPv "$(P)$(R)WidthMax_RBV"
@@ -2185,7 +3993,7 @@ major 4
 minor 2
 release 0
 x 270
-y 80
+y 615
 w 10
 h 20
 fgColor index 14
@@ -2218,7 +4026,7 @@ major 4
 minor 1
 release 0
 x 280
-y 80
+y 615
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2237,7 +4045,7 @@ major 10
 minor 0
 release 0
 x 390
-y 80
+y 615
 w 60
 h 20
 controlPv "$(P)$(R)HeightMax"
@@ -2255,7 +4063,7 @@ major 10
 minor 0
 release 0
 x 455
-y 80
+y 615
 w 60
 h 20
 controlPv "$(P)$(R)HeightMax_RBV"
@@ -2274,7 +4082,7 @@ major 4
 minor 2
 release 0
 x 270
-y 105
+y 640
 w 10
 h 20
 fgColor index 14
@@ -2307,7 +4115,7 @@ major 4
 minor 1
 release 0
 x 280
-y 105
+y 640
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2326,7 +4134,7 @@ major 4
 minor 0
 release 0
 x 390
-y 105
+y 640
 w 125
 h 20
 fgColor index 25
@@ -2346,7 +4154,7 @@ major 4
 minor 2
 release 0
 x 270
-y 130
+y 665
 w 10
 h 20
 fgColor index 14
@@ -2379,7 +4187,7 @@ major 4
 minor 1
 release 0
 x 280
-y 130
+y 665
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2398,7 +4206,7 @@ major 10
 minor 0
 release 0
 x 390
-y 130
+y 665
 w 60
 h 20
 controlPv "$(P)$(R)Width"
@@ -2416,7 +4224,7 @@ major 10
 minor 0
 release 0
 x 455
-y 130
+y 665
 w 60
 h 20
 controlPv "$(P)$(R)Width_RBV"
@@ -2435,7 +4243,7 @@ major 4
 minor 2
 release 0
 x 270
-y 155
+y 690
 w 10
 h 20
 fgColor index 14
@@ -2468,7 +4276,7 @@ major 4
 minor 1
 release 0
 x 280
-y 155
+y 690
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2487,7 +4295,7 @@ major 10
 minor 0
 release 0
 x 390
-y 155
+y 690
 w 60
 h 20
 controlPv "$(P)$(R)Height"
@@ -2505,7 +4313,7 @@ major 10
 minor 0
 release 0
 x 455
-y 155
+y 690
 w 60
 h 20
 controlPv "$(P)$(R)Height_RBV"
@@ -2524,7 +4332,7 @@ major 4
 minor 2
 release 0
 x 270
-y 180
+y 715
 w 10
 h 20
 fgColor index 14
@@ -2557,7 +4365,7 @@ major 4
 minor 1
 release 0
 x 280
-y 180
+y 715
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2576,7 +4384,7 @@ major 10
 minor 0
 release 0
 x 390
-y 180
+y 715
 w 60
 h 20
 controlPv "$(P)$(R)OffsetX"
@@ -2594,7 +4402,7 @@ major 10
 minor 0
 release 0
 x 455
-y 180
+y 715
 w 60
 h 20
 controlPv "$(P)$(R)OffsetX_RBV"
@@ -2613,7 +4421,7 @@ major 4
 minor 2
 release 0
 x 270
-y 205
+y 740
 w 10
 h 20
 fgColor index 14
@@ -2646,7 +4454,7 @@ major 4
 minor 1
 release 0
 x 280
-y 205
+y 740
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2665,7 +4473,7 @@ major 10
 minor 0
 release 0
 x 390
-y 205
+y 740
 w 60
 h 20
 controlPv "$(P)$(R)OffsetY"
@@ -2683,7 +4491,7 @@ major 10
 minor 0
 release 0
 x 455
-y 205
+y 740
 w 60
 h 20
 controlPv "$(P)$(R)OffsetY_RBV"
@@ -2702,7 +4510,7 @@ major 4
 minor 2
 release 0
 x 270
-y 230
+y 765
 w 10
 h 20
 fgColor index 14
@@ -2735,7 +4543,7 @@ major 4
 minor 1
 release 0
 x 280
-y 230
+y 765
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2743,7 +4551,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "PayloadSize"
+  "ImageSize"
 }
 endObjectProperties   
 
@@ -2754,10 +4562,10 @@ major 10
 minor 0
 release 0
 x 390
-y 230
+y 765
 w 60
 h 20
-controlPv "$(P)$(R)PayloadSize"
+controlPv "$(P)$(R)ImageSize"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -2772,10 +4580,10 @@ major 10
 minor 0
 release 0
 x 455
-y 230
+y 765
 w 60
 h 20
-controlPv "$(P)$(R)PayloadSize_RBV"
+controlPv "$(P)$(R)ImageSize_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
@@ -2790,743 +4598,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 265
-y 270
-w 255
-h 230
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 265
-y 260
-w 150
-h 14
-font "arial-medium-r-12.0"
-fontAlign "center"
-fgColor index 14
-bgColor index 8
-value {
-  "  FeatureControl  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 275
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Method of control for exposure duration. Timed mode: exposure duration is set by ,desc1=ExposureTimeAbs. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 275
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureMode"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 275
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)ExposureMode"
-indicatorPv "$(P)$(R)ExposureMode_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 300
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Exposure duration; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 300
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureTimeAbs"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 390
-y 300
-w 60
-h 20
-controlPv "$(P)$(R)ExposureTimeAbs"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 455
-y 300
-w 60
-h 20
-controlPv "$(P)$(R)ExposureTimeAbs_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 325
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-exposure occurs ,desc1=until target is achieved; then ExposureAuto returns to Off. Continuous: ,desc2=auto-exposure always runs. ,desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 325
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAuto"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 325
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)ExposureAuto"
-indicatorPv "$(P)$(R)ExposureAuto_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 350
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=(GenICam boilerplate. Always All.) ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 350
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GainSelector"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 350
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)GainSelector"
-indicatorPv "$(P)$(R)GainSelector_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 375
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Gain value of analog A/D stage. Units are usually in dB. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 375
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GainRaw"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 390
-y 375
-w 60
-h 20
-controlPv "$(P)$(R)GainRaw"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 455
-y 375
-w 60
-h 20
-controlPv "$(P)$(R)GainRaw_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 400
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-gain occurs ,desc1=until target is achieved; then GainAuto returns to Off. Continuous: auto-gain ,desc2=always runs. ,desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 400
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GainAuto"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 400
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)GainAuto"
-indicatorPv "$(P)$(R)GainAuto_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 425
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Select the Red or Blue channel to adjust with BalanceRatioAbs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 425
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "BalanceRatioSelector"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 425
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)BalanceRatioSele"
-indicatorPv "$(P)$(R)BalanceRatioSele_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 450
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Adjust the gain of the red or blue channel (see BalanceRatioSelector). The green ,desc1=channel gain is always 1.00. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 450
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "BalanceRatioAbs"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 390
-y 450
-w 60
-h 20
-controlPv "$(P)$(R)BalanceRatioAbs"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 455
-y 450
-w 60
-h 20
-controlPv "$(P)$(R)BalanceRatioAbs_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 475
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Automatic whitebalance mode. Off: automatic mode is off. Once: auto-whitebalance ,desc1=occurs until target is achieved; then BalanceWhiteAuto returns to Off. ,desc2=Continuous: auto-whitebalance always runs. ,desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 475
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "BalanceWhiteAuto"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 475
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)BalanceWhiteAut0"
-indicatorPv "$(P)$(R)BalanceWhiteAut0_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 265
-y 515
+x 525
+y 50
 w 255
 h 105
 lineColor index 14
@@ -3540,8 +4613,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 265
-y 505
+x 525
+y 40
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -3561,8 +4634,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 520
+x 530
+y 55
 w 10
 h 20
 fgColor index 14
@@ -3594,8 +4667,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 520
+x 540
+y 55
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3613,8 +4686,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 520
+x 650
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionLeft"
@@ -3631,8 +4704,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 520
+x 715
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionLeft_RBV"
@@ -3650,8 +4723,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 545
+x 530
+y 80
 w 10
 h 20
 fgColor index 14
@@ -3683,8 +4756,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 545
+x 540
+y 80
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3702,8 +4775,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 545
+x 650
+y 80
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionTop"
@@ -3720,8 +4793,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 545
+x 715
+y 80
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionTop_RBV"
@@ -3739,8 +4812,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 570
+x 530
+y 105
 w 10
 h 20
 fgColor index 14
@@ -3772,8 +4845,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 570
+x 540
+y 105
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3791,8 +4864,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 570
+x 650
+y 105
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionRigh"
@@ -3809,8 +4882,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 570
+x 715
+y 105
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionRigh_RBV"
@@ -3828,8 +4901,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 595
+x 530
+y 130
 w 10
 h 20
 fgColor index 14
@@ -3861,8 +4934,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 595
+x 540
+y 130
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3880,8 +4953,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 595
+x 650
+y 130
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionBott"
@@ -3898,8 +4971,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 595
+x 715
+y 130
 w 60
 h 20
 controlPv "$(P)$(R)DSPSubregionBott_RBV"
@@ -3917,8 +4990,277 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 265
-y 635
+x 525
+y 170
+w 255
+h 80
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 525
+y 160
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Exposure  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 175
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Method of control for exposure duration. Timed mode: exposure duration is set by ,desc1=ExposureTimeAbs. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 175
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ExposureMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 175
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ExposureMode"
+indicatorPv "$(P)$(R)ExposureMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 200
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Exposure duration; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 200
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ExposureTimeAbs"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 650
+y 200
+w 60
+h 20
+controlPv "$(P)$(R)ExposureTimeAbs"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 715
+y 200
+w 60
+h 20
+controlPv "$(P)$(R)ExposureTimeAbs_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 225
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-exposure occurs ,desc1=until target is achieved; then ExposureAuto returns to Off. Continuous: ,desc2=auto-exposure always runs. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 225
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ExposureAuto"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 225
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ExposureAuto"
+indicatorPv "$(P)$(R)ExposureAuto_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 525
+y 265
 w 255
 h 180
 lineColor index 14
@@ -3932,8 +5274,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 265
-y 625
+x 525
+y 255
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -3953,8 +5295,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 640
+x 530
+y 270
 w 10
 h 20
 fgColor index 14
@@ -3986,8 +5328,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 640
+x 540
+y 270
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4005,8 +5347,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 640
+x 650
+y 270
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoTarg"
@@ -4023,8 +5365,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 640
+x 715
+y 270
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoTarg_RBV"
@@ -4042,8 +5384,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 665
+x 530
+y 295
 w 10
 h 20
 fgColor index 14
@@ -4075,8 +5417,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 665
+x 540
+y 295
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4094,8 +5436,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 390
-y 665
+x 650
+y 295
 w 125
 h 20
 fgColor index 25
@@ -4114,8 +5456,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 690
+x 530
+y 320
 w 10
 h 20
 fgColor index 14
@@ -4147,8 +5489,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 690
+x 540
+y 320
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4166,8 +5508,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 690
+x 650
+y 320
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoMin"
@@ -4184,8 +5526,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 690
+x 715
+y 320
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoMin_RBV"
@@ -4203,8 +5545,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 715
+x 530
+y 345
 w 10
 h 20
 fgColor index 14
@@ -4236,8 +5578,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 715
+x 540
+y 345
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4255,8 +5597,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 715
+x 650
+y 345
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoMax"
@@ -4273,8 +5615,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 715
+x 715
+y 345
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoMax_RBV"
@@ -4292,8 +5634,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 740
+x 530
+y 370
 w 10
 h 20
 fgColor index 14
@@ -4325,8 +5667,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 740
+x 540
+y 370
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4344,8 +5686,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 740
+x 650
+y 370
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoRate"
@@ -4362,8 +5704,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 740
+x 715
+y 370
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoRate_RBV"
@@ -4381,8 +5723,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 765
+x 530
+y 395
 w 10
 h 20
 fgColor index 14
@@ -4414,8 +5756,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 765
+x 540
+y 395
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4433,8 +5775,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 765
+x 650
+y 395
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoOutl"
@@ -4451,8 +5793,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 765
+x 715
+y 395
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoOutl_RBV"
@@ -4470,8 +5812,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 270
-y 790
+x 530
+y 420
 w 10
 h 20
 fgColor index 14
@@ -4503,8 +5845,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 280
-y 790
+x 540
+y 420
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4522,8 +5864,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
-y 790
+x 650
+y 420
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoAdju"
@@ -4540,8 +5882,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 455
-y 790
+x 715
+y 420
 w 60
 h 20
 controlPv "$(P)$(R)ExposureAutoAdju_RBV"
@@ -4560,7 +5902,276 @@ major 4
 minor 0
 release 0
 x 525
-y 50
+y 460
+w 255
+h 80
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 525
+y 450
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Gain  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 465
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=(GenICam boilerplate. Always All.) ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 465
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GainSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 465
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GainSelector"
+indicatorPv "$(P)$(R)GainSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 490
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Gain value of analog A/D stage. Units are usually in dB. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 490
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GainRaw"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 650
+y 490
+w 60
+h 20
+controlPv "$(P)$(R)GainRaw"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 715
+y 490
+w 60
+h 20
+controlPv "$(P)$(R)GainRaw_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 515
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-gain occurs ,desc1=until target is achieved; then GainAuto returns to Off. Continuous: auto-gain ,desc2=always runs. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 515
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GainAuto"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 515
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GainAuto"
+indicatorPv "$(P)$(R)GainAuto_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 525
+y 555
 w 255
 h 155
 lineColor index 14
@@ -4575,7 +6186,7 @@ major 4
 minor 1
 release 0
 x 525
-y 40
+y 545
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -4596,7 +6207,7 @@ major 4
 minor 2
 release 0
 x 530
-y 55
+y 560
 w 10
 h 20
 fgColor index 14
@@ -4629,7 +6240,7 @@ major 4
 minor 1
 release 0
 x 540
-y 55
+y 560
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4648,7 +6259,7 @@ major 10
 minor 0
 release 0
 x 650
-y 55
+y 560
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoTarget"
@@ -4666,7 +6277,7 @@ major 10
 minor 0
 release 0
 x 715
-y 55
+y 560
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoTarget_RBV"
@@ -4685,7 +6296,7 @@ major 4
 minor 2
 release 0
 x 530
-y 80
+y 585
 w 10
 h 20
 fgColor index 14
@@ -4718,7 +6329,7 @@ major 4
 minor 1
 release 0
 x 540
-y 80
+y 585
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4737,7 +6348,7 @@ major 10
 minor 0
 release 0
 x 650
-y 80
+y 585
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoMin"
@@ -4755,7 +6366,7 @@ major 10
 minor 0
 release 0
 x 715
-y 80
+y 585
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoMin_RBV"
@@ -4774,7 +6385,7 @@ major 4
 minor 2
 release 0
 x 530
-y 105
+y 610
 w 10
 h 20
 fgColor index 14
@@ -4807,7 +6418,7 @@ major 4
 minor 1
 release 0
 x 540
-y 105
+y 610
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4826,7 +6437,7 @@ major 10
 minor 0
 release 0
 x 650
-y 105
+y 610
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoMax"
@@ -4844,7 +6455,7 @@ major 10
 minor 0
 release 0
 x 715
-y 105
+y 610
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoMax_RBV"
@@ -4863,7 +6474,7 @@ major 4
 minor 2
 release 0
 x 530
-y 130
+y 635
 w 10
 h 20
 fgColor index 14
@@ -4896,7 +6507,7 @@ major 4
 minor 1
 release 0
 x 540
-y 130
+y 635
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -4915,7 +6526,7 @@ major 10
 minor 0
 release 0
 x 650
-y 130
+y 635
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoRate"
@@ -4933,7 +6544,7 @@ major 10
 minor 0
 release 0
 x 715
-y 130
+y 635
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoRate_RBV"
@@ -4952,7 +6563,7 @@ major 4
 minor 2
 release 0
 x 530
-y 155
+y 660
 w 10
 h 20
 fgColor index 14
@@ -4985,7 +6596,7 @@ major 4
 minor 1
 release 0
 x 540
-y 155
+y 660
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5004,7 +6615,7 @@ major 10
 minor 0
 release 0
 x 650
-y 155
+y 660
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoOutliers"
@@ -5022,7 +6633,7 @@ major 10
 minor 0
 release 0
 x 715
-y 155
+y 660
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoOutliers_RBV"
@@ -5041,7 +6652,7 @@ major 4
 minor 2
 release 0
 x 530
-y 180
+y 685
 w 10
 h 20
 fgColor index 14
@@ -5074,7 +6685,7 @@ major 4
 minor 1
 release 0
 x 540
-y 180
+y 685
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5093,7 +6704,7 @@ major 10
 minor 0
 release 0
 x 650
-y 180
+y 685
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoAdjustTo"
@@ -5111,7 +6722,7 @@ major 10
 minor 0
 release 0
 x 715
-y 180
+y 685
 w 60
 h 20
 controlPv "$(P)$(R)GainAutoAdjustTo_RBV"
@@ -5130,7 +6741,276 @@ major 4
 minor 0
 release 0
 x 525
-y 220
+y 725
+w 255
+h 80
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 525
+y 715
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Whitebalance  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 730
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Select the Red or Blue channel to adjust with BalanceRatioAbs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 730
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BalanceRatioSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 730
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)BalanceRatioSele"
+indicatorPv "$(P)$(R)BalanceRatioSele_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 755
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Adjust the gain of the red or blue channel (see BalanceRatioSelector). The green ,desc1=channel gain is always 1.00. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 755
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BalanceRatioAbs"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 650
+y 755
+w 60
+h 20
+controlPv "$(P)$(R)BalanceRatioAbs"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 715
+y 755
+w 60
+h 20
+controlPv "$(P)$(R)BalanceRatioAbs_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 530
+y 780
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Automatic whitebalance mode. Off: automatic mode is off. Once: auto-whitebalance ,desc1=occurs until target is achieved; then BalanceWhiteAuto returns to Off. ,desc2=Continuous: auto-whitebalance always runs. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 540
+y 780
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "BalanceWhiteAuto"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 650
+y 780
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)BalanceWhiteAut0"
+indicatorPv "$(P)$(R)BalanceWhiteAut0_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 785
+y 50
 w 255
 h 55
 lineColor index 14
@@ -5144,8 +7024,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 525
-y 210
+x 785
+y 40
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -5165,8 +7045,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 225
+x 790
+y 55
 w 10
 h 20
 fgColor index 14
@@ -5198,8 +7078,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 225
+x 800
+y 55
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5217,8 +7097,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 225
+x 910
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)BalanceWhiteAut1"
@@ -5235,8 +7115,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 225
+x 975
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)BalanceWhiteAut1_RBV"
@@ -5254,8 +7134,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 250
+x 790
+y 80
 w 10
 h 20
 fgColor index 14
@@ -5287,8 +7167,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 250
+x 800
+y 80
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5306,8 +7186,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 250
+x 910
+y 80
 w 60
 h 20
 controlPv "$(P)$(R)BalanceWhiteAut2"
@@ -5324,8 +7204,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 250
+x 975
+y 80
 w 60
 h 20
 controlPv "$(P)$(R)BalanceWhiteAut2_RBV"
@@ -5343,8 +7223,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 525
-y 290
+x 785
+y 120
 w 255
 h 130
 lineColor index 14
@@ -5358,8 +7238,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 525
-y 280
+x 785
+y 110
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -5379,8 +7259,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 295
+x 790
+y 125
 w 10
 h 20
 fgColor index 14
@@ -5401,7 +7281,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Set the iris mode. Disabled: no iris control. Video: enable video iris. ,desc1=VideoOpen: fully open a video iris. VideoClosed: fully close a video iris. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Set the iris mode. Disabled: no iris control. Video: enable video iris. ,desc1=VideoOpen: fully open a video iris. VideoClose: fully close a video iris. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5412,8 +7292,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 295
+x 800
+y 125
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5431,8 +7311,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 295
+x 910
+y 125
 w 125
 h 20
 fgColor index 25
@@ -5451,8 +7331,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 320
+x 790
+y 150
 w 10
 h 20
 fgColor index 14
@@ -5484,8 +7364,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 320
+x 800
+y 150
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5503,8 +7383,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 320
+x 910
+y 150
 w 60
 h 20
 controlPv "$(P)$(R)IrisAutoTarget"
@@ -5521,8 +7401,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 320
+x 975
+y 150
 w 60
 h 20
 controlPv "$(P)$(R)IrisAutoTarget_RBV"
@@ -5540,8 +7420,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 345
+x 790
+y 175
 w 10
 h 20
 fgColor index 14
@@ -5573,8 +7453,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 345
+x 800
+y 175
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5592,8 +7472,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 345
+x 910
+y 175
 w 60
 h 20
 controlPv "$(P)$(R)IrisVideoLevel"
@@ -5610,8 +7490,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 345
+x 975
+y 175
 w 60
 h 20
 controlPv "$(P)$(R)IrisVideoLevel_RBV"
@@ -5629,8 +7509,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 370
+x 790
+y 200
 w 10
 h 20
 fgColor index 14
@@ -5662,8 +7542,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 370
+x 800
+y 200
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5681,8 +7561,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 370
+x 910
+y 200
 w 60
 h 20
 controlPv "$(P)$(R)IrisVideoLevelMi"
@@ -5699,8 +7579,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 370
+x 975
+y 200
 w 60
 h 20
 controlPv "$(P)$(R)IrisVideoLevelMi_RBV"
@@ -5718,8 +7598,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 395
+x 790
+y 225
 w 10
 h 20
 fgColor index 14
@@ -5751,8 +7631,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 395
+x 800
+y 225
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5770,8 +7650,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 395
+x 910
+y 225
 w 60
 h 20
 controlPv "$(P)$(R)IrisVideoLevelMa"
@@ -5788,8 +7668,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 395
+x 975
+y 225
 w 60
 h 20
 controlPv "$(P)$(R)IrisVideoLevelMa_RBV"
@@ -5807,8 +7687,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 525
-y 435
+x 785
+y 265
 w 255
 h 55
 lineColor index 14
@@ -5822,8 +7702,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 525
-y 425
+x 785
+y 255
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -5843,8 +7723,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 440
+x 790
+y 270
 w 10
 h 20
 fgColor index 14
@@ -5876,8 +7756,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 440
+x 800
+y 270
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5895,8 +7775,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 440
+x 910
+y 270
 w 125
 h 20
 fgColor index 25
@@ -5915,8 +7795,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 465
+x 790
+y 295
 w 10
 h 20
 fgColor index 14
@@ -5948,8 +7828,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 465
+x 800
+y 295
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -5967,8 +7847,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 465
+x 910
+y 295
 w 125
 h 20
 fgColor index 25
@@ -5987,10 +7867,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 525
-y 505
+x 785
+y 335
 w 255
-h 230
+h 30
 lineColor index 14
 fill
 fillColor index 5
@@ -6002,8 +7882,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 525
-y 495
+x 785
+y 325
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -6011,7 +7891,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  IoControl  "
+  "  SubstrateVoltage  "
 }
 autoSize
 border
@@ -6023,8 +7903,133 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 510
+x 790
+y 340
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Substrate voltage in mV. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 800
+y 340
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "VsubValue"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 910
+y 340
+w 60
+h 20
+controlPv "$(P)$(R)VsubValue"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 975
+y 340
+w 60
+h 20
+controlPv "$(P)$(R)VsubValue_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 785
+y 380
+w 255
+h 80
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 785
+y 370
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  SyncIn  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 790
+y 385
 w 10
 h 20
 fgColor index 14
@@ -6056,8 +8061,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 510
+x 800
+y 385
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6075,8 +8080,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 510
+x 910
+y 385
 w 60
 h 20
 controlPv "$(P)$(R)SyncInLevels"
@@ -6093,8 +8098,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 510
+x 975
+y 385
 w 60
 h 20
 controlPv "$(P)$(R)SyncInLevels_RBV"
@@ -6112,8 +8117,205 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 535
+x 790
+y 410
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Select the sync-in line to control with \{SyncInGlitchFilter\}. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 800
+y 410
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SyncInSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 910
+y 410
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)SyncInSelector"
+indicatorPv "$(P)$(R)SyncInSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 790
+y 435
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Glitch filter on sync-in line; in nanoseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 800
+y 435
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SyncInGlitchFilter"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 910
+y 435
+w 60
+h 20
+controlPv "$(P)$(R)SyncInGlitchFilt"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 975
+y 435
+w 60
+h 20
+controlPv "$(P)$(R)SyncInGlitchFilt_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 785
+y 475
+w 255
+h 105
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 785
+y 465
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  SyncOut  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 790
+y 480
 w 10
 h 20
 fgColor index 14
@@ -6145,8 +8347,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 535
+x 800
+y 480
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6164,8 +8366,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 535
+x 910
+y 480
 w 60
 h 20
 controlPv "$(P)$(R)SyncOutLevels"
@@ -6182,8 +8384,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 535
+x 975
+y 480
 w 60
 h 20
 controlPv "$(P)$(R)SyncOutLevels_RBV"
@@ -6201,8 +8403,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 560
+x 790
+y 505
 w 10
 h 20
 fgColor index 14
@@ -6234,8 +8436,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 560
+x 800
+y 505
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6253,8 +8455,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 560
+x 910
+y 505
 w 125
 h 20
 fgColor index 25
@@ -6273,8 +8475,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 585
+x 790
+y 530
 w 10
 h 20
 fgColor index 14
@@ -6306,8 +8508,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 585
+x 800
+y 530
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6325,8 +8527,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 585
+x 910
+y 530
 w 125
 h 20
 fgColor index 25
@@ -6345,8 +8547,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 610
+x 790
+y 555
 w 10
 h 20
 fgColor index 14
@@ -6378,8 +8580,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 610
+x 800
+y 555
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6397,8 +8599,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 610
+x 910
+y 555
 w 125
 h 20
 fgColor index 25
@@ -6411,14 +8613,50 @@ indicatorPv "$(P)$(R)SyncOutPolarity_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties        
 
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 785
+y 595
+w 255
+h 105
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 785
+y 585
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Strobe  "
+}
+autoSize
+border
+endObjectProperties
+
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 635
+x 790
+y 600
 w 10
 h 20
 fgColor index 14
@@ -6450,8 +8688,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 635
+x 800
+y 600
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6469,8 +8707,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 635
+x 910
+y 600
 w 125
 h 20
 fgColor index 25
@@ -6489,8 +8727,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 660
+x 790
+y 625
 w 10
 h 20
 fgColor index 14
@@ -6522,8 +8760,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 660
+x 800
+y 625
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6541,8 +8779,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 650
-y 660
+x 910
+y 625
 w 125
 h 20
 fgColor index 25
@@ -6561,8 +8799,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 685
+x 790
+y 650
 w 10
 h 20
 fgColor index 14
@@ -6594,8 +8832,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 685
+x 800
+y 650
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6613,8 +8851,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 685
+x 910
+y 650
 w 60
 h 20
 controlPv "$(P)$(R)StrobeDelay"
@@ -6631,8 +8869,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 685
+x 975
+y 650
 w 60
 h 20
 controlPv "$(P)$(R)StrobeDelay_RBV"
@@ -6650,8 +8888,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 530
-y 710
+x 790
+y 675
 w 10
 h 20
 fgColor index 14
@@ -6683,8 +8921,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 540
-y 710
+x 800
+y 675
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6702,8 +8940,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 650
-y 710
+x 910
+y 675
 w 60
 h 20
 controlPv "$(P)$(R)StrobeDuration"
@@ -6720,8 +8958,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 715
-y 710
+x 975
+y 675
 w 60
 h 20
 controlPv "$(P)$(R)StrobeDuration_RBV"
@@ -6740,7 +8978,1647 @@ major 4
 minor 0
 release 0
 x 785
+y 715
+w 255
+h 80
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 785
+y 705
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  EventControl  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 790
+y 720
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Activate event-notification on the GigE Vision message channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 800
+y 720
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 910
+y 720
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)EventSelector"
+indicatorPv "$(P)$(R)EventSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 790
+y 745
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Activate event-notification on the GigE Vision message channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 800
+y 745
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventNotification"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 910
+y 745
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)EventNotificatio"
+indicatorPv "$(P)$(R)EventNotificatio_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 790
+y 770
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Activate event-notification on the GigE Vision message channel. For programmers. ,desc1=See register documentation. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 800
+y 770
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventsEnable1"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 910
+y 770
+w 60
+h 20
+controlPv "$(P)$(R)EventsEnable1"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 975
+y 770
+w 60
+h 20
+controlPv "$(P)$(R)EventsEnable1_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1045
 y 50
+w 255
+h 380
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1045
+y 40
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  EventID  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 55
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 55
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventAcquisitionStart"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)EventAcquisition"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)EventAcquisition_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 80
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 80
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventAcquisitionEnd"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)EventAcquisitio0"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)EventAcquisitio0_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 105
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 105
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventFrameTrigger"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 105
+w 60
+h 20
+controlPv "$(P)$(R)EventFrameTrigge"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 105
+w 60
+h 20
+controlPv "$(P)$(R)EventFrameTrigge_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventExposureEnd"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 130
+w 60
+h 20
+controlPv "$(P)$(R)EventExposureEnd"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 130
+w 60
+h 20
+controlPv "$(P)$(R)EventExposureEnd_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventAcquisitionRecordTrigger"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)EventAcquisitio1"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)EventAcquisitio1_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine1RisingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)EventLine1Rising"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)EventLine1Rising_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 205
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 205
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine1FallingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)EventLine1Fallin"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)EventLine1Fallin_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 230
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 230
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine2RisingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)EventLine2Rising"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)EventLine2Rising_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 255
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 255
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine2FallingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 255
+w 60
+h 20
+controlPv "$(P)$(R)EventLine2Fallin"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 255
+w 60
+h 20
+controlPv "$(P)$(R)EventLine2Fallin_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 280
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 280
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine3RisingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 280
+w 60
+h 20
+controlPv "$(P)$(R)EventLine3Rising"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 280
+w 60
+h 20
+controlPv "$(P)$(R)EventLine3Rising_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 305
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 305
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine3FallingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 305
+w 60
+h 20
+controlPv "$(P)$(R)EventLine3Fallin"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 305
+w 60
+h 20
+controlPv "$(P)$(R)EventLine3Fallin_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 330
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 330
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine4RisingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 330
+w 60
+h 20
+controlPv "$(P)$(R)EventLine4Rising"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 330
+w 60
+h 20
+controlPv "$(P)$(R)EventLine4Rising_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 355
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 355
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventLine4FallingEdge"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 355
+w 60
+h 20
+controlPv "$(P)$(R)EventLine4Fallin"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 355
+w 60
+h 20
+controlPv "$(P)$(R)EventLine4Fallin_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 380
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of overflow event. The overflow event occurs when one or more ,desc1=notification events are lost on the camera. If you use the message channel for ,desc2=event notification; you are always subscribed to this event. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 380
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventOverflow"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 380
+w 60
+h 20
+controlPv "$(P)$(R)EventOverflow"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 380
+w 60
+h 20
+controlPv "$(P)$(R)EventOverflow_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 405
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ID value of error event. The error event occurs if there is a problem on the ,desc1=camera; this event should be reported to technical support. If you use the ,desc2=message channel for event notification; you are always subscribed to this event. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 405
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "EventError"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 405
+w 60
+h 20
+controlPv "$(P)$(R)EventError"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 405
+w 60
+h 20
+controlPv "$(P)$(R)EventError_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1045
+y 445
 w 255
 h 105
 lineColor index 14
@@ -6754,8 +10632,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 785
-y 40
+x 1045
+y 435
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -6775,8 +10653,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 55
+x 1050
+y 450
 w 10
 h 20
 fgColor index 14
@@ -6808,8 +10686,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 55
+x 1060
+y 450
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6827,8 +10705,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 910
-y 55
+x 1170
+y 450
 w 125
 h 20
 fgColor index 25
@@ -6847,8 +10725,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 80
+x 1050
+y 475
 w 10
 h 20
 fgColor index 14
@@ -6880,8 +10758,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 80
+x 1060
+y 475
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6899,8 +10777,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 910
-y 80
+x 1170
+y 475
 w 125
 h 20
 fgColor index 25
@@ -6922,8 +10800,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 105
+x 1050
+y 500
 w 10
 h 20
 fgColor index 14
@@ -6955,8 +10833,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 105
+x 1060
+y 500
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -6974,8 +10852,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 910
-y 105
+x 1170
+y 500
 w 125
 h 20
 fgColor index 25
@@ -6997,8 +10875,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 130
+x 1050
+y 525
 w 10
 h 20
 fgColor index 14
@@ -7030,8 +10908,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 130
+x 1060
+y 525
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -7049,8 +10927,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 910
-y 130
+x 1170
+y 525
 w 125
 h 20
 fgColor index 25
@@ -7069,8 +10947,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 785
-y 170
+x 1045
+y 565
 w 255
 h 105
 lineColor index 14
@@ -7084,8 +10962,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 785
-y 160
+x 1045
+y 555
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -7093,7 +10971,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  DeviceInfo  "
+  "  LensDrive  "
 }
 autoSize
 border
@@ -7105,8 +10983,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 175
+x 1050
+y 570
 w 10
 h 20
 fgColor index 14
@@ -7127,7 +11005,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=DeviceVendorName ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Lens power supply voltage in mV. See LensVoltageControl feature to set value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7138,8 +11016,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 175
+x 1060
+y 570
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -7147,9 +11025,27 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "DeviceVendorName"
+  "LensVoltage"
 }
 endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 570
+w 60
+h 20
+controlPv "$(P)$(R)LensVoltage"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
 
 # (Textupdate)
 object TextupdateClass
@@ -7157,17 +11053,178 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 910
-y 175
-w 125
+x 1235
+y 570
+w 60
 h 20
-controlPv "$(P)$(R)DeviceVendorName_RBV"
+controlPv "$(P)$(R)LensVoltage_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 595
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Lens power supply voltage control. Set value as mV * 100001. If a bad value is ,desc1=written; this control resets to zero. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 595
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "LensVoltageControl"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 595
+w 60
+h 20
+controlPv "$(P)$(R)LensVoltageContr"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1235
+y 595
+w 60
+h 20
+controlPv "$(P)$(R)LensVoltageContr_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1050
+y 620
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Lens drive command. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1060
+y 620
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "LensDriveCommand"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1170
+y 620
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)LensDriveCommand"
+indicatorPv "$(P)$(R)LensDriveCommand_RBV"
+font "arial-bold-r-12.0"
 endObjectProperties        
 
 # (Related Display)
@@ -7176,8 +11233,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 200
+x 1050
+y 645
 w 10
 h 20
 fgColor index 14
@@ -7198,7 +11255,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Camera model name. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Duration of timed lens commands; in milliseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7209,8 +11266,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 200
+x 1060
+y 645
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -7218,9 +11275,27 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "DeviceModelName"
+  "LensDriveDuration"
 }
 endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1170
+y 645
+w 60
+h 20
+controlPv "$(P)$(R)LensDriveDuratio"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
 
 # (Textupdate)
 object TextupdateClass
@@ -7228,17 +11303,125 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 910
-y 200
-w 125
+x 1235
+y 645
+w 60
 h 20
-controlPv "$(P)$(R)DeviceModelName_RBV"
+controlPv "$(P)$(R)LensDriveDuratio_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1305
+y 50
+w 255
+h 255
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1305
+y 40
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  PvApi  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 55
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=PvDummyTriggerSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 55
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "PvDummyTriggerSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 55
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)PvDummyTriggerSe"
+indicatorPv "$(P)$(R)PvDummyTriggerSe_RBV"
+font "arial-bold-r-12.0"
 endObjectProperties        
 
 # (Related Display)
@@ -7247,8 +11430,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 225
+x 1310
+y 80
 w 10
 h 20
 fgColor index 14
@@ -7269,7 +11452,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Firmware version of this Prosilica GigE camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PvDummyFrameStartTriggerMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7280,8 +11463,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 225
+x 1320
+y 80
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -7289,27 +11472,28 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "DeviceFirmwareVersion"
+  "PvDummyFrameStartTriggerMode"
 }
 endObjectProperties   
 
-# (Textupdate)
-object TextupdateClass
+# (Menu Button)
+object activeMenuButtonClass
 beginObjectProperties
-major 10
+major 4
 minor 0
 release 0
-x 910
-y 225
+x 1430
+y 80
 w 125
 h 20
-controlPv "$(P)$(R)DeviceFirmwareVe_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)PvDummyFrameStar"
+indicatorPv "$(P)$(R)PvDummyFrameStar_RBV"
 font "arial-bold-r-12.0"
-fontAlign "center"
 endObjectProperties        
 
 # (Related Display)
@@ -7318,8 +11502,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 790
-y 250
+x 1310
+y 105
 w 10
 h 20
 fgColor index 14
@@ -7340,7 +11524,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Serial number. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PvDummyTriggerMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7351,8 +11535,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 800
-y 250
+x 1320
+y 105
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -7360,7 +11544,613 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "DeviceID"
+  "PvDummyTriggerMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 105
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)PvDummyTriggerMo"
+indicatorPv "$(P)$(R)PvDummyTriggerMo_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameStartTriggerDelay ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameStartTriggerDelay"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 130
+w 60
+h 20
+controlPv "$(P)$(R)FrameStartTrigge"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 130
+w 60
+h 20
+controlPv "$(P)$(R)FrameStartTrigge_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Exposure duration; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ExposureValue"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)ExposureValue"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)ExposureValue_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Low-word value of timestamp; when latched by GevTimestampControlLatch. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TimeStampValueLo"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)TimeStampValueLo"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)TimeStampValueLo_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 205
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=High-word value of timestamp; when latched by GevTimestampControlLatch. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 205
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "TimeStampValueHi"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)TimeStampValueHi"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)TimeStampValueHi_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 230
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=WhitebalValueRed ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 230
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "WhitebalValueRed"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)WhitebalValueRed"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)WhitebalValueRed_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 255
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=WhitebalValueBlue ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 255
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "WhitebalValueBlue"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 255
+w 60
+h 20
+controlPv "$(P)$(R)WhitebalValueBlu"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 255
+w 60
+h 20
+controlPv "$(P)$(R)WhitebalValueBlu_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 280
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ModelName ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 280
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ModelName"
 }
 endObjectProperties   
 
@@ -7370,11 +12160,11 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 910
-y 250
+x 1430
+y 280
 w 125
 h 20
-controlPv "$(P)$(R)DeviceID_RBV"
+controlPv "$(P)$(R)ModelName_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
@@ -7389,8 +12179,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 945
-y 800
+x 1465
+y 790
 w 95
 h 25
 fgColor index 46
