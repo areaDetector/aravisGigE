@@ -34,9 +34,6 @@ def elements(node):
 def getText(node):
     return ''.join([n.data for n in node.childNodes if n.nodeType == n.TEXT_NODE])
 
-# list of all nodes    
-nodes = elements(elements(xml_root)[0])
-
 # node lookup from nodeName -> node
 lookup = {}
 # lookup from nodeName -> recordName
@@ -54,10 +51,15 @@ records = {}
 #"ShutterFanout", "ShutterOpenEPICS", "ShutterCloseEPICS", "ShutterStatusEPICS",
 #"Temperature", "AsynIO", "PortName"]
 #for name in ADNames:
-#	records[name] = name
+#    records[name] = name
 categories = []
-for node in nodes:
-    if node.hasAttribute("Name"):
+
+# function to create a lookup table of nodes
+def handle_node(node):
+    if node.nodeName == "Group":
+        for n in elements(node):
+            handle_node(n)
+    elif node.hasAttribute("Name"):
         name = str(node.getAttribute("Name"))
         lookup[name] = node
         recordName = name
@@ -72,6 +74,10 @@ for node in nodes:
             categories.append(name)
     else:
         print "Node has no Name attribute", node
+
+# list of all nodes    
+for node in elements(elements(xml_root)[0]):
+    handle_node(node)
 
 # Now make structure, [(title, [features...]), ...]
 structure = []
