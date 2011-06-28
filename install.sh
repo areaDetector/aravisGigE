@@ -5,7 +5,7 @@
 
 # Variables telling us where to get things
 HERE="$(dirname "$0")"
-VERSION="0.1.8"
+VERSION="0.1.9"
 SOURCE="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-${VERSION}.tar.bz2"
 
 # fail if we can't do anything

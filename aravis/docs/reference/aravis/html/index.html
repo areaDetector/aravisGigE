@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Aravis Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Aravis Reference Manual">
+<link rel="next" href="aravis-overview.html" title="Part I. Overview">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="book">
+<div class="titlepage">
+<div>
+<div><table class="navigation" id="top" width="100%" cellpadding="2" cellspacing="0"><tr><th valign="middle"><p class="title">Aravis Reference Manual</p></th></tr></table></div>
+<div><p class="releaseinfo">For Aravis 0.2.</p></div>
+<div><div class="legalnotice">
+<a name="id390314"></a><p>
+				Permission is granted to copy, distribute and/or modify this
+				document under the terms of the <em class="citetitle">GNU Free
+				Documentation License</em>, Version 1.1 or any later
+				version published by the Free Software Foundation with no
+				Invariant Sections, no Front-Cover Texts, and no Back-Cover
+				Texts. You may obtain a copy of the <em class="citetitle">GNU Free
+				Documentation License</em> from the Free Software
+				Foundation by visiting <a class="ulink" href="http://www.fsf.org" target="_top">their Web site</a> or by writing
+				to:
+
+				</p>
+<div class="address"><p><br>
+					The Free Software Foundation, Inc.,<br>
+					<span class="street">59 Temple Place</span> - Suite 330,<br>
+					<span class="city">Boston</span>, <span class="state">MA</span> <span class="postcode">02111-1307</span>,<br>
+					<span class="country">USA</span><br>
+				</p></div>
+<p>
+			</p>
+</div></div>
+</div>
+<hr>
+</div>
+<div class="toc"><dl>
+<dt><span class="part"><a href="aravis-overview.html">I. Overview</a></span></dt>
+<dd><dl><dt><span class="chapter"><a href="aravis-building.html">Building and debugging Aravis</a></span></dt></dl></dd>
+<dt><span class="part"><a href="aravis-reference.html">II. Aravis reference</a></span></dt>
+<dd><dl>
+<dt><span class="chapter"><a href="ch02.html">Base</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="ArvCamera.html">ArvCamera</a></span><span class="refpurpose"> — Class for generic camera control</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvInterface.html">ArvInterface</a></span><span class="refpurpose"> — Base abstract class for camera discovery</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvDevice.html">ArvDevice</a></span><span class="refpurpose"> — Abstract base class for device handling</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvStream.html">ArvStream</a></span><span class="refpurpose"> — Abstract base class for video stream reception</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvBuffer.html">ArvBuffer</a></span><span class="refpurpose"> — Buffer for storage of video frames</span>
+</dt>
+</dl></dd>
+<dt><span class="chapter"><a href="ch03.html">Genicam</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="ArvGc.html">ArvGc</a></span><span class="refpurpose"> — Genicam root document class</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcNode.html">ArvGcNode</a></span><span class="refpurpose"> — Base class for all Genicam nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcInteger.html">ArvGcInteger</a></span><span class="refpurpose"> — Integer interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcFloat.html">ArvGcFloat</a></span><span class="refpurpose"> — Float interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcString.html">ArvGcString</a></span><span class="refpurpose"> — String interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcCategory.html">ArvGcCategory</a></span><span class="refpurpose"> — Class for Category nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcCommand.html">ArvGcCommand</a></span><span class="refpurpose"> — Class for Command nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcBoolean.html">ArvGcBoolean</a></span><span class="refpurpose"> — Class for Boolean nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcIntegerNode.html">ArvGcIntegerNode</a></span><span class="refpurpose"> — Class for Integer nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcFloatNode.html">ArvGcFloatNode</a></span><span class="refpurpose"> — Class for Float nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcRegister.html">ArvGcRegister</a></span><span class="refpurpose"> — Class for Register, IntReg, MaskedIntReg, FloatReg and StringReg nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcEnumeration.html">ArvGcEnumeration</a></span><span class="refpurpose"> — Class for Enumeration nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcEnumEntry.html">ArvGcEnumEntry</a></span><span class="refpurpose"> — Class for EnumEntry nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcConverter.html">ArvGcConverter</a></span><span class="refpurpose"> — Class for Converter and IntConverter nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcSwissKnife.html">ArvGcSwissKnife</a></span><span class="refpurpose"> — Class for SwissKnife and IntSwissKnife nodes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGcPort.html">ArvGcPort</a></span><span class="refpurpose"> — Class for Port nodes</span>
+</dt>
+</dl></dd>
+<dt><span class="chapter"><a href="ch04.html">Ethernet cameras</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="ArvGvInterface.html">ArvGvInterface</a></span><span class="refpurpose"> — Gigabit ethernet camera interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGvDevice.html">ArvGvDevice</a></span><span class="refpurpose"> — Gigabit ethernet camera device</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvGvStream.html">ArvGvStream</a></span><span class="refpurpose"> — Gigabit ethernet camera stream</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="aravis-ArvGvcp.html">ArvGvcp</a></span><span class="refpurpose"> — Gvcp packet handling (control)</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="aravis-ArvGvsp.html">ArvGvsp</a></span><span class="refpurpose"> — Gvsp packet handling (stream)</span>
+</dt>
+</dl></dd>
+<dt><span class="chapter"><a href="ch05.html">Fake camera</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="ArvFakeInterface.html">ArvFakeInterface</a></span><span class="refpurpose"> — Fake camera interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvFakeDevice.html">ArvFakeDevice</a></span><span class="refpurpose"> — Fake camera device</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvFakeStream.html">ArvFakeStream</a></span><span class="refpurpose"> — Fake camera stream</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvFakeCamera.html">ArvFakeCamera</a></span><span class="refpurpose"> — Fake camera internals</span>
+</dt>
+</dl></dd>
+<dt><span class="chapter"><a href="ch06.html">Utils</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="aravis-ArvDebug.html">ArvDebug</a></span><span class="refpurpose"> — Debugging tools</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="ArvEvaluator.html">ArvEvaluator</a></span><span class="refpurpose"> — A math expression evaluator with Genicam syntax</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="aravis-ArvGst.html">ArvGst</a></span><span class="refpurpose"> — Gstreamer utilities</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="aravis-ArvStatistic.html">ArvStatistic</a></span><span class="refpurpose"> — An histogram tool</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="aravis-ArvValue.html">ArvValue</a></span><span class="refpurpose"> — An int64/double value storage</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="aravis-ArvZip.html">ArvZip</a></span><span class="refpurpose"> — A simple zip extractor</span>
+</dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="chapter"><a href="object-tree.html">Object Hierarchy</a></span></dt>
+<dt><span class="index"><a href="api-index-full.html">API Index</a></span></dt>
+<dt><span class="glossary"><a href="annotation-glossary.html">Annotation Glossary</a></span></dt>
+</dl></div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
