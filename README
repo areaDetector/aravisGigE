@@ -1,7 +1,7 @@
-When doing a vendor update:
+# When doing a vendor update:
 * make clean uninstall
-* remove aravis dir 
-* svn commit
+* svn rm aravis
+* svn commit -m "aravisGigE: remove aravis dir in preparation for vendor update"
 * change version in install.sh and uncomment http_proxy
 * run install.sh
 * comment out http_proxy in install.sh
