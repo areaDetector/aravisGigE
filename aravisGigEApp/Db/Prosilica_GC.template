@@ -4,7 +4,7 @@
 #% macro, PORT, Asyn Port name
 #% macro, TIMEOUT, Timeout
 #% macro, ADDR, Asyn Port address
-#% gui, $(PORT), edmtab, Prosilica_GC_Mono.edl, P=$(P),R=$(R)
+#% gui, $(PORT), edmtab, Prosilica_GC.edl, P=$(P),R=$(R)
 
 record(longin, "$(P)$(R)FirmwareVerMajor_RBV") {
   field(DTYP, "asynInt32")
