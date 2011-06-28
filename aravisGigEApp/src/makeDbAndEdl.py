@@ -489,7 +489,7 @@ ctlBgColor1 index 3
 ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
-title "Manta features - $(P)$(R)"
+title "%(camera_name)s features - $(P)$(R)"
 showGrid
 snapToGrid
 gridSize 5
