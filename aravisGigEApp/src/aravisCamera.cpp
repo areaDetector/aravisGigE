@@ -84,6 +84,7 @@ static const struct pix_lookup pix_lookup[] = {
 #define tryAddFeature(ADIdx, featureString) \
 	feature = arv_device_get_feature(this->device, featureString); \
     if (feature != NULL && arv_gc_node_is_available(feature)) { \
+    	g_print("Adding feature %s\n", featureString); \
     	g_hash_table_insert(this->featureLookup, (gpointer)(&ADIdx), (gpointer)featureString); \
     }
 
