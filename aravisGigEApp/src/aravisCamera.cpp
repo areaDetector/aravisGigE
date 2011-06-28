@@ -71,6 +71,7 @@ static const struct pix_lookup pix_lookup[] = {
 // For Int16, use Mono16 if available, otherwise Mono12
     { ARV_PIXEL_FORMAT_MONO_16,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_MONO_12,       NDColorModeMono,  NDUInt16, 0           },
+    { ARV_PIXEL_FORMAT_MONO_10,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_RGB_12_PACKED, NDColorModeRGB1,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_RGB_10_PACKED, NDColorModeRGB1,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_BAYER_GR_12,   NDColorModeBayer, NDUInt16, NDBayerGRBG },
@@ -374,16 +375,16 @@ asynStatus aravisCamera::connectToCamera() {
     g_print("Getting feature list...\n");
 
     /* Add gain lookup */
-    tryAddFeature(ADGain, "GainRawChannelA");
-    tryAddFeature(ADGain, "Gain");
     tryAddFeature(ADGain, "GainRaw");
+    tryAddFeature(ADGain, "Gain");
+    tryAddFeature(ADGain, "GainRawChannelA");
 
 	/* Add exposure lookup */
     tryAddFeature(ADAcquireTime, "ExposureTimeAbs");
 
 	/* Add framerate lookup */
-    tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRate");
     tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRateAbs");
+    tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRate");
 
 	/* Add params for all nodes */
 	keys = g_hash_table_get_keys(this->genicam->nodes);
@@ -788,6 +789,24 @@ void aravisCamera::callback() {
 		}
 		printf("\n");
 	*/
+		/* Report statistics */
+		if (this->stream != NULL) {
+			arv_stream_get_statistics(this->stream, &n_completed_buffers, &n_failures, &n_underruns);
+			setDoubleParam(AravisCompleted, (double) n_completed_buffers);
+			setDoubleParam(AravisFailures, (double) n_failures);
+			setDoubleParam(AravisUnderruns, (double) n_underruns);
+		}
+
+		/* See if acquisition is done */
+		if ((imageMode == ADImageSingle) ||
+			((imageMode == ADImageMultiple) &&
+			 (numImagesCounter >= numImages))) {
+			arv_camera_stop_acquisition(this->camera);
+			setIntegerParam(ADAcquire, 0);
+			setIntegerParam(ADStatus, ADStatusIdle);
+			asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+				  "%s:%s: acquisition completed\n", driverName, functionName);
+		}
 		/* Get any attributes that have been defined for this driver */
 		this->getAttributes(pRaw->pAttributeList);
 		/* Call the callbacks to update any changes */
@@ -802,25 +821,6 @@ void aravisCamera::callback() {
 				 "%s:%s: calling imageData callback\n", driverName, functionName);
 			doCallbacksGenericPointer(pRaw, NDArrayData, 0);
 			this->lock();
-		}
-
-		/* See if acquisition is done */
-		if ((imageMode == ADImageSingle) ||
-			((imageMode == ADImageMultiple) &&
-			 (numImagesCounter >= numImages))) {
-			arv_camera_stop_acquisition(this->camera);
-			setIntegerParam(ADAcquire, 0);
-			setIntegerParam(ADStatus, ADStatusIdle);
-			asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-				  "%s:%s: acquisition completed\n", driverName, functionName);
-		}
-		/* Report statistics */
-		if (this->stream != NULL) {
-			arv_stream_get_statistics(this->stream, &n_completed_buffers, &n_failures, &n_underruns);
-			setDoubleParam(AravisCompleted, (double) n_completed_buffers);
-			setDoubleParam(AravisFailures, (double) n_failures);
-			setDoubleParam(AravisUnderruns, (double) n_underruns);
-			callParamCallbacks();
 		}
 		this->freeBufferAndUnlock(buffer);
     }
