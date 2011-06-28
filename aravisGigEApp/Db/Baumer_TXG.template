@@ -4,7 +4,7 @@
 #% macro, PORT, Asyn Port name
 #% macro, TIMEOUT, Timeout
 #% macro, ADDR, Asyn Port address
-#% gui, $(PORT), edmtab, Baumer.edl, P=$(P),R=$(R)
+#% gui, $(PORT), edmtab, Baumer_TXG.edl, P=$(P),R=$(R)
 
 record(stringin, "$(P)$(R)DeviceVendorName_RBV") {
   field(DTYP, "asynOctetRead")
