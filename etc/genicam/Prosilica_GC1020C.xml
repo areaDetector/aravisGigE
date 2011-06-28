@@ -8,15 +8,15 @@
  SchemaMinorVersion="0"
  SchemaSubMinorVersion="1"
 
- MajorVersion="292"
+ MajorVersion="298"
 
 
 
- MinorVersion="0"
+ MinorVersion="2"
  SubMinorVersion="0"
  ToolTip="TestTooltip"
- ProductGuid="96693fe2-71d8-48b9-9b69-517f710c1d12"
- VersionGuid="f5fb11c0-7178-4a3d-86a9-ff451cdd2f93"
+ ProductGuid=""
+ VersionGuid=""
  xmlns="http://www.genicam.org/GenApi/Version_1_0"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.genicam.org/GenApi/Version_1_0 GenApiSchema.xsd">
@@ -24,23 +24,33 @@
 
 
  <Category Name="Root" NameSpace="Standard">
-  <pFeature>AcquisitionControl</pFeature>
-  <pFeature>Bandwidth</pFeature>
+  <pFeature>Info</pFeature>
+  <pFeature>GigE</pFeature>
+  <pFeature>Acquisition</pFeature>
   <pFeature>ImageMode</pFeature>
   <pFeature>ImageFormat</pFeature>
-  <pFeature>FeatureControl</pFeature>
-  <pFeature>IoControl</pFeature>
+  <pFeature>Controls</pFeature>
+  <pFeature>IO</pFeature>
+  <pFeature>EventControl</pFeature>
   <pFeature>SavedUserSets</pFeature>
  </Category>
 
- <Category Name="DeviceInfo" NameSpace="Custom">
+ <Category Name="Info" NameSpace="Custom">
+  <pFeature>FirmwareVerMajor</pFeature>
+  <pFeature>FirmwareVerMinor</pFeature>
+  <pFeature>FirmwareVerBuild</pFeature>
+  <pFeature>SensorType</pFeature>
+  <pFeature>SensorBits</pFeature>
   <pFeature>DeviceVendorName</pFeature>
   <pFeature>DeviceModelName</pFeature>
   <pFeature>DeviceFirmwareVersion</pFeature>
   <pFeature>DeviceID</pFeature>
+  <pFeature>DevicePartNumber</pFeature>
+  <pFeature>DeviceScanType</pFeature>
  </Category>
 
- <Category Name="AcquisitionControl" NameSpace="Custom">
+ <Category Name="Acquisition" NameSpace="Custom">
+  <pFeature>Trigger</pFeature>
   <pFeature>AcquisitionStart</pFeature>
   <pFeature>AcquisitionStop</pFeature>
   <pFeature>AcquisitionAbort</pFeature>
@@ -49,13 +59,28 @@
   <pFeature>AcquisitionFrameRateAbs</pFeature>
   <pFeature>AcquisitionFrameRateLimit</pFeature>
   <pFeature>RecorderPreEventCount</pFeature>
+ </Category>
+
+ <Category Name="Trigger" NameSpace="Custom">
   <pFeature>TriggerSelector</pFeature>
   <pFeature>TriggerMode</pFeature>
   <pFeature>TriggerSoftware</pFeature>
   <pFeature>TriggerSource</pFeature>
   <pFeature>TriggerActivation</pFeature>
+  <pFeature>TriggerOverlap</pFeature>
   <pFeature>TriggerDelayAbs</pFeature>
+ </Category>
+
+ <Category Name="GigE" NameSpace="Custom">
+  <pFeature>StreamBytesPerSecond</pFeature>
+  <pFeature>BandwidthControlMode</pFeature>
   <pFeature>StreamHold</pFeature>
+  <pFeature>Timestamp</pFeature>
+  <pFeature>GevSCPSPacketSize</pFeature>
+  <pFeature>ChunkModeActive</pFeature>
+  <pFeature>PayloadSize</pFeature>
+  <pFeature>NonImagePayloadSize</pFeature>
+  <pFeature>StreamFrameRateConstrain</pFeature>
  </Category>
 
  <Category Name="StreamHold" NameSpace="Custom">
@@ -63,9 +88,11 @@
   <pFeature>StreamHoldCapacity</pFeature>
  </Category>
 
- <Category Name="Bandwidth" NameSpace="Custom">
-  <pFeature>StreamBytesPerSecond</pFeature>
-  <pFeature>BandwidthControlMode</pFeature>
+ <Category Name="Timestamp" NameSpace="Custom">
+  <pFeature>GevTimestampTickFrequency</pFeature>
+  <pFeature>GevTimestampControlLatch</pFeature>
+  <pFeature>GevTimestampControlReset</pFeature>
+  <pFeature>GevTimestampValue</pFeature>
  </Category>
 
  <Category Name="ImageMode" NameSpace="Custom">
@@ -83,35 +110,43 @@
   <pFeature>Height</pFeature>
   <pFeature>OffsetX</pFeature>
   <pFeature>OffsetY</pFeature>
-  <pFeature>PayloadSize</pFeature>
+  <pFeature>ImageSize</pFeature>
  </Category>
 
- <Category Name="FeatureControl" NameSpace="Custom">
+ <Category Name="Controls" NameSpace="Custom">
   <pFeature>DSPSubregion</pFeature>
-  <pFeature>ExposureMode</pFeature>
-  <pFeature>ExposureTimeAbs</pFeature>
-  <pFeature>ExposureAuto</pFeature>
-  <pFeature>ExposureAutoControl</pFeature>
-  <pFeature>GainSelector</pFeature>
-  <pFeature>GainRaw</pFeature>
-  <pFeature>GainAuto</pFeature>
-  <pFeature>GainAutoControl</pFeature>
-  <pFeature>BalanceRatioSelector</pFeature>
-  <pFeature>BalanceRatioAbs</pFeature>
-  <pFeature>BalanceWhiteAuto</pFeature>
-  <pFeature>BalanceWhiteAutoControl</pFeature>
+  <pFeature>Exposure</pFeature>
+  <pFeature>Gain</pFeature>
+  <pFeature>Whitebalance</pFeature>
   <pFeature>Iris</pFeature>
   <pFeature>DefectMask</pFeature>
+  <pFeature>SubstrateVoltage</pFeature>
+
+
+
  </Category>
 
  <Category Name="DSPSubregion" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="DSP"/>
+  </Extension>
   <pFeature>DSPSubregionLeft</pFeature>
   <pFeature>DSPSubregionTop</pFeature>
   <pFeature>DSPSubregionRight</pFeature>
   <pFeature>DSPSubregionBottom</pFeature>
  </Category>
 
+ <Category Name="Exposure" NameSpace="Custom">
+  <pFeature>ExposureMode</pFeature>
+  <pFeature>ExposureTimeAbs</pFeature>
+  <pFeature>ExposureAuto</pFeature>
+  <pFeature>ExposureAutoControl</pFeature>
+ </Category>
+
  <Category Name="ExposureAutoControl" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="Auto"/>
+  </Extension>
   <pFeature>ExposureAutoTarget</pFeature>
   <pFeature>ExposureAutoAlg</pFeature>
   <pFeature>ExposureAutoMin</pFeature>
@@ -121,7 +156,17 @@
   <pFeature>ExposureAutoAdjustTol</pFeature>
  </Category>
 
+ <Category Name="Gain" NameSpace="Custom">
+  <pFeature>GainSelector</pFeature>
+  <pFeature>GainRaw</pFeature>
+  <pFeature>GainAuto</pFeature>
+  <pFeature>GainAutoControl</pFeature>
+ </Category>
+
  <Category Name="GainAutoControl" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="Auto"/>
+  </Extension>
   <pFeature>GainAutoTarget</pFeature>
   <pFeature>GainAutoMin</pFeature>
   <pFeature>GainAutoMax</pFeature>
@@ -130,7 +175,17 @@
   <pFeature>GainAutoAdjustTol</pFeature>
  </Category>
 
+ <Category Name="Whitebalance" NameSpace="Custom">
+  <pFeature>BalanceRatioSelector</pFeature>
+  <pFeature>BalanceRatioAbs</pFeature>
+  <pFeature>BalanceWhiteAuto</pFeature>
+  <pFeature>BalanceWhiteAutoControl</pFeature>
+ </Category>
+
  <Category Name="BalanceWhiteAutoControl" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="Auto"/>
+  </Extension>
   <pFeature>BalanceWhiteAutoRate</pFeature>
   <pFeature>BalanceWhiteAutoAdjustTol</pFeature>
  </Category>
@@ -148,12 +203,37 @@
   <pFeature>DefectMaskPixelEnable</pFeature>
  </Category>
 
- <Category Name="IoControl" NameSpace="Custom">
+ <Category Name="SubstrateVoltage" NameSpace="Custom">
+  <pFeature>VsubValue</pFeature>
+ </Category>
+
+ <Category Name="LensDrive" NameSpace="Custom">
+  <pFeature>LensVoltage</pFeature>
+  <pFeature>LensVoltageControl</pFeature>
+  <pFeature>LensDriveCommand</pFeature>
+  <pFeature>LensDriveDuration</pFeature>
+ </Category>
+
+ <Category Name="IO" NameSpace="Custom">
+  <pFeature>SyncIn</pFeature>
+  <pFeature>SyncOut</pFeature>
+  <pFeature>Strobe</pFeature>
+ </Category>
+
+ <Category Name="SyncIn" NameSpace="Custom">
   <pFeature>SyncInLevels</pFeature>
+  <pFeature>SyncInSelector</pFeature>
+  <pFeature>SyncInGlitchFilter</pFeature>
+ </Category>
+
+ <Category Name="SyncOut" NameSpace="Custom">
   <pFeature>SyncOutLevels</pFeature>
   <pFeature>SyncOutSelector</pFeature>
   <pFeature>SyncOutSource</pFeature>
   <pFeature>SyncOutPolarity</pFeature>
+ </Category>
+
+ <Category Name="Strobe" NameSpace="Custom">
   <pFeature>StrobeSource</pFeature>
   <pFeature>StrobeDurationMode</pFeature>
   <pFeature>StrobeDelay</pFeature>
@@ -161,27 +241,135 @@
  </Category>
 
  <Category Name="SavedUserSets" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/ConfigFile"/>
+  </Extension>
   <pFeature>UserSetSelector</pFeature>
   <pFeature>UserSetLoad</pFeature>
   <pFeature>UserSetSave</pFeature>
   <pFeature>UserSetDefaultSelector</pFeature>
  </Category>
 
+ <Category Name="EventControl" NameSpace="Custom">
+  <pFeature>EventSelector</pFeature>
+  <pFeature>EventNotification</pFeature>
+  <pFeature>EventsEnable1</pFeature>
+  <pFeature>EventID</pFeature>
+ </Category>
+
+ <Category Name="EventID" NameSpace="Custom">
+  <pFeature>EventAcquisitionStart</pFeature>
+  <pFeature>EventAcquisitionEnd</pFeature>
+  <pFeature>EventFrameTrigger</pFeature>
+  <pFeature>EventExposureEnd</pFeature>
+  <pFeature>EventAcquisitionRecordTrigger</pFeature>
+  <pFeature>EventLine1RisingEdge</pFeature>
+  <pFeature>EventLine1FallingEdge</pFeature>
+  <pFeature>EventLine2RisingEdge</pFeature>
+  <pFeature>EventLine2FallingEdge</pFeature>
+  <pFeature>EventLine3RisingEdge</pFeature>
+  <pFeature>EventLine3FallingEdge</pFeature>
+  <pFeature>EventLine4RisingEdge</pFeature>
+  <pFeature>EventLine4FallingEdge</pFeature>
+  <pFeature>EventOverflow</pFeature>
+  <pFeature>EventError</pFeature>
+ </Category>
 
 
 
+
+ <Category Name="PvApi" NameSpace="Custom">
+  <pFeature>PvDummyTriggerSelector</pFeature>
+  <pFeature>PvDummyFrameStartTriggerMode</pFeature>
+  <pFeature>PvDummyTriggerMode</pFeature>
+  <pFeature>FrameStartTriggerDelay</pFeature>
+  <pFeature>ExposureValue</pFeature>
+  <pFeature>TimeStampValueLo</pFeature>
+  <pFeature>TimeStampValueHi</pFeature>
+  <pFeature>WhitebalValueRed</pFeature>
+  <pFeature>WhitebalValueBlue</pFeature>
+  <pFeature>ModelName</pFeature>
+ </Category>
+
+
+
+
+
+
+ <Integer Name="FirmwareVerMajor" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Info/Firmware"/>
+  </Extension>
+  <pValue>RegFirmwareVerMajor</pValue>
+ </Integer>
+
+ <Integer Name="FirmwareVerMinor" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Info/Firmware"/>
+  </Extension>
+  <pValue>RegFirmwareVerMinor</pValue>
+ </Integer>
+
+ <Integer Name="FirmwareVerBuild" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Info/Firmware"/>
+  </Extension>
+  <pValue>RegFirmwareVerBuild</pValue>
+ </Integer>
+
+ <Enumeration Name="DeviceScanType" NameSpace="Standard">
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <EnumEntry Name="Areascan" NameSpace="Custom">
+   <Value>0</Value>
+  </EnumEntry>
+  <Value>0</Value>
+ </Enumeration>
+
+ <Enumeration Name="SensorType" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Info/Sensor"/>
+  </Extension>
+  <Description>Type of image sensor.</Description>
+  <EnumEntry Name="Mono" NameSpace="Custom">
+   <Value>0</Value>
+  </EnumEntry>
+  <EnumEntry Name="Bayer" NameSpace="Custom">
+   <Value>1</Value>
+  </EnumEntry>
+  <pValue>RegSensorType</pValue>
+ </Enumeration>
+
+ <Integer Name="SensorBits" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Info/Sensor"/>
+  </Extension>
+  <Description>Maximum bit depth of sensor.</Description>
+  <pValue>RegSensorBits</pValue>
+ </Integer>
 
  <Integer Name="SensorWidth" NameSpace="Standard">
+  <Extension>
+   <PvCategory Path="/Info/Sensor"/>
+  </Extension>
   <Description>Full width of image sensor.</Description>
   <pValue>RegSensorWidth</pValue>
  </Integer>
 
  <Integer Name="SensorHeight" NameSpace="Standard">
+  <Extension>
+   <PvCategory Path="/Info/Sensor"/>
+  </Extension>
   <Description>Full height of image sensor.</Description>
   <pValue>RegSensorHeight</pValue>
  </Integer>
 
+
+
+
  <Integer Name="BinningHorizontal" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="BinningX"/>
+  </Extension>
   <Description>Binning in horizontal direction. Binning is the summing of charge of adjacent pixels.</Description>
   <pIsImplemented>RegImageModeInqBinningX</pIsImplemented>
   <pValue>BinningHorizontalValue</pValue>
@@ -202,6 +390,9 @@
  </IntSwissKnife>
 
  <Integer Name="BinningVertical" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="BinningY"/>
+  </Extension>
   <Description>Binning in vertical direction. Binning is the summing of charge of adjacent pixels.</Description>
   <pIsImplemented>RegImageModeInqBinningY</pIsImplemented>
   <pValue>BinningVerticalValue</pValue>
@@ -228,7 +419,17 @@
   <pMax>RegStreamBytesPerSecMax</pMax>
  </Integer>
 
+ <Boolean Name="StreamFrameRateConstrain" NameSpace="Custom">
+  <Description>When enabled, the frame rate of the camera is constrained by available bandwidth. When disabled, the camera can image faster than it can send data.</Description>
+  <pValue>RegStreamFrameRateConstrain</pValue>
+  <OnValue>1</OnValue>
+  <OffValue>0</OffValue>
+ </Boolean>
+
  <Enumeration Name="BandwidthControlMode" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="BandwidthCtrlMode"/>
+  </Extension>
   <Description>Bandwidth allocation can be controlled by StreamBytesPerSecond, or by register SCPD0. If you do not understand SCPD0 and how this driver uses this register, leave this set to "StreamBytesPerSecond".</Description>
   <EnumEntry Name="StreamBytesPerSecond" NameSpace="Custom">
    <Value>0</Value>
@@ -258,14 +459,96 @@
   <pValue>RegStreamHoldCapacity</pValue>
  </Integer>
 
+ <Integer Name="GevSCPSPacketSize" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
+  <Visibility>Expert</Visibility>
+  <pIsLocked>TLParamsLocked</pIsLocked>
+  <pValue>RegSCPSPacketSize</pValue>
+ </Integer>
+
+ <Boolean Name="ChunkModeActive" NameSpace="Standard">
+  <Visibility>Expert</Visibility>
+  <pIsLocked>TLParamsLocked</pIsLocked>
+  <pValue>RegSCCFGChunk</pValue>
+  <OnValue>1</OnValue>
+  <OffValue>0</OffValue>
+ </Boolean>
+
+ <Integer Name="GevTimestampTickFrequency" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="TimeStampFrequency"/>
+  </Extension>
+  <Description>Frequency of image timestamp, in Hertz.</Description>
+  <pValue>RegTimestampTickFreqLow</pValue>
+ </Integer>
+
+ <Command Name="GevTimestampControlLatch" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="TimeStampValueLatch"/>
+  </Extension>
+  <Description>Capture timestamp and store in GevTimestampValue.</Description>
+  <ImposedAccessMode>WO</ImposedAccessMode>
+  <pValue>RegTimestampControl</pValue>
+  <CommandValue>2</CommandValue>
+ </Command>
+
+ <Command Name="GevTimestampControlReset" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="TimeStampReset"/>
+  </Extension>
+  <Description>Reset the timestamp.</Description>
+  <ImposedAccessMode>WO</ImposedAccessMode>
+  <pValue>RegTimestampControl</pValue>
+  <CommandValue>1</CommandValue>
+ </Command>
+
+ <Integer Name="GevTimestampValue" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
+  <Description>Value of timestamp, when latched by GevTimestampControlLatch.</Description>
+  <pValue>RegTimestampValue64</pValue>
+ </Integer>
+
+ <IntSwissKnife Name="RegTimestampValue64" NameSpace="Custom">
+  <pVariable Name="LO">RegTimestampValueLo</pVariable>
+  <pVariable Name="HI">RegTimestampValueHi</pVariable>
+  <Formula><![CDATA[ (HI << 32) | LO ]]></Formula>
+ </IntSwissKnife>
+
+ <Integer Name="TimeStampValueHi" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/GigE/Timestamp"/>
+  </Extension>
+  <Description>High-word value of timestamp, when latched by GevTimestampControlLatch.</Description>
+  <pValue>RegTimestampValueHi</pValue>
+ </Integer>
+
+ <Integer Name="TimeStampValueLo" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/GigE/Timestamp"/>
+  </Extension>
+  <Description>Low-word value of timestamp, when latched by GevTimestampControlLatch.</Description>
+  <pValue>RegTimestampValueLo</pValue>
+ </Integer>
+
+
 
 
  <Integer Name="WidthMax" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Maximum image width for the current image mode. Horizontal binning, for example, will change this value.</Description>
   <pValue>RegMaxWidth</pValue>
  </Integer>
 
  <Integer Name="HeightMax" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Maximum image height for the current image mode. Vertical binning, for example, will change this value.</Description>
   <pValue>RegMaxHeight</pValue>
  </Integer>
@@ -273,95 +556,123 @@
  <Enumeration Name="PixelFormat" NameSpace="Standard">
   <Description>Format of the image data.</Description>
   <EnumEntry Name="Mono8" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqMono8</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqMono8</pIsImplemented>
    <Value>17301505</Value>
   </EnumEntry>
   <EnumEntry Name="Mono10" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqMono10</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqMono10</pIsImplemented>
    <Value>17825795</Value>
   </EnumEntry>
   <EnumEntry Name="Mono12" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqMono12</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqMono12</pIsImplemented>
    <Value>17825797</Value>
   </EnumEntry>
+  <EnumEntry Name="Mono12Packed" NameSpace="Standard">
+   <pIsImplemented>RegPixelFormatInqMono12Packed</pIsImplemented>
+   <Value>17563654</Value>
+  </EnumEntry>
+  <EnumEntry Name="Mono14" NameSpace="Standard">
+   <pIsImplemented>RegPixelFormatInqMono14</pIsImplemented>
+   <Value>17825829</Value>
+  </EnumEntry>
   <EnumEntry Name="BayerGR8" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBayerGR8</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBayerGR8</pIsImplemented>
    <Value>17301512</Value>
   </EnumEntry>
   <EnumEntry Name="BayerRG8" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBayerRG8</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBayerRG8</pIsImplemented>
    <Value>17301513</Value>
   </EnumEntry>
   <EnumEntry Name="BayerBG8" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBayerBG8</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBayerBG8</pIsImplemented>
    <Value>17301515</Value>
   </EnumEntry>
   <EnumEntry Name="BayerBG10" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBayerBG10</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBayerBG10</pIsImplemented>
    <Value>17825807</Value>
   </EnumEntry>
   <EnumEntry Name="BayerGR12" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBayerGR12</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBayerGR12</pIsImplemented>
    <Value>17825808</Value>
   </EnumEntry>
   <EnumEntry Name="BayerRG12" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBayerRG12</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBayerRG12</pIsImplemented>
    <Value>17825809</Value>
   </EnumEntry>
+  <EnumEntry Name="BayerGR12Packed" NameSpace="Standard">
+   <pIsImplemented>RegPixelFormatInqBayerGR12Packed</pIsImplemented>
+   <Value>17563692</Value>
+  </EnumEntry>
+  <EnumEntry Name="BayerRG12Packed" NameSpace="Standard">
+   <pIsImplemented>RegPixelFormatInqBayerRG12Packed</pIsImplemented>
+   <Value>17563693</Value>
+  </EnumEntry>
   <EnumEntry Name="RGB8Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqRgb8Packed</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqRgb8Packed</pIsImplemented>
    <Value>35127316</Value>
   </EnumEntry>
   <EnumEntry Name="BGR8Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBgr8Packed</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBgr8Packed</pIsImplemented>
    <Value>35127317</Value>
   </EnumEntry>
   <EnumEntry Name="RGBA8Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqRgba8Packed</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqRgba8Packed</pIsImplemented>
    <Value>35651606</Value>
   </EnumEntry>
   <EnumEntry Name="BGRA8Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqBgra8Packed</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqBgra8Packed</pIsImplemented>
    <Value>35651607</Value>
   </EnumEntry>
   <EnumEntry Name="RGB10Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqRgb10Packed</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqRgb10Packed</pIsImplemented>
    <Value>36700184</Value>
   </EnumEntry>
   <EnumEntry Name="RGB12Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqRgb12Packed</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqRgb12Packed</pIsImplemented>
    <Value>36700186</Value>
   </EnumEntry>
   <EnumEntry Name="YUV411Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqYuv411</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqYuv411</pIsImplemented>
    <Value>34340894</Value>
   </EnumEntry>
   <EnumEntry Name="YUV422Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqYuv422</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqYuv422</pIsImplemented>
    <Value>34603039</Value>
   </EnumEntry>
   <EnumEntry Name="YUV444Packed" NameSpace="Standard">
-   <pIsAvailable>RegPixelFormatInqYuv444</pIsAvailable>
+   <pIsImplemented>RegPixelFormatInqYuv444</pIsImplemented>
    <Value>35127328</Value>
   </EnumEntry>
   <pValue>RegPixelFormat</pValue>
  </Enumeration>
 
  <Integer Name="Width" NameSpace="Standard">
+  <Extension>
+   <PvCategory Path="ROI"/>
+  </Extension>
   <Description>Width of image, in pixels.</Description>
   <pValue>RegWidth</pValue>
-  <pMin>IntWidthIncrement</pMin>
+  <pMin>IntWidthMin</pMin>
   <pMax>RegMaxWidth</pMax>
   <pInc>IntWidthIncrement</pInc>
  </Integer>
 
+ <IntSwissKnife Name="IntWidthMin" NameSpace="Custom">
+  <pVariable Name="FORMAT">RegPixelFormat</pVariable>
+
+  <Formula><![CDATA[((FORMAT=35127328) || (FORMAT=34603039) || (FORMAT=34340894) || (FORMAT=6) || (FORMAT=7) || (FORMAT=8)) ? 4 : 1]]></Formula>
+ </IntSwissKnife>
+
  <IntSwissKnife Name="IntWidthIncrement" NameSpace="Custom">
   <pVariable Name="FORMAT">RegPixelFormat</pVariable>
 
-  <Formula>((FORMAT=35127328) || (FORMAT=34603039) || (FORMAT=34340894)) ? 4 : 1</Formula>
+  <Formula>((FORMAT=35127328) || (FORMAT=34603039) || (FORMAT=34340894) || (FORMAT=6) || (FORMAT=7) || (FORMAT=8)) ? 4 : 1</Formula>
  </IntSwissKnife>
 
  <Integer Name="Height" NameSpace="Standard">
+  <Extension>
+   <PvCategory Path="ROI"/>
+  </Extension>
   <Description>Height of image, in pixels.</Description>
   <pValue>RegHeight</pValue>
   <Min>1</Min>
@@ -369,6 +680,10 @@
  </Integer>
 
  <Integer Name="OffsetX" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="RegionX"/>
+   <PvCategory Path="ROI"/>
+  </Extension>
   <Description>Starting column of the readout region (relative to the first column of the sensor) in pixels.</Description>
   <pValue>RegRegionX</pValue>
   <Min>0</Min>
@@ -376,6 +691,10 @@
  </Integer>
 
  <Integer Name="OffsetY" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="RegionY"/>
+   <PvCategory Path="ROI"/>
+  </Extension>
   <Description>Starting row of the readout region (relative to the first row of the sensor) in pixels.</Description>
   <pValue>RegRegionY</pValue>
   <Min>0</Min>
@@ -383,26 +702,42 @@
  </Integer>
 
  <Integer Name="PayloadSize" NameSpace="Standard">
-  <Description>Size of images, in bytes, for the current format and size.</Description>
+  <Description>Maximum size of image block payload.</Description>
   <pValue>RegPayloadSize</pValue>
+ </Integer>
+
+ <Integer Name="NonImagePayloadSize" NameSpace="Custom">
+  <Description>Maximum size of chunk data, not including the image chunk, in the image block payload.</Description>
+  <pValue>RegNonImagePayloadSize</pValue>
+ </Integer>
+
+ <Integer Name="ImageSize" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="TotalBytesPerFrame"/>
+  </Extension>
+  <Description>Size of images, in bytes, for the current format and size.</Description>
+  <pValue>RegImageSize</pValue>
  </Integer>
 
 
 
  <Command Name="AcquisitionStart" NameSpace="Standard">
   <Description>Start acquisition. Before image acquisition can occur, acquisition must be started, either by a hardware trigger or this software command.</Description>
+  <ImposedAccessMode>WO</ImposedAccessMode>
   <pValue>RegAcquisitionCommand</pValue>
   <CommandValue>1</CommandValue>
  </Command>
 
  <Command Name="AcquisitionStop" NameSpace="Standard">
   <Description>Stop acquisition. Acquisition will stop after acquisition of the current frame is complete.</Description>
+  <ImposedAccessMode>WO</ImposedAccessMode>
   <pValue>RegAcquisitionCommand</pValue>
   <CommandValue>0</CommandValue>
  </Command>
 
  <Command Name="AcquisitionAbort" NameSpace="Standard">
   <Description>Abort acquisition. Acquisition will stop immediately, but a partially transferred image will be completed.</Description>
+  <ImposedAccessMode>WO</ImposedAccessMode>
   <pValue>RegAcquisitionCommand</pValue>
   <CommandValue>2</CommandValue>
  </Command>
@@ -430,7 +765,7 @@
 
  <Integer Name="AcquisitionFrameCount" NameSpace="Standard">
   <Description>This is the number of images to acquire when in MultiFrame and Recorder acquisition modes.</Description>
-  <pIsAvailable>RegAcquisitionModeInqMultiFrame</pIsAvailable>
+  <pIsImplemented>RegAcquisitionModeInqMultiFrame</pIsImplemented>
   <pValue>RegAcquisitionFrameCount</pValue>
   <Min>1</Min>
   <Max>65535</Max>
@@ -438,13 +773,17 @@
 
  <Integer Name="RecorderPreEventCount" NameSpace="Custom">
   <Description>This is the number of pre-event images to acquire in the Recorder acquisition mode. This must be less than or equal to AcquisitionFrameCount.</Description>
-  <pIsAvailable>RegAcquisitionModeInqRecorder</pIsAvailable>
+  <pIsImplemented>RegAcquisitionModeInqRecorder</pIsImplemented>
   <pValue>RegRecorderPreEventCount</pValue>
   <Min>0</Min>
   <Max>65535</Max>
  </Integer>
 
  <Converter Name="AcquisitionFrameRateAbs" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="FrameRate"/>
+   <PvCategory Path="Trigger"/>
+  </Extension>
   <Description>Frame rate, in frames per second. This is applicable when either the FrameStart trigger mode is disabled, or the FrameStart trigger source is FixedRate. Depending on the exposure duration, the camera may not achieve the frame rate set here.</Description>
   <FormulaTo>(1000000 / FROM)</FormulaTo>
   <FormulaFrom>(1000000 / TO)</FormulaFrom>
@@ -453,6 +792,9 @@
  </Converter>
 
  <Converter Name="AcquisitionFrameRateLimit" NameSpace="Custom">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>This is the maximum frame rate possible for the current exposure duration and image format.</Description>
   <FormulaTo>(1000000 / FROM)</FormulaTo>
   <FormulaFrom>(1000000 / TO)</FormulaFrom>
@@ -473,7 +815,10 @@
  </Integer>
 
  <Enumeration Name="TriggerSelector" NameSpace="Standard">
-  <Description>Select a trigger here, then use the controls {TriggerMode, TriggerSoftware, TriggerSource, TriggerActivation, TriggerDelayAbs} to setup and read the trigger attributes. FrameStart is the trigger which starts each image (when acquisition is running). AcquisitionStart is the trigger which starts the acquisition process.</Description>
+  <Extension>
+   <PvDelete/>
+  </Extension>
+  <Description>Select a trigger here, then use the controls {TriggerMode, TriggerSoftware, TriggerSource, TriggerActivation, TriggerOverlap, TriggerDelayAbs} to setup and read the trigger attributes. FrameStart is the trigger which starts each image (when acquisition is running). AcquisitionStart is the trigger which starts the acquisition process.</Description>
   <EnumEntry Name="FrameStart" NameSpace="Standard">
    <pIsImplemented>RegTriggerInqFrameStart</pIsImplemented>
    <Value>0</Value>
@@ -491,6 +836,50 @@
    <Value>6</Value>
   </EnumEntry>
   <pValue>IntTriggerSelector</pValue>
+  <pSelected>TriggerMode</pSelected>
+  <pSelected>TriggerSoftware</pSelected>
+  <pSelected>TriggerSource</pSelected>
+  <pSelected>TriggerActivation</pSelected>
+  <pSelected>TriggerOverlap</pSelected>
+  <pSelected>TriggerDelayAbs</pSelected>
+ </Enumeration>
+
+ <Enumeration Name="PvDummyTriggerSelector" NameSpace="Standard">
+  <EnumEntry Name="FrameStart" NameSpace="Standard">
+   <Extension>
+    <PvFlatten Node="PvDummyFrameStartTriggerMode" Name="FrameStartTriggerMode" Category="/Acquisition/Trigger/FrameStart"/>
+    <PvFlatten Node="TriggerActivation" Name="FrameStartTriggerEvent" Category="/Acquisition/Trigger/FrameStart"/>
+    <PvFlatten Node="TriggerOverlap" Name="FrameStartTriggerOverlap" Category="/Acquisition/Trigger/FrameStart"/>
+    <PvFlatten Node="TriggerSoftware" Name="FrameStartTriggerSoftware" Category="/Acquisition/Trigger/FrameStart"/>
+   </Extension>
+   <pIsImplemented>RegTriggerInqFrameStart</pIsImplemented>
+   <Value>0</Value>
+  </EnumEntry>
+  <EnumEntry Name="AcquisitionStart" NameSpace="Standard">
+   <Extension>
+    <PvFlatten Node="PvDummyTriggerMode" Name="AcqStartTriggerMode" Category="/Acquisition/Trigger/AcqStart"/>
+    <PvFlatten Node="TriggerActivation" Name="AcqStartTriggerEvent" Category="/Acquisition/Trigger/AcqStart"/>
+   </Extension>
+   <pIsImplemented>RegTriggerInqAcquisitionStart</pIsImplemented>
+   <Value>3</Value>
+  </EnumEntry>
+  <EnumEntry Name="AcquisitionEnd" NameSpace="Standard">
+   <Extension>
+    <PvFlatten Node="PvDummyTriggerMode" Name="AcqEndTriggerMode" Category="/Acquisition/Trigger/AcqEnd"/>
+    <PvFlatten Node="TriggerActivation" Name="AcqEndTriggerEvent" Category="/Acquisition/Trigger/AcqEnd"/>
+   </Extension>
+   <pIsImplemented>RegTriggerInqAcquisitionEnd</pIsImplemented>
+   <Value>4</Value>
+  </EnumEntry>
+  <EnumEntry Name="AcquisitionRecord" NameSpace="Custom">
+   <Extension>
+    <PvFlatten Node="PvDummyTriggerMode" Name="AcqRecTriggerMode" Category="/Acquisition/Trigger/AcqRec"/>
+    <PvFlatten Node="TriggerActivation" Name="AcqRecTriggerEvent" Category="/Acquisition/Trigger/AcqRec"/>
+   </Extension>
+   <pIsImplemented>RegTriggerInqAcquisitionRecord</pIsImplemented>
+   <Value>6</Value>
+  </EnumEntry>
+  <pValue>IntTriggerSelector</pValue>
  </Enumeration>
 
  <Integer Name="IntTriggerSelector" NameSpace="Custom">
@@ -498,6 +887,9 @@
  </Integer>
 
  <Enumeration Name="TriggerMode" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Enable or disable this trigger. Note: when the FrameStart trigger is disabled, images are triggered at a fixed rate specified by AcquisitionFrameRateAbs.</Description>
   <EnumEntry Name="Off" NameSpace="Standard">
    <Value>0</Value>
@@ -510,7 +902,8 @@
 
  <Command Name="TriggerSoftware" NameSpace="Standard">
   <Description>This software command effects a trigger.</Description>
-  <pIsAvailable>RegTriggerSourceInqSoftware</pIsAvailable>
+  <pIsImplemented>RegTriggerSourceInqSoftware</pIsImplemented>
+  <ImposedAccessMode>WO</ImposedAccessMode>
   <pValue>RegSoftwareTrigger</pValue>
   <pCommandValue>IntTriggerSoftwareCommand</pCommandValue>
  </Command>
@@ -521,71 +914,192 @@
  </IntSwissKnife>
 
  <Enumeration Name="TriggerSource" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Source of trigger, when TriggerMode is On. This might be an hardware trigger, a fixed rate generator, or software trigger only.</Description>
   <EnumEntry Name="Freerun" NameSpace="Custom">
-   <pIsAvailable>RegTriggerSourceInqFreerun</pIsAvailable>
+   <pIsImplemented>RegTriggerSourceInqFreerun</pIsImplemented>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="Line1" NameSpace="Standard">
-   <pIsAvailable>RegTriggerSourceInqLine1</pIsAvailable>
+   <pIsImplemented>RegTriggerSourceInqLine1</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="Line2" NameSpace="Standard">
-   <pIsAvailable>RegTriggerSourceInqLine2</pIsAvailable>
+   <pIsImplemented>RegTriggerSourceInqLine2</pIsImplemented>
    <Value>2</Value>
   </EnumEntry>
   <EnumEntry Name="Line3" NameSpace="Standard">
-   <pIsAvailable>RegTriggerSourceInqLine3</pIsAvailable>
+   <pIsImplemented>RegTriggerSourceInqLine3</pIsImplemented>
    <Value>3</Value>
   </EnumEntry>
   <EnumEntry Name="Line4" NameSpace="Standard">
-   <pIsAvailable>RegTriggerSourceInqLine4</pIsAvailable>
+   <pIsImplemented>RegTriggerSourceInqLine4</pIsImplemented>
    <Value>4</Value>
   </EnumEntry>
   <EnumEntry Name="FixedRate" NameSpace="Custom">
-   <pIsAvailable>RegTriggerSourceInqFixedRate</pIsAvailable>
+   <pIsImplemented>RegTriggerSourceInqFixedRate</pIsImplemented>
    <Value>5</Value>
   </EnumEntry>
   <EnumEntry Name="Software" NameSpace="Standard">
-   <pIsAvailable>RegTriggerSourceInqSoftware</pIsAvailable>
+   <pIsImplemented>RegTriggerSourceInqSoftware</pIsImplemented>
    <Value>6</Value>
   </EnumEntry>
   <pValue>RegTriggerSource</pValue>
  </Enumeration>
 
+ <Enumeration Name="PvDummyFrameStartTriggerMode" NameSpace="Custom">
+  <EnumEntry Name="Freerun" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqFreerun</pIsImplemented>
+   <Value>2147483648</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn1" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine1</pIsImplemented>
+   <Value>2147483649</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn2" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine2</pIsImplemented>
+   <Value>2147483650</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn3" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine3</pIsImplemented>
+   <Value>2147483651</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn4" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine4</pIsImplemented>
+   <Value>2147483652</Value>
+  </EnumEntry>
+  <EnumEntry Name="FixedRate" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqFixedRate</pIsImplemented>
+   <Value>2147483653</Value>
+  </EnumEntry>
+  <EnumEntry Name="Software" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqSoftware</pIsImplemented>
+   <Value>2147483654</Value>
+  </EnumEntry>
+  <pValue>PvConvertedDummyFrameStartTriggerMode</pValue>
+ </Enumeration>
+
+ <IntConverter Name="PvConvertedDummyFrameStartTriggerMode" NameSpace="Custom">
+  <FormulaTo>(FROM)</FormulaTo>
+  <FormulaFrom>((TO &lt; 2147483648) ? 2147483653 : TO)</FormulaFrom>
+  <pValue>RegFullTrigMode</pValue>
+  <Slope>Increasing</Slope>
+ </IntConverter>
+
+ <Enumeration Name="PvDummyTriggerMode" NameSpace="Custom">
+  <EnumEntry Name="Disabled" NameSpace="Custom">
+   <Value>0</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn1" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine1</pIsImplemented>
+   <Value>2147483649</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn2" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine2</pIsImplemented>
+   <Value>2147483650</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn3" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine3</pIsImplemented>
+   <Value>2147483651</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn4" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqLine4</pIsImplemented>
+   <Value>2147483652</Value>
+  </EnumEntry>
+  <EnumEntry Name="FixedRate" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqFixedRate</pIsImplemented>
+   <Value>2147483653</Value>
+  </EnumEntry>
+  <EnumEntry Name="Software" NameSpace="Custom">
+   <pIsImplemented>RegTriggerSourceInqSoftware</pIsImplemented>
+   <Value>2147483654</Value>
+  </EnumEntry>
+  <pValue>PvConvertedDummyTriggerMode</pValue>
+ </Enumeration>
+
+ <IntConverter Name="PvConvertedDummyTriggerMode" NameSpace="Custom">
+  <FormulaTo>(FROM)</FormulaTo>
+  <FormulaFrom>((TO &gt; 2147483648) ? TO : 0)</FormulaFrom>
+  <pValue>RegFullTrigMode</pValue>
+  <Slope>Increasing</Slope>
+ </IntConverter>
+
  <Enumeration Name="TriggerActivation" NameSpace="Standard">
   <Description>Type of activation, for hardware triggers. This controls edge/level and polarity sensitivities.</Description>
-  <pIsAvailable>RegTriggerInqEvent</pIsAvailable>
+  <pIsImplemented>RegTriggerInqEvent</pIsImplemented>
   <EnumEntry Name="RisingEdge" NameSpace="Standard">
-   <pIsAvailable>RegTriggerEventInqRisingEdge</pIsAvailable>
+   <Extension>
+    <PvRename Name="EdgeRising"/>
+   </Extension>
+   <pIsImplemented>RegTriggerEventInqRisingEdge</pIsImplemented>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="FallingEdge" NameSpace="Standard">
-   <pIsAvailable>RegTriggerEventInqFallingEdge</pIsAvailable>
+   <Extension>
+    <PvRename Name="EdgeFalling"/>
+   </Extension>
+   <pIsImplemented>RegTriggerEventInqFallingEdge</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="AnyEdge" NameSpace="Standard">
-   <pIsAvailable>RegTriggerEventInqAnyEdge</pIsAvailable>
+   <Extension>
+    <PvRename Name="EdgeAny"/>
+   </Extension>
+   <pIsImplemented>RegTriggerEventInqAnyEdge</pIsImplemented>
    <Value>2</Value>
   </EnumEntry>
   <EnumEntry Name="LevelHigh" NameSpace="Standard">
-   <pIsAvailable>RegTriggerEventInqLevelHigh</pIsAvailable>
+   <pIsImplemented>RegTriggerEventInqLevelHigh</pIsImplemented>
    <Value>3</Value>
   </EnumEntry>
   <EnumEntry Name="LevelLow" NameSpace="Standard">
-   <pIsAvailable>RegTriggerEventInqLevelLow</pIsAvailable>
+   <pIsImplemented>RegTriggerEventInqLevelLow</pIsImplemented>
    <Value>4</Value>
   </EnumEntry>
   <pValue>RegTriggerEvent</pValue>
  </Enumeration>
 
+ <Enumeration Name="TriggerOverlap" NameSpace="Standard">
+  <Description>Permitted window of trigger activation, relative to previous frame.</Description>
+  <pIsImplemented>RegTriggerInqOverlap</pIsImplemented>
+  <EnumEntry Name="Off" NameSpace="Standard">
+   <pIsImplemented>RegTriggerOverlapInqOff</pIsImplemented>
+   <Value>0</Value>
+  </EnumEntry>
+  <EnumEntry Name="ReadOut" NameSpace="Standard">
+   <pIsImplemented>RegTriggerOverlapInqReadout</pIsImplemented>
+   <Value>1</Value>
+  </EnumEntry>
+  <EnumEntry Name="PreviousFrame" NameSpace="Standard">
+   <pIsImplemented>RegTriggerOverlapInqPreviousFrame</pIsImplemented>
+   <Value>2</Value>
+  </EnumEntry>
+  <pValue>RegTriggerOverlap</pValue>
+ </Enumeration>
+
  <Float Name="TriggerDelayAbs" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Delay from hardware trigger activation to trigger effect, in microseconds.</Description>
-  <pIsAvailable>RegTriggerInqDelay</pIsAvailable>
+  <pIsImplemented>RegTriggerInqDelay</pIsImplemented>
   <pValue>TriggerDelayFloat</pValue>
   <Min>0</Min>
   <pMax>TriggerDelayMaxFloat</pMax>
  </Float>
+
+
+ <Integer Name="FrameStartTriggerDelay" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Acquisition/Trigger/FrameStart"/>
+  </Extension>
+  <pIsImplemented>RegTriggerInqDelay</pIsImplemented>
+  <pValue>RegTriggerDelay</pValue>
+  <Min>0</Min>
+  <pMax>RegTriggerDelayMax</pMax>
+ </Integer>
 
  <Converter Name="TriggerDelayFloat" NameSpace="Custom">
   <FormulaTo>(1 * FROM)</FormulaTo>
@@ -598,6 +1112,27 @@
   <pVariable Name="VALUE">RegTriggerDelayMax</pVariable>
   <Formula>(1 * VALUE)</Formula>
  </SwissKnife>
+
+ <Integer Name="WhitebalValueRed" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Controls/Whitebalance"/>
+  </Extension>
+  <pIsImplemented>RegWhitebalInq</pIsImplemented>
+  <pValue>RegWhitebalValueRed</pValue>
+  <pMin>RegWhitebalValueMin</pMin>
+  <pMax>RegWhitebalValueMax</pMax>
+ </Integer>
+
+ <Integer Name="WhitebalValueBlue" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Controls/Whitebalance"/>
+  </Extension>
+  <pIsImplemented>RegWhitebalInq</pIsImplemented>
+  <pValue>RegWhitebalValueBlue</pValue>
+  <pMin>RegWhitebalValueMin</pMin>
+  <pMax>RegWhitebalValueMax</pMax>
+ </Integer>
+
 
 
 
@@ -622,6 +1157,9 @@
  </Integer>
 
  <Enumeration Name="ExposureMode" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Method of control for exposure duration. Timed mode: exposure duration is set by ExposureTimeAbs.</Description>
   <EnumEntry Name="Timed" NameSpace="Standard">
    <Value>1</Value>
@@ -630,12 +1168,27 @@
  </Enumeration>
 
  <Float Name="ExposureTimeAbs" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Exposure duration, in microseconds.</Description>
   <pValue>ExposureValueFloat</pValue>
   <pMin>ExposureValueMinFloat</pMin>
   <pMax>ExposureValueMaxFloat</pMax>
   <Representation>Logarithmic</Representation>
  </Float>
+
+
+ <Integer Name="ExposureValue" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/Controls/Exposure"/>
+  </Extension>
+  <Description>Exposure duration, in microseconds.</Description>
+  <pValue>RegExposureValue</pValue>
+  <pMin>RegExposureValueMin</pMin>
+  <pMax>RegExposureValueMax</pMax>
+  <Representation>Logarithmic</Representation>
+ </Integer>
 
  <Converter Name="ExposureValueFloat" NameSpace="Custom">
   <FormulaTo>(1 * FROM)</FormulaTo>
@@ -655,18 +1208,37 @@
  </SwissKnife>
 
  <Enumeration Name="ExposureAuto" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="ExposureMode"/>
+  </Extension>
   <Description>Automatic exposure mode. Off: automatic mode is off. Once: auto-exposure occurs until target is achieved, then ExposureAuto returns to Off. Continuous: auto-exposure always runs.</Description>
   <EnumEntry Name="Off" NameSpace="Standard">
-   <pIsAvailable>RegExposureModeInqManual</pIsAvailable>
+   <Extension>
+    <PvRename Name="Manual"/>
+   </Extension>
+   <pIsImplemented>RegExposureModeInqManual</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="Once" NameSpace="Standard">
-   <pIsAvailable>RegExposureModeInqAutoOnce</pIsAvailable>
+   <Extension>
+    <PvRename Name="AutoOnce"/>
+   </Extension>
+   <pIsImplemented>RegExposureModeInqAutoOnce</pIsImplemented>
    <Value>3</Value>
   </EnumEntry>
   <EnumEntry Name="Continuous" NameSpace="Standard">
-   <pIsAvailable>RegExposureModeInqAuto</pIsAvailable>
+   <Extension>
+    <PvRename Name="Auto"/>
+   </Extension>
+   <pIsImplemented>RegExposureModeInqAuto</pIsImplemented>
    <Value>2</Value>
+  </EnumEntry>
+  <EnumEntry Name="other" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="External"/>
+   </Extension>
+   <pIsImplemented>RegExposureModeInqExternal</pIsImplemented>
+   <Value>4</Value>
   </EnumEntry>
   <pValue>RegExposureMode</pValue>
  </Enumeration>
@@ -681,11 +1253,11 @@
  <Enumeration Name="ExposureAutoAlg" NameSpace="Custom">
   <Description>Algorithm used for auto-exposure. Mean: target a particular mean value of all measured pixels in the image. FitRange: adjust the maximum pixel value to fit the sensor range.</Description>
   <EnumEntry Name="Mean" NameSpace="Custom">
-   <pIsAvailable>RegExposureAutoAlgInqMean</pIsAvailable>
+   <pIsImplemented>RegExposureAutoAlgInqMean</pIsImplemented>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="FitRange" NameSpace="Custom">
-   <pIsAvailable>RegExposureAutoAlgInqFitRange</pIsAvailable>
+   <pIsImplemented>RegExposureAutoAlgInqFitRange</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <pValue>RegExposureAutoAlg</pValue>
@@ -727,14 +1299,22 @@
  </Integer>
 
  <Enumeration Name="GainSelector" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>(GenICam boilerplate. Always All.)</Description>
   <EnumEntry Name="All" NameSpace="Standard">
    <Value>0</Value>
   </EnumEntry>
   <Value>0</Value>
+  <pSelected>GainRaw</pSelected>
+  <pSelected>GainAuto</pSelected>
  </Enumeration>
 
  <Integer Name="GainRaw" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="GainValue"/>
+  </Extension>
   <Description>Gain value of analog A/D stage. Units are usually in dB.</Description>
   <pValue>RegGainValue</pValue>
   <pMin>RegGainValueMin</pMin>
@@ -742,17 +1322,29 @@
  </Integer>
 
  <Enumeration Name="GainAuto" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="GainMode"/>
+  </Extension>
   <Description>Automatic exposure mode. Off: automatic mode is off. Once: auto-gain occurs until target is achieved, then GainAuto returns to Off. Continuous: auto-gain always runs.</Description>
   <EnumEntry Name="Off" NameSpace="Standard">
-   <pIsAvailable>RegGainModeInqManual</pIsAvailable>
+   <Extension>
+    <PvRename Name="Manual"/>
+   </Extension>
+   <pIsImplemented>RegGainModeInqManual</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="Once" NameSpace="Standard">
-   <pIsAvailable>RegGainModeInqAutoOnce</pIsAvailable>
+   <Extension>
+    <PvRename Name="AutoOnce"/>
+   </Extension>
+   <pIsImplemented>RegGainModeInqAutoOnce</pIsImplemented>
    <Value>3</Value>
   </EnumEntry>
   <EnumEntry Name="Continuous" NameSpace="Standard">
-   <pIsAvailable>RegGainModeInqAuto</pIsAvailable>
+   <Extension>
+    <PvRename Name="Auto"/>
+   </Extension>
+   <pIsImplemented>RegGainModeInqAuto</pIsImplemented>
    <Value>2</Value>
   </EnumEntry>
   <pValue>RegGainMode</pValue>
@@ -801,6 +1393,9 @@
  </Integer>
 
  <Enumeration Name="BalanceRatioSelector" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Select the Red or Blue channel to adjust with BalanceRatioAbs.</Description>
   <pIsImplemented>RegWhitebalInq</pIsImplemented>
   <EnumEntry Name="Red" NameSpace="Standard">
@@ -818,6 +1413,9 @@
  </Integer>
 
  <Float Name="BalanceRatioAbs" NameSpace="Standard">
+  <Extension>
+   <PvDelete/>
+  </Extension>
   <Description>Adjust the gain of the red or blue channel (see BalanceRatioSelector). The green channel gain is always 1.00.</Description>
   <pIsImplemented>RegWhitebalInq</pIsImplemented>
   <pValue>WhitebalValueXXX</pValue>
@@ -843,47 +1441,67 @@
  </SwissKnife>
 
  <Enumeration Name="BalanceWhiteAuto" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="WhitebalMode"/>
+  </Extension>
   <Description>Automatic whitebalance mode. Off: automatic mode is off. Once: auto-whitebalance occurs until target is achieved, then BalanceWhiteAuto returns to Off. Continuous: auto-whitebalance always runs.</Description>
   <pIsImplemented>RegWhitebalInq</pIsImplemented>
   <EnumEntry Name="Off" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="Manual"/>
+   </Extension>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="Once" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="AutoOnce"/>
+   </Extension>
    <Value>3</Value>
   </EnumEntry>
   <EnumEntry Name="Continuous" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="Auto"/>
+   </Extension>
    <Value>2</Value>
   </EnumEntry>
   <pValue>RegWhitebalMode</pValue>
  </Enumeration>
 
  <Integer Name="BalanceWhiteAutoRate" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="WhitebalAutoRate"/>
+  </Extension>
   <Description>Rate of white balance adjustments, from 1 (slowest) to 100 (fastest). Use this control to slow down the auto-whitebalance adjustments.</Description>
+  <pIsImplemented>RegWhitebalInq</pIsImplemented>
   <pValue>RegWhitebalAutoRate</pValue>
   <Min>1</Min>
   <Max>100</Max>
  </Integer>
 
  <Integer Name="BalanceWhiteAutoAdjustTol" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="WhitebalAutoAdjustTol"/>
+  </Extension>
   <Description>Tolerance, in percent, allowed from the ideal whitebalance values, within which the auto-whitebalance does not run. This prevents needless small adjustments from occurring each image.</Description>
+  <pIsImplemented>RegWhitebalInq</pIsImplemented>
   <pValue>RegWhitebalAutoAdjustTol</pValue>
   <Min>0</Min>
   <Max>50</Max>
  </Integer>
 
  <Enumeration Name="IrisMode" NameSpace="Custom">
-  <Description>Set the iris mode. Disabled: no iris control. Video: enable video iris. VideoOpen: fully open a video iris. VideoClosed: fully close a video iris.</Description>
+  <Description>Set the iris mode. Disabled: no iris control. Video: enable video iris. VideoOpen: fully open a video iris. VideoClose: fully close a video iris.</Description>
   <pIsImplemented>RegIrisInq</pIsImplemented>
   <EnumEntry Name="Disabled" NameSpace="Custom">
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="Video" NameSpace="Custom">
-   <Value>2</Value>
+   <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="VideoOpen" NameSpace="Custom">
-   <Value>3</Value>
+   <Value>2</Value>
   </EnumEntry>
-  <EnumEntry Name="VideoClosed" NameSpace="Custom">
+  <EnumEntry Name="VideoClose" NameSpace="Custom">
    <Value>3</Value>
   </EnumEntry>
   <pValue>RegIrisMode</pValue>
@@ -901,6 +1519,8 @@
   <Description>Current video-iris level, in approximately mV pp; read only. When calibrating a video lens, this value should fall between IrisVideoLevelMin and IrisVideoLevelMax.</Description>
   <pIsImplemented>RegIrisInq</pIsImplemented>
   <pValue>RegIrisVideoLevel</pValue>
+  <Min>0</Min>
+  <Max>150</Max>
  </Integer>
 
  <Integer Name="IrisVideoLevelMin" NameSpace="Custom">
@@ -943,33 +1563,174 @@
   <pValue>RegDefectMaskPixelEnable</pValue>
  </Enumeration>
 
+ <Integer Name="VsubValue" NameSpace="Custom">
+  <Description>Substrate voltage in mV.</Description>
+  <pIsImplemented>RegVsubInq</pIsImplemented>
+
+
+
+
+
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <pValue>RegVsubValue</pValue>
+
+ </Integer>
+
+ <Integer Name="LensVoltage" NameSpace="Custom">
+  <Description>Lens power supply voltage in mV. See LensVoltageControl feature to set value.</Description>
+  <pIsImplemented>RegLensControlInqVoltage</pIsImplemented>
+  <pValue>RegLensVoltage</pValue>
+  <Min>0</Min>
+  <pMax>RegLensVoltageMax</pMax>
+ </Integer>
+
+ <Integer Name="LensVoltageControl" NameSpace="Custom">
+  <Description>Lens power supply voltage control. Set value as mV * 100001. If a bad value is written, this control resets to zero.</Description>
+  <pIsImplemented>RegLensControlInqVoltage</pIsImplemented>
+  <pValue>RegLensVoltageControl</pValue>
+ </Integer>
+
+ <Enumeration Name="LensDriveCommand" NameSpace="Custom">
+  <Description>Lens drive command.</Description>
+  <pIsImplemented>RegLensControlInqDrive</pIsImplemented>
+  <EnumEntry Name="Stop" NameSpace="Custom">
+   <Value>0</Value>
+  </EnumEntry>
+  <EnumEntry Name="IrisTimedOpen" NameSpace="Custom">
+   <pIsImplemented>RegLensDriveInqIrisTimedOpen</pIsImplemented>
+   <Value>1</Value>
+  </EnumEntry>
+  <EnumEntry Name="IrisTimedClose" NameSpace="Custom">
+   <pIsImplemented>RegLensDriveInqIrisTimedClose</pIsImplemented>
+   <Value>2</Value>
+  </EnumEntry>
+  <EnumEntry Name="FocusTimedNear" NameSpace="Custom">
+   <pIsImplemented>RegLensDriveInqFocusTimedNear</pIsImplemented>
+   <Value>3</Value>
+  </EnumEntry>
+  <EnumEntry Name="FocusTimedFar" NameSpace="Custom">
+   <pIsImplemented>RegLensDriveInqFocusTimedFar</pIsImplemented>
+   <Value>4</Value>
+  </EnumEntry>
+  <EnumEntry Name="ZoomTimedIn" NameSpace="Custom">
+   <pIsImplemented>RegLensDriveInqZoomTimedIn</pIsImplemented>
+   <Value>5</Value>
+  </EnumEntry>
+  <EnumEntry Name="ZoomTimedOut" NameSpace="Custom">
+   <pIsImplemented>RegLensDriveInqZoomTimedOut</pIsImplemented>
+   <Value>6</Value>
+  </EnumEntry>
+  <pValue>RegLensDriveCmd</pValue>
+ </Enumeration>
+
+ <Integer Name="LensDriveDuration" NameSpace="Custom">
+  <Description>Duration of timed lens commands, in milliseconds.</Description>
+  <pIsImplemented>RegLensControlInqDrive</pIsImplemented>
+  <pValue>RegLensDriveDuration</pValue>
+  <Min>0</Min>
+  <pMax>RegLensDriveDurationMax</pMax>
+ </Integer>
+
 
 
  <Integer Name="SyncInLevels" NameSpace="Custom">
+  <Extension>
+   <PvCategory Path="/IO"/>
+  </Extension>
   <Description>Momentary logic levels of the hardware line inputs.</Description>
   <pValue>RegSyncInLevels</pValue>
  </Integer>
 
  <Integer Name="SyncOutLevels" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="SyncOutGpoLevels"/>
+   <PvCategory Path="/IO"/>
+  </Extension>
   <Description>Output levels of hardware sync outputs, for output(s) in GPO mode. (Note: SyncOutPolarity can invert these values.)</Description>
   <pValue>RegSyncOutLevels</pValue>
+ </Integer>
+
+ <Enumeration Name="SyncInSelector" NameSpace="Custom">
+  <Description>Select the sync-in line to control with {SyncInGlitchFilter}.</Description>
+  <EnumEntry Name="SyncIn1">
+   <Extension>
+    <PvFlatten Node="SyncInGlitchFilter" Name="SyncIn1GlitchFilter" Category="/IO/SyncIn1"/>
+   </Extension>
+   <pIsImplemented>RegIoInqSyncIn1</pIsImplemented>
+   <Value>0</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn2">
+   <Extension>
+    <PvFlatten Node="SyncInGlitchFilter" Name="SyncIn2GlitchFilter" Category="/IO/SyncIn2"/>
+   </Extension>
+   <pIsImplemented>RegIoInqSyncIn2</pIsImplemented>
+   <Value>1</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn3">
+   <Extension>
+    <PvFlatten Node="SyncInGlitchFilter" Name="SyncIn3GlitchFilter" Category="/IO/SyncIn3"/>
+   </Extension>
+   <pIsImplemented>RegIoInqSyncIn3</pIsImplemented>
+   <Value>2</Value>
+  </EnumEntry>
+  <EnumEntry Name="SyncIn4">
+   <Extension>
+    <PvFlatten Node="SyncInGlitchFilter" Name="SyncIn4GlitchFilter" Category="/IO/SyncIn4"/>
+   </Extension>
+   <pIsImplemented>RegIoInqSyncIn4</pIsImplemented>
+   <Value>3</Value>
+  </EnumEntry>
+  <pValue>IntSyncInSelector</pValue>
+  <pSelected>SyncInGlitchFilter</pSelected>
+ </Enumeration>
+
+ <Integer Name="IntSyncInSelector" NameSpace="Custom">
+  <Value>0</Value>
+ </Integer>
+
+ <Integer Name="SyncInGlitchFilter" NameSpace="Custom">
+  <Description>Glitch filter on sync-in line, in nanoseconds.</Description>
+  <pValue>RegSyncInGlitchFilter</pValue>
+  <pMax>RegSyncInGlitchFilterMax</pMax>
  </Integer>
 
  <Enumeration Name="SyncOutSelector" NameSpace="Custom">
   <Description>Select the sync-out line to control with {SyncOutSource, SyncOutPolarity}.</Description>
   <EnumEntry Name="SyncOut1">
+   <Extension>
+    <PvFlatten Node="SyncOutSource" Name="SyncOut1Mode" Category="/IO/SyncOut1"/>
+    <PvFlatten Node="SyncOutPolarity" Name="SyncOut1Invert" Category="/IO/SyncOut1"/>
+   </Extension>
    <pIsImplemented>RegIoInqSyncOut1</pIsImplemented>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="SyncOut2">
+   <Extension>
+    <PvFlatten Node="SyncOutSource" Name="SyncOut2Mode" Category="/IO/SyncOut2"/>
+    <PvFlatten Node="SyncOutPolarity" Name="SyncOut2Invert" Category="/IO/SyncOut2"/>
+   </Extension>
    <pIsImplemented>RegIoInqSyncOut2</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="SyncOut3">
+   <Extension>
+    <PvFlatten Node="SyncOutSource" Name="SyncOut3Mode" Category="/IO/SyncOut3"/>
+    <PvFlatten Node="SyncOutPolarity" Name="SyncOut3Invert" Category="/IO/SyncOut3"/>
+   </Extension>
    <pIsImplemented>RegIoInqSyncOut3</pIsImplemented>
    <Value>2</Value>
   </EnumEntry>
+  <EnumEntry Name="SyncOut4">
+   <Extension>
+    <PvFlatten Node="SyncOutSource" Name="SyncOut4Mode" Category="/IO/SyncOut4"/>
+    <PvFlatten Node="SyncOutPolarity" Name="SyncOut4Invert" Category="/IO/SyncOut4"/>
+   </Extension>
+   <pIsImplemented>RegIoInqSyncOut4</pIsImplemented>
+   <Value>3</Value>
+  </EnumEntry>
   <pValue>IntSyncOutSelector</pValue>
+  <pSelected>SyncOutSource</pSelected>
+  <pSelected>SyncOutPolarity</pSelected>
  </Enumeration>
 
  <Integer Name="IntSyncOutSelector" NameSpace="Custom">
@@ -1003,10 +1764,16 @@
    <Value>7</Value>
   </EnumEntry>
   <EnumEntry Name="LineIn1" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="SyncIn1"/>
+   </Extension>
    <pIsImplemented>RegIoInqSyncIn1</pIsImplemented>
    <Value>8</Value>
   </EnumEntry>
   <EnumEntry Name="LineIn2" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="SyncIn2"/>
+   </Extension>
    <pIsImplemented>RegIoInqSyncIn2</pIsImplemented>
    <Value>9</Value>
   </EnumEntry>
@@ -1019,15 +1786,25 @@
  <Enumeration Name="SyncOutPolarity" NameSpace="Custom">
   <Description>Polarity applied to the sync-out line specified by SyncOutSelector.</Description>
   <EnumEntry Name="Normal" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="Off"/>
+   </Extension>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="Invert" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="On"/>
+   </Extension>
    <Value>1</Value>
   </EnumEntry>
   <pValue>RegSyncOutPolarity</pValue>
  </Enumeration>
 
  <Enumeration Name="StrobeSource" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="Strobe1Mode"/>
+   <PvCategory Path="1"/>
+  </Extension>
   <Description>Signal source of the strobe timing unit. See SyncOutSource for descriptions.</Description>
   <EnumEntry Name="AcquisitionTriggerReady" NameSpace="Custom">
    <Value>1</Value>
@@ -1044,11 +1821,20 @@
   <EnumEntry Name="FrameReadout" NameSpace="Custom">
    <Value>5</Value>
   </EnumEntry>
+  <EnumEntry Name="Acquiring" NameSpace="Custom">
+   <Value>7</Value>
+  </EnumEntry>
   <EnumEntry Name="LineIn1" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="SyncIn1"/>
+   </Extension>
    <pIsImplemented>RegIoInqSyncIn1</pIsImplemented>
    <Value>8</Value>
   </EnumEntry>
   <EnumEntry Name="LineIn2" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="SyncIn2"/>
+   </Extension>
    <pIsImplemented>RegIoInqSyncIn2</pIsImplemented>
    <Value>9</Value>
   </EnumEntry>
@@ -1056,17 +1842,31 @@
  </Enumeration>
 
  <Enumeration Name="StrobeDurationMode" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="Strobe1ControlledDuration"/>
+   <PvCategory Path="1"/>
+  </Extension>
   <Description>Mode of the strobe timing unit. Source: strobe duration is the same as source duration. Controlled: strobe duration is set by StrobeDuration.</Description>
   <EnumEntry Name="Source" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="Off"/>
+   </Extension>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="Controlled" NameSpace="Custom">
+   <Extension>
+    <PvRename Name="On"/>
+   </Extension>
    <Value>1</Value>
   </EnumEntry>
   <pValue>RegStrobe1DurationMode</pValue>
  </Enumeration>
 
  <Integer Name="StrobeDelay" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="Strobe1Delay"/>
+   <PvCategory Path="1"/>
+  </Extension>
   <Description>Delay from strobe trigger to strobe output, in microseconds.</Description>
   <pValue>RegStrobe1Delay</pValue>
   <Min>0</Min>
@@ -1074,6 +1874,10 @@
  </Integer>
 
  <Integer Name="StrobeDuration" NameSpace="Custom">
+  <Extension>
+   <PvRename Name="Strobe1Duration"/>
+   <PvCategory Path="1"/>
+  </Extension>
   <Description>Duration of strobe, in microseconds.</Description>
   <pValue>RegStrobe1Duration</pValue>
   <Min>0</Min>
@@ -1083,71 +1887,122 @@
 
 
  <Enumeration Name="UserSetSelector" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="ConfigFileIndex"/>
+  </Extension>
   <Description>Select a user set, for loading or saving camera parameters.</Description>
   <pIsImplemented>RegMemoryFileInq</pIsImplemented>
   <EnumEntry Name="Default" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="Factory"/>
+   </Extension>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet1" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="1"/>
+   </Extension>
    <pIsImplemented>MemoryFile1Inq</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet2" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="2"/>
+   </Extension>
    <pIsImplemented>MemoryFile2Inq</pIsImplemented>
    <Value>2</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet3" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="3"/>
+   </Extension>
    <pIsImplemented>MemoryFile3Inq</pIsImplemented>
    <Value>3</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet4" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="4"/>
+   </Extension>
    <pIsImplemented>MemoryFile4Inq</pIsImplemented>
    <Value>4</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet5" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="5"/>
+   </Extension>
    <pIsImplemented>MemoryFile5Inq</pIsImplemented>
    <Value>5</Value>
   </EnumEntry>
   <pValue>RegMemoryFileCmdNumber</pValue>
+  <pSelected>UserSetLoad</pSelected>
+  <pSelected>UserSetSave</pSelected>
  </Enumeration>
 
  <Command Name="UserSetLoad" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="ConfigFileLoad"/>
+  </Extension>
   <Description>Load camera parameters from the user set specified by UserSetSelector.</Description>
-  <pIsAvailable>RegMemoryFileInq</pIsAvailable>
+  <pIsImplemented>RegMemoryFileInq</pIsImplemented>
   <pValue>RegMemoryFileCmdExecute</pValue>
   <CommandValue>1</CommandValue>
  </Command>
 
  <Command Name="UserSetSave" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="ConfigFileSave"/>
+  </Extension>
   <Description>Save camera parameters to the user set specified by UserSetSelector.</Description>
-  <pIsAvailable>RegMemoryFileInq</pIsAvailable>
+  <pIsImplemented>RegMemoryFileInq</pIsImplemented>
+  <ImposedAccessMode>WO</ImposedAccessMode>
   <pValue>RegMemoryFileCmdExecute</pValue>
   <CommandValue>2</CommandValue>
  </Command>
 
  <Enumeration Name="UserSetDefaultSelector" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="ConfigFilePowerUp"/>
+  </Extension>
   <Description>On power-up or reset, this user set is loaded.</Description>
   <pIsImplemented>RegMemoryFileInq</pIsImplemented>
   <EnumEntry Name="Default" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="Factory"/>
+   </Extension>
    <Value>0</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet1" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="1"/>
+   </Extension>
    <pIsImplemented>MemoryFile1Inq</pIsImplemented>
    <Value>1</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet2" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="2"/>
+   </Extension>
    <pIsImplemented>MemoryFile2Inq</pIsImplemented>
    <Value>2</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet3" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="3"/>
+   </Extension>
    <pIsImplemented>MemoryFile3Inq</pIsImplemented>
    <Value>3</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet4" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="4"/>
+   </Extension>
    <pIsImplemented>MemoryFile4Inq</pIsImplemented>
    <Value>4</Value>
   </EnumEntry>
   <EnumEntry Name="UserSet5" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="5"/>
+   </Extension>
    <pIsImplemented>MemoryFile5Inq</pIsImplemented>
    <Value>5</Value>
   </EnumEntry>
@@ -1181,24 +2036,327 @@
 
 
 
+ <Enumeration Name="EventSelector" NameSpace="Standard">
+  <Description>Activate event-notification on the GigE Vision message channel.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <EnumEntry Name="AcquisitionStart" NameSpace="Standard">
+   <pIsImplemented>RegEventInqAcqStart</pIsImplemented>
+   <Value>40000</Value>
+  </EnumEntry>
+  <EnumEntry Name="AcquisitionEnd" NameSpace="Standard">
+   <pIsImplemented>RegEventInqAcqStop</pIsImplemented>
+   <Value>40001</Value>
+  </EnumEntry>
+  <EnumEntry Name="FrameTrigger" NameSpace="Standard">
+   <pIsImplemented>RegEventInqFrameTrig</pIsImplemented>
+   <Value>40002</Value>
+  </EnumEntry>
+  <EnumEntry Name="ExposureEnd" NameSpace="Standard">
+   <pIsImplemented>RegEventInqExpEnd</pIsImplemented>
+   <Value>40003</Value>
+  </EnumEntry>
+  <EnumEntry Name="AcquisitionRecordTrigger" NameSpace="Custom">
+   <pIsImplemented>RegEventInqRecTrig</pIsImplemented>
+   <Value>40004</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line1RisingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn1Rise"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn1Rise</pIsImplemented>
+   <Value>40010</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line1FallingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn1Fall"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn1Fall</pIsImplemented>
+   <Value>40011</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line2RisingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn2Rise"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn2Rise</pIsImplemented>
+   <Value>40012</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line2FallingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn2Fall"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn2Fall</pIsImplemented>
+   <Value>40013</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line3RisingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn3Rise"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn3Rise</pIsImplemented>
+   <Value>40014</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line3FallingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn3Fall"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn3Fall</pIsImplemented>
+   <Value>40015</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line4RisingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn4Rise"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn4Rise</pIsImplemented>
+   <Value>40016</Value>
+  </EnumEntry>
+  <EnumEntry Name="Line4FallingEdge" NameSpace="Standard">
+   <Extension>
+    <PvRename Name="SyncIn4Fall"/>
+   </Extension>
+   <pIsImplemented>RegEventInqSyncIn4Fall</pIsImplemented>
+   <Value>40017</Value>
+  </EnumEntry>
+  <pValue>RegEventGenicamSelector</pValue>
+  <pSelected>EventNotification</pSelected>
+ </Enumeration>
+
+ <Enumeration Name="EventNotification" NameSpace="Standard">
+  <Description>Activate event-notification on the GigE Vision message channel.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <EnumEntry Name="Off" NameSpace="Standard">
+   <Value>0</Value>
+  </EnumEntry>
+  <EnumEntry Name="On" NameSpace="Standard">
+   <Value>1</Value>
+  </EnumEntry>
+  <pValue>RegEventGenicamMode</pValue>
+ </Enumeration>
+
+ <Integer Name="EventsEnable1" NameSpace="Custom">
+  <Description>Activate event-notification on the GigE Vision message channel. For programmers. See register documentation.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <pValue>RegEventsEnable1</pValue>
+ </Integer>
+
+ <Integer Name="EventAcquisitionStart" NameSpace="Standard">
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40000</Value>
+ </Integer>
+
+ <Integer Name="EventAcquisitionEnd" NameSpace="Standard">
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40001</Value>
+ </Integer>
+
+ <Integer Name="EventFrameTrigger" NameSpace="Standard">
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40002</Value>
+ </Integer>
+
+ <Integer Name="EventExposureEnd" NameSpace="Standard">
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40003</Value>
+ </Integer>
+
+ <Integer Name="EventAcquisitionRecordTrigger" NameSpace="Custom">
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40004</Value>
+ </Integer>
+
+ <Integer Name="EventLine1RisingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn1Rise"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40010</Value>
+ </Integer>
+
+ <Integer Name="EventLine1FallingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn1Fall"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40011</Value>
+ </Integer>
+
+ <Integer Name="EventLine2RisingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn2Rise"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40012</Value>
+ </Integer>
+
+ <Integer Name="EventLine2FallingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn2Fall"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40013</Value>
+ </Integer>
+
+ <Integer Name="EventLine3RisingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn3Rise"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40014</Value>
+ </Integer>
+
+ <Integer Name="EventLine3FallingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn3Fall"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40015</Value>
+ </Integer>
+
+ <Integer Name="EventLine4RisingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn4Rise"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40016</Value>
+ </Integer>
+
+ <Integer Name="EventLine4FallingEdge" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="EventSyncIn4Fall"/>
+  </Extension>
+  <Description>ID value of event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>40017</Value>
+ </Integer>
+
+ <Integer Name="EventOverflow" NameSpace="Standard">
+  <Description>ID value of overflow event. The overflow event occurs when one or more notification events are lost on the camera. If you use the message channel for event notification, you are always subscribed to this event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>65534</Value>
+ </Integer>
+
+ <Integer Name="EventError" NameSpace="Standard">
+  <Description>ID value of error event. The error event occurs if there is a problem on the camera; this event should be reported to technical support. If you use the message channel for event notification, you are always subscribed to this event.</Description>
+  <pIsImplemented>RegEventNotificationInq</pIsImplemented>
+  <ImposedAccessMode>RO</ImposedAccessMode>
+  <Value>65535</Value>
+ </Integer>
+ <MaskedIntReg Name="RegSCPSPacketSize" NameSpace="Custom">
+  <Address>0xD04</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <LSB>31</LSB>
+  <MSB>16</MSB>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegSCCFGChunk" NameSpace="Custom">
+  <Address>0xD24</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>31</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
 
 
- <StringReg Name="DeviceVendorName">
+
+ <IntReg Name="RegFirmwareVerMajor" NameSpace="Custom">
+  <Address>0xF110</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegFirmwareVerMinor" NameSpace="Custom">
+  <Address>0xF114</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegFirmwareVerBuild" NameSpace="Custom">
+  <Address>0xF118</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <MaskedIntReg Name="RegSensorType" NameSpace="Custom">
+  <Address>0x11020</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <LSB>31</LSB>
+  <MSB>24</MSB>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegSensorBits" NameSpace="Custom">
+  <Address>0x11020</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <LSB>23</LSB>
+  <MSB>16</MSB>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <StringReg Name="DeviceVendorName" NameSpace="Standard">
   <Address>0x0048</Address>
   <Length>32</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
  </StringReg>
 
- <StringReg Name="DeviceModelName">
+ <StringReg Name="DeviceModelName" NameSpace="Standard">
   <Description>Camera model name.</Description>
-  <Address>0x0068</Address>
+  <Address>0xF200</Address>
   <Length>32</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
  </StringReg>
 
- <StringReg Name="DeviceFirmwareVersion">
+ <StringReg Name="ModelName" NameSpace="Custom">
+  <Visibility>Invisible</Visibility>
+  <Address>0xF200</Address>
+  <Length>32</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+ </StringReg>
+
+ <StringReg Name="DeviceFirmwareVersion" NameSpace="Standard">
   <Description>Firmware version of this Prosilica GigE camera.</Description>
   <Address>0x0088</Address>
   <Length>32</Length>
@@ -1206,13 +2364,25 @@
   <pPort>Device</pPort>
  </StringReg>
 
- <StringReg Name="DeviceID">
+ <StringReg Name="DeviceID" NameSpace="Standard">
+  <Extension>
+   <PvRename Name="DeviceSerialNumber"/>
+  </Extension>
   <Description>Serial number.</Description>
   <Address>0x00D8</Address>
   <Length>16</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
  </StringReg>
+
+ <StringReg Name="DevicePartNumber" NameSpace="Custom">
+  <Description>Device part number.</Description>
+  <Address>0xF220</Address>
+  <Length>32</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+ </StringReg>
+
 
 
 
@@ -1257,6 +2427,7 @@
   <Length>4</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>PixelFormat</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1266,6 +2437,8 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1275,6 +2448,7 @@
   <Length>4</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>PixelFormat</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1284,6 +2458,8 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1302,7 +2478,9 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
-  <Cachable>NoCache</Cachable>
+  <Cachable>WriteAround</Cachable>
+  <pInvalidator>RegSCPSPacketSize</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1312,6 +2490,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1321,6 +2500,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1330,11 +2510,127 @@
   <Length>4</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
+  <Cachable>WriteAround</Cachable>
+  <pInvalidator>BinningHorizontal</pInvalidator>
+  <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>WidthMax</pInvalidator>
+  <pInvalidator>HeightMax</pInvalidator>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>Width</pInvalidator>
+  <pInvalidator>Height</pInvalidator>
+  <pInvalidator>OffsetX</pInvalidator>
+  <pInvalidator>OffsetY</pInvalidator>
+  <pInvalidator>RegSCPSPacketSize</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegStreamFrameRateConstrain" NameSpace="Custom">
+  <Address>0x11168</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegTimestampTickFreqLow" NameSpace="Custom">
+  <Address>0x940</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegTimestampControl" NameSpace="Custom">
+  <Address>0x944</Address>
+  <Length>4</Length>
+  <AccessMode>WO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegTimestampValueHi" NameSpace="Custom">
+  <Address>0x948</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>RegTimestampControl</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegTimestampValueLo" NameSpace="Custom">
+  <Address>0x94C</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>RegTimestampControl</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegPayloadSize" NameSpace="Custom">
+  <Address>0x11170</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>BinningHorizontal</pInvalidator>
+  <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>WidthMax</pInvalidator>
+  <pInvalidator>HeightMax</pInvalidator>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>Width</pInvalidator>
+  <pInvalidator>Height</pInvalidator>
+  <pInvalidator>OffsetX</pInvalidator>
+  <pInvalidator>OffsetY</pInvalidator>
+  <pInvalidator>RegSCCFGChunk</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegNonImagePayloadSize" NameSpace="Custom">
+  <Address>0x11174</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>BinningHorizontal</pInvalidator>
+  <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>WidthMax</pInvalidator>
+  <pInvalidator>HeightMax</pInvalidator>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>Width</pInvalidator>
+  <pInvalidator>Height</pInvalidator>
+  <pInvalidator>OffsetX</pInvalidator>
+  <pInvalidator>OffsetY</pInvalidator>
+  <pInvalidator>RegSCCFGChunk</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
 
 
+
+
+ <MaskedIntReg Name="RegMirrorXInq" NameSpace="Custom">
+  <Address>0x12000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>28</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegMirrorYInq" NameSpace="Custom">
+  <Address>0x12000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>27</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
 
  <MaskedIntReg Name="RegPixelFormatInqMono8" NameSpace="Custom">
   <Address>0x12100</Address>
@@ -1360,6 +2656,15 @@
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
   <Bit>26</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegPixelFormatInqMono12Packed" NameSpace="Custom">
+  <Address>0x12100</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>25</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
@@ -1498,6 +2803,51 @@
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
+ <MaskedIntReg Name="RegPixelFormatInqMono14" NameSpace="Custom">
+  <Address>0x12104</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>26</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegPixelFormatInqBayerBG12Packed" NameSpace="Custom">
+  <Address>0x12104</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>21</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegPixelFormatInqBayerGB12Packed" NameSpace="Custom">
+  <Address>0x12104</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>20</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegPixelFormatInqBayerGR12Packed" NameSpace="Custom">
+  <Address>0x12104</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>19</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegPixelFormatInqBayerRG12Packed" NameSpace="Custom">
+  <Address>0x12104</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>18</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
  <IntReg Name="RegMaxWidth" NameSpace="Custom">
   <Address>0x12110</Address>
   <Length>4</Length>
@@ -1515,6 +2865,7 @@
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
   <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>PixelFormat</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1524,8 +2875,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
-  <pInvalidator>BinningHorizontal</pInvalidator>
-  <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1536,8 +2886,8 @@
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
   <pInvalidator>BinningHorizontal</pInvalidator>
-  <pInvalidator>BinningVertical</pInvalidator>
   <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1547,8 +2897,9 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
-  <pInvalidator>BinningHorizontal</pInvalidator>
   <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1559,7 +2910,8 @@
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
   <pInvalidator>BinningHorizontal</pInvalidator>
-  <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1569,13 +2921,14 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
-  <pInvalidator>BinningHorizontal</pInvalidator>
   <pInvalidator>BinningVertical</pInvalidator>
+  <pInvalidator>PixelFormat</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
 
- <IntReg Name="RegPayloadSize" NameSpace="Custom">
+ <IntReg Name="RegImageSize" NameSpace="Custom">
   <Address>0x12200</Address>
   <Length>4</Length>
   <AccessMode>RO</AccessMode>
@@ -1592,6 +2945,27 @@
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
+
+ <IntReg Name="RegMirrorX" NameSpace="Custom">
+  <Address>0x12134</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegMirrorY" NameSpace="Custom">
+  <Address>0x12138</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
 
 
 
@@ -1645,6 +3019,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1654,6 +3029,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1663,6 +3039,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1682,6 +3059,7 @@
   <pInvalidator>OffsetX</pInvalidator>
   <pInvalidator>OffsetY</pInvalidator>
   <pInvalidator>StreamBytesPerSecond</pInvalidator>
+  <pInvalidator>StreamFrameRateConstrain</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1701,6 +3079,7 @@
   <pInvalidator>OffsetX</pInvalidator>
   <pInvalidator>OffsetY</pInvalidator>
   <pInvalidator>StreamBytesPerSecond</pInvalidator>
+  <pInvalidator>StreamFrameRateConstrain</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1720,6 +3099,8 @@
   <pInvalidator>OffsetX</pInvalidator>
   <pInvalidator>OffsetY</pInvalidator>
   <pInvalidator>StreamBytesPerSecond</pInvalidator>
+  <pInvalidator>ExposureValueFloat</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1818,6 +3199,16 @@
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
+ <MaskedIntReg Name="RegTriggerInqOverlap" NameSpace="Custom">
+  <Address>0x13400</Address>
+  <pIndex Offset="64">IntTriggerSelector</pIndex>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>29</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
  <MaskedIntReg Name="RegTriggerSourceInqFreerun" NameSpace="Custom">
   <Address>0x13408</Address>
   <pIndex Offset="64">IntTriggerSelector</pIndex>
@@ -1894,6 +3285,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Bit>0</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
@@ -1904,10 +3296,22 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <LSB>31</LSB>
   <MSB>16</MSB>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
+
+ <IntReg Name="RegFullTrigMode" NameSpace="Custom">
+  <Address>0x13410</Address>
+  <pIndex Offset="64">IntTriggerSelector</pIndex>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
 
  <MaskedIntReg Name="RegTriggerEventInqRisingEdge" NameSpace="Custom">
   <Address>0x13414</Address>
@@ -1965,6 +3369,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1975,9 +3380,52 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
+
+ <MaskedIntReg Name="RegTriggerOverlapInqOff" NameSpace="Custom">
+  <Address>0x13420</Address>
+  <pIndex Offset="64">IntTriggerSelector</pIndex>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>31</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegTriggerOverlapInqReadout" NameSpace="Custom">
+  <Address>0x13420</Address>
+  <pIndex Offset="64">IntTriggerSelector</pIndex>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>30</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegTriggerOverlapInqPreviousFrame" NameSpace="Custom">
+  <Address>0x13420</Address>
+  <pIndex Offset="64">IntTriggerSelector</pIndex>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>29</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <IntReg Name="RegTriggerOverlap" NameSpace="Custom">
+  <Address>0x13424</Address>
+  <pIndex Offset="64">IntTriggerSelector</pIndex>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
 
 
 
@@ -1986,6 +3434,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -1995,6 +3444,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2004,6 +3454,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2013,6 +3464,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2058,6 +3510,9 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <Cachable>NoCache</Cachable>
+  <PollingTime>1000</PollingTime>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2088,6 +3543,7 @@
   <Cachable>NoCache</Cachable>
   <PollingTime>1000</PollingTime>
   <pInvalidator>AcquisitionFrameRateAbs</pInvalidator>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2115,6 +3571,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2124,6 +3581,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2133,6 +3591,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2142,6 +3601,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2151,6 +3611,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2160,6 +3621,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2169,6 +3631,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2178,6 +3641,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2223,6 +3687,9 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <Cachable>NoCache</Cachable>
+  <PollingTime>1000</PollingTime>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2250,6 +3717,9 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <Cachable>NoCache</Cachable>
+  <PollingTime>1000</PollingTime>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2259,6 +3729,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2268,6 +3739,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2277,6 +3749,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2286,6 +3759,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2295,6 +3769,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2304,6 +3779,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2313,6 +3789,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2331,6 +3808,9 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <Cachable>NoCache</Cachable>
+  <PollingTime>1000</PollingTime>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2340,6 +3820,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2349,6 +3830,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2361,6 +3843,7 @@
   <pPort>Device</pPort>
   <Cachable>NoCache</Cachable>
   <PollingTime>1000</PollingTime>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2371,11 +3854,36 @@
   <Formula>0x14190 + (SELECTOR * 4)</Formula>
  </IntSwissKnife>
 
+ <IntReg Name="RegWhitebalValueRed" NameSpace="Custom">
+  <Address>0x14190</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <Cachable>NoCache</Cachable>
+  <PollingTime>1000</PollingTime>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegWhitebalValueBlue" NameSpace="Custom">
+  <Address>0x14194</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <Cachable>NoCache</Cachable>
+  <PollingTime>1000</PollingTime>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
  <IntReg Name="RegWhitebalAutoRate" NameSpace="Custom">
   <Address>0x141A0</Address>
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2385,6 +3893,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2394,6 +3903,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2412,6 +3922,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2421,6 +3932,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2430,6 +3942,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2439,6 +3952,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2477,6 +3991,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2486,9 +4001,160 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
+
+ <MaskedIntReg Name="RegVsubInq" NameSpace="Custom">
+  <Address>0x14000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>23</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <IntReg Name="RegVsubValue" NameSpace="Custom">
+  <Address>0x142B0</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <MaskedIntReg Name="RegLensControlInqVoltage" NameSpace="Custom">
+  <Address>0x23000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>31</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegLensControlInqDrive" NameSpace="Custom">
+  <Address>0x23000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>30</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <IntReg Name="RegLensVoltageMax" NameSpace="Custom">
+  <Address>0x23100</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegLensVoltage" NameSpace="Custom">
+  <Address>0x23104</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>RegLensVoltageControl</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegLensVoltageControl" NameSpace="Custom">
+  <Address>0x23108</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <Cachable>WriteAround</Cachable>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <MaskedIntReg Name="RegLensDriveInqIrisTimedOpen" NameSpace="Custom">
+  <Address>0x23110</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>30</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegLensDriveInqIrisTimedClose" NameSpace="Custom">
+  <Address>0x23110</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>29</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegLensDriveInqFocusTimedNear" NameSpace="Custom">
+  <Address>0x23110</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>28</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegLensDriveInqFocusTimedFar" NameSpace="Custom">
+  <Address>0x23110</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>27</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegLensDriveInqZoomTimedIn" NameSpace="Custom">
+  <Address>0x23110</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>26</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegLensDriveInqZoomTimedOut" NameSpace="Custom">
+  <Address>0x23110</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>25</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <IntReg Name="RegLensDriveDurationMax" NameSpace="Custom">
+  <Address>0x23114</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegLensDriveCmd" NameSpace="Custom">
+  <Address>0x23118</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <Cachable>NoCache</Cachable>
+  <PollingTime>1000</PollingTime>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegLensDriveDuration" NameSpace="Custom">
+  <Address>0x2311C</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
 
 
 
@@ -2497,8 +4163,7 @@
   <Length>4</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
-  <LSB>31</LSB>
-  <MSB>1</MSB>
+  <Bit>31</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
@@ -2507,38 +4172,61 @@
   <Length>4</Length>
   <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
-  <LSB>30</LSB>
-  <MSB>1</MSB>
+  <Bit>30</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegIoInqSyncIn3" NameSpace="Custom">
+  <Address>0x15000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>29</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegIoInqSyncIn4" NameSpace="Custom">
+  <Address>0x15000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>28</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
  <MaskedIntReg Name="RegIoInqSyncOut1" NameSpace="Custom">
   <Address>0x15000</Address>
   <Length>4</Length>
-  <AccessMode>RW</AccessMode>
+  <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
-  <LSB>27</LSB>
-  <MSB>1</MSB>
+  <Bit>27</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
  <MaskedIntReg Name="RegIoInqSyncOut2" NameSpace="Custom">
   <Address>0x15000</Address>
   <Length>4</Length>
-  <AccessMode>RW</AccessMode>
+  <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
-  <LSB>26</LSB>
-  <MSB>1</MSB>
+  <Bit>26</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
  <MaskedIntReg Name="RegIoInqSyncOut3" NameSpace="Custom">
   <Address>0x15000</Address>
   <Length>4</Length>
-  <AccessMode>RW</AccessMode>
+  <AccessMode>RO</AccessMode>
   <pPort>Device</pPort>
-  <LSB>25</LSB>
-  <MSB>1</MSB>
+  <Bit>25</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegIoInqSyncOut4" NameSpace="Custom">
+  <Address>0x15000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>24</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
 
@@ -2557,6 +4245,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2567,6 +4256,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <LSB>31</LSB>
   <MSB>1</MSB>
   <Endianess>BigEndian</Endianess>
@@ -2578,6 +4268,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Bit>0</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
@@ -2596,6 +4287,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <LSB>31</LSB>
   <MSB>1</MSB>
   <Endianess>BigEndian</Endianess>
@@ -2606,6 +4298,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Bit>0</Bit>
   <Endianess>BigEndian</Endianess>
  </MaskedIntReg>
@@ -2615,6 +4308,7 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2624,6 +4318,27 @@
   <Length>4</Length>
   <AccessMode>RW</AccessMode>
   <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegSyncInGlitchFilterMax" NameSpace="Custom">
+  <Address>0x151C0</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegSyncInGlitchFilter" NameSpace="Custom">
+  <Address>0x151D0</Address>
+  <pIndex Offset="4">IntSyncInSelector</pIndex>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>UserSetLoad</pInvalidator>
   <Sign>Unsigned</Sign>
   <Endianess>BigEndian</Endianess>
  </IntReg>
@@ -2680,6 +4395,167 @@
 
 
 
+
+ <MaskedIntReg Name="RegEventNotificationInq" NameSpace="Custom">
+  <Address>0x22000</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>31</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqAcqStart" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>31</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqAcqStop" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>30</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqFrameTrig" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>29</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqExpEnd" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>28</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqRecTrig" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>27</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn1Rise" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>21</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn1Fall" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>20</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn2Rise" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>19</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn2Fall" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>18</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn3Rise" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>17</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn3Fall" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>16</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn4Rise" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>15</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <MaskedIntReg Name="RegEventInqSyncIn4Fall" NameSpace="Custom">
+  <Address>0x22010</Address>
+  <Length>4</Length>
+  <AccessMode>RO</AccessMode>
+  <pPort>Device</pPort>
+  <Bit>14</Bit>
+  <Endianess>BigEndian</Endianess>
+ </MaskedIntReg>
+
+ <IntReg Name="RegEventsEnable1" NameSpace="Custom">
+  <Address>0x22018</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>RegEventGenicamMode</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegEventGenicamSelector" NameSpace="Custom">
+  <Address>0x22020</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+
+ <IntReg Name="RegEventGenicamMode" NameSpace="Custom">
+  <Address>0x22024</Address>
+  <Length>4</Length>
+  <AccessMode>RW</AccessMode>
+  <pPort>Device</pPort>
+  <pInvalidator>RegEventsEnable1</pInvalidator>
+  <pInvalidator>RegEventGenicamSelector</pInvalidator>
+  <Sign>Unsigned</Sign>
+  <Endianess>BigEndian</Endianess>
+ </IntReg>
+ <Boolean Name="TLParamsLocked" NameSpace="Standard">
+  <Value>0</Value>
+  <OnValue>1</OnValue>
+  <OffValue>0</OffValue>
+ </Boolean>
 
  <Port Name="Device" NameSpace="Standard">
  </Port>
