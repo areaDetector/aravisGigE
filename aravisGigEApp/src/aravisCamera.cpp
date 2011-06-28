@@ -415,13 +415,13 @@ asynStatus aravisCamera::connectToCamera() {
 						/* Add it to our lookup table */
 						//g_print("Adding %s\n", featureName);
 						if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
-							createParam(epicsStrDup(featureName),      asynParamFloat64, &(this->features[index]));
+							createParam(featureName,      asynParamFloat64, &(this->features[index]));
 						} else if (arv_gc_node_get_value_type(feature) == G_TYPE_STRING) {
-							createParam(epicsStrDup(featureName),      asynParamOctet, &(this->features[index]));
+							createParam(featureName,      asynParamOctet, &(this->features[index]));
 						} else {
-							createParam(epicsStrDup(featureName),      asynParamInt32, &(this->features[index]));
+							createParam(featureName,      asynParamInt32, &(this->features[index]));
 						}
-						g_hash_table_insert(this->featureLookup, (gpointer) &(this->features[index]), (gpointer) featureName);
+						g_hash_table_insert(this->featureLookup, (gpointer) &(this->features[index]), (gpointer) epicsStrDup(featureName));
 						index++;
 					}
 					g_list_free(values);
