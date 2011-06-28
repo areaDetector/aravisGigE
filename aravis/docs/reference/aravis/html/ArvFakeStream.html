@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ArvFakeStream</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Aravis Reference Manual">
+<link rel="up" href="ch05.html" title="Fake camera">
+<link rel="prev" href="ArvFakeDevice.html" title="ArvFakeDevice">
+<link rel="next" href="ArvFakeCamera.html" title="ArvFakeCamera">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ArvFakeDevice.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Aravis Reference Manual</th>
+<td><a accesskey="n" href="ArvFakeCamera.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ArvFakeStream.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ArvFakeStream.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ArvFakeStream.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ArvFakeStream"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ArvFakeStream.top_of_page"></a>ArvFakeStream</span></h2>
+<p>ArvFakeStream — Fake camera stream</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ArvFakeStream.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="ArvFakeStream.html#ArvFakeStream-struct" title="ArvFakeStream">ArvFakeStream</a>;
+<a class="link" href="ArvStream.html" title="ArvStream"><span class="returnvalue">ArvStream</span></a> * 	       <a class="link" href="ArvFakeStream.html#arv-fake-stream-new" title="arv_fake_stream_new ()">arv_fake_stream_new</a>                 (<em class="parameter"><code><a class="link" href="ArvFakeCamera.html" title="ArvFakeCamera"><span class="type">ArvFakeCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvStream.html#ArvStreamCallback" title="ArvStreamCallback ()"><span class="type">ArvStreamCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ArvFakeStream.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="ArvStream.html" title="ArvStream">ArvStream</a>
+         +----ArvFakeStream
+</pre>
+</div>
+<div class="refsect1">
+<a name="ArvFakeStream.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ArvFakeStream.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ArvFakeStream-struct"></a><h3>ArvFakeStream</h3>
+<pre class="programlisting">typedef struct _ArvFakeStream ArvFakeStream;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="arv-fake-stream-new"></a><h3>arv_fake_stream_new ()</h3>
+<pre class="programlisting"><a class="link" href="ArvStream.html" title="ArvStream"><span class="returnvalue">ArvStream</span></a> * 	       arv_fake_stream_new                 (<em class="parameter"><code><a class="link" href="ArvFakeCamera.html" title="ArvFakeCamera"><span class="type">ArvFakeCamera</span></a> *camera</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ArvStream.html#ArvStreamCallback" title="ArvStreamCallback ()"><span class="type">ArvStreamCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *user_data</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>camera</code></em> :</span></p></td>
+<td>a <a class="link" href="ArvFakeCamera.html" title="ArvFakeCamera"><span class="type">ArvFakeCamera</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>image processing callback. <span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data for <em class="parameter"><code>callback</code></em>
+Return Value: (transfer full): a new <a class="link" href="ArvStream.html" title="ArvStream"><span class="type">ArvStream</span></a>. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

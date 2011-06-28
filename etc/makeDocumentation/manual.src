@@ -30,7 +30,7 @@ documentation for the aravis library</a>.
 \section inst_sec Installation
 As this module is just a wrapper to aravis, it is not distributed with aravis, so you need to download and compile aravis in order to use the module. After downloading and untarring aravisGigE, either:
 - Run the bash script <tt>install.sh</tt> in the root of the module, or
-- Download and unzip the <a href="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-0.1.8.tar.bz2">aravis source</a> in the root of the module, renaming it to aravis
+- Download and unzip the <a href="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-0.1.9.tar.bz2">aravis source</a> in the root of the module, renaming it to aravis
 
 You are now ready to build the module.
 - Modify configure/RELEASE
@@ -50,6 +50,7 @@ You are now ready to build the module.
 - Unplugging the camera while it's acquiring causes a crash
 - Changing resolution or colour mode while acquiring is unreliable, it is better to stop the camera first
 - <tt>pthread_attr_setstacksize error Invalid argument</tt> error messages are caused by glib and can be ignored
+- Please follow the section on sysctl in <a href="http://www.ptgrey.com/support/kb/index.asp?a=4&q=354">this article</a> if you are getting large numbers of dropped frames
 
 \section build_sec Build Instructions 
 - \subpage build_instructions_example
