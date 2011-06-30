@@ -197,7 +197,7 @@ minor 1
 release 0
 x 205
 y 25
-w 95
+w 85
 h 20
 font "arial-bold-r-12.0"
 fgColor index 14
@@ -214,9 +214,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 285
+x 290
 y 25
-w 95
+w 90
 h 20
 fgColor index 25
 onColor index 3
@@ -228,6 +228,45 @@ pressValue "1"
 onLabel "Reconnect"
 offLabel "Reconnect"
 3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 205
+y 50
+w 85
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Left shift data"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 290
+y 50
+w 90
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)LEFTSHIFT"
+indicatorPv "$(P)$(R)LEFTSHIFT_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties
 

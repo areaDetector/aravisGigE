@@ -124,3 +124,24 @@ record(longout, "$(P)$(R)RESET")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_RESET")
 }
+
+record(mbbi, "$(P)$(R)LEFTSHIFT_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_LEFTSHIFT")
+  field(ZRST, "No")
+  field(ZRVL, "0")
+  field(ONST, "Yes")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+}
+
+## If this is set to 1, then 10, 12 and 16 bit images will be left shifted 
+## so that a pixel with maximum exposure = 2^16 no matter what the pixel format 
+record(mbbo, "$(P)$(R)LEFTSHIFT") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_LEFTSHIFT")
+  field(ZRST, "No")
+  field(ZRVL, "0")
+  field(ONST, "Yes")
+  field(ONVL, "1")
+}
