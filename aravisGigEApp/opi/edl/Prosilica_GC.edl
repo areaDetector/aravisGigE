@@ -182,38 +182,6 @@ indicatorPv "$(P)$(R)ExposureAuto_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties
 
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 205
-y 625
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=When ExposureAutoAlg is Mean; this is the target image mean value; in percent. ,desc1=Higher values result in brighter images. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -270,38 +238,6 @@ font "arial-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 205
-y 600
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-exposure occurs ,desc1=until target is achieved; then ExposureAuto returns to Off. Continuous: ,desc2=auto-exposure always runs. ,desc3='',desc4='',desc5=''"
-}
-endObjectProperties
-
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -336,38 +272,6 @@ value {
 }
 autoSize
 border
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 600
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-gain occurs ,desc1=until target is achieved; then GainAuto returns to Off. Continuous: auto-gain ,desc2=always runs. ,desc3='',desc4='',desc5=''"
-}
 endObjectProperties
 
 # (Static Text)
@@ -407,38 +311,6 @@ botShadowColor index 11
 controlPv "$(P)$(R)GainAuto"
 indicatorPv "$(P)$(R)GainAuto_RBV"
 font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 625
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=This is the target image mean value; in percent. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
 endObjectProperties
 
 # (Static Text)
@@ -533,38 +405,6 @@ autoSize
 border
 endObjectProperties
 
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 675
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Automatic whitebalance mode. Off: automatic mode is off. Once: auto-whitebalance ,desc1=occurs until target is achieved; then BalanceWhiteAuto returns to Off. ,desc2=Continuous: auto-whitebalance always runs. ,desc3='',desc4='',desc5=''"
-}
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -604,38 +444,6 @@ indicatorPv "$(P)$(R)BalanceWhiteAut0_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties
 
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 700
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Select the Red or Blue channel to adjust with BalanceRatioAbs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -673,38 +481,6 @@ botShadowColor index 11
 controlPv "$(P)$(R)BalanceRatioSele"
 indicatorPv "$(P)$(R)BalanceRatioSele_RBV"
 font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 10
-y 725
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Adjust the gain of the red or blue channel (see BalanceRatioSelector). The green ,desc1=channel gain is always 1.00. ,desc2='',desc3='',desc4='',desc5=''"
-}
 endObjectProperties
 
 # (Static Text)
@@ -761,5 +537,229 @@ bgColor index 10
 fill
 font "arial-bold-r-12.0"
 fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 600
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GainAuto: Automatic exposure mode. Off: automatic mode is off. Once: auto-gain ,desc1=occurs until target is achieved; then GainAuto returns to Off. Continuous: ,desc2=auto-gain always runs. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 625
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GainAutoTarget: This is the target image mean value; in percent. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 675
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BalanceWhiteAuto: Automatic whitebalance mode. Off: automatic mode is off. Once: ,desc1=auto-whitebalance occurs until target is achieved; then BalanceWhiteAuto returns ,desc2=to Off. Continuous: auto-whitebalance always runs. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 700
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BalanceRatioSelector: Select the Red or Blue channel to adjust with ,desc1=BalanceRatioAbs. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 725
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=BalanceRatioAbs: Adjust the gain of the red or blue channel (see ,desc1=BalanceRatioSelector). The green channel gain is always 1.00. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 205
+y 600
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ExposureAuto: Automatic exposure mode. Off: automatic mode is off. Once: ,desc1=auto-exposure occurs until target is achieved; then ExposureAuto returns to Off. ,desc2=Continuous: auto-exposure always runs. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 205
+y 625
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ExposureAutoTarget: When ExposureAutoAlg is Mean; this is the target image mean ,desc1=value; in percent. Higher values result in brighter images. ,desc2='',desc3='',desc4='',desc5=''"
+}
 endObjectProperties
 

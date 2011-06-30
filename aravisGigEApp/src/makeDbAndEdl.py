@@ -89,20 +89,27 @@ def handle_category(category):
     node = lookup[category]
     # for each child feature of this node
     features = []
-    categories = []
+    cgs = []
     for feature in elements(node):        
         if feature.nodeName == "pFeature":
             featureName = str(getText(feature))
             featureNode = lookup[featureName]
             if str(featureNode.nodeName) == "Category":
-                categories.append(featureName)
+                cgs.append(featureName)
             else:
                 if featureNode not in doneNodes:
                     features.append(featureNode)   
                     doneNodes.append(featureNode)
     if features:
-        structure.append((category, features))
-    for category in categories:
+        if len(features) > 32:
+            i = 1
+            while features:
+                structure.append((category+str(i), features[:32]))
+                i += 1
+                features = features[32:]
+        else:            
+            structure.append((category, features))
+    for category in cgs:
         handle_category(category)
 
 for category in categories:
@@ -226,16 +233,8 @@ def quoteString(string):
     string = string.replace("\n", "").replace(",", ";")
     return string
 
-# Write each section
-for name, nodes in structure:
-    # write box
-    boxh = len(nodes) * 25 + 5
-    if (boxh + y > 850):
-        y = 50
-        w += 260
-        x += 260  
-    laby = y - 10      
-    text += """# (Rectangle)
+def make_box():
+    return """# (Rectangle)
 object activeRectangleClass
 beginObjectProperties
 major 4
@@ -272,33 +271,9 @@ border
 endObjectProperties
 
 """ % globals()
-    y += 5
-    h = max(y, h)    
-    for node in nodes:
-        nodeName = str(node.getAttribute("Name"))
-        recordName = records[nodeName]
-        ro = False
-        desc = nodeName
-        for n in elements(node):
-            if str(n.nodeName) == "AccessMode" and getText(n) == "RO":
-                ro = True
-            if str(n.nodeName) in ["ToolTip", "Description"]:
-                desc = getText(n)
-        descs = ["", "", "", "", "", ""]
-        i = 0
-        for word in desc.split():
-            if len(descs[i]) + len(word) > 80:
-                i += 1
-                if i >= len(descs):
-                    break
-            descs[i] += word + " "
-        for i in range(6):
-            if descs[i]:
-                globals()["desc%d" % i] = quoteString(descs[i])
-            else:
-                globals()["desc%d" % i] = "''"
-        nx = x + 5
-        text += """# (Related Display)
+
+def make_description():
+    return """# (Related Display)
 object relatedDisplayClass
 beginObjectProperties
 major 4
@@ -330,9 +305,10 @@ symbols {
 }
 endObjectProperties                
 
-""" % globals()   
-        nx += 10
-        text += """
+""" % globals()
+
+def make_label():
+    return """
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -353,9 +329,9 @@ value {
 endObjectProperties   
 
 """ % globals()             
-        nx += 110            
-        if node.nodeName in ["StringReg"] or ro:
-            text += """# (Textupdate)
+
+def make_ro():
+    return """# (Textupdate)
 object TextupdateClass
 beginObjectProperties
 major 10
@@ -375,8 +351,9 @@ fontAlign "center"
 endObjectProperties        
 
 """ % globals()         
-        elif node.nodeName in ["Integer", "Float", "Boolean", "Converter"]:  
-            text += """# (Textentry)
+
+def make_demand():
+    return """# (Textentry)
 object TextentryClass
 beginObjectProperties
 major 10
@@ -395,8 +372,9 @@ font "arial-bold-r-12.0"
 endObjectProperties
 
 """ % globals()
-            nx += 65 
-            text += """# (Textupdate)
+
+def make_rbv():
+    return """# (Textupdate)
 object TextupdateClass
 beginObjectProperties
 major 10
@@ -415,9 +393,10 @@ font "arial-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-""" % globals()  
-        elif node.nodeName in ["Enumeration"]:
-            text += """# (Menu Button)
+""" % globals() 
+
+def make_menu():
+    return """# (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
 major 4
@@ -438,8 +417,9 @@ font "arial-bold-r-12.0"
 endObjectProperties        
 
 """ % globals()
-        elif node.nodeName in ["Command"]:
-            text += """# (Message Button)
+
+def make_cmd():
+    return """# (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
 major 4
@@ -463,6 +443,57 @@ font "arial-bold-r-12.0"
 endObjectProperties
 
 """ % globals()
+
+# Write each section
+for name, nodes in structure:
+    # write box
+    boxh = len(nodes) * 25 + 5
+    if (boxh + y > 850):
+        y = 50
+        w += 260
+        x += 260  
+    laby = y - 10      
+    text += make_box()
+    y += 5
+    h = max(y, h)    
+    for node in nodes:
+        nodeName = str(node.getAttribute("Name"))
+        recordName = records[nodeName]
+        ro = False
+        desc = ""
+        for n in elements(node):
+            if str(n.nodeName) == "AccessMode" and getText(n) == "RO":
+                ro = True
+            if str(n.nodeName) in ["ToolTip", "Description"]:
+                desc = getText(n)
+        descs = ["%s: "% nodeName, "", "", "", "", ""]
+        i = 0
+        for word in desc.split():
+            if len(descs[i]) + len(word) > 80:
+                i += 1
+                if i >= len(descs):
+                    break
+            descs[i] += word + " "
+        for i in range(6):
+            if descs[i]:
+                globals()["desc%d" % i] = quoteString(descs[i])
+            else:
+                globals()["desc%d" % i] = "''"
+        nx = x + 5
+        text += make_description()   
+        nx += 10
+        text += make_label()
+        nx += 110            
+        if node.nodeName in ["StringReg"] or ro:
+            text += make_ro()
+        elif node.nodeName in ["Integer", "Float", "Boolean", "Converter"]:  
+            text += make_demand()
+            nx += 65 
+            text += make_rbv() 
+        elif node.nodeName in ["Enumeration"]:
+            text += make_menu()
+        elif node.nodeName in ["Command"]:
+            text += make_cmd()
         else:
             print "Don't know what to do with", node.nodeName
         y += 25

@@ -5,8 +5,8 @@ minor 0
 release 1
 x 50
 y 50
-w 1565
-h 1545
+w 1825
+h 870
 font "arial-bold-r-12.0"
 ctlFont "arial-bold-r-12.0"
 btnFont "arial-bold-r-12.0"
@@ -33,7 +33,7 @@ minor 0
 release 0
 x 0
 y 0
-w 1565
+w 1825
 h 30
 
 beginGroup
@@ -46,7 +46,7 @@ minor 0
 release 0
 x 0
 y 0
-w 1565
+w 1825
 h 30
 lineColor index 3
 fill
@@ -61,15 +61,15 @@ minor 0
 release 1
 x 0
 y 2
-w 1565
+w 1825
 h 24
 lineColor index 11
 fillColor index 0
 numPoints 3
 xPoints {
   0 0
-  1 1565
-  2 1565
+  1 1825
+  2 1825
 }
 yPoints {
   0 26
@@ -86,7 +86,7 @@ minor 1
 release 0
 x 0
 y 2
-w 1565
+w 1825
 h 24
 font "arial-bold-r-16.0"
 fontAlign "center"
@@ -105,7 +105,7 @@ minor 0
 release 1
 x 0
 y 2
-w 1565
+w 1825
 h 24
 lineColor index 1
 fillColor index 0
@@ -113,7 +113,7 @@ numPoints 3
 xPoints {
   0 0
   1 0
-  2 1565
+  2 1825
 }
 yPoints {
   0 26
@@ -190,7 +190,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=The name of the device vendor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceVendorName: The name of the device vendor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -261,7 +261,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Model of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceModelName: Model of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -332,7 +332,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Manufacturer information about the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceManufacturerInfo: Manufacturer information about the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -403,7 +403,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Version of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceVersion: Version of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -474,7 +474,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Device identifier (serial number). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceID: Device identifier (serial number). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -545,7 +545,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=User-programmable device identifier. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceUserID: User-programmable device identifier. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -616,7 +616,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Scan type of the sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceScanType: Scan type of the sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -688,7 +688,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature specifies the type of the sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceSensorType: This feature specifies the type of the sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -760,7 +760,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Readout time in ms for current format settings. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ReadOutTime: Readout time in ms for current format settings. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -849,7 +849,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=BoSpec0 ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BoSpec0: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -974,7 +974,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Describes the available formats of the Device ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Formats: Describes the available formats of the Device ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1046,7 +1046,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Effective width of the sensor in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SensorWidth: Effective width of the sensor in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1135,7 +1135,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Effective height of the sensor in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SensorHeight: Effective height of the sensor in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1224,7 +1224,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum width (in pixels) of the image. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=WidthMax: Maximum width (in pixels) of the image. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1313,7 +1313,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum height (in pixels) of the image. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=HeightMax: Maximum height (in pixels) of the image. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1402,7 +1402,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Width of the Image provided by the device (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Width: Width of the Image provided by the device (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1491,7 +1491,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Height of the image provided by the device (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Height: Height of the image provided by the device (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1580,7 +1580,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Horizontal offset from the origin to the AOI (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=OffsetX: Horizontal offset from the origin to the AOI (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1669,7 +1669,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Vertical offset from the origin to the AOI (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=OffsetY: Vertical offset from the origin to the AOI (in pixels). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1758,7 +1758,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Number of horizontal photo-sensitive cells to combine together. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BinningHorizontal: Number of horizontal photo-sensitive cells to combine ,desc1=together. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1847,7 +1847,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Number of vertical photo-sensitive cells to combine together. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BinningVertical: Number of vertical photo-sensitive cells to combine together. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1936,7 +1936,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Format of the pixel to use for acquisition. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PixelFormat: Format of the pixel to use for acquisition. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2008,7 +2008,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the type of test image that is sent by the camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TestImageSelector: Selects the type of test image that is sent by the camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2080,7 +2080,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=On/Off Switch for the HQ Mode. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=HqMode: On/Off Switch for the HQ Mode. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2152,7 +2152,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=On/Off Switch for partial scan readout. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PartialScanEnabled: On/Off Switch for partial scan readout. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2260,7 +2260,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the acquisition mode of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionMode: Sets the acquisition mode of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2332,7 +2332,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Starts the Acquisition of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionStart: Starts the Acquisition of the device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2407,7 +2407,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Stops the Acquisition of the device at the end of the current Frame. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionStop: Stops the Acquisition of the device at the end of the current ,desc1=Frame. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2482,7 +2482,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Aborts the acquisition immediately. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionAbort: Aborts the acquisition immediately. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2557,7 +2557,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Pause image acquisition using the specified acquisition mode. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionPause: Pause image acquisition using the specified acquisition mode. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2632,7 +2632,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Resume image acquisition using the specified acquisition mode. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionResume: Resume image acquisition using the specified acquisition ,desc1=mode. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2707,7 +2707,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Controls the acquisition rate (in Hertz) at which the frames are captured. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionFrameRate: Controls the acquisition rate (in Hertz) at which the ,desc1=frames are captured. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2796,7 +2796,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Enables the acquisition at the framerate specified by AcquisitionFrameRate. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionFrameRateEnable: Enables the acquisition at the framerate specified ,desc1=by AcquisitionFrameRate. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2885,7 +2885,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the type of trigger to configure. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerSelector: Selects the type of trigger to configure. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2957,7 +2957,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Controls if the selected trigger is active. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerMode: Controls if the selected trigger is active. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3029,7 +3029,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Generates an internal trigger. TriggerSource must be set to Software. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerSoftware: Generates an internal trigger. TriggerSource must be set to ,desc1=Software. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3104,7 +3104,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Specifies the internal signal or physical input Line to use as the trigger ,desc1=source. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerSource: Specifies the internal signal or physical input Line to use as ,desc1=the trigger source. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3176,7 +3176,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Specifies the type of signal change that will activate the trigger. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerActivation: Specifies the type of signal change that will activate the ,desc1=trigger. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3248,7 +3248,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Specifies the type trigger overlap permitted with the previous frame. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerOverlap: Specifies the type trigger overlap permitted with the previous ,desc1=frame. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3320,7 +3320,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Specifies the delay in microseconds (us) to apply after the trigger reception ,desc1=before activating it. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerDelay: Specifies the delay in microseconds (us) to apply after the ,desc1=trigger reception before activating it. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3409,7 +3409,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the absolute delay in microseconds to apply after reception of the ,desc1=trigger signal before starting exposure for the acquisition. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerDelayAbs: Selects the absolute delay in microseconds to apply after ,desc1=reception of the trigger signal before starting exposure for the acquisition. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3498,7 +3498,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the raw delay in device specific unit to apply after reception of the ,desc1=trigger signal before starting exposure for the acquisition. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerDelayRaw: Selects the raw delay in device specific unit to apply after ,desc1=reception of the trigger signal before starting exposure for the acquisition. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3587,7 +3587,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the Exposure time (in microseconds) when ExposureMode is Timed. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureTime: Sets the Exposure time (in microseconds) when ExposureMode is ,desc1=Timed. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3676,7 +3676,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Controls the absolute exposure time in microseconds (us). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureTimeAbs: Controls the absolute exposure time in microseconds (us). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3801,7 +3801,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the physical line (or pin) of the external device connector to ,desc1=configure. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineSelector: Selects the physical line (or pin) of the external device ,desc1=connector to configure. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3873,7 +3873,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Controls if the physical Line is used to Input or Output a signal. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineMode: Controls if the physical Line is used to Input or Output a signal. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3945,7 +3945,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Controls the invertion of the signal of the selected input or output Line. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineInverter: Controls the invertion of the signal of the selected input or ,desc1=output Line. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4034,7 +4034,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Returns the current status of the selected input or output Line. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineStatus: Returns the current status of the selected input or output Line. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4123,7 +4123,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Returns the current status of all available Line signals at time of polling in a ,desc1=single bitfield. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineStatusAll: Returns the current status of all available Line signals at time ,desc1=of polling in a single bitfield. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4212,7 +4212,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which internal acquisition or I/O source signal to output on the ,desc1=selected Line. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineSource: Selects which internal acquisition or I/O source signal to output on ,desc1=the selected Line. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4284,7 +4284,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which bit of the User Output register will be set by UserOutputValue. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserOutputSelector: Selects which bit of the User Output register will be set by ,desc1=UserOutputValue. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4356,7 +4356,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the value of the bit selected by UserOutputSelector. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserOutputValue: Sets the value of the bit selected by UserOutputSelector. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4445,7 +4445,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the value of all the bits of the User Output register. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserOutputValueAll: Sets the value of all the bits of the User Output register. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4534,7 +4534,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the absolute value of the selected line debouncer time in microseconds for ,desc1=switch from low to high. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineDebouncerHighTimeAbs: Sets the absolute value of the selected line debouncer ,desc1=time in microseconds for switch from low to high. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4623,7 +4623,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the absolute value of the selected line debouncer time in microseconds for ,desc1=switch from high to low. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LineDebouncerLowTimeAbs: Sets the absolute value of the selected line debouncer ,desc1=time in microseconds for switch from high to low. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4712,7 +4712,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=On/Off Switch for flash ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Flash: On/Off Switch for flash ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4784,7 +4784,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Polarity Switch for flash ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FlashPolarity: Polarity Switch for flash ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4892,7 +4892,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the frame counter; which is part of the Baumer image header. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FrameCounter: Sets the frame counter; which is part of the Baumer image header. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4981,7 +4981,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which Timer to configure. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TimerSelector: Selects which Timer to configure. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5053,7 +5053,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the duration (in microseconds) of the Timer pulse. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TimerDuration: Sets the duration (in microseconds) of the Timer pulse. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5142,7 +5142,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Sets the duration (in microseconds) of the delay to apply at the reception of a ,desc1=trigger before to start the Timer. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TimerDelay: Sets the duration (in microseconds) of the delay to apply at the ,desc1=reception of a trigger before to start the Timer. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5231,7 +5231,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the source of the trigger to start the Timer. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TimerTriggerSource: Selects the source of the trigger to start the Timer. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5303,7 +5303,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the activation mode of the trigger to start the Timer. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TimerTriggerActivation: Selects the activation mode of the trigger to start the ,desc1=Timer. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5411,7 +5411,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which Event to signal to the host application. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventSelector: Selects which Event to signal to the host application. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5483,7 +5483,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Notification type issued when event occurs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventNotification: Notification type issued when event occurs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5555,7 +5555,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Returns the latched 64-bit value of the timestamp counter. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LostEventCounter: Returns the latched 64-bit value of the timestamp counter. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5644,7 +5644,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Returns the latched 64-bit value of the timestamp counter. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DiscardedEventCounter: Returns the latched 64-bit value of the timestamp ,desc1=counter. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5769,7 +5769,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which Gain is controlled by the various Gain features. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainSelector: Selects which Gain is controlled by the various Gain features. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5841,7 +5841,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Controls the selected gain as an absolute physical value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Gain: Controls the selected gain as an absolute physical value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5930,7 +5930,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. It controls the selected gain as a raw integer ,desc1=value. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainRaw: This feature is deprecated. It controls the selected gain as a raw ,desc1=integer value. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6019,7 +6019,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. This feature controls the selected gain as an ,desc1=absolute physical value. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainAbs: This feature is deprecated. This feature controls the selected gain as ,desc1=an absolute physical value. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6108,7 +6108,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Analog/Digital Gain as factor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainFactor: Analog/Digital Gain as factor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6197,7 +6197,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which Black Level is controlled by the various Black Level features. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BlackLevelSelector: Selects which Black Level is controlled by the various Black ,desc1=Level features. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6269,7 +6269,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. It controls the analog black level as a raw integer ,desc1=value. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BlackLevelRaw: This feature is deprecated. It controls the analog black level as ,desc1=a raw integer value. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6358,7 +6358,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=AutoWhiteBalance - OnePush is self-clearing to Manual. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=WhiteBalance: AutoWhiteBalance - OnePush is self-clearing to Manual. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6469,7 +6469,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Enable the correction of defect pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectPixelCorrection: Enable the correction of defect pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6558,7 +6558,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Index to the pixel correction list ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectPixelListIndex: Index to the pixel correction list ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6647,7 +6647,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Determines if the pixel correction is active for the selected entry. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectPixelListEntryActive: Determines if the pixel correction is active for the ,desc1=selected entry. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6736,7 +6736,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=X position of the pixel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectPixelListEntryPosX: X position of the pixel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6825,7 +6825,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Y position of the pixel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectPixelListEntryPosY: Y position of the pixel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6914,7 +6914,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Applies the current pixel correction list to the camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectPixelListUpdate: Applies the current pixel correction list to the camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6970,7 +6970,7 @@ release 0
 x 1045
 y 50
 w 255
-h 1480
+h 805
 lineColor index 14
 fill
 fillColor index 5
@@ -6991,7 +6991,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  TransportLayerControl  "
+  "  TransportLayerControl1  "
 }
 autoSize
 border
@@ -7025,7 +7025,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Provides the number of bytes transferred for each image or chunk on the stream ,desc1=channel. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PayloadSize: Provides the number of bytes transferred for each image or chunk on ,desc1=the stream channel. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7114,7 +7114,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Major version of the specification. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevVersionMajor: Major version of the specification. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7203,7 +7203,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Minor version of the specification. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevVersionMinor: Minor version of the specification. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7292,7 +7292,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Endianess of the device registers. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevDeviceModeIsBigEndian: Endianess of the device registers. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7381,7 +7381,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Character set used by all the strings of the bootstrap registers. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevDeviceModeCharacterSet: Character set used by all the strings of the ,desc1=bootstrap registers. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7453,7 +7453,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which physical network interface to control. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevInterfaceSelector: Selects which physical network interface to control. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7542,7 +7542,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=MAC address of the network interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevMACAddress: MAC address of the network interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7631,7 +7631,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. This feature indicates if Link Local Address IP ,desc1=configuration scheme is supported by the given network interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedIPConfigurationLLA: This feature is deprecated. This feature ,desc1=indicates if Link Local Address IP configuration scheme is supported by the ,desc2=given network interface. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7720,7 +7720,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. This feature indicates if Link Local Address IP ,desc1=configuration scheme is supported by the given network interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedIPConfigurationDHCP: This feature is deprecated. This feature ,desc1=indicates if Link Local Address IP configuration scheme is supported by the ,desc2=given network interface. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7809,7 +7809,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. This feature indicates if Link Local Address IP ,desc1=configuration scheme is supported by the given network interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedIPConfigurationPersistentIP: This feature is deprecated. This ,desc1=feature indicates if Link Local Address IP configuration scheme is supported by ,desc2=the given network interface. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7898,7 +7898,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevCurrentIPConfiguration: This feature is deprecated. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7970,7 +7970,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates if Link Local Address IP configuration scheme is activated on the ,desc1=given network interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevCurrentIPConfigurationLLA: Indicates if Link Local Address IP configuration ,desc1=scheme is activated on the given network interface. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8059,7 +8059,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates if DHCP IP configuration scheme is activated on the given network ,desc1=interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevCurrentIPConfigurationDHCP: Indicates if DHCP IP configuration scheme is ,desc1=activated on the given network interface. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8148,7 +8148,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates if PersistentIP configuration scheme is activated on the given network ,desc1=interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevCurrentIPConfigurationPersistentIP: Indicates if PersistentIP configuration ,desc1=scheme is activated on the given network interface. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8237,7 +8237,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Reports the IP address for the given network interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevCurrentIPAddress: Reports the IP address for the given network interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8326,7 +8326,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Provides the subnet mask of the given interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevCurrentSubnetMask: Provides the subnet mask of the given interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8415,7 +8415,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the default gateway IP address to be used on the given network ,desc1=interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevCurrentDefaultGateway: Indicates the default gateway IP address to be used on ,desc1=the given network interface. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8504,7 +8504,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the first URL to the XML device description file. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevFirstURL: Indicates the first URL to the XML device description file. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8575,7 +8575,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the second URL to the XML device description file. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSecondURL: Indicates the second URL to the XML device description file. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8646,7 +8646,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the number of physical network interfaces supported by this device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevNumberOfInterfaces: Indicates the number of physical network interfaces ,desc1=supported by this device. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8735,7 +8735,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the Persistent IP address for this network interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevPersistentIPAddress: Indicates the Persistent IP address for this network ,desc1=interface. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8824,7 +8824,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the Persistent subnet mask associated with the Persistent IP address ,desc1=on this network interface. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevPersistentSubnetMask: Indicates the Persistent subnet mask associated with ,desc1=the Persistent IP address on this network interface. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8913,7 +8913,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the persistent default gateway for this network interface. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevPersistentDefaultGateway: Indicates the persistent default gateway for this ,desc1=network interface. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9002,7 +9002,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the number of message channels supported by this device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevMessageChannelCount: Indicates the number of message channels supported by ,desc1=this device. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9091,7 +9091,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Indicates the number of stream channels supported by this device. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevStreamChannelCount: Indicates the number of stream channels supported by this ,desc1=device. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9180,7 +9180,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. User-defined name register is supported. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedOptionalCommandsUserDefinedName: This feature is deprecated. ,desc1=User-defined name register is supported. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9269,7 +9269,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. Serial number register is supported. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedOptionalCommandsSerialNumber: This feature is deprecated. Serial ,desc1=number register is supported. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9358,7 +9358,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. EVENTDATA_CMD and EVENTDATA_ACK are supported. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedOptionalCommandsEVENTDATA: This feature is deprecated. EVENTDATA_CMD ,desc1=and EVENTDATA_ACK are supported. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9447,7 +9447,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. EVENT_CMD and EVENT_ACK are supported. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedOptionalCommandsEVENT: This feature is deprecated. EVENT_CMD and ,desc1=EVENT_ACK are supported. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9536,7 +9536,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. PACKETRESEND_CMD is supported. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedOptionalCommandsPACKETRESEND: This feature is deprecated. ,desc1=PACKETRESEND_CMD is supported. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9625,7 +9625,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. WRITEMEM_CMD and WRITEMEM_ACK are supported. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedOptionalCommandsWRITEMEM: This feature is deprecated. WRITEMEM_CMD ,desc1=and WRITEMEM_ACK are supported. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9714,7 +9714,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This feature is deprecated. Multiple operations in a single message are ,desc1=supported. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSupportedOptionalCommandsConcatenation: This feature is deprecated. Multiple ,desc1=operations in a single message are supported. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9775,2347 +9775,6 @@ font "arial-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 855
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the current heartbeat timeout in milliseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 855
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevHeartbeatTimeout"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 855
-w 60
-h 20
-controlPv "$(P)$(R)GevHeartbeatTime"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 855
-w 60
-h 20
-controlPv "$(P)$(R)GevHeartbeatTime_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 880
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the number of timestamp ticks during 1 second (frequency in Hz). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 880
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevTimestampTickFrequency"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 880
-w 60
-h 20
-controlPv "$(P)$(R)GevTimestampTick"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 880
-w 60
-h 20
-controlPv "$(P)$(R)GevTimestampTick_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 905
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Latches current timestamp counter into GevTimestampValue. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 905
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevTimestampControlLatch"
-}
-endObjectProperties   
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1170
-y 905
-w 125
-h 20
-fgColor index 25
-onColor index 3
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)GevTimestampCont.PROC"
-pressValue "1"
-onLabel "GevTimestampControlLatch"
-offLabel "GevTimestampControlLatch"
-3d
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 930
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Resets the Timestamp counter to 0. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 930
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevTimestampControlReset"
-}
-endObjectProperties   
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1170
-y 930
-w 125
-h 20
-fgColor index 25
-onColor index 3
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)GevTimestampCon0.PROC"
-pressValue "1"
-onLabel "GevTimestampControlReset"
-offLabel "GevTimestampControlReset"
-3d
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 955
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Returns the latched 64-bit value of the timestamp counter. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 955
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevTimestampValue"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 955
-w 60
-h 20
-controlPv "$(P)$(R)GevTimestampValu"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 955
-w 60
-h 20
-controlPv "$(P)$(R)GevTimestampValu_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 980
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Enables generation of PENDING_ACK. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 980
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevGVCPPendingAck"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 980
-w 60
-h 20
-controlPv "$(P)$(R)GevGVCPPendingAc"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 980
-w 60
-h 20
-controlPv "$(P)$(R)GevGVCPPendingAc_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1005
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Disables the GVCP heartbeat. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1005
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevGVCPHeartbeatDisable"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1005
-w 60
-h 20
-controlPv "$(P)$(R)GevGVCPHeartbeat"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1005
-w 60
-h 20
-controlPv "$(P)$(R)GevGVCPHeartbeat_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1030
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the longest GVCP command execution time before a device returns a ,desc1=PENDING_ACK. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1030
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevGVCPPendingTimeout"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1030
-w 60
-h 20
-controlPv "$(P)$(R)GevGVCPPendingTi"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1030
-w 60
-h 20
-controlPv "$(P)$(R)GevGVCPPendingTi_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1055
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Controls the device access privilege of an application. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1055
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevCCP"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1170
-y 1055
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)GevCCP"
-indicatorPv "$(P)$(R)GevCCP_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1080
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Returns the UDP source port of the primary application. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1080
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevPrimaryApplicationSocket"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1080
-w 60
-h 20
-controlPv "$(P)$(R)GevPrimaryApplic"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1080
-w 60
-h 20
-controlPv "$(P)$(R)GevPrimaryApplic_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1105
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Returns the address of the primary application. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1105
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevPrimaryApplicationIPAddress"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1105
-w 60
-h 20
-controlPv "$(P)$(R)GevPrimaryAppli0"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1105
-w 60
-h 20
-controlPv "$(P)$(R)GevPrimaryAppli0_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1130
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the port to which the device must send messages. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1130
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevMCPHostPort"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1130
-w 60
-h 20
-controlPv "$(P)$(R)GevMCPHostPort"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1130
-w 60
-h 20
-controlPv "$(P)$(R)GevMCPHostPort_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1155
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the destination IP address for the message channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1155
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevMCDA"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1155
-w 60
-h 20
-controlPv "$(P)$(R)GevMCDA"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1155
-w 60
-h 20
-controlPv "$(P)$(R)GevMCDA_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1180
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Provides the transmission timeout value in milliseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1180
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevMCTT"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1180
-w 60
-h 20
-controlPv "$(P)$(R)GevMCTT"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1180
-w 60
-h 20
-controlPv "$(P)$(R)GevMCTT_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1205
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the number of retransmissions allowed when a message channel message ,desc1=times out. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1205
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevMCRC"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1205
-w 60
-h 20
-controlPv "$(P)$(R)GevMCRC"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1205
-w 60
-h 20
-controlPv "$(P)$(R)GevMCRC_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1230
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Selects the stream channel to control. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1230
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevStreamChannelSelector"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1230
-w 60
-h 20
-controlPv "$(P)$(R)GevStreamChanne0"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1230
-w 60
-h 20
-controlPv "$(P)$(R)GevStreamChanne0_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1255
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Index of network interface to use (from 0 to 3). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1255
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCPInterfaceIndex"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1255
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPInterfaceI"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1255
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPInterfaceI_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1280
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the port to which the device must send data stream. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1280
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCPHostPort"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1280
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPHostPort"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1280
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPHostPort_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1305
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=When this feature is set; the device will fire one test packet. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1305
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCPSFireTestPacket"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1305
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSFireTestP"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1305
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSFireTestP_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1330
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Can be used by the application to prevent IP fragmentation of packets on the ,desc1=stream channel. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1330
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCPSDoNotFragment"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1330
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSDoNotFrag"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1330
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSDoNotFrag_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1355
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Endianess of multi-byte pixel data for this stream. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1355
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCPSBigEndian"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1355
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSBigEndian"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1355
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSBigEndian_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1380
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Specifies the stream packet size in bytes to send on this channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1380
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCPSPacketSize"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1380
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSPacketSiz"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1380
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPSPacketSiz_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1405
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the delay (in timestamp counter unit) to insert between each packet ,desc1=for this stream channel. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1405
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCPD"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1405
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPD"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1405
-w 60
-h 20
-controlPv "$(P)$(R)GevSCPD_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1430
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=This feature indicates the delay (in timestamp counter unit) to insert between ,desc1=each block (image) for this stream channel. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1430
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCFTD"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1430
-w 60
-h 20
-controlPv "$(P)$(R)GevSCFTD"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1430
-w 60
-h 20
-controlPv "$(P)$(R)GevSCFTD_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1455
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=Indicates the destination IP address for this stream channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1455
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevSCDA"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1455
-w 60
-h 20
-controlPv "$(P)$(R)GevSCDA"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1455
-w 60
-h 20
-controlPv "$(P)$(R)GevSCDA_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1480
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=This feature indicates the speed of transmission negotiated by the given network ,desc1=interface. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1480
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevLinkSpeed"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 1480
-w 60
-h 20
-controlPv "$(P)$(R)GevLinkSpeed"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 1480
-w 60
-h 20
-controlPv "$(P)$(R)GevLinkSpeed_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 1505
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=This feature reports the current IP configuration status. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 1505
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "GevIPConfigurationStatus"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1170
-y 1505
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)GevIPConfigurati"
-indicatorPv "$(P)$(R)GevIPConfigurati_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -12125,7 +9784,7 @@ release 0
 x 1305
 y 50
 w 255
-h 105
+h 680
 lineColor index 14
 fill
 fillColor index 5
@@ -12146,7 +9805,7 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  UserSetControl  "
+  "  TransportLayerControl2  "
 }
 autoSize
 border
@@ -12180,7 +9839,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the feature User Set to load; save or configure. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevHeartbeatTimeout: Indicates the current heartbeat timeout in milliseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12200,29 +9859,46 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "UserSetSelector"
+  "GevHeartbeatTimeout"
 }
 endObjectProperties   
 
-# (Menu Button)
-object activeMenuButtonClass
+# (Textentry)
+object TextentryClass
 beginObjectProperties
-major 4
+major 10
 minor 0
 release 0
 x 1430
 y 55
-w 125
+w 60
 h 20
+controlPv "$(P)$(R)GevHeartbeatTime"
 fgColor index 25
+fgAlarm
 bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)UserSetSelector"
-indicatorPv "$(P)$(R)UserSetSelector_RBV"
+fill
 font "arial-bold-r-12.0"
-endObjectProperties        
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 55
+w 60
+h 20
+controlPv "$(P)$(R)GevHeartbeatTime_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
@@ -12252,7 +9928,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Loads the User Set specified by UserSetSelector to the device and makes it ,desc1=active. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevTimestampTickFrequency: Indicates the number of timestamp ticks during 1 ,desc1=second (frequency in Hz). ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12272,6 +9948,2366 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
+  "GevTimestampTickFrequency"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)GevTimestampTick"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 80
+w 60
+h 20
+controlPv "$(P)$(R)GevTimestampTick_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 105
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevTimestampControlLatch: Latches current timestamp counter into ,desc1=GevTimestampValue. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 105
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevTimestampControlLatch"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 105
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GevTimestampCont.PROC"
+pressValue "1"
+onLabel "GevTimestampControlLatch"
+offLabel "GevTimestampControlLatch"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevTimestampControlReset: Resets the Timestamp counter to 0. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevTimestampControlReset"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 130
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GevTimestampCon0.PROC"
+pressValue "1"
+onLabel "GevTimestampControlReset"
+offLabel "GevTimestampControlReset"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevTimestampValue: Returns the latched 64-bit value of the timestamp counter. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevTimestampValue"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)GevTimestampValu"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)GevTimestampValu_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevGVCPPendingAck: Enables generation of PENDING_ACK. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevGVCPPendingAck"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)GevGVCPPendingAc"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)GevGVCPPendingAc_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 205
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevGVCPHeartbeatDisable: Disables the GVCP heartbeat. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 205
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevGVCPHeartbeatDisable"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)GevGVCPHeartbeat"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 205
+w 60
+h 20
+controlPv "$(P)$(R)GevGVCPHeartbeat_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 230
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevGVCPPendingTimeout: Indicates the longest GVCP command execution time before ,desc1=a device returns a PENDING_ACK. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 230
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevGVCPPendingTimeout"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)GevGVCPPendingTi"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 230
+w 60
+h 20
+controlPv "$(P)$(R)GevGVCPPendingTi_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 255
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevCCP: Controls the device access privilege of an application. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 255
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevCCP"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 255
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GevCCP"
+indicatorPv "$(P)$(R)GevCCP_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 280
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevPrimaryApplicationSocket: Returns the UDP source port of the primary ,desc1=application. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 280
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevPrimaryApplicationSocket"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 280
+w 60
+h 20
+controlPv "$(P)$(R)GevPrimaryApplic"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 280
+w 60
+h 20
+controlPv "$(P)$(R)GevPrimaryApplic_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 305
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevPrimaryApplicationIPAddress: Returns the address of the primary application. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 305
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevPrimaryApplicationIPAddress"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 305
+w 60
+h 20
+controlPv "$(P)$(R)GevPrimaryAppli0"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 305
+w 60
+h 20
+controlPv "$(P)$(R)GevPrimaryAppli0_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 330
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevMCPHostPort: Indicates the port to which the device must send messages. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 330
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevMCPHostPort"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 330
+w 60
+h 20
+controlPv "$(P)$(R)GevMCPHostPort"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 330
+w 60
+h 20
+controlPv "$(P)$(R)GevMCPHostPort_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 355
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevMCDA: Indicates the destination IP address for the message channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 355
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevMCDA"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 355
+w 60
+h 20
+controlPv "$(P)$(R)GevMCDA"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 355
+w 60
+h 20
+controlPv "$(P)$(R)GevMCDA_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 380
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevMCTT: Provides the transmission timeout value in milliseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 380
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevMCTT"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 380
+w 60
+h 20
+controlPv "$(P)$(R)GevMCTT"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 380
+w 60
+h 20
+controlPv "$(P)$(R)GevMCTT_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 405
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevMCRC: Indicates the number of retransmissions allowed when a message channel ,desc1=message times out. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 405
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevMCRC"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 405
+w 60
+h 20
+controlPv "$(P)$(R)GevMCRC"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 405
+w 60
+h 20
+controlPv "$(P)$(R)GevMCRC_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 430
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevStreamChannelSelector: Selects the stream channel to control. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 430
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevStreamChannelSelector"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 430
+w 60
+h 20
+controlPv "$(P)$(R)GevStreamChanne0"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 430
+w 60
+h 20
+controlPv "$(P)$(R)GevStreamChanne0_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 455
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPInterfaceIndex: Index of network interface to use (from 0 to 3). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 455
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPInterfaceIndex"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 455
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPInterfaceI"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 455
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPInterfaceI_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 480
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPHostPort: Indicates the port to which the device must send data stream. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 480
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPHostPort"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 480
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPHostPort"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 480
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPHostPort_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 505
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPSFireTestPacket: When this feature is set; the device will fire one test ,desc1=packet. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 505
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPSFireTestPacket"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 505
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSFireTestP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 505
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSFireTestP_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 530
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPSDoNotFragment: Can be used by the application to prevent IP fragmentation ,desc1=of packets on the stream channel. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 530
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPSDoNotFragment"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 530
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSDoNotFrag"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 530
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSDoNotFrag_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 555
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPSBigEndian: Endianess of multi-byte pixel data for this stream. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 555
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPSBigEndian"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 555
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSBigEndian"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 555
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSBigEndian_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 580
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPSPacketSize: Specifies the stream packet size in bytes to send on this ,desc1=channel. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 580
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPSPacketSize"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 580
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSPacketSiz"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 580
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPSPacketSiz_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 605
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPD: Indicates the delay (in timestamp counter unit) to insert between each ,desc1=packet for this stream channel. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 605
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCPD"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 605
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPD"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 605
+w 60
+h 20
+controlPv "$(P)$(R)GevSCPD_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 630
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCFTD: This feature indicates the delay (in timestamp counter unit) to insert ,desc1=between each block (image) for this stream channel. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 630
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCFTD"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 630
+w 60
+h 20
+controlPv "$(P)$(R)GevSCFTD"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 630
+w 60
+h 20
+controlPv "$(P)$(R)GevSCFTD_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 655
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCDA: Indicates the destination IP address for this stream channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 655
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevSCDA"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 655
+w 60
+h 20
+controlPv "$(P)$(R)GevSCDA"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 655
+w 60
+h 20
+controlPv "$(P)$(R)GevSCDA_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 680
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevLinkSpeed: This feature indicates the speed of transmission negotiated by the ,desc1=given network interface. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 680
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevLinkSpeed"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1430
+y 680
+w 60
+h 20
+controlPv "$(P)$(R)GevLinkSpeed"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1495
+y 680
+w 60
+h 20
+controlPv "$(P)$(R)GevLinkSpeed_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 705
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevIPConfigurationStatus: This feature reports the current IP configuration ,desc1=status. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 705
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevIPConfigurationStatus"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 705
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GevIPConfigurati"
+indicatorPv "$(P)$(R)GevIPConfigurati_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1305
+y 745
+w 255
+h 105
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1305
+y 735
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  UserSetControl  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 750
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=UserSetSelector: Selects the feature User Set to load; save or configure. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 750
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "UserSetSelector"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 750
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)UserSetSelector"
+indicatorPv "$(P)$(R)UserSetSelector_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 775
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=UserSetLoad: Loads the User Set specified by UserSetSelector to the device and ,desc1=makes it active. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 775
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
   "UserSetLoad"
 }
 endObjectProperties   
@@ -12283,7 +12319,7 @@ major 4
 minor 0
 release 0
 x 1430
-y 80
+y 775
 w 125
 h 20
 fgColor index 25
@@ -12306,7 +12342,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 105
+y 800
 w 10
 h 20
 fgColor index 14
@@ -12327,7 +12363,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Save the User Set specified by UserSetSelector to the non-volatile memory of the ,desc1=device. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserSetSave: Save the User Set specified by UserSetSelector to the non-volatile ,desc1=memory of the device. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12339,7 +12375,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 105
+y 800
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12358,7 +12394,7 @@ major 4
 minor 0
 release 0
 x 1430
-y 105
+y 800
 w 125
 h 20
 fgColor index 25
@@ -12381,7 +12417,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 130
+y 825
 w 10
 h 20
 fgColor index 14
@@ -12402,7 +12438,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the feature User Set to load and make active when the device is reset. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserSetDefaultSelector: Selects the feature User Set to load and make active ,desc1=when the device is reset. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12414,7 +12450,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 130
+y 825
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12433,7 +12469,7 @@ major 4
 minor 0
 release 0
 x 1430
-y 130
+y 825
 w 125
 h 20
 fgColor index 25
@@ -12452,8 +12488,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1305
-y 170
+x 1565
+y 50
 w 255
 h 80
 lineColor index 14
@@ -12467,8 +12503,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1305
-y 160
+x 1565
+y 40
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -12488,8 +12524,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 175
+x 1570
+y 55
 w 10
 h 20
 fgColor index 14
@@ -12510,7 +12546,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Activates the inclusion of Chunk data in the payload of the image. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ChunkModeActive: Activates the inclusion of Chunk data in the payload of the ,desc1=image. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12521,8 +12557,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 175
+x 1580
+y 55
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12540,8 +12576,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 175
+x 1690
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)ChunkModeActive"
@@ -12558,8 +12594,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 175
+x 1755
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)ChunkModeActive_RBV"
@@ -12577,8 +12613,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 200
+x 1570
+y 80
 w 10
 h 20
 fgColor index 14
@@ -12599,7 +12635,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This enumeration selects the chunk to configure. Once a chunk has been selected; ,desc1=all changes to the chunk settings will be applied to the selected chunk. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ChunkSelector: This enumeration selects the chunk to configure. Once a chunk has ,desc1=been selected; all changes to the chunk settings will be applied to the selected ,desc2=chunk. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12610,8 +12646,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 200
+x 1580
+y 80
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12629,8 +12665,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1430
-y 200
+x 1690
+y 80
 w 125
 h 20
 fgColor index 25
@@ -12649,8 +12685,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 225
+x 1570
+y 105
 w 10
 h 20
 fgColor index 14
@@ -12671,7 +12707,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Enables the inclusion of the selected Chunk data in the payload of the image. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ChunkEnable: Enables the inclusion of the selected Chunk data in the payload of ,desc1=the image. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12682,8 +12718,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 225
+x 1580
+y 105
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12701,8 +12737,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 225
+x 1690
+y 105
 w 60
 h 20
 controlPv "$(P)$(R)ChunkEnable"
@@ -12719,8 +12755,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 225
+x 1755
+y 105
 w 60
 h 20
 controlPv "$(P)$(R)ChunkEnable_RBV"
@@ -12738,8 +12774,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1305
-y 265
+x 1565
+y 145
 w 255
 h 105
 lineColor index 14
@@ -12753,8 +12789,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1305
-y 255
+x 1565
+y 135
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -12774,8 +12810,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 270
+x 1570
+y 150
 w 10
 h 20
 fgColor index 14
@@ -12796,7 +12832,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Provides the device key that allows the device to check the validity of action ,desc1=commands. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ActionDeviceKey: Provides the device key that allows the device to check the ,desc1=validity of action commands. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12807,8 +12843,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 270
+x 1580
+y 150
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12826,8 +12862,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 270
+x 1690
+y 150
 w 60
 h 20
 controlPv "$(P)$(R)ActionDeviceKey"
@@ -12844,8 +12880,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 270
+x 1755
+y 150
 w 60
 h 20
 controlPv "$(P)$(R)ActionDeviceKey_RBV"
@@ -12863,8 +12899,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 295
+x 1570
+y 175
 w 10
 h 20
 fgColor index 14
@@ -12885,7 +12921,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects to which Action Signal further Action settings apply. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ActionSelector: Selects to which Action Signal further Action settings apply. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12896,8 +12932,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 295
+x 1580
+y 175
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12915,8 +12951,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 295
+x 1690
+y 175
 w 60
 h 20
 controlPv "$(P)$(R)ActionSelector"
@@ -12933,8 +12969,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 295
+x 1755
+y 175
 w 60
 h 20
 controlPv "$(P)$(R)ActionSelector_RBV"
@@ -12952,8 +12988,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 320
+x 1570
+y 200
 w 10
 h 20
 fgColor index 14
@@ -12974,7 +13010,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Provides the mask that the device will use to validate the action on reception ,desc1=of the action protocol message. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ActionGroupMask: Provides the mask that the device will use to validate the ,desc1=action on reception of the action protocol message. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12985,8 +13021,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 320
+x 1580
+y 200
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13004,8 +13040,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 320
+x 1690
+y 200
 w 60
 h 20
 controlPv "$(P)$(R)ActionGroupMask"
@@ -13022,8 +13058,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 320
+x 1755
+y 200
 w 60
 h 20
 controlPv "$(P)$(R)ActionGroupMask_RBV"
@@ -13041,8 +13077,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 345
+x 1570
+y 225
 w 10
 h 20
 fgColor index 14
@@ -13063,7 +13099,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Provides the key that the device will use to validate the action on reception of ,desc1=the action protocol message. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ActionGroupKey: Provides the key that the device will use to validate the action ,desc1=on reception of the action protocol message. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -13074,8 +13110,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 345
+x 1580
+y 225
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13093,8 +13129,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 345
+x 1690
+y 225
 w 60
 h 20
 controlPv "$(P)$(R)ActionGroupKey"
@@ -13111,8 +13147,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 345
+x 1755
+y 225
 w 60
 h 20
 controlPv "$(P)$(R)ActionGroupKey_RBV"
@@ -13130,8 +13166,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1465
-y 1515
+x 1725
+y 840
 w 95
 h 25
 fgColor index 46

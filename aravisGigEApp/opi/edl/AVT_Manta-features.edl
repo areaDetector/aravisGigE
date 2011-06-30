@@ -190,7 +190,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=FirmwareVerMajor ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FirmwareVerMajor: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -279,7 +279,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=FirmwareVerMinor ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FirmwareVerMinor: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -368,7 +368,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=FirmwareVerBuild ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FirmwareVerBuild: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -457,7 +457,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Type of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SensorType: Type of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -529,7 +529,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum bit depth of sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SensorBits: Maximum bit depth of sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -618,7 +618,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=DeviceVendorName ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceVendorName: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -689,7 +689,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Camera model name. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceModelName: Camera model name. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -760,7 +760,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Firmware version of this AVT GigE camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceFirmwareVersion: Firmware version of this AVT GigE camera. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -831,7 +831,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Serial number. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceID: Serial number. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -902,7 +902,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Device part number. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DevicePartNumber: Device part number. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -973,7 +973,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=DeviceScanType ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DeviceScanType: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1081,7 +1081,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Bandwidth allocation: the camera will consume up to this bandwidth; in bytes per ,desc1=second. You must set this value if multiple cameras share the same ethernet ,desc2=adapter; otherwise data will be lost. The sum of all StreamBytesPerSecond values ,desc3=of all cameras must not exceed the available bandwidth. ,desc4='',desc5=''"
+  0 "desc0=StreamBytesPerSecond: Bandwidth allocation: the camera will consume up to this ,desc1=bandwidth; in bytes per second. You must set this value if multiple cameras ,desc2=share the same ethernet adapter; otherwise data will be lost. The sum of all ,desc3=StreamBytesPerSecond values of all cameras must not exceed the available ,desc4=bandwidth. ,desc5=''"
 }
 endObjectProperties                
 
@@ -1170,7 +1170,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Bandwidth allocation can be controlled by StreamBytesPerSecond; or by register ,desc1=SCPD0. If you do not understand SCPD0 and how this driver uses this register; ,desc2=leave this set to \"StreamBytesPerSecond\". ,desc3='',desc4='',desc5=''"
+  0 "desc0=BandwidthControlMode: Bandwidth allocation can be controlled by ,desc1=StreamBytesPerSecond; or by register SCPD0. If you do not understand SCPD0 and ,desc2=how this driver uses this register; leave this set to \"StreamBytesPerSecond\". ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1242,7 +1242,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=GevSCPSPacketSize ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevSCPSPacketSize: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1367,7 +1367,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Control on-camera image storage; this control is like a \"pause\" button for the ,desc1=image stream. When enabled; images remain stored on the camera; and are not ,desc2=transmitted to the host. When disabled; the image stream resumes; and any stored ,desc3=images are sent to the host. ,desc4='',desc5=''"
+  0 "desc0=StreamHoldEnable: Control on-camera image storage; this control is like a ,desc1=\"pause\" button for the image stream. When enabled; images remain stored on the ,desc2=camera; and are not transmitted to the host. When disabled; the image stream ,desc3=resumes; and any stored images are sent to the host. ,desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1439,7 +1439,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum number of images (for the current size and format) which can be stored ,desc1=on the camera when StreamHold is enabled. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=StreamHoldCapacity: Maximum number of images (for the current size and format) ,desc1=which can be stored on the camera when StreamHold is enabled. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1564,7 +1564,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Frequency of image timestamp; in Hertz. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevTimestampTickFrequency: Frequency of image timestamp; in Hertz. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1653,7 +1653,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Capture timestamp and store in GevTimestampValue. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevTimestampControlLatch: Capture timestamp and store in GevTimestampValue. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1728,7 +1728,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Reset the timestamp. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevTimestampControlReset: Reset the timestamp. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1803,7 +1803,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Value of timestamp; when latched by GevTimestampControlLatch. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GevTimestampValue: Value of timestamp; when latched by GevTimestampControlLatch. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -1928,7 +1928,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Start acquisition. Before image acquisition can occur; acquisition must be ,desc1=started; either by a hardware trigger or this software command. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionStart: Start acquisition. Before image acquisition can occur; ,desc1=acquisition must be started; either by a hardware trigger or this software ,desc2=command. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2003,7 +2003,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Stop acquisition. Acquisition will stop after acquisition of the current frame ,desc1=is complete. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionStop: Stop acquisition. Acquisition will stop after acquisition of ,desc1=the current frame is complete. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2078,7 +2078,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Abort acquisition. Acquisition will stop immediately; but a partially ,desc1=transferred image will be completed. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionAbort: Abort acquisition. Acquisition will stop immediately; but a ,desc1=partially transferred image will be completed. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2153,7 +2153,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=The acquisition mode determines the behavior of the camera when acquisition ,desc1=start is triggered. \"Continuous\" mode: the camera will acquire images until ,desc2=acquisition stop is triggered. \"SingleFrame\" mode: the camera will acquire a ,desc3=single image. \"MultiFrame\" mode: the camera will acquire the number of images ,desc4=specified by AcquisitionFrameCount. \"Recorder\" mode: the camera will run ,desc5=continuously; and when the recorder event is triggered; send pre-trigger and "
+  0 "desc0=AcquisitionMode: The acquisition mode determines the behavior of the camera when ,desc1=acquisition start is triggered. \"Continuous\" mode: the camera will acquire ,desc2=images until acquisition stop is triggered. \"SingleFrame\" mode: the camera will ,desc3=acquire a single image. \"MultiFrame\" mode: the camera will acquire the number of ,desc4=images specified by AcquisitionFrameCount. \"Recorder\" mode: the camera will run ,desc5=continuously; and when the recorder event is triggered; send pre-trigger and "
 }
 endObjectProperties                
 
@@ -2225,7 +2225,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the number of images to acquire when in MultiFrame and Recorder ,desc1=acquisition modes. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionFrameCount: This is the number of images to acquire when in ,desc1=MultiFrame and Recorder acquisition modes. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2314,7 +2314,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Frame rate; in frames per second. This is applicable when either the FrameStart ,desc1=trigger mode is disabled; or the FrameStart trigger source is FixedRate. ,desc2=Depending on the exposure duration; the camera may not achieve the frame rate ,desc3=set here. ,desc4='',desc5=''"
+  0 "desc0=AcquisitionFrameRateAbs: Frame rate; in frames per second. This is applicable ,desc1=when either the FrameStart trigger mode is disabled; or the FrameStart trigger ,desc2=source is FixedRate. Depending on the exposure duration; the camera may not ,desc3=achieve the frame rate set here. ,desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2403,7 +2403,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the maximum frame rate possible for the current exposure duration and ,desc1=image format. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionFrameRateLimit: This is the maximum frame rate possible for the ,desc1=current exposure duration and image format. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2492,7 +2492,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the number of pre-event images to acquire in the Recorder acquisition ,desc1=mode. This must be less than or equal to AcquisitionFrameCount. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=RecorderPreEventCount: This is the number of pre-event images to acquire in the ,desc1=Recorder acquisition mode. This must be less than or equal to ,desc2=AcquisitionFrameCount. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2617,7 +2617,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Select a trigger here; then use the controls \{TriggerMode; TriggerSoftware; ,desc1=TriggerSource; TriggerActivation; TriggerOverlap; TriggerDelayAbs\} to setup and ,desc2=read the trigger attributes. FrameStart is the trigger which starts each image ,desc3=(when acquisition is running). AcquisitionStart is the trigger which starts the ,desc4=acquisition process. ,desc5=''"
+  0 "desc0=TriggerSelector: Select a trigger here; then use the controls \{TriggerMode; ,desc1=TriggerSoftware; TriggerSource; TriggerActivation; TriggerOverlap; ,desc2=TriggerDelayAbs\} to setup and read the trigger attributes. FrameStart is the ,desc3=trigger which starts each image (when acquisition is running). AcquisitionStart ,desc4=is the trigger which starts the acquisition process. ,desc5=''"
 }
 endObjectProperties                
 
@@ -2689,7 +2689,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Enable or disable this trigger. Note: when the FrameStart trigger is disabled; ,desc1=images are triggered at a fixed rate specified by AcquisitionFrameRateAbs. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerMode: Enable or disable this trigger. Note: when the FrameStart trigger ,desc1=is disabled; images are triggered at a fixed rate specified by ,desc2=AcquisitionFrameRateAbs. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2761,7 +2761,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This software command effects a trigger. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerSoftware: This software command effects a trigger. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2836,7 +2836,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Source of trigger; when TriggerMode is On. This might be an hardware trigger; a ,desc1=fixed rate generator; or software trigger only. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerSource: Source of trigger; when TriggerMode is On. This might be an ,desc1=hardware trigger; a fixed rate generator; or software trigger only. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2908,7 +2908,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Type of activation; for hardware triggers. This controls edge/level and polarity ,desc1=sensitivities. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerActivation: Type of activation; for hardware triggers. This controls ,desc1=edge/level and polarity sensitivities. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -2980,7 +2980,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Permitted window of trigger activation; relative to previous frame. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerOverlap: Permitted window of trigger activation; relative to previous ,desc1=frame. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3052,7 +3052,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Delay from hardware trigger activation to trigger effect; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TriggerDelayAbs: Delay from hardware trigger activation to trigger effect; in ,desc1=microseconds. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3177,7 +3177,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Full width of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SensorWidth: Full width of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3266,7 +3266,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Full height of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SensorHeight: Full height of image sensor. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3355,7 +3355,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Binning in horizontal direction. Binning is the summing of charge of adjacent ,desc1=pixels. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BinningHorizontal: Binning in horizontal direction. Binning is the summing of ,desc1=charge of adjacent pixels. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3444,7 +3444,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Binning in vertical direction. Binning is the summing of charge of adjacent ,desc1=pixels. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BinningVertical: Binning in vertical direction. Binning is the summing of charge ,desc1=of adjacent pixels. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3569,7 +3569,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum image width for the current image mode. Horizontal binning; for example; ,desc1=will change this value. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=WidthMax: Maximum image width for the current image mode. Horizontal binning; ,desc1=for example; will change this value. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3658,7 +3658,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum image height for the current image mode. Vertical binning; for example; ,desc1=will change this value. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=HeightMax: Maximum image height for the current image mode. Vertical binning; ,desc1=for example; will change this value. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3747,7 +3747,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Format of the image data. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PixelFormat: Format of the image data. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3819,7 +3819,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Width of image; in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Width: Width of image; in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3908,7 +3908,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Height of image; in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Height: Height of image; in pixels. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -3997,7 +3997,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Starting column of the readout region (relative to the first column of the ,desc1=sensor) in pixels. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=OffsetX: Starting column of the readout region (relative to the first column of ,desc1=the sensor) in pixels. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4086,7 +4086,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Starting row of the readout region (relative to the first row of the sensor) in ,desc1=pixels. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=OffsetY: Starting row of the readout region (relative to the first row of the ,desc1=sensor) in pixels. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4175,7 +4175,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Size of images; in bytes; for the current format and size. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PayloadSize: Size of images; in bytes; for the current format and size. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4300,7 +4300,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Applies gamma value to the raw sensor signal (via LUT). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Gamma: Applies gamma value to the raw sensor signal (via LUT). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4389,7 +4389,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Hue turns the color vectors in the U/V plane. It's 1 degree per step. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Hue: Hue turns the color vectors in the U/V plane. It's 1 degree per step. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4478,7 +4478,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Saturation puts gain to the color vectors in the U/V plane. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Saturation: Saturation puts gain to the color vectors in the U/V plane. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4567,7 +4567,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=EdgeFilter applies a spacial filter to the Y signal. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EdgeFilter: EdgeFilter applies a spacial filter to the Y signal. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4675,7 +4675,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=The DSP subregion is the area of the image used for measurements in \"auto-\" ,desc1=functions such as auto-exposure and auto-gain. DSPSubregionLeft is the left ,desc2=column; relative to the current image region. ,desc3='',desc4='',desc5=''"
+  0 "desc0=DSPSubregionLeft: The DSP subregion is the area of the image used for ,desc1=measurements in \"auto-\" functions such as auto-exposure and auto-gain. ,desc2=DSPSubregionLeft is the left column; relative to the current image region. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4764,7 +4764,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=The DSP subregion is the area of the image used for measurements in \"auto-\" ,desc1=functions such as auto-exposure and auto-gain. DSPSubregionLeft is the top row; ,desc2=relative to the current image region. ,desc3='',desc4='',desc5=''"
+  0 "desc0=DSPSubregionTop: The DSP subregion is the area of the image used for ,desc1=measurements in \"auto-\" functions such as auto-exposure and auto-gain. ,desc2=DSPSubregionLeft is the top row; relative to the current image region. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4853,7 +4853,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=The DSP subregion is the area of the image used for measurements in \"auto-\" ,desc1=functions such as auto-exposure and auto-gain. DSPSubregionLeft is the right ,desc2=column; relative to the current image region. For convenience; this value may be ,desc3=higher than the maximum Width. ,desc4='',desc5=''"
+  0 "desc0=DSPSubregionRight: The DSP subregion is the area of the image used for ,desc1=measurements in \"auto-\" functions such as auto-exposure and auto-gain. ,desc2=DSPSubregionLeft is the right column; relative to the current image region. For ,desc3=convenience; this value may be higher than the maximum Width. ,desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -4942,7 +4942,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=The DSP subregion is the area of the image used for measurements in \"auto-\" ,desc1=functions such as auto-exposure and auto-gain. DSPSubregionLeft is the bottom ,desc2=row; relative to the current image region. For convenience; this value may be ,desc3=higher than the maximum Height. ,desc4='',desc5=''"
+  0 "desc0=DSPSubregionBottom: The DSP subregion is the area of the image used for ,desc1=measurements in \"auto-\" functions such as auto-exposure and auto-gain. ,desc2=DSPSubregionLeft is the bottom row; relative to the current image region. For ,desc3=convenience; this value may be higher than the maximum Height. ,desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5067,7 +5067,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Method of control for exposure duration. Timed mode: exposure duration is set by ,desc1=ExposureTimeAbs. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureMode: Method of control for exposure duration. Timed mode: exposure ,desc1=duration is set by ExposureTimeAbs. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5139,7 +5139,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Exposure duration; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureTimeAbs: Exposure duration; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5228,7 +5228,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-exposure occurs ,desc1=until target is achieved; then ExposureAuto returns to Off. Continuous: ,desc2=auto-exposure always runs. ,desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAuto: Automatic exposure mode. Off: automatic mode is off. Once: ,desc1=auto-exposure occurs until target is achieved; then ExposureAuto returns to Off. ,desc2=Continuous: auto-exposure always runs. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5336,7 +5336,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=When ExposureAutoAlg is Mean; this is the target image mean value; in percent. ,desc1=Higher values result in brighter images. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAutoTarget: When ExposureAutoAlg is Mean; this is the target image mean ,desc1=value; in percent. Higher values result in brighter images. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5425,7 +5425,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Algorithm used for auto-exposure. Mean: target a particular mean value of all ,desc1=measured pixels in the image. FitRange: adjust the maximum pixel value to fit ,desc2=the sensor range. ,desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAutoAlg: Algorithm used for auto-exposure. Mean: target a particular ,desc1=mean value of all measured pixels in the image. FitRange: adjust the maximum ,desc2=pixel value to fit the sensor range. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5497,7 +5497,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Minimum auto-exposure value; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAutoMin: Minimum auto-exposure value; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5586,7 +5586,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum auto-exposure value; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAutoMax: Maximum auto-exposure value; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5675,7 +5675,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Rate of exposure adjustments; from 1 (slowest) to 100 (fastest). Use this ,desc1=control to slow down the auto-exposure adjustments. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAutoRate: Rate of exposure adjustments; from 1 (slowest) to 100 ,desc1=(fastest). Use this control to slow down the auto-exposure adjustments. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5764,7 +5764,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Number of upper outliers to discard before calculating exposure adjustments. ,desc1=This is in ten-thousandths of the number pixels in the image. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAutoOutliers: Number of upper outliers to discard before calculating ,desc1=exposure adjustments. This is in ten-thousandths of the number pixels in the ,desc2=image. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5853,7 +5853,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Tolerance; in percent; allowed from the ideal exposure value; within which the ,desc1=auto-exposure does not run. This prevents needless small adjustments from ,desc2=occurring each image. ,desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureAutoAdjustTol: Tolerance; in percent; allowed from the ideal exposure ,desc1=value; within which the auto-exposure does not run. This prevents needless small ,desc2=adjustments from occurring each image. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -5978,7 +5978,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=(GenICam boilerplate. Always All.) ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainSelector: (GenICam boilerplate. Always All.) ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6050,7 +6050,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Gain value of analog A/D stage. Units are usually in dB. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=Gain: Gain value of analog A/D stage. Units are usually in dB. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6139,7 +6139,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Automatic exposure mode. Off: automatic mode is off. Once: auto-gain occurs ,desc1=until target is achieved; then GainAuto returns to Off. Continuous: auto-gain ,desc2=always runs. ,desc3='',desc4='',desc5=''"
+  0 "desc0=GainAuto: Automatic exposure mode. Off: automatic mode is off. Once: auto-gain ,desc1=occurs until target is achieved; then GainAuto returns to Off. Continuous: ,desc2=auto-gain always runs. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6247,7 +6247,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the target image mean value; in percent. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainAutoTarget: This is the target image mean value; in percent. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6336,7 +6336,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Minimum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainAutoMin: Minimum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6425,7 +6425,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainAutoMax: Maximum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6514,7 +6514,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Rate of gain adjustments; from 1 (slowest) to 100 (fastest). Use this control to ,desc1=slow down the auto-gain adjustments. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainAutoRate: Rate of gain adjustments; from 1 (slowest) to 100 (fastest). Use ,desc1=this control to slow down the auto-gain adjustments. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6603,7 +6603,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Number of upper outliers to discard before calculating gain adjustments. This is ,desc1=in ten-thousandths of the number pixels in the image. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainAutoOutliers: Number of upper outliers to discard before calculating gain ,desc1=adjustments. This is in ten-thousandths of the number pixels in the image. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6692,7 +6692,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Tolerance; in percent; allowed from the ideal gain value; within which the ,desc1=auto-gain does not run. This prevents needless small adjustments from occurring ,desc2=each image. ,desc3='',desc4='',desc5=''"
+  0 "desc0=GainAutoAdjustTol: Tolerance; in percent; allowed from the ideal gain value; ,desc1=within which the auto-gain does not run. This prevents needless small ,desc2=adjustments from occurring each image. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6817,7 +6817,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which Black Level is controlled by the various Black Level features. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BlackLevelSelector: Selects which Black Level is controlled by the various Black ,desc1=Level features. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -6889,7 +6889,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Black level (offset) value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BlackLevel: Black level (offset) value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7014,7 +7014,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Select the Red or Blue channel to adjust with BalanceRatioAbs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BalanceRatioSelector: Select the Red or Blue channel to adjust with ,desc1=BalanceRatioAbs. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7086,7 +7086,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Adjust the gain of the red or blue channel (see BalanceRatioSelector). The green ,desc1=channel gain is always 1.00. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BalanceRatioAbs: Adjust the gain of the red or blue channel (see ,desc1=BalanceRatioSelector). The green channel gain is always 1.00. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7175,7 +7175,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Automatic whitebalance mode. Off: automatic mode is off. Once: auto-whitebalance ,desc1=occurs until target is achieved; then BalanceWhiteAuto returns to Off. ,desc2=Continuous: auto-whitebalance always runs. ,desc3='',desc4='',desc5=''"
+  0 "desc0=BalanceWhiteAuto: Automatic whitebalance mode. Off: automatic mode is off. Once: ,desc1=auto-whitebalance occurs until target is achieved; then BalanceWhiteAuto returns ,desc2=to Off. Continuous: auto-whitebalance always runs. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7283,7 +7283,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Rate of white balance adjustments; from 1 (slowest) to 100 (fastest). Use this ,desc1=control to slow down the auto-whitebalance adjustments. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=BalanceWhiteAutoRate: Rate of white balance adjustments; from 1 (slowest) to 100 ,desc1=(fastest). Use this control to slow down the auto-whitebalance adjustments. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7372,7 +7372,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Tolerance; in percent; allowed from the ideal whitebalance values; within which ,desc1=the auto-whitebalance does not run. This prevents needless small adjustments ,desc2=from occurring each image. ,desc3='',desc4='',desc5=''"
+  0 "desc0=BalanceWhiteAutoAdjustTol: Tolerance; in percent; allowed from the ideal ,desc1=whitebalance values; within which the auto-whitebalance does not run. This ,desc2=prevents needless small adjustments from occurring each image. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7497,7 +7497,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Set the iris mode. Disabled: no iris control. Video: enable video iris. ,desc1=VideoOpen: fully open a video iris. VideoClose: fully close a video iris. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=IrisMode: Set the iris mode. Disabled: no iris control. Video: enable video ,desc1=iris. VideoOpen: fully open a video iris. VideoClose: fully close a video iris. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7569,7 +7569,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=This is the target image mean value; in percent. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=IrisAutoTarget: This is the target image mean value; in percent. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7658,7 +7658,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Current video-iris level; in approximately mV pp; read only. When calibrating a ,desc1=video lens; this value should fall between IrisVideoLevelMin and ,desc2=IrisVideoLevelMax. ,desc3='',desc4='',desc5=''"
+  0 "desc0=IrisVideoLevel: Current video-iris level; in approximately mV pp; read only. ,desc1=When calibrating a video lens; this value should fall between IrisVideoLevelMin ,desc2=and IrisVideoLevelMax. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7747,7 +7747,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Minimum video iris level output by the camera; in approximately mV pp. A higher ,desc1=minimum value slows the adjustment time but prevents excessive overshoot. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=IrisVideoLevelMin: Minimum video iris level output by the camera; in ,desc1=approximately mV pp. A higher minimum value slows the adjustment time but ,desc2=prevents excessive overshoot. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7836,7 +7836,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum video iris level output by the camera; in approximately mV pp. A lower ,desc1=minimum value slows the adjustment time but prevents excessive overshoot. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=IrisVideoLevelMax: Maximum video iris level output by the camera; in ,desc1=approximately mV pp. A lower minimum value slows the adjustment time but ,desc2=prevents excessive overshoot. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -7961,7 +7961,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Enable masking of defective columns. Defective columns are detected and recorded ,desc1=at the factory. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectMaskColumnEnable: Enable masking of defective columns. Defective columns ,desc1=are detected and recorded at the factory. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8033,7 +8033,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Enable masking of defective pixels. Defective pixels are detected and recorded ,desc1=at the factory. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=DefectMaskPixelEnable: Enable masking of defective pixels. Defective pixels are ,desc1=detected and recorded at the factory. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8141,7 +8141,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Substrate voltage in mV. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=VsubValue: Substrate voltage in mV. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8266,7 +8266,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Lens power supply voltage in mV. See LensVoltageControl feature to set value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LensVoltage: Lens power supply voltage in mV. See LensVoltageControl feature to ,desc1=set value. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8355,7 +8355,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Lens power supply voltage control. Set value as mV * 100001. If a bad value is ,desc1=written; this control resets to zero. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LensVoltageControl: Lens power supply voltage control. Set value as mV * 100001. ,desc1=If a bad value is written; this control resets to zero. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8444,7 +8444,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Lens drive command. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LensDriveCommand: Lens drive command. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8516,7 +8516,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Duration of timed lens commands; in milliseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=LensDriveDuration: Duration of timed lens commands; in milliseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8641,7 +8641,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects which Color Transformation module is controlled by the various Color ,desc1=Transformation features. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ColorTransformationSelector: Selects which Color Transformation module is ,desc1=controlled by the various Color Transformation features. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8713,7 +8713,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the mode for the color transformation. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ColorTransformationMode: Selects the mode for the color transformation. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8785,7 +8785,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Selects the Gain factor or Offset of the Transformation matrix to access in the ,desc1=selected Color Transformation module. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ColorTransformationValueSelector: Selects the Gain factor or Offset of the ,desc1=Transformation matrix to access in the selected Color Transformation module. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8857,7 +8857,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Represents the value of the selected Gain factor or Offset inside the ,desc1=Transformation matrix. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ColorTransformationValue: Represents the value of the selected Gain factor or ,desc1=Offset inside the Transformation matrix. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -8982,7 +8982,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=TestPicture ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TestPicture: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9107,7 +9107,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Momentary logic levels of the hardware line inputs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SyncInLevels: Momentary logic levels of the hardware line inputs. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9232,7 +9232,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Output levels of hardware sync outputs; for output(s) in GPO mode. (Note: ,desc1=SyncOutPolarity can invert these values.) ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SyncOutLevels: Output levels of hardware sync outputs; for output(s) in GPO ,desc1=mode. (Note: SyncOutPolarity can invert these values.) ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9321,7 +9321,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Select the sync-out line to control with \{SyncOutSource; SyncOutPolarity\}. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SyncOutSelector: Select the sync-out line to control with \{SyncOutSource; ,desc1=SyncOutPolarity\}. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9393,7 +9393,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Signal source of the sync-out line specified by SyncOutSelector. GPO: general ,desc1=purpose output. AcquisitionTriggerReady: acquisition trigger may occur. ,desc2=FrameTriggerReady: frame trigger may occur. Exposing: exposure in progress. ,desc3=FrameReadout: image readout in progress. Imaging: exposure or frame readout in ,desc4=progress. Acquiring: acquisition is running. LineIn: external line input. ,desc5=Strobe: source is strobe timing unit. "
+  0 "desc0=SyncOutSource: Signal source of the sync-out line specified by SyncOutSelector. ,desc1=GPO: general purpose output. AcquisitionTriggerReady: acquisition trigger may ,desc2=occur. FrameTriggerReady: frame trigger may occur. Exposing: exposure in ,desc3=progress. FrameReadout: image readout in progress. Imaging: exposure or frame ,desc4=readout in progress. Acquiring: acquisition is running. LineIn: external line ,desc5=input. Strobe: source is strobe timing unit. "
 }
 endObjectProperties                
 
@@ -9465,7 +9465,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Polarity applied to the sync-out line specified by SyncOutSelector. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=SyncOutPolarity: Polarity applied to the sync-out line specified by ,desc1=SyncOutSelector. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9573,7 +9573,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Signal source of the strobe timing unit. See SyncOutSource for descriptions. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=StrobeSource: Signal source of the strobe timing unit. See SyncOutSource for ,desc1=descriptions. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9645,7 +9645,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Mode of the strobe timing unit. Source: strobe duration is the same as source ,desc1=duration. Controlled: strobe duration is set by StrobeDuration. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=StrobeDurationMode: Mode of the strobe timing unit. Source: strobe duration is ,desc1=the same as source duration. Controlled: strobe duration is set by ,desc2=StrobeDuration. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9717,7 +9717,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Delay from strobe trigger to strobe output; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=StrobeDelay: Delay from strobe trigger to strobe output; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9806,7 +9806,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Duration of strobe; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=StrobeDuration: Duration of strobe; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -9931,7 +9931,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Activate event-notification on the GigE Vision message channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventSelector: Activate event-notification on the GigE Vision message channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10003,7 +10003,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Activate event-notification on the GigE Vision message channel. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventNotification: Activate event-notification on the GigE Vision message ,desc1=channel. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10075,7 +10075,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Activate event-notification on the GigE Vision message channel. For programmers. ,desc1=See register documentation. ,desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventsEnable1: Activate event-notification on the GigE Vision message channel. ,desc1=For programmers. See register documentation. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10200,7 +10200,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventAcquisitionStart: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10289,7 +10289,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventAcquisitionEnd: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10378,7 +10378,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventFrameTrigger: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10467,7 +10467,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventExposureEnd: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10556,7 +10556,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventAcquisitionRecordTrigger: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10645,7 +10645,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine1RisingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10734,7 +10734,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine1FallingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10823,7 +10823,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine2RisingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -10912,7 +10912,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine2FallingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11001,7 +11001,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine3RisingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11090,7 +11090,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine3FallingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11179,7 +11179,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine4RisingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11268,7 +11268,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=EventLine4FallingEdge: ID value of event. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11357,7 +11357,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of overflow event. The overflow event occurs when one or more ,desc1=notification events are lost on the camera. If you use the message channel for ,desc2=event notification; you are always subscribed to this event. ,desc3='',desc4='',desc5=''"
+  0 "desc0=EventOverflow: ID value of overflow event. The overflow event occurs when one or ,desc1=more notification events are lost on the camera. If you use the message channel ,desc2=for event notification; you are always subscribed to this event. ,desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11446,7 +11446,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ID value of error event. The error event occurs if there is a problem on the ,desc1=camera; this event should be reported to technical support. If you use the ,desc2=message channel for event notification; you are always subscribed to this event. ,desc3='',desc4='',desc5=''"
+  0 "desc0=EventError: ID value of error event. The error event occurs if there is a ,desc1=problem on the camera; this event should be reported to technical support. If ,desc2=you use the message channel for event notification; you are always subscribed to ,desc3=this event. ,desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11571,7 +11571,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Select a user set; for loading or saving camera parameters. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserSetSelector: Select a user set; for loading or saving camera parameters. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11643,7 +11643,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Load camera parameters from the user set specified by UserSetSelector. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserSetLoad: Load camera parameters from the user set specified by ,desc1=UserSetSelector. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11718,7 +11718,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Save camera parameters to the user set specified by UserSetSelector. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserSetSave: Save camera parameters to the user set specified by ,desc1=UserSetSelector. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11793,7 +11793,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=On power-up or reset; this user set is loaded. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=UserSetDefaultSelector: On power-up or reset; this user set is loaded. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11901,7 +11901,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=PvDummyTriggerSelector ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PvDummyTriggerSelector: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -11973,7 +11973,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=PvDummyFrameStartTriggerMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PvDummyFrameStartTriggerMode: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12045,7 +12045,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=PvDummyTriggerMode ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PvDummyTriggerMode: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12117,7 +12117,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=FrameStartTriggerDelay ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=FrameStartTriggerDelay: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12206,7 +12206,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Exposure duration; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ExposureValue: Exposure duration; in microseconds. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12295,7 +12295,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Low-word value of timestamp; when latched by GevTimestampControlLatch. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TimeStampValueLo: Low-word value of timestamp; when latched by ,desc1=GevTimestampControlLatch. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12384,7 +12384,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=High-word value of timestamp; when latched by GevTimestampControlLatch. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=TimeStampValueHi: High-word value of timestamp; when latched by ,desc1=GevTimestampControlLatch. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12473,7 +12473,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=WhitebalValueRed ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=WhitebalValueRed: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12562,7 +12562,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=WhitebalValueBlue ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=WhitebalValueBlue: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12651,7 +12651,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=ModelName ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=ModelName: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12722,7 +12722,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Gain value of analog A/D stage. Units are usually in dB. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=GainValue: Gain value of analog A/D stage. Units are usually in dB. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12811,7 +12811,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Minimum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PvGainAutoMin: Minimum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12900,7 +12900,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Maximum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=PvGainAutoMax: Maximum auto-gain value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -12989,7 +12989,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=Black level (offset) value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+  0 "desc0=OffsetValue: Black level (offset) value. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
