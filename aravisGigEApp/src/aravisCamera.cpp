@@ -61,6 +61,9 @@ struct pix_lookup {
     ArvPixelFormat fmt;
     int colorMode, dataType, bayerFormat;
 };
+
+#define ARV_PIXEL_FORMAT_MONO_14 (ArvPixelFormat) (0x1100025)
+
 static const struct pix_lookup pix_lookup[] = {
     { ARV_PIXEL_FORMAT_MONO_8,        NDColorModeMono,  NDUInt8,  0           },
     { ARV_PIXEL_FORMAT_RGB_8_PACKED,  NDColorModeRGB1,  NDUInt8,  0           },
@@ -70,6 +73,7 @@ static const struct pix_lookup pix_lookup[] = {
     { ARV_PIXEL_FORMAT_BAYER_BG_8,    NDColorModeBayer, NDUInt8,  NDBayerBGGR },
 // For Int16, use Mono16 if available, otherwise Mono12
     { ARV_PIXEL_FORMAT_MONO_16,       NDColorModeMono,  NDUInt16, 0           },
+    { ARV_PIXEL_FORMAT_MONO_14,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_MONO_12,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_MONO_10,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_RGB_12_PACKED, NDColorModeRGB1,  NDUInt16, 0           },
@@ -83,8 +87,7 @@ static const struct pix_lookup pix_lookup[] = {
 /* Define to add feature if available */
 #define tryAddFeature(ADIdx, featureString) \
 	feature = arv_device_get_feature(this->device, featureString); \
-    if (feature != NULL && arv_gc_node_is_available(feature)) { \
-    	g_print("Adding feature %s\n", featureString); \
+	if (feature != NULL && arv_gc_node_is_available(feature) && ! ARV_IS_GC_CATEGORY(feature)) { \
     	g_hash_table_insert(this->featureLookup, (gpointer)(&ADIdx), (gpointer)featureString); \
     }
 
@@ -114,6 +117,7 @@ protected:
     #define FIRST_ARAVIS_CAMERA_PARAM AravisCompleted
     int AravisFailures;
     int AravisUnderruns;
+    int AravisLeftShift;
     int AravisReset;
     #define LAST_ARAVIS_CAMERA_PARAM AravisReset
     int features[NFEATURES];
@@ -236,6 +240,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     createParam("ARAVIS_COMPLETED",      asynParamFloat64, &AravisCompleted);
     createParam("ARAVIS_FAILURES",       asynParamFloat64, &AravisFailures);
     createParam("ARAVIS_UNDERRUNS",      asynParamFloat64, &AravisUnderruns);
+    createParam("ARAVIS_LEFTSHIFT",      asynParamInt32,   &AravisLeftShift);
     createParam("ARAVIS_RESET",          asynParamInt32,   &AravisReset);
 
     /* Set some initial values for other parameters */
@@ -246,6 +251,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     setDoubleParam(AravisCompleted, 0);
     setDoubleParam(AravisFailures, 0);
     setDoubleParam(AravisUnderruns, 0);
+    setIntegerParam(AravisLeftShift, 1);
     setIntegerParam(AravisReset, 0);
 
     /* Connect to the camera */
@@ -376,16 +382,17 @@ asynStatus aravisCamera::connectToCamera() {
     g_print("Getting feature list...\n");
 
     /* Add gain lookup */
-    tryAddFeature(ADGain, "GainRaw");
     tryAddFeature(ADGain, "Gain");
+    tryAddFeature(ADGain, "GainRaw");
     tryAddFeature(ADGain, "GainRawChannelA");
 
 	/* Add exposure lookup */
+    tryAddFeature(ADAcquireTime, "ExposureTime");
     tryAddFeature(ADAcquireTime, "ExposureTimeAbs");
 
 	/* Add framerate lookup */
-    tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRateAbs");
     tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRate");
+    tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRateAbs");
 
 	/* Add params for all nodes */
 	keys = g_hash_table_get_keys(this->genicam->nodes);
@@ -468,6 +475,11 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
         status = asynError;
     } else if (function == AravisReset) {
         status = this->connectToCamera();
+    } else if (function == AravisLeftShift) {
+    	if (value < 0 || value > 1) {
+    		setIntegerParam(function, rbv);
+    		status = asynError;
+    	}
     } else if (function == ADAcquire) {
         if (value) {
             /* This was a command to start acquisition */
@@ -546,26 +558,30 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
     /* Gain */
     } else if (function == ADGain) {
 		featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
-		feature = arv_device_get_feature(this->device, featureName);
-		if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
-    		status = this->setFloatValue(featureName, value, &rbv);
+		if (featureName == NULL) {
+			status = asynError;
 		} else {
-    		epicsInt32 i_rbv, i_value = (epicsInt32) value;
-    		status = this->setIntegerValue(featureName, i_value, &i_rbv);
-    		if (strcmp("GainRawChannelA", featureName) == 0) this->setIntegerValue("GainRawChannelB", i_value, NULL);
-    		rbv = i_rbv;
-    	}
-    	if (status) setDoubleParam(function, rbv);
+			feature = arv_device_get_feature(this->device, featureName);
+			if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
+				status = this->setFloatValue(featureName, value, &rbv);
+			} else {
+				epicsInt32 i_rbv, i_value = (epicsInt32) value;
+				status = this->setIntegerValue(featureName, i_value, &i_rbv);
+				if (strcmp("GainRawChannelA", featureName) == 0) this->setIntegerValue("GainRawChannelB", i_value, NULL);
+				rbv = i_rbv;
+			}
+			if (status) setDoubleParam(function, rbv);
+		}
     /* Acquire time / exposure */
     } else if (function == ADAcquireTime) {
-    	featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
-    	status = this->setFloatValue(featureName, value * 1000000, &rbv);
-    	if (status) setDoubleParam(function, rbv / 1000000);
+		featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
+		status = this->setFloatValue(featureName, value * 1000000, &rbv);
+		if (status) setDoubleParam(function, rbv / 1000000);
     /* Acquire period / framerate */
     } else if (function == ADAcquirePeriod) {
     	featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
         if (value <= 0.0) value = 0.1;
-		this->setFloatValue(featureName, 1/value, &rbv);
+		status = this->setFloatValue(featureName, 1/value, &rbv);
         if (status) setDoubleParam(function, 1/rbv);
     /* generic feature lookup */
 	} else if (g_hash_table_lookup_extended(this->featureLookup, &function, NULL, NULL)) {
@@ -649,7 +665,7 @@ void aravisCamera::callback() {
     int arrayCallbacks, imageCounter, numImages, numImagesCounter, imageMode;
     int colorMode, dataType, bayerFormat;
     size_t expected_size;
-    int xDim=0, yDim=1, binX, binY;
+    int xDim=0, yDim=1, binX, binY, left_shift;
     double acquirePeriod;
     const char *functionName = "callback";
     epicsTimeStamp lastFeatureGet, now;
@@ -663,7 +679,9 @@ void aravisCamera::callback() {
         /* Wait 5ms for an array to arrive from the queue */
         if (epicsMessageQueueReceiveWithTimeout(this->msgQId, &buffer, sizeof(&buffer), 0.005) == -1) {
         	/* If no camera, wait for one to appear */
-        	if (this->camera == NULL) continue;
+        	if (this->camera == NULL) {
+        		continue;
+        	}
         	/* We only want to get a feature once every 25ms (max 40 features/s)
         	 * so compare timestamp against last feature get
         	 */
@@ -687,6 +705,7 @@ void aravisCamera::callback() {
 		getIntegerParam(ADImageMode, &imageMode);
 		getIntegerParam(NDArrayCallbacks, &arrayCallbacks);
 		getDoubleParam(ADAcquirePeriod, &acquirePeriod);
+		getIntegerParam(AravisLeftShift, &left_shift);
 
 		/* The buffer structure does not contain the binning, get that from param lib,
 		 * but it could be wrong for this frame if recently changed */
@@ -758,20 +777,28 @@ void aravisCamera::callback() {
 
 		/* If we are 16 bit, shift by the correct amount */
 		if (pRaw->dataType == NDUInt16) {
-			int shift = 0;
 			expected_size *= 2;
-			switch (buffer->pixel_format) {
-				case ARV_PIXEL_FORMAT_MONO_12:
-					shift = 4;
-					break;
-				default:
-					break;
-			}
-			if (shift != 0) {
-				//printf("Shift by %d\n", shift);
-				uint16_t *array = (uint16_t *) pRaw->pData;
-				for (unsigned int ib = 0; ib < buffer->size / 2; ib++) {
-					array[ib] = array[ib] << shift;
+			if (left_shift) {
+				int shift = 0;
+				switch (buffer->pixel_format) {
+					case ARV_PIXEL_FORMAT_MONO_14:
+						shift = 2;
+						break;
+					case ARV_PIXEL_FORMAT_MONO_12:
+						shift = 4;
+						break;
+					case ARV_PIXEL_FORMAT_MONO_10:
+						shift = 6;
+						break;
+					default:
+						break;
+				}
+				if (shift != 0) {
+					//printf("Shift by %d\n", shift);
+					uint16_t *array = (uint16_t *) pRaw->pData;
+					for (unsigned int ib = 0; ib < buffer->size / 2; ib++) {
+						array[ib] = array[ib] << shift;
+					}
 				}
 			}
 		}
@@ -1081,8 +1108,9 @@ asynStatus aravisCamera::lookupPixelFormat(int colorMode, int dataType, int baye
             	/* Check if the pixel format is supported by the camera */
             	ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (node));
             	const GSList *iter;
-            	for (iter = arv_gc_node_get_childs(ARV_GC_NODE (enumeration)); iter != NULL; iter = iter->next) {
-            		if (arv_gc_enum_entry_get_value(ARV_GC_ENUM_ENTRY(iter->data)) == pix_lookup[i].fmt) {
+            	for (iter = arv_gc_enumeration_get_entries (enumeration); iter != NULL; iter = iter->next) {
+            		if (arv_gc_node_is_available(ARV_GC_NODE(iter->data)) &&
+            				arv_gc_enum_entry_get_value(ARV_GC_ENUM_ENTRY(iter->data)) == pix_lookup[i].fmt) {
                         *fmt = pix_lookup[i].fmt;
                         return asynSuccess;
             		}
@@ -1196,7 +1224,9 @@ asynStatus aravisCamera::getNextFeature() {
 		index = (int *) g_list_nth_data(this->featureKeys, this->featureIndex);
 		featureName = (const char *) g_hash_table_lookup(this->featureLookup, index);
 		feature = arv_device_get_feature(this->device, featureName);
-		if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
+		if (feature == NULL) {
+			status = asynError;
+		} else if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
 			floatValue = arv_device_get_float_feature_value (this->device, featureName);
 			/* special cases for exposure and frame rate */
 			if (*index == ADAcquireTime) floatValue /= 1000000;
