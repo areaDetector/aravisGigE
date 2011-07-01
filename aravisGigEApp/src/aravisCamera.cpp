@@ -154,9 +154,14 @@ private:
 /** Called by epicsAtExit to shutdown camera */
 static void aravisShutdown(void* arg) {
     aravisCamera *pPvt = (aravisCamera *) arg;
-    arv_camera_stop_acquisition(pPvt->camera);
-    g_object_unref(pPvt->camera);
+    ArvCamera *cam = pPvt->camera;
+    g_print("Stopping %s... ", pPvt->portName);
+    arv_camera_stop_acquisition(cam);
+    epicsThreadSleep(0.1);
     pPvt->camera = NULL;
+    epicsThreadSleep(0.1);
+    g_object_unref(cam);
+    g_print("OK\n");
 }
 
 /** Called by aravis when destroying a buffer with an NDArray wrapper */
