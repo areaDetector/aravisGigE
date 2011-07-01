@@ -59,10 +59,10 @@ You are now ready to build the module.
 - Once you have decided on the most useful features, copy them from \<camera_name\>.edl and paste them into \<camera_name\>-features.edl in order to create a useful summary screen
 
 \section bugs_sec Known Bugs
-- Unplugging the camera while it's acquiring causes a crash
 - Changing resolution or colour mode while acquiring is unreliable, it is better to stop the camera first
 - <tt>pthread_attr_setstacksize error Invalid argument</tt> error messages are caused by glib and can be ignored
 - Please follow the section on sysctl in <a href="http://www.ptgrey.com/support/kb/index.asp?a=4&q=354">this article</a> if you are getting large numbers of dropped frames
+- Every so often the camera loses connection, this is being investigated. The reconnect button restores communication if this should happen
 
 \section build_sec Build Instructions 
 - \subpage build_instructions_example
