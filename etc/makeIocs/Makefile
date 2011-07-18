@@ -10,7 +10,7 @@ DEBUG :=
 
 # Create an IOC from all .xml files and all .py files
 #IOCS := $(patsubst %.xml, %, $(wildcard *.xml)) $(patsubst %.py, %, $(wildcard *.py))
-IOCS := example
+IOCS := fourCamera
 
 # These are the IOCS we don't want to make simulations out of
 #NO_SIMS := hdftest example
