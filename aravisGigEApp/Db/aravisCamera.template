@@ -125,6 +125,15 @@ record(longout, "$(P)$(R)RESET")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_RESET")
 }
 
+# % gui, $(PORT), sevr
+record(longout, "$(P)$(R)CONNECTION")
+{
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_CONNECTION")
+   field(SCAN, "1 second")
+   field(VAL, "1")
+}
+
 record(mbbi, "$(P)$(R)LEFTSHIFT_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_LEFTSHIFT")
