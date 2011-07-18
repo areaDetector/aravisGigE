@@ -112,12 +112,16 @@ public:
     /** Used by epicsAtExit */
     ArvCamera *camera;
 
+    /** Used by connection lost callback */
+    int connectionValid;
+
 protected:
     int AravisCompleted;
     #define FIRST_ARAVIS_CAMERA_PARAM AravisCompleted
     int AravisFailures;
     int AravisUnderruns;
     int AravisLeftShift;
+    int AravisConnection;
     int AravisReset;
     #define LAST_ARAVIS_CAMERA_PARAM AravisReset
     int features[NFEATURES];
@@ -157,9 +161,9 @@ static void aravisShutdown(void* arg) {
     ArvCamera *cam = pPvt->camera;
     g_print("Stopping %s... ", pPvt->portName);
     arv_camera_stop_acquisition(cam);
+    pPvt->connectionValid = 0;
     epicsThreadSleep(0.1);
     pPvt->camera = NULL;
-    epicsThreadSleep(0.1);
     g_object_unref(cam);
     g_print("OK\n");
 }
@@ -174,8 +178,7 @@ static void destroyBuffer(gpointer data){
 }
 
 /** Called by aravis when a new buffer is produced */
-static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt)
-{
+static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
 	ArvBuffer *buffer;
 	int status;
 	buffer = arv_stream_timed_pop_buffer(stream, 100000);
@@ -193,10 +196,12 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt)
 		arv_stream_push_buffer (stream, buffer);
 	}
 }
+static void controlLostCallback(ArvDevice *device, aravisCamera *pPvt) {
+	pPvt->connectionValid = 0;
+}
 
 /** Called by callback thread that sits listening to the epicsMessageQueue */
-void callbackC(void *drvPvt)
-{
+void callbackC(void *drvPvt) {
 	aravisCamera *pPvt = (aravisCamera *)drvPvt;
     pPvt->callback();
 }
@@ -220,7 +225,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
                0, 0, /* No interfaces beyond those set in ADDriver.cpp */
                0, 1, /* ASYN_CANBLOCK=0, ASYN_MULTIDEVICE=0, autoConnect=1 */
                priority, stackSize),
-      camera(NULL), stream(NULL), device(NULL), genicam(NULL), initialConnectDone(0), featureKeys(NULL)
+      camera(NULL), connectionValid(0), stream(NULL), device(NULL), genicam(NULL), initialConnectDone(0), featureKeys(NULL)
 {
     const char *functionName = "aravisCamera";
 
@@ -246,6 +251,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     createParam("ARAVIS_FAILURES",       asynParamFloat64, &AravisFailures);
     createParam("ARAVIS_UNDERRUNS",      asynParamFloat64, &AravisUnderruns);
     createParam("ARAVIS_LEFTSHIFT",      asynParamInt32,   &AravisLeftShift);
+    createParam("ARAVIS_CONNECTION",     asynParamInt32,   &AravisConnection);
     createParam("ARAVIS_RESET",          asynParamInt32,   &AravisReset);
 
     /* Set some initial values for other parameters */
@@ -291,6 +297,10 @@ asynStatus aravisCamera::connectToCamera() {
     if (this->camera != NULL) {
     	arv_camera_stop_acquisition(this->camera);
     }
+
+    /* Tell areaDetector it is no longer acquiring */
+    setIntegerParam(ADAcquire, 0);
+
     /* remove old stream if it exists */
     if (this->stream != NULL) {
     	g_object_unref(this->stream);
@@ -304,6 +314,7 @@ asynStatus aravisCamera::connectToCamera() {
     /* remove ref to device and genicam */
     this->device = NULL;
     this->genicam = NULL;
+    this->connectionValid = 1;
     /* connect to camera */
     g_print ("Looking for camera '%s'... \n", this->cameraName);
     this->camera = arv_camera_new (this->cameraName);
@@ -343,6 +354,10 @@ asynStatus aravisCamera::connectToCamera() {
 			  NULL);
 	arv_stream_set_emit_signals (this->stream, TRUE);
 	g_signal_connect (this->stream, "new-buffer", G_CALLBACK (newBufferCallback), this);
+
+	/* connect connection lost signal to camera */
+    g_signal_connect (this->device, "control-lost", G_CALLBACK (controlLostCallback), this);
+    this->connectionValid = 1;
 
     /* Set vendor and model number */
     vendor = arv_camera_get_vendor_name(this->camera);
@@ -476,10 +491,12 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
     status = setIntegerParam(function, value);
 
     /* If we have no camera, then just fail */
-    if (this->camera == NULL) {
+	if (function == AravisReset) {
+		status = this->connectToCamera();
+	} else if (this->camera == NULL || this->connectionValid != 1) {
         status = asynError;
-    } else if (function == AravisReset) {
-        status = this->connectToCamera();
+    } else if (function == AravisConnection) {
+    	if (this->connectionValid != 1) status = asynError;
     } else if (function == AravisLeftShift) {
     	if (value < 0 || value > 1) {
     		setIntegerParam(function, rbv);
@@ -558,7 +575,7 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
     status = setDoubleParam(function, value);
 
     /* If we have no camera, then just fail */
-    if (this->camera == NULL) {
+    if (this->camera == NULL || this->connectionValid != 1) {
         status = asynError;
     /* Gain */
     } else if (function == ADGain) {
@@ -684,7 +701,7 @@ void aravisCamera::callback() {
         /* Wait 5ms for an array to arrive from the queue */
         if (epicsMessageQueueReceiveWithTimeout(this->msgQId, &buffer, sizeof(&buffer), 0.005) == -1) {
         	/* If no camera, wait for one to appear */
-        	if (this->camera == NULL) {
+        	if (this->camera == NULL || this->connectionValid != 1) {
         		continue;
         	}
         	/* We only want to get a feature once every 25ms (max 40 features/s)
@@ -722,7 +739,7 @@ void aravisCamera::callback() {
 		setIntegerParam(NDArrayCounter, imageCounter);
 		setIntegerParam(ADNumImagesCounter, numImagesCounter);
 		if (imageMode == ADImageMultiple) {
-			setDoubleParam(ADTimeRemaining, (numImagesCounter - numImages) * acquirePeriod);
+			setDoubleParam(ADTimeRemaining, (numImages - numImagesCounter) * acquirePeriod);
 		}
 		/* find the buffer */
 		pRaw = (NDArray *) (buffer->user_data);

@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 652
-y 740
+x 522
+y 501
 w 390
 h 110
 font "arial-bold-r-12.0"
@@ -196,7 +196,7 @@ major 4
 minor 1
 release 0
 x 205
-y 25
+y 50
 w 85
 h 20
 font "arial-bold-r-12.0"
@@ -215,7 +215,7 @@ major 4
 minor 0
 release 0
 x 290
-y 25
+y 50
 w 90
 h 20
 fgColor index 25
@@ -238,7 +238,7 @@ major 4
 minor 1
 release 0
 x 205
-y 50
+y 25
 w 85
 h 20
 font "arial-bold-r-12.0"
@@ -257,7 +257,7 @@ major 4
 minor 0
 release 0
 x 290
-y 50
+y 25
 w 90
 h 20
 fgColor index 25
@@ -277,7 +277,7 @@ major 4
 minor 2
 release 0
 x 195
-y 25
+y 50
 w 10
 h 20
 fgColor index 14
@@ -309,7 +309,7 @@ major 4
 minor 2
 release 0
 x 195
-y 50
+y 25
 w 10
 h 20
 fgColor index 14
@@ -332,5 +332,28 @@ setPosition {
 symbols {
   0 "desc0=If set to Yes: 10 12 and 14 bit frames will be left shifted so they occupy the most,desc1=significant bits of the 16 bit frame,desc2='',desc3='',desc4='',desc5=''"
 }
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 195
+y 75
+w 185
+h 20
+font "arial-bold-r-16.0"
+fontAlign "center"
+fgColor index 20
+bgColor index 0
+visPv "$(P)$(R)CONNECTION.SEVR"
+visMin "3"
+visMax "4"
+value {
+  "NOT CONNECTED"
+}
+border
 endObjectProperties
 
