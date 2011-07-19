@@ -8,11 +8,14 @@ driver is provided for any parameter exposed in a category of its genicam
 XML file. A python script is included for creating databases and edm screens
 from the XML file too.
 
-Tested cameras:
+Tested working cameras:
 - AVT Manta series
 - Prosilica GC series
 - Baumer TXG series
 - JAI Pulnix 6740 series
+
+Tested but not quite working cameras:
+- PGR Flea3
 
 The documentation here is top level documentation on creating an IOC with an
 aravisCamera areaDetector driver:
@@ -24,6 +27,7 @@ aravisCamera areaDetector driver:
  - Prosilica_GC.template
  - Baumer_TXG.template
  - JAI_6740.template
+ - PGR_Flea3.template 
   
 If you need to add another type of similar camera, read the \ref new_camera_sec section
 
