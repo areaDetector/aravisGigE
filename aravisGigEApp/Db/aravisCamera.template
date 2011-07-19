@@ -125,6 +125,23 @@ record(longout, "$(P)$(R)RESET")
    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_RESET")
 }
 
+record(bi, "$(P)$(R)GETFEATURES_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_GETFEATURES")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+}
+
+record(bo, "$(P)$(R)GETFEATURES") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_GETFEATURES")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(VAL, "1")
+  field(PINI, "YES")
+}
+
 # % gui, $(PORT), sevr
 record(longout, "$(P)$(R)CONNECTION")
 {

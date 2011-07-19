@@ -84,14 +84,6 @@ static const struct pix_lookup pix_lookup[] = {
     { ARV_PIXEL_FORMAT_BAYER_BG_12,   NDColorModeBayer, NDUInt16, NDBayerBGGR }
 };
 
-/* Define to add feature if available */
-#define tryAddFeature(ADIdx, featureString) \
-	feature = arv_device_get_feature(this->device, featureString); \
-	if (feature != NULL && arv_gc_node_is_available(feature) && ! ARV_IS_GC_CATEGORY(feature)) { \
-    	g_hash_table_insert(this->featureLookup, (gpointer)(&ADIdx), (gpointer)featureString); \
-    }
-
-
 /** Aravis GigE detector driver */
 class aravisCamera : public ADDriver {
 public:
@@ -122,6 +114,7 @@ protected:
     int AravisUnderruns;
     int AravisLeftShift;
     int AravisConnection;
+    int AravisGetFeatures;
     int AravisReset;
     #define LAST_ARAVIS_CAMERA_PARAM AravisReset
     int features[NFEATURES];
@@ -144,6 +137,7 @@ private:
     asynStatus getNextFeature();
     int hasEnumString(const char* feature, const char *value);
     gboolean hasFeature(const char *feature);
+    asynStatus tryAddFeature(int ADIdx, const char *featureString);
 
     ArvStream *stream;
     ArvDevice *device;
@@ -252,6 +246,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     createParam("ARAVIS_UNDERRUNS",      asynParamFloat64, &AravisUnderruns);
     createParam("ARAVIS_LEFTSHIFT",      asynParamInt32,   &AravisLeftShift);
     createParam("ARAVIS_CONNECTION",     asynParamInt32,   &AravisConnection);
+    createParam("ARAVIS_GETFEATURES",    asynParamInt32,   &AravisGetFeatures);
     createParam("ARAVIS_RESET",          asynParamInt32,   &AravisReset);
 
     /* Set some initial values for other parameters */
@@ -392,6 +387,11 @@ asynStatus aravisCamera::connectToCamera() {
 		arv_device_set_integer_feature_value (this->device, "AcquisitionFrameRateEnable", 1);
 	}
 
+    /* For Point Grey cameras, AcquisitionFrameRate will not do anything until we set this */
+	if (this->hasFeature("AcquisitionFrameRateEnabled")) {
+		arv_device_set_integer_feature_value (this->device, "AcquisitionFrameRateEnabled", 1);
+	}
+
     g_print("Done.\n");
 
     /* If we have done initial connect finish here */
@@ -402,17 +402,17 @@ asynStatus aravisCamera::connectToCamera() {
     g_print("Getting feature list...\n");
 
     /* Add gain lookup */
-    tryAddFeature(ADGain, "Gain");
-    tryAddFeature(ADGain, "GainRaw");
-    tryAddFeature(ADGain, "GainRawChannelA");
+    if (tryAddFeature(ADGain, "Gain"))
+    	if (tryAddFeature(ADGain, "GainRaw"))
+    		tryAddFeature(ADGain, "GainRawChannelA");
 
 	/* Add exposure lookup */
-    tryAddFeature(ADAcquireTime, "ExposureTime");
-    tryAddFeature(ADAcquireTime, "ExposureTimeAbs");
+    if (tryAddFeature(ADAcquireTime, "ExposureTime"))
+    	tryAddFeature(ADAcquireTime, "ExposureTimeAbs");
 
 	/* Add framerate lookup */
-    tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRate");
-    tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRateAbs");
+    if (tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRate"))
+    	tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRateAbs");
 
 	/* Add params for all nodes */
 	keys = g_hash_table_get_keys(this->genicam->nodes);
@@ -534,6 +534,8 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
 			status = this->setIntegerValue(featureName, value, &rbv);
 			if (status) setIntegerParam(function, rbv);
 		}
+	/* just write the value */
+    } else if (function == AravisGetFeatures) {
     } else if (function < FIRST_ARAVIS_CAMERA_PARAM) {
         /* If this parameter belongs to a base class call its method */
         status = ADDriver::writeInt32(pasynUser, value);
@@ -687,7 +689,7 @@ void aravisCamera::callback() {
     int arrayCallbacks, imageCounter, numImages, numImagesCounter, imageMode;
     int colorMode, dataType, bayerFormat;
     size_t expected_size;
-    int xDim=0, yDim=1, binX, binY, left_shift;
+    int xDim=0, yDim=1, binX, binY, left_shift, getFeatures;
     double acquirePeriod;
     const char *functionName = "callback";
     epicsTimeStamp lastFeatureGet, now;
@@ -710,8 +712,11 @@ void aravisCamera::callback() {
         	epicsTimeGetCurrent(&now);
         	if (epicsTimeDiffInSeconds(&now, &lastFeatureGet) > 0.025) {
         		this->lock();
-        		this->getNextFeature();
-        		callParamCallbacks();
+        		getIntegerParam(AravisGetFeatures, &getFeatures);
+        		if (getFeatures) {
+        			this->getNextFeature();
+            		callParamCallbacks();
+        		}
         		this->unlock();
         	}
         	continue;
@@ -1283,6 +1288,17 @@ asynStatus aravisCamera::getNextFeature() {
     this->featureKeys = NULL;
     return (asynStatus) status;
 }
+
+/* Define to add feature if available */
+asynStatus aravisCamera::tryAddFeature(int ADIdx, const char *featureString) {
+	ArvGcNode *feature = arv_device_get_feature(this->device, featureString);
+	if (feature != NULL && !ARV_IS_GC_CATEGORY(feature)) {
+    	g_hash_table_insert(this->featureLookup, (gpointer)(&ADIdx), (gpointer)featureString);
+    	return asynSuccess;
+    }
+	return asynError;
+}
+
 
 /** Configuration command, called directly or from iocsh */
 extern "C" int aravisCameraConfig(const char *portName, const char *cameraName,
