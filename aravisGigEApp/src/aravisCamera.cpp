@@ -137,7 +137,7 @@ private:
     asynStatus getNextFeature();
     int hasEnumString(const char* feature, const char *value);
     gboolean hasFeature(const char *feature);
-    asynStatus tryAddFeature(int ADIdx, const char *featureString);
+    asynStatus tryAddFeature(int *ADIdx, const char *featureString);
 
     ArvStream *stream;
     ArvDevice *device;
@@ -402,17 +402,17 @@ asynStatus aravisCamera::connectToCamera() {
     g_print("Getting feature list...\n");
 
     /* Add gain lookup */
-    if (tryAddFeature(ADGain, "Gain"))
-    	if (tryAddFeature(ADGain, "GainRaw"))
-    		tryAddFeature(ADGain, "GainRawChannelA");
+    if (tryAddFeature(&ADGain, "Gain"))
+    	if (tryAddFeature(&ADGain, "GainRaw"))
+    		tryAddFeature(&ADGain, "GainRawChannelA");
 
 	/* Add exposure lookup */
-    if (tryAddFeature(ADAcquireTime, "ExposureTime"))
-    	tryAddFeature(ADAcquireTime, "ExposureTimeAbs");
+    if (tryAddFeature(&ADAcquireTime, "ExposureTime"))
+    	tryAddFeature(&ADAcquireTime, "ExposureTimeAbs");
 
 	/* Add framerate lookup */
-    if (tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRate"))
-    	tryAddFeature(ADAcquirePeriod, "AcquisitionFrameRateAbs");
+    if (tryAddFeature(&ADAcquirePeriod, "AcquisitionFrameRate"))
+    	tryAddFeature(&ADAcquirePeriod, "AcquisitionFrameRateAbs");
 
 	/* Add params for all nodes */
 	keys = g_hash_table_get_keys(this->genicam->nodes);
@@ -1290,10 +1290,10 @@ asynStatus aravisCamera::getNextFeature() {
 }
 
 /* Define to add feature if available */
-asynStatus aravisCamera::tryAddFeature(int ADIdx, const char *featureString) {
+asynStatus aravisCamera::tryAddFeature(int *ADIdx, const char *featureString) {
 	ArvGcNode *feature = arv_device_get_feature(this->device, featureString);
 	if (feature != NULL && !ARV_IS_GC_CATEGORY(feature)) {
-    	g_hash_table_insert(this->featureLookup, (gpointer)(&ADIdx), (gpointer)featureString);
+    	g_hash_table_insert(this->featureLookup, (gpointer)(ADIdx), (gpointer)featureString);
     	return asynSuccess;
     }
 	return asynError;
