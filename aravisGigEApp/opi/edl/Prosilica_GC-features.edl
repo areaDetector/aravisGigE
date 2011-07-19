@@ -1355,42 +1355,25 @@ value {
 }
 endObjectProperties   
 
-# (Textentry)
-object TextentryClass
+# (Menu Button)
+object activeMenuButtonClass
 beginObjectProperties
-major 10
+major 4
 minor 0
 release 0
 x 130
 y 425
-w 60
+w 125
 h 20
-controlPv "$(P)$(R)ChunkModeActive"
 fgColor index 25
-fgAlarm
 bgColor index 3
-fill
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ChunkModeActive"
+indicatorPv "$(P)$(R)ChunkModeActive_RBV"
 font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 195
-y 425
-w 60
-h 20
-controlPv "$(P)$(R)ChunkModeActive_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
+endObjectProperties        
 
 # (Related Display)
 object relatedDisplayClass
@@ -1622,42 +1605,25 @@ value {
 }
 endObjectProperties   
 
-# (Textentry)
-object TextentryClass
+# (Menu Button)
+object activeMenuButtonClass
 beginObjectProperties
-major 10
+major 4
 minor 0
 release 0
 x 130
 y 500
-w 60
+w 125
 h 20
-controlPv "$(P)$(R)StreamFrameRateC"
 fgColor index 25
-fgAlarm
 bgColor index 3
-fill
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)StreamFrameRateC"
+indicatorPv "$(P)$(R)StreamFrameRateC_RBV"
 font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 195
-y 500
-w 60
-h 20
-controlPv "$(P)$(R)StreamFrameRateC_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
+endObjectProperties        
 
 # (Rectangle)
 object activeRectangleClass

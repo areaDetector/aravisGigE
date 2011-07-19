@@ -400,15 +400,19 @@ record(ao, "$(P)$(R)AcquisitionFrame") {
   field(PREC, "3")
 }
 
-record(longin, "$(P)$(R)AcquisitionFram0_RBV") {
+record(bi, "$(P)$(R)AcquisitionFram0_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRateEnable")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)AcquisitionFram0") {
+record(bo, "$(P)$(R)AcquisitionFram0") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRateEnable")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(mbbi, "$(P)$(R)TriggerSelector_RBV") {
@@ -624,26 +628,34 @@ record(mbbo, "$(P)$(R)LineMode") {
   field(ONVL, "1")
 }
 
-record(longin, "$(P)$(R)LineInverter_RBV") {
+record(bi, "$(P)$(R)LineInverter_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineInverter")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)LineInverter") {
+record(bo, "$(P)$(R)LineInverter") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineInverter")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)LineStatus_RBV") {
+record(bi, "$(P)$(R)LineStatus_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatus")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)LineStatus") {
+record(bo, "$(P)$(R)LineStatus") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatus")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)LineStatusAll_RBV") {
@@ -715,15 +727,19 @@ record(mbbo, "$(P)$(R)UserOutputSelect") {
   field(ZRVL, "0")
 }
 
-record(longin, "$(P)$(R)UserOutputValue_RBV") {
+record(bi, "$(P)$(R)UserOutputValue_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValue")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)UserOutputValue") {
+record(bo, "$(P)$(R)UserOutputValue") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValue")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)UserOutputValueA_RBV") {
@@ -1139,15 +1155,19 @@ record(longout, "$(P)$(R)WhiteBalance") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))WhiteBalance")
 }
 
-record(longin, "$(P)$(R)DefectPixelCorre_RBV") {
+record(bi, "$(P)$(R)DefectPixelCorre_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)DefectPixelCorre") {
+record(bo, "$(P)$(R)DefectPixelCorre") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)DefectPixelListI_RBV") {
@@ -1161,15 +1181,19 @@ record(longout, "$(P)$(R)DefectPixelListI") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListIndex")
 }
 
-record(longin, "$(P)$(R)DefectPixelListE_RBV") {
+record(bi, "$(P)$(R)DefectPixelListE_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryActive")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)DefectPixelListE") {
+record(bo, "$(P)$(R)DefectPixelListE") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryActive")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)DefectPixelList0_RBV") {
@@ -1232,15 +1256,19 @@ record(longout, "$(P)$(R)GevVersionMinor") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMinor")
 }
 
-record(longin, "$(P)$(R)GevDeviceModeIsB_RBV") {
+record(bi, "$(P)$(R)GevDeviceModeIsB_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeIsBigEndian")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevDeviceModeIsB") {
+record(bo, "$(P)$(R)GevDeviceModeIsB") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeIsBigEndian")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(mbbi, "$(P)$(R)GevDeviceModeCha_RBV") {
@@ -1280,37 +1308,49 @@ record(longout, "$(P)$(R)GevMACAddress") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMACAddress")
 }
 
-record(longin, "$(P)$(R)GevSupportedIPCo_RBV") {
+record(bi, "$(P)$(R)GevSupportedIPCo_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationLLA")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedIPCo") {
+record(bo, "$(P)$(R)GevSupportedIPCo") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationLLA")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedIPC0_RBV") {
+record(bi, "$(P)$(R)GevSupportedIPC0_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationDHCP")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedIPC0") {
+record(bo, "$(P)$(R)GevSupportedIPC0") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationDHCP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedIPC1_RBV") {
+record(bi, "$(P)$(R)GevSupportedIPC1_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationPersistentIP")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedIPC1") {
+record(bo, "$(P)$(R)GevSupportedIPC1") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationPersistentIP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(mbbi, "$(P)$(R)GevCurrentIPConf_RBV") {
@@ -1336,37 +1376,49 @@ record(mbbo, "$(P)$(R)GevCurrentIPConf") {
   field(TWVL, "1")
 }
 
-record(longin, "$(P)$(R)GevCurrentIPCon0_RBV") {
+record(bi, "$(P)$(R)GevCurrentIPCon0_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationLLA")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevCurrentIPCon0") {
+record(bo, "$(P)$(R)GevCurrentIPCon0") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationLLA")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevCurrentIPCon1_RBV") {
+record(bi, "$(P)$(R)GevCurrentIPCon1_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationDHCP")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevCurrentIPCon1") {
+record(bo, "$(P)$(R)GevCurrentIPCon1") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationDHCP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevCurrentIPCon2_RBV") {
+record(bi, "$(P)$(R)GevCurrentIPCon2_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationPersistentIP")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevCurrentIPCon2") {
+record(bo, "$(P)$(R)GevCurrentIPCon2") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationPersistentIP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)GevCurrentIPAddr_RBV") {
@@ -1480,81 +1532,109 @@ record(longout, "$(P)$(R)GevStreamChannel") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelCount")
 }
 
-record(longin, "$(P)$(R)GevSupportedOpti_RBV") {
+record(bi, "$(P)$(R)GevSupportedOpti_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsUserDefinedName")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedOpti") {
+record(bo, "$(P)$(R)GevSupportedOpti") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsUserDefinedName")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedOpt0_RBV") {
+record(bi, "$(P)$(R)GevSupportedOpt0_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsSerialNumber")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedOpt0") {
+record(bo, "$(P)$(R)GevSupportedOpt0") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsSerialNumber")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedOpt1_RBV") {
+record(bi, "$(P)$(R)GevSupportedOpt1_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENTDATA")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedOpt1") {
+record(bo, "$(P)$(R)GevSupportedOpt1") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENTDATA")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedOpt2_RBV") {
+record(bi, "$(P)$(R)GevSupportedOpt2_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENT")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedOpt2") {
+record(bo, "$(P)$(R)GevSupportedOpt2") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENT")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedOpt3_RBV") {
+record(bi, "$(P)$(R)GevSupportedOpt3_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsPACKETRESEND")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedOpt3") {
+record(bo, "$(P)$(R)GevSupportedOpt3") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsPACKETRESEND")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedOpt4_RBV") {
+record(bi, "$(P)$(R)GevSupportedOpt4_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsWRITEMEM")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedOpt4") {
+record(bo, "$(P)$(R)GevSupportedOpt4") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsWRITEMEM")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSupportedOpt5_RBV") {
+record(bi, "$(P)$(R)GevSupportedOpt5_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsConcatenation")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSupportedOpt5") {
+record(bo, "$(P)$(R)GevSupportedOpt5") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsConcatenation")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)GevHeartbeatTime_RBV") {
@@ -1600,26 +1680,34 @@ record(longout, "$(P)$(R)GevTimestampValu") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampValue")
 }
 
-record(longin, "$(P)$(R)GevGVCPPendingAc_RBV") {
+record(bi, "$(P)$(R)GevGVCPPendingAc_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPPendingAck")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevGVCPPendingAc") {
+record(bo, "$(P)$(R)GevGVCPPendingAc") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPPendingAck")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevGVCPHeartbeat_RBV") {
+record(bi, "$(P)$(R)GevGVCPHeartbeat_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPHeartbeatDisable")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevGVCPHeartbeat") {
+record(bo, "$(P)$(R)GevGVCPHeartbeat") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPHeartbeatDisable")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)GevGVCPPendingTi_RBV") {
@@ -1755,37 +1843,49 @@ record(longout, "$(P)$(R)GevSCPHostPort") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPHostPort")
 }
 
-record(longin, "$(P)$(R)GevSCPSFireTestP_RBV") {
+record(bi, "$(P)$(R)GevSCPSFireTestP_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSFireTestPacket")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSCPSFireTestP") {
+record(bo, "$(P)$(R)GevSCPSFireTestP") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSFireTestPacket")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSCPSDoNotFrag_RBV") {
+record(bi, "$(P)$(R)GevSCPSDoNotFrag_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSDoNotFragment")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSCPSDoNotFrag") {
+record(bo, "$(P)$(R)GevSCPSDoNotFrag") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSDoNotFragment")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longin, "$(P)$(R)GevSCPSBigEndian_RBV") {
+record(bi, "$(P)$(R)GevSCPSBigEndian_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSBigEndian")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)GevSCPSBigEndian") {
+record(bo, "$(P)$(R)GevSCPSBigEndian") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSBigEndian")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)GevSCPSPacketSiz_RBV") {
@@ -1938,15 +2038,19 @@ record(mbbo, "$(P)$(R)UserSetDefaultSe") {
   field(THVL, "3")
 }
 
-record(longin, "$(P)$(R)ChunkModeActive_RBV") {
+record(bi, "$(P)$(R)ChunkModeActive_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkModeActive")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)ChunkModeActive") {
+record(bo, "$(P)$(R)ChunkModeActive") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkModeActive")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(mbbi, "$(P)$(R)ChunkSelector_RBV") {
@@ -1968,15 +2072,19 @@ record(mbbo, "$(P)$(R)ChunkSelector") {
   field(ONVL, "1")
 }
 
-record(longin, "$(P)$(R)ChunkEnable_RBV") {
+record(bi, "$(P)$(R)ChunkEnable_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkEnable")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)ChunkEnable") {
+record(bo, "$(P)$(R)ChunkEnable") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkEnable")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)ActionDeviceKey_RBV") {

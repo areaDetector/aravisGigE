@@ -159,15 +159,19 @@ record(longout, "$(P)$(R)GevSCPSPacketSiz") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSPacketSize")
 }
 
-record(longin, "$(P)$(R)ChunkModeActive_RBV") {
+record(bi, "$(P)$(R)ChunkModeActive_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkModeActive")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)ChunkModeActive") {
+record(bo, "$(P)$(R)ChunkModeActive") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkModeActive")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(longin, "$(P)$(R)PayloadSize_RBV") {
@@ -192,15 +196,19 @@ record(longout, "$(P)$(R)NonImagePayloadS") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))NonImagePayloadSize")
 }
 
-record(longin, "$(P)$(R)StreamFrameRateC_RBV") {
+record(bi, "$(P)$(R)StreamFrameRateC_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StreamFrameRateConstrain")
   field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
-record(longout, "$(P)$(R)StreamFrameRateC") {
+record(bo, "$(P)$(R)StreamFrameRateC") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StreamFrameRateConstrain")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(mbbi, "$(P)$(R)StreamHoldEnable_RBV") {
