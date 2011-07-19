@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 522
-y 501
+x 504
+y 378
 w 390
 h 110
 font "arial-bold-r-12.0"
@@ -196,7 +196,7 @@ major 4
 minor 1
 release 0
 x 205
-y 50
+y 75
 w 85
 h 20
 font "arial-bold-r-12.0"
@@ -215,7 +215,7 @@ major 4
 minor 0
 release 0
 x 290
-y 50
+y 75
 w 90
 h 20
 fgColor index 25
@@ -238,7 +238,7 @@ major 4
 minor 1
 release 0
 x 205
-y 25
+y 50
 w 85
 h 20
 font "arial-bold-r-12.0"
@@ -257,7 +257,7 @@ major 4
 minor 0
 release 0
 x 290
-y 25
+y 50
 w 90
 h 20
 fgColor index 25
@@ -277,7 +277,7 @@ major 4
 minor 2
 release 0
 x 195
-y 50
+y 75
 w 10
 h 20
 fgColor index 14
@@ -309,7 +309,7 @@ major 4
 minor 2
 release 0
 x 195
-y 25
+y 50
 w 10
 h 20
 fgColor index 14
@@ -334,17 +334,88 @@ symbols {
 }
 endObjectProperties
 
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 195
+y 25
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Set to Yes to get feature value updates periodically (never more than one feature every 25ms),desc1=Set to No if you are getting performance issues,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 0
-x 195
-y 75
-w 185
+x 205
+y 25
+w 85
 h 20
-font "arial-bold-r-16.0"
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Get features"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 290
+y 25
+w 90
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GETFEATURES"
+indicatorPv "$(P)$(R)GETFEATURES_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 25
+w 175
+h 70
+font "arial-bold-r-18.0"
 fontAlign "center"
 fgColor index 20
 bgColor index 0

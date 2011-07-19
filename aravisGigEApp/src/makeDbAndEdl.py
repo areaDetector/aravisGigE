@@ -72,7 +72,7 @@ def handle_node(node):
         records[name] = recordName
         if node.nodeName == "Category":
             categories.append(name)
-    else:
+    elif node.nodeName != "StructReg":
         print "Node has no Name attribute", node
 
 # list of all nodes    
@@ -138,7 +138,7 @@ for node in doneNodes:
     for n in elements(node):
         if str(n.nodeName) == "AccessMode" and getText(n) == "RO":
             ro = True
-    if node.nodeName in ["Integer", "Boolean"]:
+    if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
         print 'record(longin, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
         print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
@@ -152,7 +152,25 @@ for node in doneNodes:
         print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print '}'
         print        
-    elif node.nodeName in ["Float", "Converter"]:
+    elif node.nodeName in ["Boolean"]:
+        print 'record(bi, "$(P)$(R)%s_RBV") {' % records[nodeName]
+        print '  field(DTYP, "asynInt32")'
+        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(SCAN, "I/O Intr")'
+        print '  field(ZNAM, "No")'
+        print '  field(ONAM, "Yes")'                        
+        print '}'
+        print
+        if ro:
+            continue        
+        print 'record(bo, "$(P)$(R)%s") {' % records[nodeName]
+        print '  field(DTYP, "asynInt32")'
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(ZNAM, "No")'
+        print '  field(ONAM, "Yes")'                                
+        print '}'
+        print           
+    elif node.nodeName in ["Float", "Converter", "SwissKnife"]:
         print 'record(ai, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynFloat64")'
         print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
@@ -486,11 +504,11 @@ for name, nodes in structure:
         nx += 110            
         if node.nodeName in ["StringReg"] or ro:
             text += make_ro()
-        elif node.nodeName in ["Integer", "Float", "Boolean", "Converter"]:  
+        elif node.nodeName in ["Integer", "Float", "Converter", "IntConverter", "IntSwissKnife", "SwissKnife"]:  
             text += make_demand()
             nx += 65 
             text += make_rbv() 
-        elif node.nodeName in ["Enumeration"]:
+        elif node.nodeName in ["Enumeration", "Boolean"]:
             text += make_menu()
         elif node.nodeName in ["Command"]:
             text += make_cmd()
@@ -657,7 +675,8 @@ endObjectProperties
 edl_file.close()
     
 # write the summary screen
-open(edl_filename, "w").write("""4 0 1
+if not os.path.exists(edl_filename):
+    open(edl_filename, "w").write("""4 0 1
 beginScreenProperties
 major 4
 minor 0
