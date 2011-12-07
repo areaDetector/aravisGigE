@@ -25,9 +25,9 @@ tar xjf "${HERE}/$(basename $SOURCE)" -C "${HERE}"
 rm "${HERE}/$(basename $SOURCE)"
 
 # move the untarred archive to the correct name
-mv "${HERE}/aravis-${VERSION}" "${HERE}/aravis"
+mv "${HERE}/aravis-${VERSION}" "${HERE}/vendor/aravis"
 
 # patch aravis
-patch -d "${HERE}" -p0 < "${HERE}/locate-by-ip.patch"
+patch -d "${HERE}" -p0 < "${HERE}/vendor/locate-by-ip.patch"
 
 echo "You can now type make to build this module"
