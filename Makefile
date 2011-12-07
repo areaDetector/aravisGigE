@@ -1,10 +1,9 @@
 #Makefile at top of application tree
 TOP = .
-include $(TOP)/configure/CONFIG
-install: $(TOP)/aravis/Makefile
 
-DIRS := $(DIRS) $(filter-out $(DIRS), aravis)
+include $(TOP)/configure/CONFIG
 DIRS := $(DIRS) $(filter-out $(DIRS), configure)
+DIRS := $(DIRS) $(filter-out $(DIRS), vendor)
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *App))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocBoot))
 
@@ -21,18 +20,3 @@ DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard etc))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocs))
 include $(TOP)/configure/RULES_TOP
 
-# this makes aravis
-FULLTOP=$(shell pwd)
-CONFIGOPTIONS = --bindir=$(FULLTOP)/bin/$(EPICS_HOST_ARCH)
-CONFIGOPTIONS += --libdir=$(FULLTOP)/lib/$(EPICS_HOST_ARCH)  
-CONFIGOPTIONS += --includedir=$(FULLTOP)/include
-CONFIGOPTIONS += --with-html-dir=$(FULLTOP)/documentation
-CONFIGOPTIONS += --prefix=/tmp/aravis-install
-CONFIGOPTIONS += --enable-gst-plugin --enable-viewer 
-#CONFIGOPTIONS += --disable-nls --disable-cairo --disable-gtk-doc-html --enable-viewer
-ENVEXPORTS =
-ifneq ($(GLIBPREFIX),)
-	ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
-endif
-$(TOP)/aravis/Makefile:
-	(cd aravis; $(ENVEXPORTS) sh configure $(CONFIGOPTIONS))
