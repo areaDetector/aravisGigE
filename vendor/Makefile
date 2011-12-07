@@ -6,7 +6,7 @@ CONFIGOPTIONS = --prefix=$(shell cd $(TOP)/vendor && pwd)/aravis-$(T_A)
 CONFIGOPTIONS += --enable-gst-plugin --enable-viewer 
 
 # libs to install
-ARAVIS_LINUX_LIBS = libaravis-0.2.a libaravis-0.2.so.0.0 libaravis-0.2.so.0 libaravis-0.2.so
+ARAVIS_LINUX_LIBS = libaravis-0.2.a libaravis-0.2.so.0.0.0 libaravis-0.2.so.0 libaravis-0.2.so
 ARAVIS_LINUX_BINS = arv-tool-0.2
 
 # export path for GLIB if GLIBPREFIX 
