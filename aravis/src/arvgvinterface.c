@@ -312,6 +312,68 @@ arv_gv_interface_update_device_list (ArvInterface *interface, GArray *device_ids
 	}
 }
 
+static GInetAddress * arv_gv_interface_camera_locate(ArvGvInterface *gv_interface, GInetAddress *device_address) {
+	GSList *iter;
+	GInetAddress *interface_address = NULL;
+	GSocketAddress *device_socket_address = g_inet_socket_address_new(device_address, ARV_GVCP_PORT);
+	for (iter = gv_interface->priv->discover_infos_list; iter != NULL; iter = iter->next) {
+		ArvGvInterfaceDiscoverInfos *infos = iter->data;
+		ArvGvcpPacket *packet;
+		size_t size;
+		/* Just read a random register */
+		packet = arv_gvcp_packet_new_read_register_cmd(ARV_GVBS_N_STREAM_CHANNELS_OFFSET, 0, &size);
+		g_socket_send_to (infos->socket,
+				  device_socket_address,
+				  (const char *) packet, size,
+				  NULL, NULL);
+		arv_gvcp_packet_free (packet);
+	}
+	GPollFD *poll_fd;
+	char buffer[ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE];
+	int count;
+	int i;
+
+	poll_fd = g_new (GPollFD, gv_interface->priv->n_discover_infos);
+
+	for (i = 0, iter = gv_interface->priv->discover_infos_list; iter != NULL; i++, iter = iter->next) {
+		ArvGvInterfaceDiscoverInfos *infos = iter->data;
+		poll_fd[i].fd = g_socket_get_fd (infos->socket);
+		poll_fd[i].events =  G_IO_IN;
+		poll_fd[i].revents = 0;
+	}
+
+	do {
+		if (g_poll (poll_fd, gv_interface->priv->n_discover_infos,
+				ARV_GV_INTERFACE_DISCOVERY_TIMEOUT_MS) == 0) {
+			g_free (poll_fd);
+			return NULL;
+		}
+
+		for (i = 0, iter = gv_interface->priv->discover_infos_list; iter != NULL; i++, iter = iter->next) {
+			ArvGvInterfaceDiscoverInfos *infos = iter->data;
+
+			do {
+				g_socket_set_blocking (infos->socket, FALSE);
+				count = g_socket_receive (infos->socket, buffer, ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE,
+							  NULL, NULL);
+				g_socket_set_blocking (infos->socket, TRUE);
+
+				if (count > 0) {
+
+					ArvGvcpPacket *packet = (ArvGvcpPacket *) buffer;
+					if (g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_CMD) {
+						interface_address = g_inet_socket_address_get_address
+								(G_INET_SOCKET_ADDRESS (infos->interface_address));
+						g_free (poll_fd);
+						return interface_address;
+					}
+				}
+			} while (count > 0);
+		}
+	} while (1);
+
+}
+
 static ArvDevice *
 arv_gv_interface_open_device (ArvInterface *interface, const char *device_id)
 {
@@ -333,6 +395,21 @@ arv_gv_interface_open_device (ArvInterface *interface, const char *device_id)
 
 		if (device_infos == NULL)
 			device_infos = g_hash_table_lookup (gv_interface->priv->devices_by_mac, device_id);
+	}
+
+	if (device_infos == NULL) {
+	   /* This is probably an IP address */
+	   device_address = g_inet_address_new_from_string(device_id);
+	   if (device_address != NULL) {
+		   /* Try and find an interface that the camera will respond on */
+		   GInetAddress *interface_address = arv_gv_interface_camera_locate(gv_interface, device_address);
+		   if (interface_address != NULL) {
+			   device = arv_gv_device_new (interface_address, device_address);
+			   g_object_unref (interface_address);
+		   }
+		   g_object_unref (device_address);
+		   return device;
+	   }
 	}
 
 	if (device_infos == NULL)

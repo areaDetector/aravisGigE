@@ -27,4 +27,7 @@ rm "${HERE}/$(basename $SOURCE)"
 # move the untarred archive to the correct name
 mv "${HERE}/aravis-${VERSION}" "${HERE}/aravis"
 
+# patch aravis
+patch -d "${HERE}" -p0 < "${HERE}/locate-by-ip.patch"
+
 echo "You can now type make to build this module"

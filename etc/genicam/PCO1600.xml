@@ -1,0 +1,2296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RegisterDescription ModelName="XXX" VendorName="PCO" StandardNameSpace="GEV" SchemaMajorVersion="1" SchemaMinorVersion="0" SchemaSubMinorVersion="1" MajorVersion="280" MinorVersion="0" SubMinorVersion="0" ToolTip="TestTooltip" ProductGuid="v854bb0a-4bef-45f9-91e7-2d2729d9dda2" VersionGuid="vd4b542a-ca58-4fce-957e-5fd26ec6c329" xmlns="http://www.genicam.org/GenApi/Version_1_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.genicam.org/GenApi/Version_1_0 GenApiSchema.xsd">
+	<Category Name="Root" NameSpace="Standard">
+		<pFeature>DeviceInformation</pFeature>
+		<pFeature>AcquisitionControl</pFeature>
+		<pFeature>ImageFormatControl</pFeature>
+		<pFeature>FeatureControl</pFeature>
+		<pFeature>Bootstrap</pFeature>
+	</Category>
+	<Category Name="DeviceInformation" NameSpace="Custom">
+		<pFeature>DeviceVendorName</pFeature>
+		<pFeature>DeviceModelName</pFeature>
+		<pFeature>DeviceManufacturerInfo</pFeature>
+		<pFeature>DeviceVersion</pFeature>
+		<pFeature>DeviceFirmwareVersion</pFeature>
+		<pFeature>DeviceID</pFeature>
+		<pFeature>DeviceUserID</pFeature>
+		<pFeature>DeviceRegistersValid</pFeature>
+	</Category>
+	<Category Name="AcquisitionControl" NameSpace="Custom">
+		<pFeature>AcquisitionArm</pFeature>
+		<pFeature>AcquisitionMode</pFeature>
+		<pFeature>AcquisitionFrameCount</pFeature>
+		<pFeature>AcquisitionStart</pFeature>
+		<pFeature>AcquisitionStop</pFeature>
+		<pFeature>RecorderStart</pFeature>
+		<pFeature>RecorderStop</pFeature>
+		<pFeature>TriggerMode</pFeature>
+		<pFeature>TriggerSource</pFeature>
+		<pFeature>TriggerSelector</pFeature>
+		<pFeature>TriggerSoftware</pFeature>
+		<pFeature>TriggerActivation</pFeature>
+	</Category>
+	<Category Name="ImageFormatControl" NameSpace="Custom">
+		<pFeature>Width</pFeature>
+		<pFeature>Height</pFeature>
+		<pFeature>OffsetX</pFeature>
+		<pFeature>OffsetY</pFeature>
+		<pFeature>WidthMax</pFeature>
+		<pFeature>HeightMax</pFeature>
+		<pFeature>SensorWidth</pFeature>
+		<pFeature>SensorHeight</pFeature>
+		<pFeature>BinningHorizontal</pFeature>
+		<pFeature>BinningHorizontalMax</pFeature>
+		<pFeature>BinningHorizontalStep</pFeature>
+		<pFeature>BinningVertical</pFeature>
+		<pFeature>BinningVerticalMax</pFeature>
+		<pFeature>BinningVerticalStep</pFeature>
+		<pFeature>PixelFormat</pFeature>
+		<pFeature>PayloadSize</pFeature>
+	</Category>
+	<Category Name="FeatureControl" NameSpace="Custom">
+		<pFeature>R2RDelay</pFeature>
+		<pFeature>ExposureMode</pFeature>
+		<pFeature>ExposureAuto</pFeature>
+		<pFeature>ExposureTimeAbs</pFeature>
+		<pFeature>ExposureTimeMin</pFeature>
+		<pFeature>ExposureTimeMax</pFeature>
+		<pFeature>DelayAbs</pFeature>
+		<pFeature>DelayTimeMin</pFeature>
+		<pFeature>DelayTimeMax</pFeature>
+		<pFeature>ActiveSegment</pFeature>
+		<pFeature>NumImgsInSeg</pFeature>
+		<pFeature>NumImgsInSegMax</pFeature>
+		<pFeature>NumImgRead</pFeature>
+		<!--		<pFeature>ClearActiveSeg</pFeature>
+-->
+		<pFeature>TimestampMode</pFeature>
+		<pFeature>StorageMode</pFeature>
+		<pFeature>RecorderSubmode</pFeature>
+		<pFeature>PixelSize</pFeature>
+		<pFeature>UpperHeightLimit</pFeature>
+		<pFeature>UpperWidthLimit</pFeature>
+		<pFeature>PacketsPerBlock</pFeature>
+		<pFeature>StreamPacketsB2BDelay</pFeature>
+		<pFeature>StreamI2IDelay</pFeature>
+		<pFeature>SetDay</pFeature>
+		<pFeature>SetMonth</pFeature>
+		<pFeature>SetYear</pFeature>
+		<pFeature>SetHours</pFeature>
+		<pFeature>SetMinutes</pFeature>
+		<pFeature>SetSeconds</pFeature>
+	</Category>
+	<Category Name="Bootstrap" NameSpace="Custom">
+		<pFeature>GevVersionMajor</pFeature>
+		<pFeature>GevVersionMinor</pFeature>
+		<pFeature>GevDeviceModeIsBigEndian</pFeature>
+		<pFeature>GevDeviceModeCharacterSet</pFeature>
+		<pFeature>GevInterfaceSelector</pFeature>
+		<pFeature>GevMACAddressHigh</pFeature>
+		<pFeature>GevMACAddressLow</pFeature>
+		<pFeature>GevSupportedIPConfiguration_LLA</pFeature>
+		<pFeature>GevSupportedIPConfiguration_DHCP</pFeature>
+		<pFeature>GevSupportedIPConfiguration_PersistentIP</pFeature>
+		<pFeature>GevCurrentIPConfiguration</pFeature>
+		<pFeature>GevCurrentIPAddress</pFeature>
+		<pFeature>GevCurrentIPAddress_0</pFeature>
+		<pFeature>GevCurrentIPAddress_1</pFeature>
+		<pFeature>GevCurrentIPAddress_2</pFeature>
+		<pFeature>GevCurrentIPAddress_3</pFeature>
+		<pFeature>GevCurrentSubnetMask</pFeature>
+		<pFeature>GevCurrentSubnetMask_0</pFeature>
+		<pFeature>GevCurrentSubnetMask_1</pFeature>
+		<pFeature>GevCurrentSubnetMask_2</pFeature>
+		<pFeature>GevCurrentSubnetMask_3</pFeature>
+		<pFeature>GevCurrentDefaultGateway</pFeature>
+		<pFeature>GevCurrentDefaultGateway_0</pFeature>
+		<pFeature>GevCurrentDefaultGateway_1</pFeature>
+		<pFeature>GevCurrentDefaultGateway_2</pFeature>
+		<pFeature>GevCurrentDefaultGateway_3</pFeature>
+		<pFeature>ManufacturerName</pFeature>
+		<pFeature>ModelName</pFeature>
+		<pFeature>VersionDevice</pFeature>
+		<pFeature>ManufacturerSpecInfo</pFeature>
+		<pFeature>SerialNumber</pFeature>
+		<pFeature>UserDefinedName</pFeature>
+		<pFeature>GevFirstURL</pFeature>
+		<pFeature>GevSecondURL</pFeature>
+		<pFeature>GevNumberOfInterfaces</pFeature>
+		<pFeature>GevPersistentIPAddress</pFeature>
+		<pFeature>GevPersistentIPAddress_0</pFeature>
+		<pFeature>GevPersistentIPAddress_1</pFeature>
+		<pFeature>GevPersistentIPAddress_2</pFeature>
+		<pFeature>GevPersistentIPAddress_3</pFeature>
+		<pFeature>GevPersistentSubnetMask</pFeature>
+		<pFeature>GevPersistentSubnetMask_0</pFeature>
+		<pFeature>GevPersistentSubnetMask_1</pFeature>
+		<pFeature>GevPersistentSubnetMask_2</pFeature>
+		<pFeature>GevPersistentSubnetMask_3</pFeature>
+		<pFeature>GevPersistentDefaultGateway</pFeature>
+		<pFeature>GevPersistentDefaultGateway_0</pFeature>
+		<pFeature>GevPersistentDefaultGateway_1</pFeature>
+		<pFeature>GevPersistentDefaultGateway_2</pFeature>
+		<pFeature>GevPersistentDefaultGateway_3</pFeature>
+		<pFeature>GevMessageChannelCount</pFeature>
+		<pFeature>GevStreamChannelCount</pFeature>
+		<pFeature>GevSupportedOptionalCommands_EVENTDATA</pFeature>
+		<pFeature>GevSupportedOptionalCommands_EVENT</pFeature>
+		<pFeature>GevSupportedOptionalCommands_PACKETRESEND</pFeature>
+		<pFeature>GevSupportedOptionalCommands_WRITEMEM</pFeature>
+		<pFeature>GevSupportedOptionalCommands_Concatenation</pFeature>
+		<pFeature>GevHeartbeatTimeout</pFeature>
+		<pFeature>GevTimestampTickFrequencyHigh</pFeature>
+		<pFeature>GevTimestampTickFrequencyLow</pFeature>
+		<pFeature>GevTimestampControlLatch</pFeature>
+		<pFeature>GevTimestampControlReset</pFeature>
+		<pFeature>GevTimestampValueHigh</pFeature>
+		<pFeature>GevTimestampValueLow</pFeature>
+		<pFeature>GevCCP</pFeature>
+		<pFeature>GevMCPHostPort</pFeature>
+		<pFeature>GevMCDA</pFeature>
+		<pFeature>GevMCDA_0</pFeature>
+		<pFeature>GevMCDA_1</pFeature>
+		<pFeature>GevMCDA_2</pFeature>
+		<pFeature>GevMCDA_3</pFeature>
+		<pFeature>GevMCTT</pFeature>
+		<pFeature>GevMCRC</pFeature>
+		<pFeature>GevStreamChannelSelector</pFeature>
+		<pFeature>GevSCPInterfaceIndex</pFeature>
+		<pFeature>GevSCPHostPort</pFeature>
+		<pFeature>GevSCPSFireTestPacket</pFeature>
+		<pFeature>GevSCPSDoNotFragment</pFeature>
+		<pFeature>GevSCPSBigEndian</pFeature>
+		<pFeature>GevSCPSPacketSize</pFeature>
+		<pFeature>GevSCPD</pFeature>
+		<pFeature>GevSCDA</pFeature>
+		<pFeature>GevSCDA_0</pFeature>
+		<pFeature>GevSCDA_1</pFeature>
+		<pFeature>GevSCDA_2</pFeature>
+		<pFeature>GevSCDA_3</pFeature>
+		<pFeature>GevLinkSpeed</pFeature>
+	</Category>
+	<Group Comment="Device Information">
+		<StringReg Name="DeviceVendorName" NameSpace="Standard">
+			<Address>0x0048</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="DeviceModelName" NameSpace="Standard">
+			<Address>0x00068</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="DeviceManufacturerInfo" NameSpace="Standard">
+			<Address>0x000A8</Address>
+			<Length>48</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="DeviceVersion" NameSpace="Standard">
+			<Address>0x00088</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="DeviceFirmwareVersion" NameSpace="Standard">
+			<Address>0x0A004</Address>
+			<Length>512</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="DeviceID" NameSpace="Standard">
+			<Address>0x000D8</Address>
+			<Length>16</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="DeviceUserID" NameSpace="Standard">
+			<Address>0x000E8</Address>
+			<Length>16</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<Boolean Name="DeviceRegistersValid" NameSpace="Standard">
+			<pValue>RegRegistersValid</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+	</Group>
+	<Group Comment="Category Acquisition Control">
+		<Command Name="AcquisitionArm" NameSpace="Standard">
+			<ToolTip>Arm camera after Image Settings were changed and before an image is requested.</ToolTip>
+			<pValue>RegAcquisitionArm</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Enumeration Name="AcquisitionMode" NameSpace="Standard">
+			<EnumEntry Name="Continuous" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="SingleFrame" NameSpace="Standard">
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="MultiFrame" NameSpace="Standard">
+				<Value>3</Value>
+			</EnumEntry>
+			<pValue>RegAcquisitionMode</pValue>
+		</Enumeration>
+		<Integer Name="AcquisitionFrameCount" NameSpace="Standard">
+			<ToolTip>If Acquisition Mode is "Multi Frame", set the number of images to request here.</ToolTip>
+			<pValue>RegAcquisitionFrameCount</pValue>
+		</Integer>
+		<Command Name="AcquisitionStart" NameSpace="Standard">
+			<pValue>RegAcquisitionCommand</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="AcquisitionStop" NameSpace="Standard">
+			<pValue>RegAcquisitionCommand</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<Command Name="RecorderStart" NameSpace="Standard">
+			<ToolTip>Set recorder state to start.</ToolTip>
+			<pValue>RegRecordState</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="RecorderStop" NameSpace="Standard">
+			<ToolTip>Set recorder state to stop.</ToolTip>
+			<pValue>RegRecordState</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<Enumeration Name="TriggerMode" NameSpace="Standard">
+			<ToolTip>If Trigger Mode is "On", select a Trigger Source. If Trigger Mode is "Off", frames are triggered in a "auto sequence" refered to the External Exposure Control Singnals section of the PCO Camera Documentation.</ToolTip>
+			<EnumEntry Name="Off" NameSpace="Standard">
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="On" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<pValue>RegTriggerMode</pValue>
+		</Enumeration>
+		<Enumeration Name="TriggerSource" NameSpace="Standard">
+			<ToolTip>Select "ExtTrig" without or "ExtTrigAndAcqEnbl" with acquisition enabled for external trigger or "soft trigger" to force a trigger by software. For more information have a look at the External Exposure Control Singnals section of the PCO Camera Documentation.</ToolTip>
+			<EnumEntry Name="ExtTrig" NameSpace="Custom">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="SoftTrigger" NameSpace="Custom">
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExtTrigAndAcqEnbl" NameSpace="Custom">
+				<Value>3</Value>
+			</EnumEntry>
+			<pValue>RegTriggerSource</pValue>
+		</Enumeration>
+		<Enumeration Name="TriggerSelector" NameSpace="Standard">
+			<ToolTip>Choose a variant, if external trigger "ExtTrig" or "ExtTrigAndAcqEnbl" is selected. For more information have a look at the External Exposure Control Singnals section of the PCO Camera Documentation.</ToolTip>
+			<EnumEntry Name="AcquisitionStart" NameSpace="Standard">
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExposureStart" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExposureActive" NameSpace="Standard">
+				<Value>2</Value>
+			</EnumEntry>
+			<pValue>RegTriggerSelector</pValue>
+		</Enumeration>
+		<Command Name="TriggerSoftware" NameSpace="Standard">
+			<ToolTip>Click here, if your trigger source is "soft trigger".</ToolTip>
+			<pValue>RegSoftwareTrigger</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Enumeration Name="TriggerActivation" NameSpace="Standard">
+			<ToolTip>Trigger Activation as specified in PCO Camera Documentation. Refer to the External Exposure Control Singnals section a Dip-switch at the back-plate of the power supply is used for trigger activation.</ToolTip>
+			<EnumEntry Name="None" NameSpace="Custom">
+				<Value>0</Value>
+			</EnumEntry>
+			<Value>0</Value>
+		</Enumeration>
+	</Group>
+	<Group Comment="Category Image Format Control">
+		<Integer Name="SensorWidth" NameSpace="Standard">
+			<pValue>RegSensorWidth</pValue>
+		</Integer>
+		<Integer Name="SensorHeight" NameSpace="Standard">
+			<pValue>RegSensorHeight</pValue>
+		</Integer>
+		<Integer Name="BinningHorizontal" NameSpace="Standard">
+			<pValue>RegBinningXValue</pValue>
+			<Min>1</Min>
+			<pMax>RegBinningXMax</pMax>
+		</Integer>
+		<Integer Name="BinningHorizontalMax" NameSpace="Standard">
+			<pValue>RegBinningXMax</pValue>
+		</Integer>
+		<Integer Name="BinningHorizontalStep" NameSpace="Standard">
+			<pValue>RegBinningXStep</pValue>
+		</Integer>
+		<Integer Name="BinningVertical" NameSpace="Standard">
+			<pValue>RegBinningYValue</pValue>
+			<Min>1</Min>
+			<pMax>RegBinningYMax</pMax>
+		</Integer>
+		<Integer Name="BinningVerticalMax" NameSpace="Standard">
+			<pValue>RegBinningYMax</pValue>
+		</Integer>
+		<Integer Name="BinningVerticalStep" NameSpace="Standard">
+			<pValue>RegBinningYStep</pValue>
+		</Integer>
+		<Integer Name="Width" NameSpace="Standard">
+			<ToolTip>Width of the ROI. Valid ROI settings range from 1/1 to WidthMax/HeightMax (WidthMax/HeightMax are dependent from the settings of format and binning). For more information have a look at section 4.2.8 of the SDK-Description-Manual.</ToolTip>
+			<pValue>RegWidth</pValue>
+			<Min>1</Min>
+			<pMax>RegMaxWidth</pMax>
+		</Integer>
+		<Integer Name="Height" NameSpace="Standard">
+			<ToolTip>Height of the ROI. Valid ROI settings range from 1/1 to WidthMax/HeightMax (WidthMax/HeightMax are dependent from the settings of format and binning). For more information have a look at section 4.2.8 of the SDK-Description-Manual.</ToolTip>
+			<pValue>RegHeight</pValue>
+			<Min>1</Min>
+			<pMax>RegMaxHeight</pMax>
+		</Integer>
+		<Integer Name="OffsetX" NameSpace="Standard">
+			<ToolTip>x0 coordinate of the ROI. Valid ROI settings range from 1/1 to WidthMax/HeightMax (WidthMax/HeightMax are dependent from the settings of format and binning). For more information have a look at section 4.2.8 of the SDK-Description-Manual.</ToolTip>
+			<pValue>RegOffsetX</pValue>
+			<Min>1</Min>
+			<pMax>WidthMax</pMax>
+		</Integer>
+		<Integer Name="OffsetY" NameSpace="Standard">
+			<ToolTip>y0 coordinate of the ROI.  Valid ROI settings range from 1/1 to WidthMax/HeightMax (WidthMax/HeightMax are dependent from the settings of format and binning). For more information have a look at section 4.2.8 of the SDK-Description-Manual.</ToolTip>
+			<pValue>RegOffsetY</pValue>
+			<Min>1</Min>
+			<pMax>HeightMax</pMax>
+		</Integer>
+		<Integer Name="WidthMax" NameSpace="Standard">
+			<ToolTip>WidthMax =  SensorWidth / BinningHorizontal.</ToolTip>
+			<pValue>RegMaxWidth</pValue>
+		</Integer>
+		<Integer Name="HeightMax" NameSpace="Standard">
+			<ToolTip>HeightMax =  SensorHeight / BinningVertical.</ToolTip>
+			<pValue>RegMaxHeight</pValue>
+		</Integer>
+		<Enumeration Name="PixelFormat" NameSpace="Standard">
+			<ToolTip>Pixel Format as specified in GigE Vision standard</ToolTip>
+			<Description>Refer to the Pixel format section (p. 117)</Description>
+			<EnumEntry Name="Mono8" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqMono8</pIsAvailable>
+				<Value>17301505</Value>
+			</EnumEntry>
+			<EnumEntry Name="Mono10" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqMono10</pIsAvailable>
+				<Value>17825795</Value>
+			</EnumEntry>
+			<EnumEntry Name="Mono12" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqMono12</pIsAvailable>
+				<Value>17825797</Value>
+			</EnumEntry>
+			<EnumEntry Name="Mono12Packed" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqMono12Packed</pIsAvailable>
+				<Value>17563654</Value>
+			</EnumEntry>
+			<EnumEntry Name="Mono16" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqMono16</pIsAvailable>
+				<Value>17825799</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerGR8" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerGR8</pIsAvailable>
+				<Value>17301512</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerRG8" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerRG8</pIsAvailable>
+				<Value>17301513</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerGB8" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerGB8</pIsAvailable>
+				<Value>17301514</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerBG8" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerBG8</pIsAvailable>
+				<Value>17301515</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerGR12" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerGR12</pIsAvailable>
+				<Value>17825808</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerRG12" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerRG12</pIsAvailable>
+				<Value>17825809</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerGB12" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerGB12</pIsAvailable>
+				<Value>17825810</Value>
+			</EnumEntry>
+			<EnumEntry Name="BayerBG12" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBayerBG12</pIsAvailable>
+				<Value>17825811</Value>
+			</EnumEntry>
+			<EnumEntry Name="RGB8Packed" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqRgb8Packed</pIsAvailable>
+				<Value>35127316</Value>
+			</EnumEntry>
+			<EnumEntry Name="BGR8Packed" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBgr8Packed</pIsAvailable>
+				<Value>35127317</Value>
+			</EnumEntry>
+			<EnumEntry Name="RGBA8Packed" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqRgba8Packed</pIsAvailable>
+				<Value>35651606</Value>
+			</EnumEntry>
+			<EnumEntry Name="BGRA8Packed" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqBgra8Packed</pIsAvailable>
+				<Value>35651607</Value>
+			</EnumEntry>
+			<EnumEntry Name="RGB12Packed" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqRgb12Packed</pIsAvailable>
+				<Value>36700186</Value>
+			</EnumEntry>
+			<EnumEntry Name="RGB8Plannar" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqRgb8Plannar</pIsAvailable>
+				<Value>35127329</Value>
+			</EnumEntry>
+			<EnumEntry Name="RGB10Plannar" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqRgb10Plannar</pIsAvailable>
+				<Value>36700194</Value>
+			</EnumEntry>
+			<EnumEntry Name="RGB12Plannar" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqRgb12Plannar</pIsAvailable>
+				<Value>36700195</Value>
+			</EnumEntry>
+			<EnumEntry Name="RGB16Plannar" NameSpace="Standard">
+				<pIsAvailable>RegPixelFormatInqRgb16Plannar</pIsAvailable>
+				<Value>36700196</Value>
+			</EnumEntry>
+			<pValue>RegPixelFormat</pValue>
+		</Enumeration>
+		<Integer Name="PayloadSize" NameSpace="Standard">
+			<pValue>RegPayloadSize</pValue>
+		</Integer>
+	</Group>
+	<Group Comment="Category Feature Control">
+		<Enumeration Name="ExposureMode" NameSpace="Standard">
+			<EnumEntry Name="Timed" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<Value>1</Value>
+		</Enumeration>
+		<Enumeration Name="ExposureAuto" NameSpace="Standard">
+			<EnumEntry Name="Off" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<Value>1</Value>
+		</Enumeration>
+		<Integer Name="ExposureTimeAbs" NameSpace="Standard">
+			<ToolTip>Exposure Time in us.</ToolTip>
+			<pValue>RegExposureTimeAbs</pValue>
+			<pMin>RegExposureTimeAbsMin</pMin>
+			<pMax>RegExposureTimeAbsMax</pMax>
+		</Integer>
+		<Integer Name="ExposureTimeMin" NameSpace="Custom">
+			<ToolTip>Exposure Time Min. in us.</ToolTip>
+			<pValue>RegExposureTimeAbsMin</pValue>
+		</Integer>
+		<Integer Name="ExposureTimeMax" NameSpace="Custom">
+			<ToolTip>Exposure Time Max. in us.</ToolTip>
+			<pValue>RegExposureTimeAbsMax</pValue>
+		</Integer>
+		<Integer Name="DelayAbs" NameSpace="Custom">
+			<ToolTip>Delay Time in us.</ToolTip>
+			<pValue>RegDelay</pValue>
+			<pMin>RegDelayMin</pMin>
+			<pMax>RegDelayMax</pMax>
+		</Integer>
+		<Integer Name="DelayTimeMin" NameSpace="Custom">
+			<ToolTip>Delay Time Min. in us.</ToolTip>
+			<pValue>RegDelayMin</pValue>
+		</Integer>
+		<Integer Name="DelayTimeMax" NameSpace="Custom">
+			<ToolTip>Delay Time Max in us.</ToolTip>
+			<pValue>RegDelayMax</pValue>
+		</Integer>
+		<Enumeration Name="TimestampMode" NameSpace="Custom">
+			<ToolTip>None: no stamp in image;	Binary: BCD coded stamp in the first 14 pixel;	BinaryAscii: BCD coded stamp in the first 14 pixel + ASCII text;	Ascii: ASCII text only.</ToolTip>
+			<EnumEntry Name="None" NameSpace="Custom">
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="Binary" NameSpace="Custom">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="BinaryAscii" NameSpace="Custom">
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="Ascii" NameSpace="Custom">
+				<Value>3</Value>
+			</EnumEntry>
+			<pValue>RegTimestampMode</pValue>
+		</Enumeration>
+		<Integer Name="NumImgsInSeg" NameSpace="Custom">
+			<ToolTip>Click here to get number of Images saved in active RAM Segment.</ToolTip>
+			<pValue>RegNumImgsInSeg</pValue>
+		</Integer>
+		<Integer Name="NumImgsInSegMax" NameSpace="Custom">
+			<ToolTip>Click here to get Maximum number of Images saved in active RAM Segment.</ToolTip>
+			<pValue>RegNumImgsInSegMax</pValue>
+		</Integer>
+		<Integer Name="NumImgRead" NameSpace="Custom">
+			<ToolTip>Image number of image to get from active RAM Segment.</ToolTip>
+			<pValue>RegNumImgRead</pValue>
+		</Integer>
+		<Enumeration Name="ActiveSegment" NameSpace="Custom">
+			<ToolTip>Select the Ram Segment to save images at.</ToolTip>
+			<EnumEntry Name="Segment1" NameSpace="Custom">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="Segment2" NameSpace="Custom">
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="Segment3" NameSpace="Custom">
+				<Value>3</Value>
+			</EnumEntry>
+			<EnumEntry Name="Segment4" NameSpace="Custom">
+				<Value>4</Value>
+			</EnumEntry>
+			<pValue>RegActiveSegment</pValue>
+		</Enumeration>
+		<!--		<Command Name="ClearActiveSeg" NameSpace="Custom">
+			<ToolTip>Click here to clear active segment.</ToolTip>
+			<pValue>RegClearActiveSeg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+-->
+		<Enumeration Name="StorageMode" NameSpace="Custom">
+			<EnumEntry Name="recorder" NameSpace="Custom">
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="FIFObuffer" NameSpace="Custom">
+				<Value>1</Value>
+			</EnumEntry>
+			<pValue>RegStorageMode</pValue>
+		</Enumeration>
+		<Enumeration Name="RecorderSubmode" NameSpace="Custom">
+			<EnumEntry Name="ringbuffer" NameSpace="Custom">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="sequence" NameSpace="Custom">
+				<Value>0</Value>
+			</EnumEntry>
+			<pValue>RegRecorderSubmode</pValue>
+		</Enumeration>
+		<Enumeration Name="PixelSize" NameSpace="Standard">
+			<EnumEntry Name="Bpp8" NameSpace="Standard">
+				<Value>8</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp10" NameSpace="Standard">
+				<Value>10</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp12" NameSpace="Standard">
+				<Value>12</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp14" NameSpace="Standard">
+				<Value>14</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp16" NameSpace="Standard">
+				<Value>16</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp24" NameSpace="Standard">
+				<Value>24</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp32" NameSpace="Standard">
+				<Value>32</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp48" NameSpace="Standard">
+				<Value>48</Value>
+			</EnumEntry>
+			<EnumEntry Name="Bpp64" NameSpace="Standard">
+				<Value>64</Value>
+			</EnumEntry>
+			<pValue>RegPixelSize</pValue>
+		</Enumeration>
+		<Integer Name="UpperHeightLimit" NameSpace="Custom">
+			<ToolTip>UpperHeightLimit = HeightMax - OffsetY.</ToolTip>
+			<pValue>RegUpperHeightLimit</pValue>
+		</Integer>
+		<Integer Name="UpperWidthLimit" NameSpace="Custom">
+			<ToolTip>UpperWidthLimit = WidthMax - OffsetX.</ToolTip>
+			<pValue>RegUpperWidthLimit</pValue>
+		</Integer>
+		<Integer Name="PacketsPerBlock" NameSpace="Custom">
+			<ToolTip>Number of UDP-Packets per image.</ToolTip>
+			<pValue>RegPacketsPerBlock</pValue>
+		</Integer>
+		<Integer Name="StreamPacketsB2BDelay" NameSpace="Custom">
+			<ToolTip>Packet Delay Time between two UDP-Packets in clock ticks. Clock rate is 100MHz.</ToolTip>
+			<pValue>RegStreamPacketsB2BDelay</pValue>
+		</Integer>
+		<Integer Name="StreamI2IDelay" NameSpace="Custom">
+			<ToolTip>Delay Time between two frames in ms.</ToolTip>
+			<pValue>RegStreamI2IDelay</pValue>
+		</Integer>
+		<Integer Name="R2RDelay" NameSpace="Custom">
+			<ToolTip>Delay in ms between two image request, if Acquisition Mode "Multi Frame" or "Continuous" is selected.</ToolTip>
+			<pValue>RegR2RDelay</pValue>
+		</Integer>
+		<Integer Name="SetDay" NameSpace="Custom">
+			<ToolTip>Set Date: Day.</ToolTip>
+			<pValue>RegSetDay</pValue>
+		</Integer>
+		<Integer Name="SetMonth" NameSpace="Custom">
+			<ToolTip>Set Date: Month.</ToolTip>
+			<pValue>RegSetMonth</pValue>
+		</Integer>
+		<Integer Name="SetYear" NameSpace="Custom">
+			<ToolTip>Set Date: Year.</ToolTip>
+			<pValue>RegSetYear</pValue>
+		</Integer>
+		<Integer Name="SetHours" NameSpace="Custom">
+			<ToolTip>Set Date: Hours.</ToolTip>
+			<pValue>RegSetHours</pValue>
+		</Integer>
+		<Integer Name="SetMinutes" NameSpace="Custom">
+			<ToolTip>Set Date: Minutes.</ToolTip>
+			<pValue>RegSetMinutes</pValue>
+		</Integer>
+		<Integer Name="SetSeconds" NameSpace="Custom">
+			<ToolTip>Set Date: Seconds.</ToolTip>
+			<pValue>RegSetSeconds</pValue>
+		</Integer>
+	</Group>
+	<Group Comment="Category Bootstrap Register">
+		<Integer Name="GevVersionMajor" NameSpace="Standard">
+			<pValue>RegGigEVersionMajor</pValue>
+		</Integer>
+		<Integer Name="GevVersionMinor" NameSpace="Standard">
+			<pValue>RegGigEVersionMinor</pValue>
+		</Integer>
+		<Boolean Name="GevDeviceModeIsBigEndian" NameSpace="Standard">
+			<pValue>RegDeviceModeEndian</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Enumeration Name="GevDeviceModeCharacterSet" NameSpace="Standard">
+			<EnumEntry Name="UTF8" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<pValue>RegDeviceModeCharSet</pValue>
+		</Enumeration>
+		<Integer Name="GevInterfaceSelector" NameSpace="Standard">
+			<Value>0</Value>
+		</Integer>
+		<Integer Name="GevMACAddressHigh" NameSpace="Custom">
+			<pValue>RegMacAddressHigh</pValue>
+		</Integer>
+		<Integer Name="GevMACAddressLow" NameSpace="Custom">
+			<pValue>RegMacAddressLow</pValue>
+		</Integer>
+		<Boolean Name="GevSupportedIPConfiguration_LLA" NameSpace="Standard">
+			<pValue>RegSupportedIPConfigLLA</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSupportedIPConfiguration_DHCP" NameSpace="Standard">
+			<pValue>RegSupportedIPConfigDHCP</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSupportedIPConfiguration_PersistentIP" NameSpace="Standard">
+			<pValue>RegSupportedIPConfigPersistentIP</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Enumeration Name="GevCurrentIPConfiguration" NameSpace="Standard">
+			<EnumEntry Name="None" NameSpace="Standard">
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="PersistentIP" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="DHCP" NameSpace="Standard">
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="PersistenIP_DHCP" NameSpace="Standard">
+				<Value>3</Value>
+			</EnumEntry>
+			<EnumEntry Name="LLA" NameSpace="Standard">
+				<Value>4</Value>
+			</EnumEntry>
+			<EnumEntry Name="LLA_PersistentIP" NameSpace="Standard">
+				<Value>5</Value>
+			</EnumEntry>
+			<EnumEntry Name="LLA_DHCP" NameSpace="Standard">
+				<Value>6</Value>
+			</EnumEntry>
+			<EnumEntry Name="All" NameSpace="Standard">
+				<Value>7</Value>
+			</EnumEntry>
+			<pValue>RegCurrentIPConfig</pValue>
+		</Enumeration>
+		<Integer Name="GevCurrentIPAddress" NameSpace="Standard">
+			<pValue>RegCurrentIPAddress</pValue>
+		</Integer>
+		<Integer Name="GevCurrentIPAddress_0" NameSpace="Standard">
+			<pValue>RegCurrentIPAddress_0</pValue>
+		</Integer>
+		<Integer Name="GevCurrentIPAddress_1" NameSpace="Standard">
+			<pValue>RegCurrentIPAddress_1</pValue>
+		</Integer>
+		<Integer Name="GevCurrentIPAddress_2" NameSpace="Standard">
+			<pValue>RegCurrentIPAddress_2</pValue>
+		</Integer>
+		<Integer Name="GevCurrentIPAddress_3" NameSpace="Standard">
+			<pValue>RegCurrentIPAddress_3</pValue>
+		</Integer>
+		<Integer Name="GevCurrentSubnetMask" NameSpace="Standard">
+			<pValue>RegCurrentSubnetMask</pValue>
+		</Integer>
+		<Integer Name="GevCurrentSubnetMask_0" NameSpace="Standard">
+			<pValue>RegCurrentSubnetMask_0</pValue>
+		</Integer>
+		<Integer Name="GevCurrentSubnetMask_1" NameSpace="Standard">
+			<pValue>RegCurrentSubnetMask_1</pValue>
+		</Integer>
+		<Integer Name="GevCurrentSubnetMask_2" NameSpace="Standard">
+			<pValue>RegCurrentSubnetMask_2</pValue>
+		</Integer>
+		<Integer Name="GevCurrentSubnetMask_3" NameSpace="Standard">
+			<pValue>RegCurrentSubnetMask_3</pValue>
+		</Integer>
+		<Integer Name="GevCurrentDefaultGateway" NameSpace="Standard">
+			<pValue>RegCurrentDefaultGateway</pValue>
+		</Integer>
+		<Integer Name="GevCurrentDefaultGateway_0" NameSpace="Standard">
+			<pValue>RegCurrentDefaultGateway_0</pValue>
+		</Integer>
+		<Integer Name="GevCurrentDefaultGateway_1" NameSpace="Standard">
+			<pValue>RegCurrentDefaultGateway_1</pValue>
+		</Integer>
+		<Integer Name="GevCurrentDefaultGateway_2" NameSpace="Standard">
+			<pValue>RegCurrentDefaultGateway_2</pValue>
+		</Integer>
+		<Integer Name="GevCurrentDefaultGateway_3" NameSpace="Standard">
+			<pValue>RegCurrentDefaultGateway_3</pValue>
+		</Integer>
+		<StringReg Name="ManufacturerName" NameSpace="Custom">
+			<Address>0x00048</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="ModelName" NameSpace="Custom">
+			<Address>0x00068</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="VersionDevice" NameSpace="Custom">
+			<Address>0x00088</Address>
+			<Length>32</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="ManufacturerSpecInfo" NameSpace="Custom">
+			<Address>0x000A8</Address>
+			<Length>48</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="SerialNumber" NameSpace="Custom">
+			<Address>0x000D8</Address>
+			<Length>16</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="UserDefinedName" NameSpace="Custom">
+			<Address>0x000E8</Address>
+			<Length>16</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="GevFirstURL" NameSpace="Standard">
+			<Address>0x00200</Address>
+			<Length>512</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="GevSecondURL" NameSpace="Standard">
+			<Address>0x00400</Address>
+			<Length>512</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<Integer Name="GevNumberOfInterfaces" NameSpace="Standard">
+			<pValue>RegNumberOfInterfaces</pValue>
+		</Integer>
+		<Integer Name="GevPersistentIPAddress" NameSpace="Standard">
+			<pValue>RegPersistentIPAddress</pValue>
+		</Integer>
+		<Integer Name="GevPersistentIPAddress_0" NameSpace="Standard">
+			<pValue>RegPersistentIPAddress_0</pValue>
+		</Integer>
+		<Integer Name="GevPersistentIPAddress_1" NameSpace="Standard">
+			<pValue>RegPersistentIPAddress_1</pValue>
+		</Integer>
+		<Integer Name="GevPersistentIPAddress_2" NameSpace="Standard">
+			<pValue>RegPersistentIPAddress_2</pValue>
+		</Integer>
+		<Integer Name="GevPersistentIPAddress_3" NameSpace="Standard">
+			<pValue>RegPersistentIPAddress_3</pValue>
+		</Integer>
+		<Integer Name="GevPersistentSubnetMask" NameSpace="Standard">
+			<pValue>RegPersistentSubnetMask</pValue>
+		</Integer>
+		<Integer Name="GevPersistentSubnetMask_0" NameSpace="Standard">
+			<pValue>RegPersistentSubnetMask_0</pValue>
+		</Integer>
+		<Integer Name="GevPersistentSubnetMask_1" NameSpace="Standard">
+			<pValue>RegPersistentSubnetMask_1</pValue>
+		</Integer>
+		<Integer Name="GevPersistentSubnetMask_2" NameSpace="Standard">
+			<pValue>RegPersistentSubnetMask_2</pValue>
+		</Integer>
+		<Integer Name="GevPersistentSubnetMask_3" NameSpace="Standard">
+			<pValue>RegPersistentSubnetMask_3</pValue>
+		</Integer>
+		<Integer Name="GevPersistentDefaultGateway" NameSpace="Standard">
+			<pValue>RegPersistentDefaultGateway</pValue>
+		</Integer>
+		<Integer Name="GevPersistentDefaultGateway_0" NameSpace="Standard">
+			<pValue>RegPersistentDefaultGateway_0</pValue>
+		</Integer>
+		<Integer Name="GevPersistentDefaultGateway_1" NameSpace="Standard">
+			<pValue>RegPersistentDefaultGateway_1</pValue>
+		</Integer>
+		<Integer Name="GevPersistentDefaultGateway_2" NameSpace="Standard">
+			<pValue>RegPersistentDefaultGateway_2</pValue>
+		</Integer>
+		<Integer Name="GevPersistentDefaultGateway_3" NameSpace="Standard">
+			<pValue>RegPersistentDefaultGateway_3</pValue>
+		</Integer>
+		<Integer Name="GevMessageChannelCount" NameSpace="Standard">
+			<pValue>RegMessageChannelCount</pValue>
+		</Integer>
+		<Integer Name="GevStreamChannelCount" NameSpace="Standard">
+			<pValue>RegStreamChannelCount</pValue>
+		</Integer>
+		<Boolean Name="GevSupportedOptionalCommands_EVENTDATA" NameSpace="Standard">
+			<pValue>RegSupportedOptionalCommands_EVENTDATA</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSupportedOptionalCommands_EVENT" NameSpace="Standard">
+			<pValue>RegSupportedOptionalCommands_EVENT</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSupportedOptionalCommands_PACKETRESEND" NameSpace="Standard">
+			<pValue>RegSupportedOptionalCommands_PACKETRESEND</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSupportedOptionalCommands_WRITEMEM" NameSpace="Standard">
+			<pValue>RegSupportedOptionalCommands_WRITEMEM</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSupportedOptionalCommands_Concatenation" NameSpace="Standard">
+			<pValue>RegSupportedOptionalCommands_Concatenation</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Integer Name="GevHeartbeatTimeout" NameSpace="Standard">
+			<pValue>RegHeartbeatTimeout</pValue>
+		</Integer>
+		<Integer Name="GevTimestampTickFrequencyHigh" NameSpace="Custom">
+			<pValue>RegTimestampTickFrequencyHigh</pValue>
+		</Integer>
+		<Integer Name="GevTimestampTickFrequencyLow" NameSpace="Custom">
+			<pValue>RegTimestampTickFrequencyLow</pValue>
+		</Integer>
+		<Command Name="GevTimestampControlLatch" NameSpace="Standard">
+			<pValue>RegTimestampControlLatch</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="GevTimestampControlReset" NameSpace="Standard">
+			<pValue>RegTimestampControlReset</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Integer Name="GevTimestampValueHigh" NameSpace="Custom">
+			<pValue>RegTimestampValueHigh</pValue>
+		</Integer>
+		<Integer Name="GevTimestampValueLow" NameSpace="Custom">
+			<pValue>RegTimestampValueLow</pValue>
+		</Integer>
+		<Enumeration Name="GevCCP" NameSpace="Standard">
+			<EnumEntry Name="ExclusiveAccess" NameSpace="Standard">
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="ControlAccess" NameSpace="Standard">
+				<Value>2</Value>
+			</EnumEntry>
+			<pValue>RegCCP</pValue>
+		</Enumeration>
+		<Integer Name="GevMCPHostPort" NameSpace="Standard">
+			<pValue>RegMCPHostPort</pValue>
+		</Integer>
+		<Integer Name="GevMCDA" NameSpace="Standard">
+			<pValue>RegMCDA</pValue>
+		</Integer>
+		<Integer Name="GevMCDA_0" NameSpace="Standard">
+			<pValue>RegMCDA_0</pValue>
+		</Integer>
+		<Integer Name="GevMCDA_1" NameSpace="Standard">
+			<pValue>RegMCDA_1</pValue>
+		</Integer>
+		<Integer Name="GevMCDA_2" NameSpace="Standard">
+			<pValue>RegMCDA_2</pValue>
+		</Integer>
+		<Integer Name="GevMCDA_3" NameSpace="Standard">
+			<pValue>RegMCDA_3</pValue>
+		</Integer>
+		<Integer Name="GevMCTT" NameSpace="Standard">
+			<pValue>RegMCTT</pValue>
+		</Integer>
+		<Integer Name="GevMCRC" NameSpace="Standard">
+			<pValue>RegMCRC</pValue>
+		</Integer>
+		<Integer Name="GevStreamChannelSelector" NameSpace="Standard">
+			<Value>0</Value>
+		</Integer>
+		<Integer Name="GevSCPInterfaceIndex" NameSpace="Standard">
+			<pValue>RegSCPInterfaceIndex</pValue>
+		</Integer>
+		<Integer Name="GevSCPHostPort" NameSpace="Standard">
+			<pValue>RegSCPHostPort</pValue>
+		</Integer>
+		<Boolean Name="GevSCPSFireTestPacket" NameSpace="Standard">
+			<pValue>RegSCPSFireTestPacket</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSCPSDoNotFragment" NameSpace="Standard">
+			<pValue>RegSCPSDoNotFragment</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Boolean Name="GevSCPSBigEndian" NameSpace="Standard">
+			<pValue>RegSCPSBigEndian</pValue>
+			<OnValue>1</OnValue>
+			<OffValue>0</OffValue>
+		</Boolean>
+		<Integer Name="GevSCPSPacketSize" NameSpace="Standard">
+			<pValue>RegSCPSPacketSize</pValue>
+		</Integer>
+		<Integer Name="GevSCPD" NameSpace="Standard">
+			<pValue>RegSCPD</pValue>
+		</Integer>
+		<Integer Name="GevSCDA" NameSpace="Standard">
+			<pValue>RegSCDA</pValue>
+		</Integer>
+		<Integer Name="GevSCDA_0" NameSpace="Standard">
+			<pValue>RegSCDA_0</pValue>
+		</Integer>
+		<Integer Name="GevSCDA_1" NameSpace="Standard">
+			<pValue>RegSCDA_1</pValue>
+		</Integer>
+		<Integer Name="GevSCDA_2" NameSpace="Standard">
+			<pValue>RegSCDA_2</pValue>
+		</Integer>
+		<Integer Name="GevSCDA_3" NameSpace="Standard">
+			<pValue>RegSCDA_3</pValue>
+		</Integer>
+		<Integer Name="GevLinkSpeed" NameSpace="Standard">
+			<pValue>RegLinkSpeed</pValue>
+		</Integer>
+	</Group>
+	<Group Comment="KamSim Custom Registers">
+		<MaskedIntReg Name="RegGigEVersionMajor" NameSpace="Custom">
+			<Address>0x00000</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegGigEVersionMinor" NameSpace="Custom">
+			<Address>0x00000</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegDeviceModeEndian" NameSpace="Custom">
+			<Address>0x00004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>0</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegDeviceModeCharSet" NameSpace="Custom">
+			<Address>0x00004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegMacAddressHigh" NameSpace="Custom">
+			<Address>0x00008</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegMacAddressLow" NameSpace="Custom">
+			<Address>0x0000C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegSupportedIPConfigLLA" NameSpace="Custom">
+			<Address>0x00010</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>29</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSupportedIPConfigDHCP" NameSpace="Custom">
+			<Address>0x00010</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>30</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSupportedIPConfigPersistentIP" NameSpace="Custom">
+			<Address>0x00010</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>31</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegCurrentIPConfig" NameSpace="Custom">
+			<Address>0x00014</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegCurrentIPAddress" NameSpace="Custom">
+			<Address>0x00024</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegCurrentIPAddress_3" NameSpace="Custom">
+			<Address>0x00024</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentIPAddress_2" NameSpace="Custom">
+			<Address>0x00024</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentIPAddress_1" NameSpace="Custom">
+			<Address>0x00024</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentIPAddress_0" NameSpace="Custom">
+			<Address>0x00024</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegCurrentSubnetMask" NameSpace="Custom">
+			<Address>0x00034</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegCurrentSubnetMask_3" NameSpace="Custom">
+			<Address>0x00034</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentSubnetMask_2" NameSpace="Custom">
+			<Address>0x00034</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentSubnetMask_1" NameSpace="Custom">
+			<Address>0x00034</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentSubnetMask_0" NameSpace="Custom">
+			<Address>0x00034</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegCurrentDefaultGateway" NameSpace="Custom">
+			<Address>0x00044</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegCurrentDefaultGateway_3" NameSpace="Custom">
+			<Address>0x00044</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentDefaultGateway_2" NameSpace="Custom">
+			<Address>0x00044</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentDefaultGateway_1" NameSpace="Custom">
+			<Address>0x00044</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegCurrentDefaultGateway_0" NameSpace="Custom">
+			<Address>0x00044</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegNumberOfInterfaces" NameSpace="Custom">
+			<Address>0x00600</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegPersistentIPAddress" NameSpace="Custom">
+			<Address>0x0064C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegPersistentIPAddress_3" NameSpace="Custom">
+			<Address>0x0064C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentIPAddress_2" NameSpace="Custom">
+			<Address>0x0064C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentIPAddress_1" NameSpace="Custom">
+			<Address>0x0064C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentIPAddress_0" NameSpace="Custom">
+			<Address>0x0064C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegPersistentSubnetMask" NameSpace="Custom">
+			<Address>0x0065C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegPersistentSubnetMask_3" NameSpace="Custom">
+			<Address>0x0065C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentSubnetMask_2" NameSpace="Custom">
+			<Address>0x0065C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentSubnetMask_1" NameSpace="Custom">
+			<Address>0x0065C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentSubnetMask_0" NameSpace="Custom">
+			<Address>0x0065C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegPersistentDefaultGateway" NameSpace="Custom">
+			<Address>0x0066C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegPersistentDefaultGateway_3" NameSpace="Custom">
+			<Address>0x0066C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentDefaultGateway_2" NameSpace="Custom">
+			<Address>0x0066C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentDefaultGateway_1" NameSpace="Custom">
+			<Address>0x0066C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPersistentDefaultGateway_0" NameSpace="Custom">
+			<Address>0x0066C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegMessageChannelCount" NameSpace="Custom">
+			<Address>0x00900</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegStreamChannelCount" NameSpace="Custom">
+			<Address>0x00904</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegSupportedOptionalCommands_EVENTDATA" NameSpace="Custom">
+			<Address>0x00934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>27</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSupportedOptionalCommands_EVENT" NameSpace="Custom">
+			<Address>0x00934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>28</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSupportedOptionalCommands_PACKETRESEND" NameSpace="Custom">
+			<Address>0x00934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>29</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSupportedOptionalCommands_WRITEMEM" NameSpace="Custom">
+			<Address>0x00934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>30</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSupportedOptionalCommands_Concatenation" NameSpace="Custom">
+			<Address>0x00934</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>31</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegHeartbeatTimeout" NameSpace="Custom">
+			<Address>0x00938</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegTimestampTickFrequencyHigh" NameSpace="Custom">
+			<Address>0x0093C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegTimestampTickFrequencyLow" NameSpace="Custom">
+			<Address>0x00940</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegTimestampControlLatch" NameSpace="Custom">
+			<Address>0x00944</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>30</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegTimestampControlReset" NameSpace="Custom">
+			<Address>0x00944</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>31</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegTimestampValueHigh" NameSpace="Custom">
+			<Address>0x00948</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegTimestampValueLow" NameSpace="Custom">
+			<Address>0x0094C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegCCP" NameSpace="Custom">
+			<Address>0x00A00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegMCPHostPort" NameSpace="Custom">
+			<Address>0x00B00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegMCDA" NameSpace="Custom">
+			<Address>0x00B10</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegMCDA_3" NameSpace="Custom">
+			<Address>0x00B10</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegMCDA_2" NameSpace="Custom">
+			<Address>0x00B10</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegMCDA_1" NameSpace="Custom">
+			<Address>0x00B10</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegMCDA_0" NameSpace="Custom">
+			<Address>0x00B10</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegMCTT" NameSpace="Custom">
+			<Address>0x00B14</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegMCRC" NameSpace="Custom">
+			<Address>0x00B18</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegSCPInterfaceIndex" NameSpace="Custom">
+			<Address>0x00D00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>12</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCPHostPort" NameSpace="Custom">
+			<Address>0x00D00</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCPSFireTestPacket" NameSpace="Custom">
+			<Address>0x00D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>0</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCPSDoNotFragment" NameSpace="Custom">
+			<Address>0x00D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>1</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCPSBigEndian" NameSpace="Custom">
+			<Address>0x00D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>2</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCPSPacketSize" NameSpace="Custom">
+			<Address>0x00D04</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegSCPD" NameSpace="Custom">
+			<Address>0x00D08</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSCDA" NameSpace="Custom">
+			<Address>0x00D18</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegSCDA_3" NameSpace="Custom">
+			<Address>0x00D18</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>7</LSB>
+			<MSB>0</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCDA_2" NameSpace="Custom">
+			<Address>0x00D18</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>15</LSB>
+			<MSB>8</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCDA_1" NameSpace="Custom">
+			<Address>0x00D18</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>23</LSB>
+			<MSB>16</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegSCDA_0" NameSpace="Custom">
+			<Address>0x00D18</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<LSB>31</LSB>
+			<MSB>24</MSB>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegLinkSpeed" NameSpace="Custom">
+			<Address>0x0A000</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegRegistersValid" NameSpace="Custom">
+			<Address>0x0A41C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSensorWidth" NameSpace="Custom">
+			<Address>0x0A420</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSensorHeight" NameSpace="Custom">
+			<Address>0x0A424</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegMaxWidth" NameSpace="Custom">
+			<Address>0x0A428</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegMaxHeight" NameSpace="Custom">
+			<Address>0x0A42C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegWidth" NameSpace="Custom">
+			<Address>0x0A430</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegHeight" NameSpace="Custom">
+			<Address>0x0A434</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegOffsetX" NameSpace="Custom">
+			<Address>0x0A438</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegOffsetY" NameSpace="Custom">
+			<Address>0x0A43C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegBinningXValue" NameSpace="Custom">
+			<Address>0x0A444</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegBinningYValue" NameSpace="Custom">
+			<Address>0x0A448</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegBinningXMax" NameSpace="Custom">
+			<Address>0x0A44C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegBinningYMax" NameSpace="Custom">
+			<Address>0x0A450</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegBinningXStep" NameSpace="Custom">
+			<Address>0x0A454</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegBinningYStep" NameSpace="Custom">
+			<Address>0x0A458</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegPixelFormat" NameSpace="Custom">
+			<Address>0x0A474</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>BinningHorizontal</pInvalidator>
+			<pInvalidator>BinningVertical</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegPixelFormatInq" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<MaskedIntReg Name="RegPixelFormatInqMono8" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>30</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqMono10" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>28</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqMono12" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>26</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqMono12Packed" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>25</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqMono16" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>24</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerGR8" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>23</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerRG8" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>22</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerGB8" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>21</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerBG8" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>20</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerGR12" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>15</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerRG12" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>14</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerGB12" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>13</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBayerBG12" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>12</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqRgb8Packed" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>11</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBgr8Packed" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>10</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqRgba8Packed" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>9</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqBgra8Packed" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>8</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqRgb12Packed" NameSpace="Custom">
+			<Address>0x0A478</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>5</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqRgb8Plannar" NameSpace="Custom">
+			<Address>0x0A47C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>30</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqRgb10Plannar" NameSpace="Custom">
+			<Address>0x0A47C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>29</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqRgb12Plannar" NameSpace="Custom">
+			<Address>0x0A47C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>28</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<MaskedIntReg Name="RegPixelFormatInqRgb16Plannar" NameSpace="Custom">
+			<Address>0x0A47C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Bit>27</Bit>
+			<Endianess>BigEndian</Endianess>
+		</MaskedIntReg>
+		<IntReg Name="RegAcquisitionArm" NameSpace="Custom">
+			<Address>0x0A4A4</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegRecordState" NameSpace="Custom">
+			<Address>0x0A4A8</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegAcquisitionMode" NameSpace="Custom">
+			<Address>0x0A48C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegAcquisitionCommand" NameSpace="Custom">
+			<Address>0x0A490</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegAcquisitionFrameCount" NameSpace="Custom">
+			<Address>0x0A4A0</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegPayloadSize" NameSpace="Custom">
+			<Address>0x0A6A0</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>PixelSize</pInvalidator>
+			<pInvalidator>Width</pInvalidator>
+			<pInvalidator>Height</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegExposureTimeAbs" NameSpace="Custom">
+			<Address>0x0A46C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegExposureTimeAbsMin" NameSpace="Custom">
+			<Address>0x0A464</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegExposureTimeAbsMax" NameSpace="Custom">
+			<Address>0x0A468</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegDelay" NameSpace="Custom">
+			<Address>0x0A4C8</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegDelayMin" NameSpace="Custom">
+			<Address>0x0A4C0</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegDelayMax" NameSpace="Custom">
+			<Address>0x0A4C4</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegTriggerSelector" NameSpace="Custom">
+			<Address>0x0A4CC</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegTriggerMode" NameSpace="Custom">
+			<Address>0x0A4D0</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSoftwareTrigger" NameSpace="Custom">
+			<Address>0x0A4D4</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegTriggerSource" NameSpace="Custom">
+			<Address>0x0A4D8</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegR2RDelay" NameSpace="Custom">
+			<Address>0x0FFFFFF70</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegStreamI2IDelay" NameSpace="Custom">
+			<Address>0x0FFFFFF74</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegTimestampMode" NameSpace="Custom">
+			<Address>0x0FFFFFF78</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>PixelFormat</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegNumImgRead" NameSpace="Custom">
+			<Address>0x0FFFFFF80</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegNumImgsInSeg" NameSpace="Custom">
+			<Address>0x0FFFFFF7C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>ActiveSegment</pInvalidator>
+			<pInvalidator>NumImgsInSegMax</pInvalidator>
+			<pInvalidator>AcquisitionArm</pInvalidator>
+			<!--			<pInvalidator>ClearActiveSeg</pInvalidator>
+-->
+			<pInvalidator>RecorderStart</pInvalidator>
+			<pInvalidator>RecorderStop</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegNumImgsInSegMax" NameSpace="Custom">
+			<Address>0x0FFFFFF88</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>ActiveSegment</pInvalidator>
+			<pInvalidator>NumImgsInSeg</pInvalidator>
+			<pInvalidator>AcquisitionArm</pInvalidator>
+			<!--			<pInvalidator>ClearActiveSeg</pInvalidator>
+-->
+			<pInvalidator>RecorderStart</pInvalidator>
+			<pInvalidator>RecorderStop</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegActiveSegment" NameSpace="Custom">
+			<Address>0x0FFFFFF8C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>NumImgsInSeg</pInvalidator>
+			<pInvalidator>NumImgsInSegMax</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<!--	<IntReg Name="RegClearActiveSeg" NameSpace="Custom">
+			<Address>0x0FFFFFF98</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+-->
+		<IntReg Name="RegStorageMode" NameSpace="Custom">
+			<Address>0x0FFFFFF90</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegRecorderSubmode" NameSpace="Custom">
+			<Address>0x0FFFFFF94</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSetDay" NameSpace="Custom">
+			<Address>0x0FFFFFF9C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSetMonth" NameSpace="Custom">
+			<Address>0x0FFFFFFA0</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSetYear" NameSpace="Custom">
+			<Address>0x0FFFFFFA4</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSetHours" NameSpace="Custom">
+			<Address>0x0FFFFFFA8</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSetMinutes" NameSpace="Custom">
+			<Address>0x0FFFFFFAC</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegSetSeconds" NameSpace="Custom">
+			<Address>0x0FFFFFFB0</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegUpperHeightLimit" NameSpace="Custom">
+			<Address>0x0FFFFFFEC</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegUpperWidthLimit" NameSpace="Custom">
+			<Address>0x0FFFFFFE8</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegPacketsPerBlock" NameSpace="Custom">
+			<Address>0x0FFFFFFE4</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>PayloadSize</pInvalidator>
+			<pInvalidator>GevSCPSPacketSize</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegStreamPacketsB2BDelay" NameSpace="Custom">
+			<Address>0x0FFFFFFE0</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<IntReg Name="RegPixelSize" NameSpace="Custom">
+			<Address>0x0FFFFFFF0</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>PixelFormat</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Port Name="Device" NameSpace="Standard">
+		</Port>
+	</Group>
+</RegisterDescription>
