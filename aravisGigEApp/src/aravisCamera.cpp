@@ -260,9 +260,6 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     setIntegerParam(AravisLeftShift, 1);
     setIntegerParam(AravisReset, 0);
 
-    /* Connect to the camera */
-    if (this->connectToCamera() != asynSuccess) return;
-
 	/* Start the image grabbing thread */
     /* Create the thread that handles the NDArray callbacks */
     if (epicsThreadCreate("aravisGrab",
@@ -276,6 +273,9 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
 
     /* Register the shutdown function for epicsAtExit */
     epicsAtExit(aravisShutdown, (void*)this);
+
+    /* Connect to the camera */
+    this->connectToCamera();
 }
 
 asynStatus aravisCamera::connectToCamera() {
@@ -319,6 +319,9 @@ asynStatus aravisCamera::connectToCamera() {
 					driverName, functionName);
 		return asynError;
     }
+    /* Make sure it's stopped */
+    arv_camera_stop_acquisition(this->camera);
+    status |= setIntegerParam(ADStatus, ADStatusIdle);    
     /* Store device */
     this->device = arv_camera_get_device(this->camera);
     if (this->device == NULL) {
@@ -352,7 +355,6 @@ asynStatus aravisCamera::connectToCamera() {
 
 	/* connect connection lost signal to camera */
     g_signal_connect (this->device, "control-lost", G_CALLBACK (controlLostCallback), this);
-    this->connectionValid = 1;
 
     /* Set vendor and model number */
     vendor = arv_camera_get_vendor_name(this->camera);
@@ -494,6 +496,7 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
 	if (function == AravisReset) {
 		status = this->connectToCamera();
 	} else if (this->camera == NULL || this->connectionValid != 1) {
+		setIntegerParam(ADStatus, ADStatusDisconnected);
         status = asynError;
     } else if (function == AravisConnection) {
     	if (this->connectionValid != 1) status = asynError;
