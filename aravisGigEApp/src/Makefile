@@ -22,7 +22,11 @@ DBD += aravisCameraSupport.dbd
 ifneq ($(GLIBPREFIX),)
 	USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
 	USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
-	glib-2.0_DIR = $(GLIBPREFIX)/lib
+	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
+		glib-2.0_DIR = $(GLIBPREFIX)/lib64
+	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
+		glib-2.0_DIR = $(GLIBPREFIX)/lib
+	endif	
 endif	
 
 # We need to link against aravis
