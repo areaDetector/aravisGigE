@@ -143,6 +143,7 @@ for node in doneNodes:
         print '  field(DTYP, "asynInt32")'
         print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
+        print '  field(DISA, "0")'        
         print '}'
         print
         if ro:
@@ -150,6 +151,7 @@ for node in doneNodes:
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
         print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(DISA, "0")'
         print '}'
         print        
     elif node.nodeName in ["Boolean"]:
@@ -159,6 +161,7 @@ for node in doneNodes:
         print '  field(SCAN, "I/O Intr")'
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                        
+        print '  field(DISA, "0")'
         print '}'
         print
         if ro:
@@ -168,6 +171,7 @@ for node in doneNodes:
         print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                                
+        print '  field(DISA, "0")'
         print '}'
         print           
     elif node.nodeName in ["Float", "Converter", "SwissKnife"]:
@@ -176,6 +180,7 @@ for node in doneNodes:
         print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print '  field(PREC, "3")'        
         print '  field(SCAN, "I/O Intr")'
+        print '  field(DISA, "0")'
         print '}'
         print    
         if ro:
@@ -184,6 +189,7 @@ for node in doneNodes:
         print '  field(DTYP, "asynFloat64")'
         print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print '  field(PREC, "3")'
+        print '  field(DISA, "0")'
         print '}'
         print
     elif node.nodeName in ["StringReg"]:
@@ -191,12 +197,14 @@ for node in doneNodes:
         print '  field(DTYP, "asynOctetRead")'
         print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
+        print '  field(DISA, "0")'
         print '}'
         print
     elif node.nodeName in ["Command"]:
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
         print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(DISA, "0")'
         print '}'
         print         
     elif node.nodeName in ["Enumeration"]:
@@ -219,6 +227,7 @@ for node in doneNodes:
         print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print enumerations,
         print '  field(SCAN, "I/O Intr")'
+        print '  field(DISA, "0")'
         print '}'
         print
         if ro:
@@ -227,6 +236,7 @@ for node in doneNodes:
         print '  field(DTYP, "asynInt32")'
         print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
         print enumerations,       
+        print '  field(DISA, "0")'
         print '}'
         print          
     else:
