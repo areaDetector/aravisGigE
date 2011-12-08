@@ -42,7 +42,9 @@ As this module is just a wrapper to aravis, it is not distributed with aravis, s
 You are now ready to build the module.
 - Modify configure/RELEASE
  - If you have glib >= 2.22 then comment out GLIBPREFIX, otherwise download and 
-   install glib and set that macro to the install prefix you used  
+   install glib and set that macro to the install prefix you used. If you are
+   installing 64-bit then please make sure you configure and install glib with 
+   the option --libdir=$GLIBPREFIX/lib64
  - Set AREADETECTOR to the path of areaDetector 1-6 or 1-7beta
 - Type make
 - Run bin/linux-x86/arv-tool-0.2 to see GigE visible devices
@@ -60,7 +62,7 @@ You are now ready to build the module.
  - <tt>aravisGigEApp/Db/\<camera_name\>.template</tt>
  - <tt>aravisGigEApp/opi/edl/\<camera_name\>.edl</tt>
  - <tt>aravisGigEApp/opi/edl/\<camera_name\>-features.edl</tt>
-- Once you have decided on the most useful features, copy them from \<camera_name\>.edl and paste them into \<camera_name\>-features.edl in order to create a useful summary screen
+- Once you have decided on the most useful features, copy them from \<camera_name\>-features.edl and paste them into \<camera_name\>.edl in order to create a useful summary screen
 
 \section bugs_sec Known Bugs
 - Changing resolution or colour mode while acquiring is unreliable, it is better to stop the camera first
