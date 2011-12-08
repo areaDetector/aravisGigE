@@ -12,7 +12,11 @@ ARAVIS_LINUX_BINS = arv-tool-0.2
 # export path for GLIB if GLIBPREFIX 
 ENVEXPORTS =
 ifneq ($(GLIBPREFIX),)
-	ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
+	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
+		ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib64/pkgconfig;
+	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))		
+		ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
+	endif	
 endif
 
 # install libs
