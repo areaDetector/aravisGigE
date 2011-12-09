@@ -25,6 +25,9 @@ $(DOCDIR)/build_instructions_%: $(TOP)/etc/makeIocs/%.py
 	mkdir -p $(DOCDIR)
 	$^ --doc=$@ $(DEBUG) example
 
-# Remove entire documentation/doxygen dir on clean
-clean:
-	rm -rf $(DOCDIR)
+# don't do anything in clean
+clean: ;
+
+# Special rule to get rid of installed documentation dir
+uninstall:
+	$(RMDIR) $(DOCDIR)
