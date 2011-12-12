@@ -260,6 +260,9 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     setIntegerParam(AravisLeftShift, 1);
     setIntegerParam(AravisReset, 0);
 
+    /* Connect to the camera */
+    this->connectToCamera();
+
 	/* Start the image grabbing thread */
     /* Create the thread that handles the NDArray callbacks */
     if (epicsThreadCreate("aravisGrab",
@@ -274,8 +277,6 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     /* Register the shutdown function for epicsAtExit */
     epicsAtExit(aravisShutdown, (void*)this);
 
-    /* Connect to the camera */
-    this->connectToCamera();
 }
 
 asynStatus aravisCamera::connectToCamera() {
@@ -289,6 +290,7 @@ asynStatus aravisCamera::connectToCamera() {
     char *featureName;
 
     /* stop old camera if it exists */
+    this->connectionValid = 0;
     if (this->camera != NULL) {
     	arv_camera_stop_acquisition(this->camera);
     }
@@ -309,7 +311,7 @@ asynStatus aravisCamera::connectToCamera() {
     /* remove ref to device and genicam */
     this->device = NULL;
     this->genicam = NULL;
-    this->connectionValid = 1;
+
     /* connect to camera */
     g_print ("Looking for camera '%s'... \n", this->cameraName);
     this->camera = arv_camera_new (this->cameraName);
@@ -393,7 +395,8 @@ asynStatus aravisCamera::connectToCamera() {
 	if (this->hasFeature("AcquisitionFrameRateEnabled")) {
 		arv_device_set_integer_feature_value (this->device, "AcquisitionFrameRateEnabled", 1);
 	}
-
+	/* Mark connection valid again */
+	this->connectionValid = 1;
     g_print("Done.\n");
 
     /* If we have done initial connect finish here */
