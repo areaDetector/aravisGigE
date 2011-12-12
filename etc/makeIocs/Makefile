@@ -12,7 +12,7 @@ XMLBUILDER := dls-xml-iocbuilder.py
 DEBUG :=
 
 # Add the created iocs and sims to the install target
-TARGETS += $(IOC_DIRS) $(patsubst %, ../../makeIocs/O.Common/%, $(IOCS))
+TARGETS += $(patsubst %, ../../makeIocs/O.Common/%, $(IOCS)) $(IOC_DIRS)
 
 # include standard rules
 include $(TOP)/configure/RULES
