@@ -14,7 +14,12 @@ Tested working cameras:
 - Baumer TXG series
 - JAI Pulnix 6740 series
 
-Tested but not quite working cameras:
+Tested mostly working cameras:
+- Sony CVC EH6300
+ - 1080p/25 mode works best, still get occasional dropped frame
+ - Using Zoom target seems to pause camera while zooming which then makes Aravis think the camera is disconnected. A reconnect fixes this
+ 
+Tested but not working cameras:
 - PGR Flea3
 
 The documentation here is top level documentation on creating an IOC with an
@@ -28,11 +33,9 @@ aravisCamera areaDetector driver:
  - Baumer_TXG.template
  - JAI_6740.template
  - PGR_Flea3.template 
+ - Sony_CVC_EH6300.template
   
 If you need to add another type of similar camera, read the \ref new_camera_sec section
-
-If you need to change the code, please read the <a href="../aravis-0.2/index.html">
-documentation for the aravis library</a>.
 
 \section inst_sec Installation
 As this module is just a wrapper to aravis, it is not distributed with aravis, so you need to download and compile aravis in order to use the module. After downloading and untarring aravisGigE, either:
