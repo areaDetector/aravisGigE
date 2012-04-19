@@ -186,7 +186,7 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
     		arv_stream_push_buffer (stream, buffer);
         }
 	} else {
-        printf("Bad frame %d\n", buffer->status);
+        printf("Bad frame status: %d size: %d\n", buffer->status, buffer->size);
 		arv_stream_push_buffer (stream, buffer);
 	}
 }
