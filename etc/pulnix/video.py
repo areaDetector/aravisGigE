@@ -26,6 +26,8 @@ for a in doc.getElementsByTagName("Address"):
 for k, v in regs.items():
     globals()[k] = v
 
+TICKRATE = 2083333.0
+
 CAMIP = "192.168.0.99"
 
 GVCP = 3956
@@ -120,7 +122,6 @@ gvcpsend(GevSCPDReg, 0) # no limits!
 gvcpsend(GevSCPHostPortReg, video.getsockname()[1])
 
 tslast = 0
-tlast = time.time()
 
 # new in python2.6
 bytes = bytearray(100000)
@@ -165,10 +166,8 @@ def getframe():
             th = hdr[gige_header.index("timestamp high")]
             tl = hdr[gige_header.index("timestamp low")]
             ts = th << 32 | tl
-            print ts
-            tnew = time.time()
-            rate = 1.0 / (tnew - tlast)
-            tlast = tnew
+            # print ts
+            rate = 1.0 / (ts - tslast) * TICKRATE
             tslast = ts
             # print zip(gige_header, hdr)
             (width, height) = hdr[10:12]
