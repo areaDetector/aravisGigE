@@ -6,7 +6,9 @@ Based on sniffing the Windows Coyote app"""
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-import socket, struct, time, traceback, sys, threading
+import socket, struct, time, traceback, sys, threading, ctypes, numpy
+
+lib = ctypes.CDLL("./gvsp.so")
 
 from Queue import Queue, Full
 
@@ -84,18 +86,22 @@ def gvcpsend(address, value):
     # print repr(sock.recv(2048))
     time.sleep(0.01)
     seq += 1
-
+    if seq == 65536:
+        seq = 1
+    
 discovery = gige(0x4201, 0x0002, 0xffff)
 setup = gigesetup()
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.settimeout(0.5)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
+sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
 sock.bind(("192.168.0.1", GVCP))
 
 video = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 video.bind(("192.168.0.1", 0))
-video.settimeout(0.5)
+# video.settimeout(0.5)
 
 # who is a GigE camera? (can't get the reply because they don't have a good IP address!)
 sock.sendto(discovery, ("255.255.255.255", GVCP))
@@ -121,67 +127,78 @@ gvcpsend(GevSCDAReg, hostip)
 gvcpsend(GevSCPDReg, 0) # no limits!
 gvcpsend(GevSCPHostPortReg, video.getsockname()[1])
 
-tslast = 0
-
-# new in python2.6
-bytes = bytearray(100000)
 mbofs = 0
+missed = 0
 megabuffer = bytearray(1000000000)
-rate = 0
+packetbuf = ctypes.create_string_buffer(1000000)
+fragments = [""] * 1000
 
-packetbuf = bytearray(10000)
+def cgetframe():
+    global missed
+    while True:
+        width = ctypes.c_int()
+        height = ctypes.c_int()
+        ts = ctypes.c_uint64()
+        bytes = lib.ReadFrame(video.fileno(), packetbuf, len(packetbuf),
+                              ctypes.byref(width), ctypes.byref(height),
+                              ctypes.byref(ts))
+        if width.value * height.value != bytes:
+            missed += 1
+        else:
+            break
+    image = packetbuf[:bytes]
+    return (width.value, height.value, image)
 
 def getframe():
-
-    ofs = 0
-
-    global tslast, tlast, rate
-
-    gige_header = ["status", "block id", "packet format", "packet id high", "packet id low", "reserved", "payload type",
+    global missed
+    gige_header = ["status", "block id", "packet format",
+                   "packet id high", "packet id low", "reserved", "payload type",
                    "timestamp high", "timestamp low", "pixel type", "size x", "size y",
                    "offset x", "offset y", "padding x", "padding y"]
 
-    header1 = ">HHBBH"
-    header2 = ">HHBBHHHIIIIIIIHH"
-    hsz1 = struct.calcsize(header1)
-    hsz2 = struct.calcsize(header2)
+    tshi = gige_header.index("timestamp high")
+    tsli = gige_header.index("timestamp low")
 
-    width = 0
-    height = 0
-    maxidx = 0
+    header = ">HHBBHHHIIIIIIIHH"
+    hsz = struct.calcsize(header)
+
     while True:
-        # (a, b) = video.recvfrom(2048)
-        a = video.recv(2048)
-        header = struct.unpack(header1, a[:8])
-        idx = header[-1]
-        maxidx = idx
-        if header[2] == 3:
-            # image
-            datalen = len(a) - 8
-            bytes[ofs:ofs+datalen] = a[8:]
-            ofs += datalen
-        elif header[2] == 1:
-            # header
-            hdr = struct.unpack(header2, a[:hsz2])
-            th = hdr[gige_header.index("timestamp high")]
-            tl = hdr[gige_header.index("timestamp low")]
-            ts = th << 32 | tl
-            # print ts
-            rate = 1.0 / (ts - tslast) * TICKRATE
-            tslast = ts
-            # print zip(gige_header, hdr)
-            (width, height) = hdr[10:12]
-            # print width, height
-        elif header[2] == 2:
-            # footer
+        width = 0
+        height = 0
+        ofs = 0
+        gotHeader = False
+        n = 0
+        while True:
+            packet = video.recv(2048)
+            packetformat = ord(packet[4])
+            if packetformat == 1:
+                # header
+                hdr = struct.unpack(header, packet[:hsz])
+                th = hdr[tshi]
+                tl = hdr[tsli]
+                ts = th << 32 | tl
+                # print zip(gige_header, hdr)
+                (width, height) = hdr[10:12]
+                # print width, height
+                ofs = 0
+                n = 0
+                gotHeader = True
+            elif packetformat == 2:
+                # footer
+                break
+            elif packetformat == 3 and gotHeader:
+                datalen = len(packet) - 8
+                fragments[n] = packet[8:]
+                n += 1
+                ofs += datalen
+
+        if width * height == ofs:
             break
         else:
-            print "unknown packet", header
+            missed += 1
 
-    # copy before passing to other thread
-    data = bytes[:ofs]
+    data = "".join(fragments[:n])
     
-    # return (width / XBIN / SCANX, height / YBIN / SCANY, data)
     return (width, height, data)
 
 nf = 0
@@ -189,29 +206,30 @@ nf = 0
 def frames(callback):
     global mbofs, nf
     while True:
-        f = getframe()
+        (width, height, data) = cgetframe()
         try:
-            (width, height, data) = f
-            if width * height != len(data):
-                print "frame missed a block, skipping", width * height, len(data)
-                continue
             # megabuffer[mbofs:mbofs+len(data)] = data
             mbofs += len(data)
             nf += 1
-            q.put(f, block = False)
+            q.put((width, height, data), block = False)
             callback()
         except Full:
             # print "video queue full, frame dropped"
             pass
-            
     
 def heartbeat():
+    t0 = time.time()
+    nf0 = nf
     while True:
-        print "%f fps %d frames %g MB" % (rate, nf, mbofs * 1e-6)
+        nf1 = nf
+        t1 = time.time()
+        time.sleep(1.0)
         gvcpsend(GevCCPReg, 2)
-        time.sleep(2.0)
+        rate = (nf1 - nf0) / (t1 - t0)
+        print "fps:%f frames: %d (missed %d) %g MB" % (rate, nf, missed, mbofs * 1e-6)
 
 class Video(QWidget):
+    grey = [qRgb(n,n,n) for n in range(256)]
     frameChanged = pyqtSignal()
     def __init__(self, *args):
         super(Video, self).__init__(*args)
@@ -220,9 +238,10 @@ class Video(QWidget):
     def frame(self):
         # print threading.current_thread()
         (width, height, data) = q.get()
-        img = QImage(data, width, height, QImage.Format_Indexed8)
-        img.setColorTable(grey)
-        self.img = img
+        self.img = QImage(data, width, height, QImage.Format_Indexed8)
+        self.img.setColorTable(self.grey)
+        # keep data for lifetime of QImage
+        self.data = data
         self.update()
     def paintEvent(self, event):
         p = QPainter(self)
@@ -254,12 +273,8 @@ p2 = QLineEdit(b)
 p2.returnPressed.connect(setP2)
 l.addWidget(p1)
 l.addWidget(p2)
-
 b.setLayout(l)
-#.resize(640, 480)
 b.show()
-
-grey = [qRgb(n,n,n) for n in range(256)]
 
 q = Queue(10)
 
@@ -275,4 +290,3 @@ gvcpsend(GevCCPReg, 0)
 
 sys.exit(0)
 
-# discover binning
