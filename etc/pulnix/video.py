@@ -1,14 +1,13 @@
 #!/usr/bin/env dls-python2.6
 
-"""IP stuffing utility for Pulnix RM-6740GE
-Based on sniffing the Windows Coyote app"""
+"""Test viewer for TMC-1405 etc """
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-import socket, struct, time, traceback, sys, threading, ctypes, numpy
+import socket, struct, time, traceback, sys, threading, sys, numpy
 
-lib = ctypes.CDLL("./gvsp.so")
+# lib = ctypes.CDLL("./gvsp.so")
 
 from Queue import Queue, Full
 
@@ -17,7 +16,7 @@ from xml.dom import minidom
 from PIL import Image
 
 regs = {}
-genixml = "RM-6740GE.xml"
+genixml = "TMC-1405GE.xml"
 doc = minidom.parse(genixml)
 for a in doc.getElementsByTagName("Address"):
     name = a.parentNode.getAttribute("Name")
@@ -30,12 +29,17 @@ for k, v in regs.items():
 
 TICKRATE = 2083333.0
 
-CAMIP = "192.168.0.99"
+if len(sys.argv) < 2:
+    print "usage  : video.py CAMIP"
+    print "example: video.py 192.168.0.88"
+    sys.exit(1)
+    
+CAMIP = sys.argv[1]
 
 GVCP = 3956
 
-WIDTH = 640
-HEIGHT = 480
+WIDTH = 1392
+HEIGHT = 1040
 
 scansel = 0
 binsel = 0
@@ -112,8 +116,12 @@ hostip = struct.unpack(">I", socket.inet_aton(video.getsockname()[0]))[0]
 
 gvcpsend(GevCCPReg, 2)
 
-gvcpsend(BinningModeReg, Binning)
-gvcpsend(ScanModeReg, Scan)
+# gvcpsend(PixelFormatReg, 17301505)
+gvcpsend(PixelFormatReg, 0)
+# gvcpsend(TestImageSelectorReg, 2147483648)
+
+# gvcpsend(BinningModeReg, Binning)
+# gvcpsend(ScanModeReg, Scan)
 
 gvcpsend(WidthReg, int(WIDTH / SCANX / XBIN))
 gvcpsend(HeightReg, int(HEIGHT / SCANY / YBIN))
@@ -129,9 +137,9 @@ gvcpsend(GevSCPHostPortReg, video.getsockname()[1])
 
 mbofs = 0
 missed = 0
-megabuffer = bytearray(1000000000)
-packetbuf = ctypes.create_string_buffer(1000000)
-fragments = [""] * 1000
+# megabuffer = bytearray(1000000000)
+# packetbuf = ctypes.create_string_buffer(1000000)
+fragments = [""] * 10000
 
 def cgetframe():
     global missed
@@ -188,9 +196,10 @@ def getframe():
                 break
             elif packetformat == 3 and gotHeader:
                 datalen = len(packet) - 8
-                fragments[n] = packet[8:]
-                n += 1
-                ofs += datalen
+                if n < len(fragments):
+                    fragments[n] = packet[8:]
+                    n += 1
+                    ofs += datalen
 
         if width * height == ofs:
             break
@@ -206,7 +215,7 @@ nf = 0
 def frames(callback):
     global mbofs, nf
     while True:
-        (width, height, data) = cgetframe()
+        (width, height, data) = getframe()
         try:
             # megabuffer[mbofs:mbofs+len(data)] = data
             mbofs += len(data)
@@ -238,10 +247,35 @@ class Video(QWidget):
     def frame(self):
         # print threading.current_thread()
         (width, height, data) = q.get()
-        self.img = QImage(data, width, height, QImage.Format_Indexed8)
+        # bad bayer 'filter'
+        dataw = numpy.fromstring(data, 'B')
+        dataw2 = numpy.zeros(len(data) * 4, 'B')
+        red = numpy.zeros(WIDTH/2, 'B')
+        blue = numpy.zeros(WIDTH/2, 'B')
+        dataw2[3::4] = 0xff
+        for y in range(HEIGHT):
+            row = (WIDTH * y)
+            line = dataw[row:row+WIDTH]
+            if (y % 2) == 0:
+                blue = line[0::2]
+                green = line[1::2]
+            else:
+                red = line[1::2]
+                green = line[0::2]
+            r0 = (WIDTH * 4 * y)
+            r1 = (WIDTH * 4 * (y + 1))
+            dataw2[r0+0:r1+0:8] = red
+            dataw2[r0+1:r1+1:8] = green
+            dataw2[r0+2:r1+2:8] = blue
+            dataw2[r0+4:r1+0:8] = red
+            dataw2[r0+5:r1+1:8] = green
+            dataw2[r0+6:r1+2:8] = blue
+        # less green
+        dataw2[1::4] *= 0.5
+        self.img = QImage(dataw2, width, height, QImage.Format_RGB32)
         self.img.setColorTable(self.grey)
         # keep data for lifetime of QImage
-        self.data = data
+        self.data = dataw2
         self.update()
     def paintEvent(self, event):
         p = QPainter(self)
@@ -267,12 +301,12 @@ def setP1():
 def setP2():
     gvcpsend(GainRawChannelBReg, int(p2.text()))
 
-p1 = QLineEdit(b)
-p1.returnPressed.connect(setP1)
-p2 = QLineEdit(b)
-p2.returnPressed.connect(setP2)
-l.addWidget(p1)
-l.addWidget(p2)
+# p1 = QLineEdit(b)
+# p1.returnPressed.connect(setP1)
+# p2 = QLineEdit(b)
+# p2.returnPressed.connect(setP2)
+# l.addWidget(p1)
+# l.addWidget(p2)
 b.setLayout(l)
 b.show()
 
@@ -289,4 +323,3 @@ app.exec_()
 gvcpsend(GevCCPReg, 0)
 
 sys.exit(0)
-
