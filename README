@@ -6,6 +6,7 @@
 * run install.sh
 * comment out http_proxy in install.sh
 * svn add vendor/aravis
+* rm -rf vendor/aravis-*
 * make
 * update version number in documentation
 * find vendor -name .svn -prune -o -type d -exec ~tmc43/bin/set-svn-ignore {} \;

@@ -31,7 +31,7 @@ extern "C" {
 }
 
 /* number of raw buffers in our queue */
-#define NRAW 5
+#define NRAW 10
 
 /* maximum number of custom features that we support */
 #define NFEATURES 1000
@@ -234,7 +234,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     this->featureLookup = g_hash_table_new(g_int_hash, g_int_equal);
 
     /* Create a message queue to hold completed frames */
-    this->msgQId = epicsMessageQueueCreate(5, sizeof(ArvBuffer*));
+    this->msgQId = epicsMessageQueueCreate(NRAW, sizeof(ArvBuffer*));
     if (!this->msgQId) {
         printf("%s:%s: epicsMessageQueueCreate failure\n", driverName, functionName);
         return;
@@ -349,8 +349,8 @@ asynStatus aravisCamera::connectToCamera() {
 		return asynError;
     }
 	g_object_set (ARV_GV_STREAM (this->stream),
-			  "packet-timeout", 50000, //50ms
-			  "frame-retention", 200000, //200ms
+			  "packet-timeout", 2000, //50ms
+			  "frame-retention", 10000, //200ms
 			  NULL);
 	arv_stream_set_emit_signals (this->stream, TRUE);
 	g_signal_connect (this->stream, "new-buffer", G_CALLBACK (newBufferCallback), this);
@@ -448,9 +448,9 @@ asynStatus aravisCamera::connectToCamera() {
 						}
 						/* Add it to our lookup table */
 						//g_print("Adding %s\n", featureName);
-						if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
+						if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_DOUBLE) {
 							createParam(featureName,      asynParamFloat64, &(this->features[index]));
-						} else if (arv_gc_node_get_value_type(feature) == G_TYPE_STRING) {
+						} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_STRING) {
 							createParam(featureName,      asynParamOctet, &(this->features[index]));
 						} else {
 							createParam(featureName,      asynParamInt32, &(this->features[index]));
@@ -592,7 +592,7 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
 			status = asynError;
 		} else {
 			feature = arv_device_get_feature(this->device, featureName);
-			if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
+			if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_DOUBLE) {
 				status = this->setFloatValue(featureName, value, &rbv);
 			} else {
 				epicsInt32 i_rbv, i_value = (epicsInt32) value;
@@ -1142,7 +1142,7 @@ asynStatus aravisCamera::lookupPixelFormat(int colorMode, int dataType, int baye
             	ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (node));
             	const GSList *iter;
             	for (iter = arv_gc_enumeration_get_entries (enumeration); iter != NULL; iter = iter->next) {
-            		if (arv_gc_node_is_available(ARV_GC_NODE(iter->data)) &&
+            		if (arv_gc_feature_node_is_available(ARV_GC_FEATURE_NODE(iter->data)) &&
             				arv_gc_enum_entry_get_value(ARV_GC_ENUM_ENTRY(iter->data)) == pix_lookup[i].fmt) {
                         *fmt = pix_lookup[i].fmt;
                         return asynSuccess;
@@ -1165,8 +1165,8 @@ int aravisCamera::hasEnumString(const char* feature, const char *value) {
 	if (ARV_IS_GC_ENUMERATION (node)) {
 		ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (node));
 		const GSList *iter;
-		for (iter = arv_gc_node_get_childs (ARV_GC_NODE (enumeration)); iter != NULL; iter = iter->next) {
-			if (strcmp(arv_gc_node_get_name (ARV_GC_NODE(iter->data)), value) == 0) {
+		for (iter = arv_gc_enumeration_get_entries (enumeration); iter != NULL; iter = iter->next) {
+			if (strcmp(arv_gc_feature_node_get_name (ARV_GC_FEATURE_NODE(iter->data)), value) == 0) {
 				return 1;
 			}
 		}
@@ -1259,13 +1259,13 @@ asynStatus aravisCamera::getNextFeature() {
 		feature = arv_device_get_feature(this->device, featureName);
 		if (feature == NULL) {
 			status = asynError;
-		} else if (arv_gc_node_get_value_type(feature) == G_TYPE_DOUBLE) {
+		} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_DOUBLE) {
 			floatValue = arv_device_get_float_feature_value (this->device, featureName);
 			/* special cases for exposure and frame rate */
 			if (*index == ADAcquireTime) floatValue /= 1000000;
 			if (*index == ADAcquirePeriod && floatValue > 0) floatValue = 1/floatValue;
 			status |= setDoubleParam(*index, floatValue);
-		} else if (arv_gc_node_get_value_type(feature) == G_TYPE_STRING) {
+		} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_STRING) {
 			stringValue = arv_device_get_string_feature_value(this->device, featureName);
 			status |= setStringParam(*index, stringValue);
 		} else {
