@@ -11,5 +11,5 @@
 	<!--<ffmpegServer.diagnosticPlugins CAM="MANTA.CAM" P="MANTA" PORTPREFIX="MANTA"/>-->
 	<ffmpegServer.diagnosticPlugins CAM="CVC.CC2" NELEMENTS="2073600" P="CVC" PORTPREFIX="CVC" XSIZE="1920" YSIZE="1080"/>
 	<EPICS_BASE.StartupCommand command="dbpf &quot;CVC:CC1:ColorModeOut&quot;, &quot;RGB1&quot;" post_init="True"/>
-	<EPICS_BASE.StartupCommand command="dbpf &quot;CVC:OVER:NDArrayPort&quot;, &quot;CVC:CC1&quot;" post_init="True"/>
+	<EPICS_BASE.StartupCommand command="dbpf &quot;CVC:OVER:NDArrayPort&quot;, &quot;CVC.CC1&quot;" post_init="True"/>
 </components>
