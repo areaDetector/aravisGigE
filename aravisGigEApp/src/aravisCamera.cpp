@@ -62,8 +62,6 @@ struct pix_lookup {
     int colorMode, dataType, bayerFormat;
 };
 
-#define ARV_PIXEL_FORMAT_MONO_14 (ArvPixelFormat) (0x1100025)
-
 static const struct pix_lookup pix_lookup[] = {
     { ARV_PIXEL_FORMAT_MONO_8,        NDColorModeMono,  NDUInt8,  0           },
     { ARV_PIXEL_FORMAT_RGB_8_PACKED,  NDColorModeRGB1,  NDUInt8,  0           },
@@ -175,7 +173,7 @@ static void destroyBuffer(gpointer data){
 static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
 	ArvBuffer *buffer;
 	int status;
-	buffer = arv_stream_timed_pop_buffer(stream, 100000);
+	buffer = arv_stream_timeout_pop_buffer(stream, 100000);
 	if (buffer == NULL)	return;
 	if (buffer->status == ARV_BUFFER_STATUS_SUCCESS) {
         status = epicsMessageQueueTrySend(pPvt->msgQId,
@@ -321,6 +319,28 @@ asynStatus aravisCamera::connectToCamera() {
 					driverName, functionName);
 		return asynError;
     }
+	this->stream = arv_camera_create_stream (this->camera, NULL, NULL);
+	if (this->stream == NULL) {
+		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+					"%s:%s: Making stream failed, retrying in 10s...\n",
+					driverName, functionName);
+		epicsThreadSleep(10);
+		g_object_unref(this->camera);
+	    this->camera = arv_camera_new (this->cameraName);
+	    if (this->camera == NULL) {
+			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+						"%s:%s: No camera found\n",
+						driverName, functionName);
+			return asynError;
+	    }
+		this->stream = arv_camera_create_stream (this->camera, NULL, NULL);
+    }
+	if (this->stream == NULL) {
+		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+					"%s:%s: Making stream failed\n",
+					driverName, functionName);
+		return asynError;
+    }
     /* Make sure it's stopped */
     arv_camera_stop_acquisition(this->camera);
     status |= setIntegerParam(ADStatus, ADStatusIdle);    
@@ -341,16 +361,9 @@ asynStatus aravisCamera::connectToCamera() {
 		return asynError;
     }
 	/* create the stream */
-	this->stream = arv_camera_create_stream (this->camera, NULL, NULL);
-	if (this->stream == NULL) {
-		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-					"%s:%s: Making stream failed\n",
-					driverName, functionName);
-		return asynError;
-    }
 	g_object_set (ARV_GV_STREAM (this->stream),
-			  "packet-timeout", 2000, //50ms
-			  "frame-retention", 10000, //200ms
+			  "packet-timeout", 50000, //50ms
+			  "frame-retention", 200000, //200ms
 			  NULL);
 	arv_stream_set_emit_signals (this->stream, TRUE);
 	g_signal_connect (this->stream, "new-buffer", G_CALLBACK (newBufferCallback), this);
@@ -535,7 +548,7 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
 		featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
 		feature = arv_device_get_feature(this->device, featureName);
 		if (ARV_IS_GC_COMMAND(feature)) {
-			arv_gc_command_execute(ARV_GC_COMMAND(feature));
+			arv_gc_command_execute(ARV_GC_COMMAND(feature), NULL);
 		} else {
 			status = this->setIntegerValue(featureName, value, &rbv);
 			if (status) setIntegerParam(function, rbv);
@@ -850,6 +863,18 @@ void aravisCamera::callback() {
 		}
 		printf("\n");
 	*/
+		/* this is a good image, so callback on it */
+		if (arrayCallbacks) {
+			/* Call the NDArray callback */
+			/* Must release the lock here, or we can get into a deadlock, because we can
+			 * block on the plugin lock, and the plugin can be calling us */
+			this->unlock();
+			asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+				 "%s:%s: calling imageData callback\n", driverName, functionName);
+			doCallbacksGenericPointer(pRaw, NDArrayData, 0);
+			this->lock();
+		}
+
 		/* Report statistics */
 		if (this->stream != NULL) {
 			arv_stream_get_statistics(this->stream, &n_completed_buffers, &n_failures, &n_underruns);
@@ -872,17 +897,6 @@ void aravisCamera::callback() {
 		this->getAttributes(pRaw->pAttributeList);
 		/* Call the callbacks to update any changes */
 		callParamCallbacks();
-		/* this is a good image, so callback on it */
-		if (arrayCallbacks) {
-			/* Call the NDArray callback */
-			/* Must release the lock here, or we can get into a deadlock, because we can
-			 * block on the plugin lock, and the plugin can be calling us */
-			this->unlock();
-			asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-				 "%s:%s: calling imageData callback\n", driverName, functionName);
-			doCallbacksGenericPointer(pRaw, NDArrayData, 0);
-			this->lock();
-		}
 		this->freeBufferAndUnlock(buffer);
     }
 }
@@ -1142,8 +1156,8 @@ asynStatus aravisCamera::lookupPixelFormat(int colorMode, int dataType, int baye
             	ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (node));
             	const GSList *iter;
             	for (iter = arv_gc_enumeration_get_entries (enumeration); iter != NULL; iter = iter->next) {
-            		if (arv_gc_feature_node_is_available(ARV_GC_FEATURE_NODE(iter->data)) &&
-            				arv_gc_enum_entry_get_value(ARV_GC_ENUM_ENTRY(iter->data)) == pix_lookup[i].fmt) {
+            		if (arv_gc_feature_node_is_available(ARV_GC_FEATURE_NODE(iter->data), NULL) &&
+            				arv_gc_enum_entry_get_value(ARV_GC_ENUM_ENTRY(iter->data), NULL) == pix_lookup[i].fmt) {
                         *fmt = pix_lookup[i].fmt;
                         return asynSuccess;
             		}

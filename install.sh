@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # DLS specific http proxy
-export http_proxy=wwwcache.rl.ac.uk:8080
+#export http_proxy=wwwcache.rl.ac.uk:8080
 
 # Variables telling us where to get things
 HERE="$(dirname "$0")"
-VERSION="0.1.13"
+VERSION="0.1.14"
 SOURCE="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-${VERSION}.tar.xz"
 
 # fail if we can't do anything
