@@ -778,6 +778,8 @@ void aravisCamera::callback() {
 		/* Put the frame number and time stamp into the buffer */
 		pRaw->uniqueId = imageCounter;
 		pRaw->timeStamp = buffer->timestamp_ns / 1.e9;
+		/* Get any attributes that have been defined for this driver */
+		this->getAttributes(pRaw->pAttributeList);
 
 		/* Annotate it with its dimensions */
 		if (this->lookupColorMode(buffer->pixel_format, &colorMode, &dataType, &bayerFormat) != asynSuccess) {
@@ -888,13 +890,14 @@ void aravisCamera::callback() {
 			((imageMode == ADImageMultiple) &&
 			 (numImagesCounter >= numImages))) {
 			arv_camera_stop_acquisition(this->camera);
-			setIntegerParam(ADAcquire, 0);
 			setIntegerParam(ADStatus, ADStatusIdle);
+			// Want to make sure we're idle before we callback on ADAcquire
+			callParamCallbacks();
+			setIntegerParam(ADAcquire, 0);
 			asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
 				  "%s:%s: acquisition completed\n", driverName, functionName);
 		}
-		/* Get any attributes that have been defined for this driver */
-		this->getAttributes(pRaw->pAttributeList);
+
 		/* Call the callbacks to update any changes */
 		callParamCallbacks();
 		this->freeBufferAndUnlock(buffer);
