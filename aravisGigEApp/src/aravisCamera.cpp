@@ -71,7 +71,7 @@ static const struct pix_lookup pix_lookup[] = {
     { ARV_PIXEL_FORMAT_BAYER_BG_8,    NDColorModeBayer, NDUInt8,  NDBayerBGGR },
 // For Int16, use Mono16 if available, otherwise Mono12
     { ARV_PIXEL_FORMAT_MONO_16,       NDColorModeMono,  NDUInt16, 0           },
-    { ARV_PIXEL_FORMAT_MONO_14,       NDColorModeMono,  NDUInt16, 0           },
+// this doesn't work on Manta camers    { ARV_PIXEL_FORMAT_MONO_14,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_MONO_12,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_MONO_10,       NDColorModeMono,  NDUInt16, 0           },
     { ARV_PIXEL_FORMAT_RGB_12_PACKED, NDColorModeRGB1,  NDUInt16, 0           },
@@ -352,6 +352,7 @@ asynStatus aravisCamera::connectToCamera() {
 					driverName, functionName);
 		return asynError;
     }
+    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), ARV_GV_DEVICE_GVSP_PACKET_SIZE_DEFAULT);
     /* Store genicam */
     this->genicam = arv_device_get_genicam (this->device);
     if (this->genicam == NULL) {
@@ -1087,7 +1088,9 @@ asynStatus aravisCamera::setGeometry() {
     if (this->lookupPixelFormat(colorMode, dataType, bayerFormat, &fmt)) {
     	status = asynError;
     } else {
+    	//printf("Set pixel format %x\n", fmt);
     	arv_camera_set_pixel_format(this->camera, fmt);
+    	//printf("Get pixel format %x\n", arv_camera_get_pixel_format(this->camera));
     	status = asynSuccess;
     }
 
