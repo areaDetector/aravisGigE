@@ -131,6 +131,7 @@ private:
     asynStatus setIntegerValue(const char *feature, epicsInt32 value, epicsInt32 *rbv);
     asynStatus setFloatValue(const char *feature, epicsFloat64 value, epicsFloat64 *rbv);
     asynStatus connectToCamera();
+    asynStatus makeCameraObject();
     asynStatus getAllFeatures();
     asynStatus getNextFeature();
     int hasEnumString(const char* feature, const char *value);
@@ -276,6 +277,45 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     epicsAtExit(aravisShutdown, (void*)this);
 
 }
+asynStatus aravisCamera::makeCameraObject() {
+	const char *functionName = "makeCameraObject";
+	/* remove old camera if it exists */
+	if (this->camera != NULL) {
+		g_object_unref(this->camera);
+		this->camera = NULL;
+	}
+	/* remove ref to device and genicam */
+	this->device = NULL;
+	this->genicam = NULL;
+
+	/* connect to camera */
+	g_print ("Looking for camera '%s'... \n", this->cameraName);
+	this->camera = arv_camera_new (this->cameraName);
+	if (this->camera == NULL) {
+		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+					"%s:%s: No camera found\n",
+					driverName, functionName);
+		return asynError;
+	}
+	/* Store device */
+	this->device = arv_camera_get_device(this->camera);
+	if (this->device == NULL) {
+		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+					"%s:%s: No device associated with camera\n",
+					driverName, functionName);
+		return asynError;
+	}
+	arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), ARV_GV_DEVICE_GVSP_PACKET_SIZE_DEFAULT);
+	/* Store genicam */
+	this->genicam = arv_device_get_genicam (this->device);
+	if (this->genicam == NULL) {
+		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+					"%s:%s: No genicam element associated with camera\n",
+					driverName, functionName);
+		return asynError;
+	}
+	return asynSuccess;
+}
 
 asynStatus aravisCamera::connectToCamera() {
 	const char *functionName = "connectToCamera";
@@ -301,38 +341,22 @@ asynStatus aravisCamera::connectToCamera() {
     	g_object_unref(this->stream);
     	this->stream = stream;
     }
-    /* remove old camera if it exists */
-    if (this->camera != NULL) {
-    	g_object_unref(this->camera);
-    	this->camera = NULL;
-    }
-    /* remove ref to device and genicam */
-    this->device = NULL;
-    this->genicam = NULL;
 
-    /* connect to camera */
-    g_print ("Looking for camera '%s'... \n", this->cameraName);
-    this->camera = arv_camera_new (this->cameraName);
-    if (this->camera == NULL) {
-		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-					"%s:%s: No camera found\n",
-					driverName, functionName);
-		return asynError;
-    }
+    /* make the camera object */
+    status = this->makeCameraObject();
+    if (status) return (asynStatus) status;
+
+    /* Make the stream */
 	this->stream = arv_camera_create_stream (this->camera, NULL, NULL);
 	if (this->stream == NULL) {
 		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
 					"%s:%s: Making stream failed, retrying in 10s...\n",
 					driverName, functionName);
 		epicsThreadSleep(10);
-		g_object_unref(this->camera);
-	    this->camera = arv_camera_new (this->cameraName);
-	    if (this->camera == NULL) {
-			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-						"%s:%s: No camera found\n",
-						driverName, functionName);
-			return asynError;
-	    }
+	    /* make the camera object */
+	    status = this->makeCameraObject();
+	    if (status != asynSuccess) return (asynStatus) status;
+	    /* Make the stream */
 		this->stream = arv_camera_create_stream (this->camera, NULL, NULL);
     }
 	if (this->stream == NULL) {
@@ -344,24 +368,7 @@ asynStatus aravisCamera::connectToCamera() {
     /* Make sure it's stopped */
     arv_camera_stop_acquisition(this->camera);
     status |= setIntegerParam(ADStatus, ADStatusIdle);    
-    /* Store device */
-    this->device = arv_camera_get_device(this->camera);
-    if (this->device == NULL) {
-		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-					"%s:%s: No device associated with camera\n",
-					driverName, functionName);
-		return asynError;
-    }
-    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), ARV_GV_DEVICE_GVSP_PACKET_SIZE_DEFAULT);
-    /* Store genicam */
-    this->genicam = arv_device_get_genicam (this->device);
-    if (this->genicam == NULL) {
-		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-					"%s:%s: No genicam element associated with camera\n",
-					driverName, functionName);
-		return asynError;
-    }
-	/* create the stream */
+	/* configure the stream */
 	g_object_set (ARV_GV_STREAM (this->stream),
 			  "packet-timeout", 50000, //50ms
 			  "frame-retention", 200000, //200ms
@@ -1288,7 +1295,7 @@ asynStatus aravisCamera::getNextFeature() {
 		} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_STRING) {
 			stringValue = arv_device_get_string_feature_value(this->device, featureName);
 			status |= setStringParam(*index, stringValue);
-		} else {
+		} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_INT64) {
 			integerValue = arv_device_get_integer_feature_value (this->device, featureName);
 			if (*index == ADGain) {
 				/* Gain is sometimes an integer */
