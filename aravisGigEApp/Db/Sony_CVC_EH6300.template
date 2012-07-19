@@ -112,6 +112,19 @@ record(longout, "$(P)$(R)AcquisitionAbort") {
   field(DISA, "0")
 }
 
+record(longin, "$(P)$(R)AcquisitionFrame_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameCount")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)AcquisitionFrame") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameCount")
+  field(DISA, "0")
+}
+
 record(mbbi, "$(P)$(R)TriggerMode_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerMode")
@@ -183,6 +196,19 @@ record(longin, "$(P)$(R)TriggerDebouncin_RBV") {
 record(longout, "$(P)$(R)TriggerDebouncin") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerDebouncingPeriod")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SkipFrame_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SkipFrame")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SkipFrame") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SkipFrame")
   field(DISA, "0")
 }
 
@@ -360,76 +386,6 @@ record(longin, "$(P)$(R)DeviceTemperatur_RBV") {
 record(longout, "$(P)$(R)DeviceTemperatur") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperature")
-  field(DISA, "0")
-}
-
-record(mbbi, "$(P)$(R)OutputMode_RBV") {
-  field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OutputMode")
-  field(ZRST, "P1080_30")
-  field(ZRVL, "6")
-  field(ONST, "P1080_25")
-  field(ONVL, "8")
-  field(TWST, "P720_60")
-  field(TWVL, "9")
-  field(THST, "P720_50")
-  field(THVL, "12")
-  field(FRST, "P720_30")
-  field(FRVL, "14")
-  field(FVST, "P720_25")
-  field(FVVL, "17")
-  field(SXST, "I1080_59")
-  field(SXVL, "1")
-  field(SVST, "I1080_50")
-  field(SVVL, "100")
-  field(SCAN, "I/O Intr")
-  field(DISA, "0")
-}
-
-record(mbbo, "$(P)$(R)OutputMode") {
-  field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OutputMode")
-  field(ZRST, "P1080_30")
-  field(ZRVL, "6")
-  field(ONST, "P1080_25")
-  field(ONVL, "8")
-  field(TWST, "P720_60")
-  field(TWVL, "9")
-  field(THST, "P720_50")
-  field(THVL, "12")
-  field(FRST, "P720_30")
-  field(FRVL, "14")
-  field(FVST, "P720_25")
-  field(FVVL, "17")
-  field(SXST, "I1080_59")
-  field(SXVL, "1")
-  field(SVST, "I1080_50")
-  field(SVVL, "100")
-  field(DISA, "0")
-}
-
-record(mbbi, "$(P)$(R)ScanMode_RBV") {
-  field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ScanMode")
-  field(ZRST, "PFullFrame")
-  field(ZRVL, "0")
-  field(ONST, "PHalfFrame")
-  field(ONVL, "1")
-  field(TWST, "IFullFrame")
-  field(TWVL, "2")
-  field(SCAN, "I/O Intr")
-  field(DISA, "0")
-}
-
-record(mbbo, "$(P)$(R)ScanMode") {
-  field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ScanMode")
-  field(ZRST, "PFullFrame")
-  field(ZRVL, "0")
-  field(ONST, "PHalfFrame")
-  field(ONVL, "1")
-  field(TWST, "IFullFrame")
-  field(TWVL, "2")
   field(DISA, "0")
 }
 
@@ -655,7 +611,7 @@ record(stringin, "$(P)$(R)DeviceFirmwareVe_RBV") {
 record(mbbi, "$(P)$(R)DeviceFirmwareID_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceFirmwareID")
-  field(ZRST, "HD_EG")
+  field(ZRST, "HD_EH")
   field(ZRVL, "0")
   field(ONST, "HD_H11")
   field(ONVL, "1")
@@ -668,7 +624,7 @@ record(mbbi, "$(P)$(R)DeviceFirmwareID_RBV") {
 record(mbbo, "$(P)$(R)DeviceFirmwareID") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceFirmwareID")
-  field(ZRST, "HD_EG")
+  field(ZRST, "HD_EH")
   field(ZRVL, "0")
   field(ONST, "HD_H11")
   field(ONVL, "1")
@@ -1608,67 +1564,6 @@ record(mbbo, "$(P)$(R)EventNotificatio") {
   field(DISA, "0")
 }
 
-record(mbbi, "$(P)$(R)FrameBufferDeint_RBV") {
-  field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferDeint")
-  field(ZRST, "OFF")
-  field(ZRVL, "0")
-  field(ONST, "ON")
-  field(ONVL, "1")
-  field(SCAN, "I/O Intr")
-  field(DISA, "0")
-}
-
-record(mbbo, "$(P)$(R)FrameBufferDeint") {
-  field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferDeint")
-  field(ZRST, "OFF")
-  field(ZRVL, "0")
-  field(ONST, "ON")
-  field(ONVL, "1")
-  field(DISA, "0")
-}
-
-record(mbbi, "$(P)$(R)FrameBufferLowLa_RBV") {
-  field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferLowLat")
-  field(ZRST, "OFF")
-  field(ZRVL, "0")
-  field(ONST, "ON")
-  field(ONVL, "1")
-  field(SCAN, "I/O Intr")
-  field(DISA, "0")
-}
-
-record(mbbo, "$(P)$(R)FrameBufferLowLa") {
-  field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferLowLat")
-  field(ZRST, "OFF")
-  field(ZRVL, "0")
-  field(ONST, "ON")
-  field(ONVL, "1")
-  field(DISA, "0")
-}
-
-record(longout, "$(P)$(R)FrameBufferClear") {
-  field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferClearStatistic")
-  field(DISA, "0")
-}
-
-record(longin, "$(P)$(R)FrameBufferBlock_RBV") {
-  field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferBlocks")
-  field(SCAN, "I/O Intr")
-  field(DISA, "0")
-}
-
-record(longout, "$(P)$(R)FrameBufferBlock") {
-  field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferBlocks")
-  field(DISA, "0")
-}
-
 record(longin, "$(P)$(R)GevHeartbeatTime_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevHeartbeatTimeout")
@@ -1903,6 +1798,23 @@ record(longout, "$(P)$(R)GevStreamChanne0") {
   field(DISA, "0")
 }
 
+record(bi, "$(P)$(R)GevPauseCommandE_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPauseCommandEnable")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevPauseCommandE") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPauseCommandEnable")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
 record(bi, "$(P)$(R)GevSCPSDoNotFrag_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSDoNotFragment")
@@ -1930,6 +1842,27 @@ record(longin, "$(P)$(R)GevSCPSPacketSiz_RBV") {
 record(longout, "$(P)$(R)GevSCPSPacketSiz") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSPacketSize")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)FrameBufferLowLa_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferLowLat")
+  field(ZRST, "OFF")
+  field(ZRVL, "0")
+  field(ONST, "ON")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)FrameBufferLowLa") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferLowLat")
+  field(ZRST, "OFF")
+  field(ZRVL, "0")
+  field(ONST, "ON")
+  field(ONVL, "1")
   field(DISA, "0")
 }
 
@@ -2108,16 +2041,22 @@ record(mbbi, "$(P)$(R)PixelFormat_RBV") {
   field(ZRVL, "17301512")
   field(ONST, "BayerRG8")
   field(ONVL, "17301513")
-  field(TWST, "RGB8Packed")
-  field(TWVL, "35127316")
-  field(THST, "YUV422Packed")
-  field(THVL, "34603039")
-  field(FRST, "YUV444Packed")
-  field(FRVL, "35127328")
-  field(FVST, "YCBCR709_422")
-  field(FVVL, "34603073")
-  field(SXST, "YUYVPacked")
-  field(SXVL, "34603058")
+  field(TWST, "BayerGB8")
+  field(TWVL, "17301514")
+  field(THST, "BayerBG8")
+  field(THVL, "17301515")
+  field(FRST, "RGB8Packed")
+  field(FRVL, "35127316")
+  field(FVST, "YUV422Packed")
+  field(FVVL, "34603039")
+  field(SXST, "YUV444Packed")
+  field(SXVL, "35127328")
+  field(SVST, "YCBCR709_422")
+  field(SVVL, "34603073")
+  field(EIST, "YUYVPacked")
+  field(EIVL, "34603058")
+  field(NIST, "Mono8")
+  field(NIVL, "17301505")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
@@ -2129,16 +2068,22 @@ record(mbbo, "$(P)$(R)PixelFormat") {
   field(ZRVL, "17301512")
   field(ONST, "BayerRG8")
   field(ONVL, "17301513")
-  field(TWST, "RGB8Packed")
-  field(TWVL, "35127316")
-  field(THST, "YUV422Packed")
-  field(THVL, "34603039")
-  field(FRST, "YUV444Packed")
-  field(FRVL, "35127328")
-  field(FVST, "YCBCR709_422")
-  field(FVVL, "34603073")
-  field(SXST, "YUYVPacked")
-  field(SXVL, "34603058")
+  field(TWST, "BayerGB8")
+  field(TWVL, "17301514")
+  field(THST, "BayerBG8")
+  field(THVL, "17301515")
+  field(FRST, "RGB8Packed")
+  field(FRVL, "35127316")
+  field(FVST, "YUV422Packed")
+  field(FVVL, "34603039")
+  field(SXST, "YUV444Packed")
+  field(SXVL, "35127328")
+  field(SVST, "YCBCR709_422")
+  field(SVVL, "34603073")
+  field(EIST, "YUYVPacked")
+  field(EIVL, "34603058")
+  field(NIST, "Mono8")
+  field(NIVL, "17301505")
   field(DISA, "0")
 }
 
@@ -2194,6 +2139,104 @@ record(mbbo, "$(P)$(R)TestImageSelecto") {
   field(ZRVL, "0")
   field(ONST, "On")
   field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)OutputMode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OutputMode")
+  field(ZRST, "P1080_30")
+  field(ZRVL, "6")
+  field(ONST, "P1080_25")
+  field(ONVL, "8")
+  field(TWST, "P720_60")
+  field(TWVL, "9")
+  field(THST, "P720_50")
+  field(THVL, "12")
+  field(FRST, "P720_30")
+  field(FRVL, "14")
+  field(FVST, "P720_25")
+  field(FVVL, "17")
+  field(SXST, "I1080_59")
+  field(SXVL, "1")
+  field(SVST, "I1080_50")
+  field(SVVL, "100")
+  field(EIST, "P576_25")
+  field(EIVL, "101")
+  field(NIST, "P480_30")
+  field(NIVL, "102")
+  field(TEST, "P576_50")
+  field(TEVL, "103")
+  field(ELST, "P480_60")
+  field(ELVL, "104")
+  field(TVST, "I576_50")
+  field(TVVL, "105")
+  field(TTST, "I480_60")
+  field(TTVL, "106")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)OutputMode") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OutputMode")
+  field(ZRST, "P1080_30")
+  field(ZRVL, "6")
+  field(ONST, "P1080_25")
+  field(ONVL, "8")
+  field(TWST, "P720_60")
+  field(TWVL, "9")
+  field(THST, "P720_50")
+  field(THVL, "12")
+  field(FRST, "P720_30")
+  field(FRVL, "14")
+  field(FVST, "P720_25")
+  field(FVVL, "17")
+  field(SXST, "I1080_59")
+  field(SXVL, "1")
+  field(SVST, "I1080_50")
+  field(SVVL, "100")
+  field(EIST, "P576_25")
+  field(EIVL, "101")
+  field(NIST, "P480_30")
+  field(NIVL, "102")
+  field(TEST, "P576_50")
+  field(TEVL, "103")
+  field(ELST, "P480_60")
+  field(ELVL, "104")
+  field(TVST, "I576_50")
+  field(TVVL, "105")
+  field(TTST, "I480_60")
+  field(TTVL, "106")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)ScanMode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ScanMode")
+  field(ZRST, "Mode0")
+  field(ZRVL, "0")
+  field(ONST, "Mode1")
+  field(ONVL, "1")
+  field(TWST, "Mode2")
+  field(TWVL, "2")
+  field(THST, "Mode3")
+  field(THVL, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)ScanMode") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ScanMode")
+  field(ZRST, "Mode0")
+  field(ZRVL, "0")
+  field(ONST, "Mode1")
+  field(ONVL, "1")
+  field(TWST, "Mode2")
+  field(TWVL, "2")
+  field(THST, "Mode3")
+  field(THVL, "3")
   field(DISA, "0")
 }
 
@@ -2545,6 +2588,25 @@ record(bo, "$(P)$(R)GevSupportedOpti") {
   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOption")
   field(ZNAM, "No")
   field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)FrameBufferClear") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferClearStatistic")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)FrameBufferBlock_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferBlocks")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)FrameBufferBlock") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameBufferBlocks")
   field(DISA, "0")
 }
 

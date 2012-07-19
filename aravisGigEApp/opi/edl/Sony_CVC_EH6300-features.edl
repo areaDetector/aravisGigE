@@ -135,7 +135,7 @@ release 0
 x 5
 y 50
 w 255
-h 230
+h 280
 lineColor index 14
 fill
 fillColor index 5
@@ -487,7 +487,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=TriggerMode: Controls if the selected trigger is active. It can take any of the ,desc1=following values: Off: Disables the selected trigger. On: Enable the selected ,desc2=trigger. ,desc3='',desc4='',desc5=''"
+  0 "desc0=AcquisitionFrameCount: Number of frames to acquire in MultiFrame Acquisition ,desc1=mode. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
 
@@ -507,6 +507,95 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
+  "AcquisitionFrameCount"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFrame"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 155
+w 60
+h 20
+controlPv "$(P)$(R)AcquisitionFrame_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=TriggerMode: Controls if the selected trigger is active. It can take any of the ,desc1=following values: Off: Disables the selected trigger. On: Enable the selected ,desc2=trigger. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
   "TriggerMode"
 }
 endObjectProperties   
@@ -518,7 +607,7 @@ major 4
 minor 0
 release 0
 x 130
-y 155
+y 180
 w 125
 h 20
 fgColor index 25
@@ -538,7 +627,7 @@ major 4
 minor 2
 release 0
 x 10
-y 180
+y 205
 w 10
 h 20
 fgColor index 14
@@ -571,7 +660,7 @@ major 4
 minor 1
 release 0
 x 20
-y 180
+y 205
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -590,7 +679,7 @@ major 4
 minor 0
 release 0
 x 130
-y 180
+y 205
 w 125
 h 20
 fgColor index 25
@@ -613,7 +702,7 @@ major 4
 minor 2
 release 0
 x 10
-y 205
+y 230
 w 10
 h 20
 fgColor index 14
@@ -646,7 +735,7 @@ major 4
 minor 1
 release 0
 x 20
-y 205
+y 230
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -665,7 +754,7 @@ major 4
 minor 0
 release 0
 x 130
-y 205
+y 230
 w 125
 h 20
 fgColor index 25
@@ -685,7 +774,7 @@ major 4
 minor 2
 release 0
 x 10
-y 230
+y 255
 w 10
 h 20
 fgColor index 14
@@ -718,7 +807,7 @@ major 4
 minor 1
 release 0
 x 20
-y 230
+y 255
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -737,7 +826,7 @@ major 10
 minor 0
 release 0
 x 130
-y 230
+y 255
 w 60
 h 20
 controlPv "$(P)$(R)TriggerDebounci0"
@@ -755,7 +844,7 @@ major 10
 minor 0
 release 0
 x 195
-y 230
+y 255
 w 60
 h 20
 controlPv "$(P)$(R)TriggerDebounci0_RBV"
@@ -774,7 +863,7 @@ major 4
 minor 2
 release 0
 x 10
-y 255
+y 280
 w 10
 h 20
 fgColor index 14
@@ -807,7 +896,7 @@ major 4
 minor 1
 release 0
 x 20
-y 255
+y 280
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -826,7 +915,7 @@ major 10
 minor 0
 release 0
 x 130
-y 255
+y 280
 w 60
 h 20
 controlPv "$(P)$(R)TriggerDebouncin"
@@ -844,10 +933,99 @@ major 10
 minor 0
 release 0
 x 195
-y 255
+y 280
 w 60
 h 20
 controlPv "$(P)$(R)TriggerDebouncin_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 305
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=SkipFrame: Number of frames which are skipped while acquiring images. Set to 1 ,desc1=means that 1 frame is skipped which results in half the frame rate. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 305
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SkipFrame"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 305
+w 60
+h 20
+controlPv "$(P)$(R)SkipFrame"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 195
+y 305
+w 60
+h 20
+controlPv "$(P)$(R)SkipFrame_RBV"
 fgColor index 16
 fgAlarm
 bgColor index 10
@@ -863,7 +1041,7 @@ major 4
 minor 0
 release 0
 x 5
-y 295
+y 345
 w 255
 h 130
 lineColor index 14
@@ -878,7 +1056,7 @@ major 4
 minor 1
 release 0
 x 5
-y 285
+y 335
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -899,7 +1077,7 @@ major 4
 minor 2
 release 0
 x 10
-y 300
+y 350
 w 10
 h 20
 fgColor index 14
@@ -932,7 +1110,7 @@ major 4
 minor 1
 release 0
 x 20
-y 300
+y 350
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -951,7 +1129,7 @@ major 4
 minor 0
 release 0
 x 130
-y 300
+y 350
 w 125
 h 20
 fgColor index 25
@@ -971,7 +1149,7 @@ major 4
 minor 2
 release 0
 x 10
-y 325
+y 375
 w 10
 h 20
 fgColor index 14
@@ -1004,7 +1182,7 @@ major 4
 minor 1
 release 0
 x 20
-y 325
+y 375
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1023,7 +1201,7 @@ major 10
 minor 0
 release 0
 x 130
-y 325
+y 375
 w 60
 h 20
 controlPv "$(P)$(R)ColorEnhancemen2"
@@ -1041,7 +1219,7 @@ major 10
 minor 0
 release 0
 x 195
-y 325
+y 375
 w 60
 h 20
 controlPv "$(P)$(R)ColorEnhancemen2_RBV"
@@ -1060,7 +1238,7 @@ major 4
 minor 2
 release 0
 x 10
-y 350
+y 400
 w 10
 h 20
 fgColor index 14
@@ -1093,7 +1271,7 @@ major 4
 minor 1
 release 0
 x 20
-y 350
+y 400
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1112,7 +1290,7 @@ major 10
 minor 0
 release 0
 x 130
-y 350
+y 400
 w 60
 h 20
 controlPv "$(P)$(R)ColorEnhancemen1"
@@ -1130,7 +1308,7 @@ major 10
 minor 0
 release 0
 x 195
-y 350
+y 400
 w 60
 h 20
 controlPv "$(P)$(R)ColorEnhancemen1_RBV"
@@ -1149,7 +1327,7 @@ major 4
 minor 2
 release 0
 x 10
-y 375
+y 425
 w 10
 h 20
 fgColor index 14
@@ -1182,7 +1360,7 @@ major 4
 minor 1
 release 0
 x 20
-y 375
+y 425
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1201,7 +1379,7 @@ major 4
 minor 0
 release 0
 x 130
-y 375
+y 425
 w 125
 h 20
 fgColor index 25
@@ -1221,7 +1399,7 @@ major 4
 minor 2
 release 0
 x 10
-y 400
+y 450
 w 10
 h 20
 fgColor index 14
@@ -1254,7 +1432,7 @@ major 4
 minor 1
 release 0
 x 20
-y 400
+y 450
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1273,7 +1451,7 @@ major 10
 minor 0
 release 0
 x 130
-y 400
+y 450
 w 60
 h 20
 controlPv "$(P)$(R)ColorValue"
@@ -1291,7 +1469,7 @@ major 10
 minor 0
 release 0
 x 195
-y 400
+y 450
 w 60
 h 20
 controlPv "$(P)$(R)ColorValue_RBV"
@@ -1310,7 +1488,7 @@ major 4
 minor 0
 release 0
 x 5
-y 440
+y 490
 w 255
 h 80
 lineColor index 14
@@ -1325,7 +1503,7 @@ major 4
 minor 1
 release 0
 x 5
-y 430
+y 480
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -1346,7 +1524,7 @@ major 4
 minor 2
 release 0
 x 10
-y 445
+y 495
 w 10
 h 20
 fgColor index 14
@@ -1379,7 +1557,7 @@ major 4
 minor 1
 release 0
 x 20
-y 445
+y 495
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1398,7 +1576,7 @@ major 4
 minor 0
 release 0
 x 130
-y 445
+y 495
 w 125
 h 20
 fgColor index 25
@@ -1418,7 +1596,7 @@ major 4
 minor 2
 release 0
 x 10
-y 470
+y 520
 w 10
 h 20
 fgColor index 14
@@ -1451,7 +1629,7 @@ major 4
 minor 1
 release 0
 x 20
-y 470
+y 520
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1470,7 +1648,7 @@ major 10
 minor 0
 release 0
 x 130
-y 470
+y 520
 w 60
 h 20
 controlPv "$(P)$(R)ExposureCompensa"
@@ -1488,7 +1666,7 @@ major 10
 minor 0
 release 0
 x 195
-y 470
+y 520
 w 60
 h 20
 controlPv "$(P)$(R)ExposureCompensa_RBV"
@@ -1507,7 +1685,7 @@ major 4
 minor 2
 release 0
 x 10
-y 495
+y 545
 w 10
 h 20
 fgColor index 14
@@ -1540,7 +1718,7 @@ major 4
 minor 1
 release 0
 x 20
-y 495
+y 545
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -1559,7 +1737,7 @@ major 4
 minor 0
 release 0
 x 130
-y 495
+y 545
 w 125
 h 20
 fgColor index 25
@@ -1584,7 +1762,7 @@ release 0
 x 265
 y 50
 w 255
-h 480
+h 430
 lineColor index 14
 fill
 fillColor index 5
@@ -2083,150 +2261,6 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "desc0=OutputMode: Sets the Output Mode of the Camera. The new setting is enabled when ,desc1=the power is turned off and then back on again. It is saved persistent directly ,desc2=when it is set. No UserSetSave is needed. ,desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 205
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "OutputMode"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 205
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)OutputMode"
-indicatorPv "$(P)$(R)OutputMode_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 230
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=ScanMode: Scan Mode is available if a interlaced OutputMode is used and ,desc1=deinterlacing is disabled ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 280
-y 230
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "ScanMode"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 390
-y 230
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)ScanMode"
-indicatorPv "$(P)$(R)ScanMode_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 270
-y 255
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
   0 "desc0=DisplayEnable: If enabled information about some features is displayed on the ,desc1=image. E.g. WDR if Wide Dynamic Range is enabled. ,desc2='',desc3='',desc4='',desc5=''"
 }
 endObjectProperties                
@@ -2239,7 +2273,7 @@ major 4
 minor 1
 release 0
 x 280
-y 255
+y 205
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2258,7 +2292,7 @@ major 4
 minor 0
 release 0
 x 390
-y 255
+y 205
 w 125
 h 20
 fgColor index 25
@@ -2278,7 +2312,7 @@ major 4
 minor 2
 release 0
 x 270
-y 280
+y 230
 w 10
 h 20
 fgColor index 14
@@ -2311,7 +2345,7 @@ major 4
 minor 1
 release 0
 x 280
-y 280
+y 230
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2330,7 +2364,7 @@ major 4
 minor 0
 release 0
 x 390
-y 280
+y 230
 w 125
 h 20
 fgColor index 25
@@ -2350,7 +2384,7 @@ major 4
 minor 2
 release 0
 x 270
-y 305
+y 255
 w 10
 h 20
 fgColor index 14
@@ -2383,7 +2417,7 @@ major 4
 minor 1
 release 0
 x 280
-y 305
+y 255
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2402,7 +2436,7 @@ major 10
 minor 0
 release 0
 x 390
-y 305
+y 255
 w 60
 h 20
 controlPv "$(P)$(R)NoiseReduction"
@@ -2420,7 +2454,7 @@ major 10
 minor 0
 release 0
 x 455
-y 305
+y 255
 w 60
 h 20
 controlPv "$(P)$(R)NoiseReduction_RBV"
@@ -2439,7 +2473,7 @@ major 4
 minor 2
 release 0
 x 270
-y 330
+y 280
 w 10
 h 20
 fgColor index 14
@@ -2472,7 +2506,7 @@ major 4
 minor 1
 release 0
 x 280
-y 330
+y 280
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2491,7 +2525,7 @@ major 4
 minor 0
 release 0
 x 390
-y 330
+y 280
 w 125
 h 20
 fgColor index 25
@@ -2511,7 +2545,7 @@ major 4
 minor 2
 release 0
 x 270
-y 355
+y 305
 w 10
 h 20
 fgColor index 14
@@ -2544,7 +2578,7 @@ major 4
 minor 1
 release 0
 x 280
-y 355
+y 305
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2563,7 +2597,7 @@ major 4
 minor 0
 release 0
 x 390
-y 355
+y 305
 w 125
 h 20
 fgColor index 25
@@ -2583,7 +2617,7 @@ major 4
 minor 2
 release 0
 x 270
-y 380
+y 330
 w 10
 h 20
 fgColor index 14
@@ -2616,7 +2650,7 @@ major 4
 minor 1
 release 0
 x 280
-y 380
+y 330
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2635,7 +2669,7 @@ major 4
 minor 0
 release 0
 x 390
-y 380
+y 330
 w 125
 h 20
 fgColor index 25
@@ -2655,7 +2689,7 @@ major 4
 minor 2
 release 0
 x 270
-y 405
+y 355
 w 10
 h 20
 fgColor index 14
@@ -2688,7 +2722,7 @@ major 4
 minor 1
 release 0
 x 280
-y 405
+y 355
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2707,7 +2741,7 @@ major 4
 minor 0
 release 0
 x 390
-y 405
+y 355
 w 125
 h 20
 fgColor index 25
@@ -2727,7 +2761,7 @@ major 4
 minor 2
 release 0
 x 270
-y 430
+y 380
 w 10
 h 20
 fgColor index 14
@@ -2760,7 +2794,7 @@ major 4
 minor 1
 release 0
 x 280
-y 430
+y 380
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2779,7 +2813,7 @@ major 4
 minor 0
 release 0
 x 390
-y 430
+y 380
 w 125
 h 20
 fgColor index 25
@@ -2799,7 +2833,7 @@ major 4
 minor 2
 release 0
 x 270
-y 455
+y 405
 w 10
 h 20
 fgColor index 14
@@ -2832,7 +2866,7 @@ major 4
 minor 1
 release 0
 x 280
-y 455
+y 405
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2851,7 +2885,7 @@ major 4
 minor 0
 release 0
 x 390
-y 455
+y 405
 w 125
 h 20
 fgColor index 25
@@ -2871,7 +2905,7 @@ major 4
 minor 2
 release 0
 x 270
-y 480
+y 430
 w 10
 h 20
 fgColor index 14
@@ -2904,7 +2938,7 @@ major 4
 minor 1
 release 0
 x 280
-y 480
+y 430
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -2923,7 +2957,7 @@ major 10
 minor 0
 release 0
 x 390
-y 480
+y 430
 w 60
 h 20
 controlPv "$(P)$(R)Gain"
@@ -2941,7 +2975,7 @@ major 10
 minor 0
 release 0
 x 455
-y 480
+y 430
 w 60
 h 20
 controlPv "$(P)$(R)Gain_RBV"
@@ -2960,7 +2994,7 @@ major 4
 minor 2
 release 0
 x 270
-y 505
+y 455
 w 10
 h 20
 fgColor index 14
@@ -2993,7 +3027,7 @@ major 4
 minor 1
 release 0
 x 280
-y 505
+y 455
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3012,7 +3046,7 @@ major 4
 minor 0
 release 0
 x 390
-y 505
+y 455
 w 125
 h 20
 fgColor index 25
@@ -3035,7 +3069,7 @@ major 4
 minor 0
 release 0
 x 265
-y 545
+y 495
 w 255
 h 155
 lineColor index 14
@@ -3050,7 +3084,7 @@ major 4
 minor 1
 release 0
 x 265
-y 535
+y 485
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -3071,7 +3105,7 @@ major 4
 minor 2
 release 0
 x 270
-y 550
+y 500
 w 10
 h 20
 fgColor index 14
@@ -3104,7 +3138,7 @@ major 4
 minor 1
 release 0
 x 280
-y 550
+y 500
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3123,7 +3157,7 @@ major 10
 minor 0
 release 0
 x 390
-y 550
+y 500
 w 125
 h 20
 controlPv "$(P)$(R)DeviceVersion_RBV"
@@ -3142,7 +3176,7 @@ major 4
 minor 2
 release 0
 x 270
-y 575
+y 525
 w 10
 h 20
 fgColor index 14
@@ -3175,7 +3209,7 @@ major 4
 minor 1
 release 0
 x 280
-y 575
+y 525
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3194,7 +3228,7 @@ major 10
 minor 0
 release 0
 x 390
-y 575
+y 525
 w 125
 h 20
 controlPv "$(P)$(R)DeviceFCBVersion_RBV"
@@ -3213,7 +3247,7 @@ major 4
 minor 2
 release 0
 x 270
-y 600
+y 550
 w 10
 h 20
 fgColor index 14
@@ -3246,7 +3280,7 @@ major 4
 minor 1
 release 0
 x 280
-y 600
+y 550
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3265,7 +3299,7 @@ major 10
 minor 0
 release 0
 x 390
-y 600
+y 550
 w 125
 h 20
 controlPv "$(P)$(R)DeviceSoftwareVe_RBV"
@@ -3284,7 +3318,7 @@ major 4
 minor 2
 release 0
 x 270
-y 625
+y 575
 w 10
 h 20
 fgColor index 14
@@ -3317,7 +3351,7 @@ major 4
 minor 1
 release 0
 x 280
-y 625
+y 575
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3336,7 +3370,7 @@ major 10
 minor 0
 release 0
 x 390
-y 625
+y 575
 w 125
 h 20
 controlPv "$(P)$(R)DeviceFirmwareVe_RBV"
@@ -3355,7 +3389,7 @@ major 4
 minor 2
 release 0
 x 270
-y 650
+y 600
 w 10
 h 20
 fgColor index 14
@@ -3388,7 +3422,7 @@ major 4
 minor 1
 release 0
 x 280
-y 650
+y 600
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3407,7 +3441,7 @@ major 4
 minor 0
 release 0
 x 390
-y 650
+y 600
 w 125
 h 20
 fgColor index 25
@@ -3427,7 +3461,7 @@ major 4
 minor 2
 release 0
 x 270
-y 675
+y 625
 w 10
 h 20
 fgColor index 14
@@ -3460,7 +3494,7 @@ major 4
 minor 1
 release 0
 x 280
-y 675
+y 625
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -3479,7 +3513,7 @@ major 10
 minor 0
 release 0
 x 390
-y 675
+y 625
 w 125
 h 20
 controlPv "$(P)$(R)DeviceHardwareVe_RBV"
@@ -7631,190 +7665,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 785
-y 785
-w 255
-h 55
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 785
-y 775
-w 150
-h 14
-font "arial-medium-r-12.0"
-fontAlign "center"
-fgColor index 14
-bgColor index 8
-value {
-  "  FrameBufferCat  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 790
-y 790
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferDeint: Controls if deinterlacing is enabled or disabled. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 800
-y 790
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferDeint"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 910
-y 790
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)FrameBufferDeint"
-indicatorPv "$(P)$(R)FrameBufferDeint_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 790
-y 815
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferLowLat: When active the frame buffer is optimized for low latency. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 800
-y 815
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferLowLat"
-}
-endObjectProperties   
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 910
-y 815
-w 125
-h 20
-fgColor index 25
-bgColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)FrameBufferLowLa"
-indicatorPv "$(P)$(R)FrameBufferLowLa_RBV"
-font "arial-bold-r-12.0"
-endObjectProperties        
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
 x 1045
 y 50
 w 255
-h 155
+h 205
 lineColor index 14
 fill
 fillColor index 5
@@ -7835,490 +7689,6 @@ fontAlign "center"
 fgColor index 14
 bgColor index 8
 value {
-  "  Statistic  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 55
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferClearStatistic: Clear the Frame Buffer Statistic. Locked while grab ,desc1=is active. ,desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 55
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferClearStatistic"
-}
-endObjectProperties   
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1170
-y 55
-w 125
-h 20
-fgColor index 25
-onColor index 3
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P)$(R)FrameBufferClear.PROC"
-pressValue "1"
-onLabel "FrameBufferClearStatistic"
-offLabel "FrameBufferClearStatistic"
-3d
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 80
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferBlocksDropped: Dropped Blocks ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 80
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferBlocksDropped"
-}
-endObjectProperties   
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 80
-w 125
-h 20
-controlPv "$(P)$(R)FrameBufferBloc0_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 105
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferFifoDropped: Number of dropped blocks because FIFO was full. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 105
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferFifoDropped"
-}
-endObjectProperties   
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 105
-w 125
-h 20
-controlPv "$(P)$(R)FrameBufferFifoD_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 130
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferResendSuccess: Successful Resend Requests. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 130
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferResendSuccess"
-}
-endObjectProperties   
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 130
-w 125
-h 20
-controlPv "$(P)$(R)FrameBufferRese1_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 155
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferResendFailed: Number of failed resend requests. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 155
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferResendFailed"
-}
-endObjectProperties   
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 155
-w 125
-h 20
-controlPv "$(P)$(R)FrameBufferRese0_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties        
-
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 1050
-y 180
-w 10
-h 20
-fgColor index 14
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-10.0"
-xPosOffset -100
-yPosOffset -85
-useFocus
-buttonLabel "?"
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "aravisHelp"
-}
-setPosition {
-  0 "button"
-}
-symbols {
-  0 "desc0=FrameBufferBlocks: Number of blocks in descriptor FIFO. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
-}
-endObjectProperties                
-
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1060
-y 180
-w 110
-h 20
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "FrameBufferBlocks"
-}
-endObjectProperties   
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1170
-y 180
-w 60
-h 20
-controlPv "$(P)$(R)FrameBufferBlock"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-12.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 1235
-y 180
-w 60
-h 20
-controlPv "$(P)$(R)FrameBufferBlock_RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-12.0"
-fontAlign "center"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1045
-y 220
-w 255
-h 205
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 1045
-y 210
-w 150
-h 14
-font "arial-medium-r-12.0"
-fontAlign "center"
-fgColor index 14
-bgColor index 8
-value {
   "  GevControlChannel  "
 }
 autoSize
@@ -8332,7 +7702,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 225
+y 55
 w 10
 h 20
 fgColor index 14
@@ -8365,7 +7735,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 225
+y 55
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8384,7 +7754,7 @@ major 10
 minor 0
 release 0
 x 1170
-y 225
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)GevHeartbeatTime"
@@ -8402,7 +7772,7 @@ major 10
 minor 0
 release 0
 x 1235
-y 225
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)GevHeartbeatTime_RBV"
@@ -8421,7 +7791,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 250
+y 80
 w 10
 h 20
 fgColor index 14
@@ -8454,7 +7824,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 250
+y 80
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8473,7 +7843,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 250
+y 80
 w 125
 h 20
 fgColor index 25
@@ -8493,7 +7863,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 275
+y 105
 w 10
 h 20
 fgColor index 14
@@ -8526,7 +7896,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 275
+y 105
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8545,7 +7915,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 275
+y 105
 w 125
 h 20
 fgColor index 25
@@ -8565,7 +7935,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 300
+y 130
 w 10
 h 20
 fgColor index 14
@@ -8598,7 +7968,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 300
+y 130
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8617,7 +7987,7 @@ major 10
 minor 0
 release 0
 x 1170
-y 300
+y 130
 w 60
 h 20
 controlPv "$(P)$(R)GevDiscoveryAckD"
@@ -8635,7 +8005,7 @@ major 10
 minor 0
 release 0
 x 1235
-y 300
+y 130
 w 60
 h 20
 controlPv "$(P)$(R)GevDiscoveryAckD_RBV"
@@ -8654,7 +8024,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 325
+y 155
 w 10
 h 20
 fgColor index 14
@@ -8687,7 +8057,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 325
+y 155
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8706,7 +8076,7 @@ major 10
 minor 0
 release 0
 x 1170
-y 325
+y 155
 w 125
 h 20
 controlPv "$(P)$(R)GevPrimaryApplic_RBV"
@@ -8725,7 +8095,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 350
+y 180
 w 10
 h 20
 fgColor index 14
@@ -8758,7 +8128,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 350
+y 180
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8777,7 +8147,7 @@ major 10
 minor 0
 release 0
 x 1170
-y 350
+y 180
 w 125
 h 20
 controlPv "$(P)$(R)GevPrimaryAppli0_RBV"
@@ -8796,7 +8166,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 375
+y 205
 w 10
 h 20
 fgColor index 14
@@ -8829,7 +8199,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 375
+y 205
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8848,7 +8218,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 400
+y 230
 w 10
 h 20
 fgColor index 14
@@ -8881,7 +8251,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 400
+y 230
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -8900,7 +8270,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 400
+y 230
 w 125
 h 20
 fgColor index 25
@@ -8920,7 +8290,7 @@ major 4
 minor 0
 release 0
 x 1045
-y 440
+y 270
 w 255
 h 80
 lineColor index 14
@@ -8935,7 +8305,7 @@ major 4
 minor 1
 release 0
 x 1045
-y 430
+y 260
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -8956,7 +8326,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 445
+y 275
 w 10
 h 20
 fgColor index 14
@@ -8989,7 +8359,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 445
+y 275
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9008,7 +8378,7 @@ major 10
 minor 0
 release 0
 x 1170
-y 445
+y 275
 w 125
 h 20
 controlPv "$(P)$(R)GevCurrentIPAddr_RBV"
@@ -9027,7 +8397,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 470
+y 300
 w 10
 h 20
 fgColor index 14
@@ -9060,7 +8430,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 470
+y 300
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9079,7 +8449,7 @@ major 10
 minor 0
 release 0
 x 1170
-y 470
+y 300
 w 125
 h 20
 controlPv "$(P)$(R)GevCurrentSubnet_RBV"
@@ -9098,7 +8468,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 495
+y 325
 w 10
 h 20
 fgColor index 14
@@ -9131,7 +8501,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 495
+y 325
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9150,7 +8520,7 @@ major 10
 minor 0
 release 0
 x 1170
-y 495
+y 325
 w 125
 h 20
 controlPv "$(P)$(R)GevCurrentDefaul_RBV"
@@ -9169,7 +8539,7 @@ major 4
 minor 0
 release 0
 x 1045
-y 535
+y 365
 w 255
 h 55
 lineColor index 14
@@ -9184,7 +8554,7 @@ major 4
 minor 1
 release 0
 x 1045
-y 525
+y 355
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -9205,7 +8575,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 540
+y 370
 w 10
 h 20
 fgColor index 14
@@ -9238,7 +8608,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 540
+y 370
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9257,7 +8627,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 540
+y 370
 w 125
 h 20
 fgColor index 25
@@ -9277,7 +8647,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 565
+y 395
 w 10
 h 20
 fgColor index 14
@@ -9310,7 +8680,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 565
+y 395
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9329,7 +8699,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 565
+y 395
 w 125
 h 20
 fgColor index 25
@@ -9349,7 +8719,7 @@ major 4
 minor 0
 release 0
 x 1045
-y 605
+y 435
 w 255
 h 105
 lineColor index 14
@@ -9364,7 +8734,7 @@ major 4
 minor 1
 release 0
 x 1045
-y 595
+y 425
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -9385,7 +8755,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 610
+y 440
 w 10
 h 20
 fgColor index 14
@@ -9418,7 +8788,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 610
+y 440
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9437,7 +8807,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 610
+y 440
 w 125
 h 20
 fgColor index 25
@@ -9457,7 +8827,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 635
+y 465
 w 10
 h 20
 fgColor index 14
@@ -9490,7 +8860,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 635
+y 465
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9509,7 +8879,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 635
+y 465
 w 125
 h 20
 fgColor index 25
@@ -9529,7 +8899,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 660
+y 490
 w 10
 h 20
 fgColor index 14
@@ -9562,7 +8932,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 660
+y 490
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9581,7 +8951,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 660
+y 490
 w 125
 h 20
 fgColor index 25
@@ -9601,7 +8971,7 @@ major 4
 minor 2
 release 0
 x 1050
-y 685
+y 515
 w 10
 h 20
 fgColor index 14
@@ -9634,7 +9004,7 @@ major 4
 minor 1
 release 0
 x 1060
-y 685
+y 515
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9653,7 +9023,7 @@ major 4
 minor 0
 release 0
 x 1170
-y 685
+y 515
 w 125
 h 20
 fgColor index 25
@@ -9672,8 +9042,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1305
-y 50
+x 1045
+y 555
 w 255
 h 155
 lineColor index 14
@@ -9687,8 +9057,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1305
-y 40
+x 1045
+y 545
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -9708,8 +9078,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 55
+x 1050
+y 560
 w 10
 h 20
 fgColor index 14
@@ -9741,8 +9111,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 55
+x 1060
+y 560
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9760,8 +9130,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 55
+x 1170
+y 560
 w 60
 h 20
 controlPv "$(P)$(R)GevMessageChann0"
@@ -9778,8 +9148,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 55
+x 1235
+y 560
 w 60
 h 20
 controlPv "$(P)$(R)GevMessageChann0_RBV"
@@ -9797,8 +9167,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 80
+x 1050
+y 585
 w 10
 h 20
 fgColor index 14
@@ -9830,8 +9200,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 80
+x 1060
+y 585
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9849,8 +9219,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 80
+x 1170
+y 585
 w 60
 h 20
 controlPv "$(P)$(R)GevMCPHostPort"
@@ -9867,8 +9237,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1495
-y 80
+x 1235
+y 585
 w 60
 h 20
 controlPv "$(P)$(R)GevMCPHostPort_RBV"
@@ -9886,8 +9256,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 105
+x 1050
+y 610
 w 10
 h 20
 fgColor index 14
@@ -9919,8 +9289,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 105
+x 1060
+y 610
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -9938,8 +9308,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1430
-y 105
+x 1170
+y 610
 w 125
 h 20
 controlPv "$(P)$(R)GevMCSP_RBV"
@@ -9957,8 +9327,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 130
+x 1050
+y 635
 w 10
 h 20
 fgColor index 14
@@ -9990,8 +9360,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 130
+x 1060
+y 635
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10009,8 +9379,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 155
+x 1050
+y 660
 w 10
 h 20
 fgColor index 14
@@ -10042,8 +9412,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 155
+x 1060
+y 660
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10061,8 +9431,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 180
+x 1050
+y 685
 w 10
 h 20
 fgColor index 14
@@ -10094,8 +9464,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 180
+x 1060
+y 685
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10113,8 +9483,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1305
-y 220
+x 1045
+y 725
 w 255
 h 80
 lineColor index 14
@@ -10128,8 +9498,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1305
-y 210
+x 1045
+y 715
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -10149,8 +9519,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 225
+x 1050
+y 730
 w 10
 h 20
 fgColor index 14
@@ -10182,8 +9552,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 225
+x 1060
+y 730
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10201,8 +9571,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 250
+x 1050
+y 755
 w 10
 h 20
 fgColor index 14
@@ -10234,8 +9604,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 250
+x 1060
+y 755
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10253,8 +9623,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1310
-y 275
+x 1050
+y 780
 w 10
 h 20
 fgColor index 14
@@ -10286,8 +9656,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1320
-y 275
+x 1060
+y 780
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10306,9 +9676,9 @@ major 4
 minor 0
 release 0
 x 1305
-y 315
+y 50
 w 255
-h 180
+h 230
 lineColor index 14
 fill
 fillColor index 5
@@ -10321,7 +9691,7 @@ major 4
 minor 1
 release 0
 x 1305
-y 305
+y 40
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -10342,7 +9712,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 320
+y 55
 w 10
 h 20
 fgColor index 14
@@ -10375,7 +9745,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 320
+y 55
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10394,7 +9764,7 @@ major 10
 minor 0
 release 0
 x 1430
-y 320
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)GevStreamChanne0"
@@ -10412,7 +9782,7 @@ major 10
 minor 0
 release 0
 x 1495
-y 320
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)GevStreamChanne0_RBV"
@@ -10431,7 +9801,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 345
+y 80
 w 10
 h 20
 fgColor index 14
@@ -10464,7 +9834,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 345
+y 80
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10483,7 +9853,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 370
+y 105
 w 10
 h 20
 fgColor index 14
@@ -10516,7 +9886,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 370
+y 105
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10535,7 +9905,7 @@ major 10
 minor 0
 release 0
 x 1430
-y 370
+y 105
 w 125
 h 20
 controlPv "$(P)$(R)GevSCSP_RBV"
@@ -10554,7 +9924,79 @@ major 4
 minor 2
 release 0
 x 1310
-y 395
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevPauseCommandEnable: ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "GevPauseCommandEnable"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 130
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GevPauseCommandE"
+indicatorPv "$(P)$(R)GevPauseCommandE_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 155
 w 10
 h 20
 fgColor index 14
@@ -10587,7 +10029,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 395
+y 155
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10606,7 +10048,7 @@ major 4
 minor 0
 release 0
 x 1430
-y 395
+y 155
 w 125
 h 20
 fgColor index 25
@@ -10626,7 +10068,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 420
+y 180
 w 10
 h 20
 fgColor index 14
@@ -10659,7 +10101,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 420
+y 180
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10678,7 +10120,7 @@ major 10
 minor 0
 release 0
 x 1430
-y 420
+y 180
 w 60
 h 20
 controlPv "$(P)$(R)GevSCPSPacketSiz"
@@ -10696,7 +10138,7 @@ major 10
 minor 0
 release 0
 x 1495
-y 420
+y 180
 w 60
 h 20
 controlPv "$(P)$(R)GevSCPSPacketSiz_RBV"
@@ -10715,7 +10157,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 445
+y 205
 w 10
 h 20
 fgColor index 14
@@ -10748,7 +10190,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 445
+y 205
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10767,7 +10209,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 470
+y 230
 w 10
 h 20
 fgColor index 14
@@ -10800,7 +10242,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 470
+y 230
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10812,6 +10254,78 @@ value {
 }
 endObjectProperties   
 
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 255
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameBufferLowLat: When active the frame buffer is optimized for low latency. ,desc1=Available when Deinterlacing is disabled. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 255
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameBufferLowLat"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 255
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)FrameBufferLowLa"
+indicatorPv "$(P)$(R)FrameBufferLowLa_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -10819,7 +10333,7 @@ major 4
 minor 0
 release 0
 x 1305
-y 510
+y 295
 w 255
 h 105
 lineColor index 14
@@ -10834,7 +10348,7 @@ major 4
 minor 1
 release 0
 x 1305
-y 500
+y 285
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -10855,7 +10369,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 515
+y 300
 w 10
 h 20
 fgColor index 14
@@ -10888,7 +10402,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 515
+y 300
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10907,7 +10421,7 @@ major 10
 minor 0
 release 0
 x 1430
-y 515
+y 300
 w 60
 h 20
 controlPv "$(P)$(R)GevTimestampTick"
@@ -10925,7 +10439,7 @@ major 10
 minor 0
 release 0
 x 1495
-y 515
+y 300
 w 60
 h 20
 controlPv "$(P)$(R)GevTimestampTick_RBV"
@@ -10944,7 +10458,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 540
+y 325
 w 10
 h 20
 fgColor index 14
@@ -10977,7 +10491,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 540
+y 325
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -10996,7 +10510,7 @@ major 4
 minor 0
 release 0
 x 1430
-y 540
+y 325
 w 125
 h 20
 fgColor index 25
@@ -11019,7 +10533,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 565
+y 350
 w 10
 h 20
 fgColor index 14
@@ -11052,7 +10566,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 565
+y 350
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11071,7 +10585,7 @@ major 4
 minor 0
 release 0
 x 1430
-y 565
+y 350
 w 125
 h 20
 fgColor index 25
@@ -11094,7 +10608,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 590
+y 375
 w 10
 h 20
 fgColor index 14
@@ -11127,7 +10641,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 590
+y 375
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11146,7 +10660,7 @@ major 10
 minor 0
 release 0
 x 1430
-y 590
+y 375
 w 60
 h 20
 controlPv "$(P)$(R)GevTimestampValu"
@@ -11164,7 +10678,7 @@ major 10
 minor 0
 release 0
 x 1495
-y 590
+y 375
 w 60
 h 20
 controlPv "$(P)$(R)GevTimestampValu_RBV"
@@ -11183,7 +10697,7 @@ major 4
 minor 0
 release 0
 x 1305
-y 630
+y 415
 w 255
 h 55
 lineColor index 14
@@ -11198,7 +10712,7 @@ major 4
 minor 1
 release 0
 x 1305
-y 620
+y 405
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -11219,7 +10733,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 635
+y 420
 w 10
 h 20
 fgColor index 14
@@ -11252,7 +10766,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 635
+y 420
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11271,7 +10785,7 @@ major 10
 minor 0
 release 0
 x 1430
-y 635
+y 420
 w 60
 h 20
 controlPv "$(P)$(R)GevVersionMajor"
@@ -11289,7 +10803,7 @@ major 10
 minor 0
 release 0
 x 1495
-y 635
+y 420
 w 60
 h 20
 controlPv "$(P)$(R)GevVersionMajor_RBV"
@@ -11308,7 +10822,7 @@ major 4
 minor 2
 release 0
 x 1310
-y 660
+y 445
 w 10
 h 20
 fgColor index 14
@@ -11341,7 +10855,7 @@ major 4
 minor 1
 release 0
 x 1320
-y 660
+y 445
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11360,7 +10874,7 @@ major 10
 minor 0
 release 0
 x 1430
-y 660
+y 445
 w 60
 h 20
 controlPv "$(P)$(R)GevVersionMinor"
@@ -11378,7 +10892,7 @@ major 10
 minor 0
 release 0
 x 1495
-y 660
+y 445
 w 60
 h 20
 controlPv "$(P)$(R)GevVersionMinor_RBV"
@@ -11396,10 +10910,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1565
-y 50
+x 1305
+y 485
 w 255
-h 305
+h 355
 lineColor index 14
 fill
 fillColor index 5
@@ -11411,8 +10925,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1565
-y 40
+x 1305
+y 475
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -11432,8 +10946,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 55
+x 1310
+y 490
 w 10
 h 20
 fgColor index 14
@@ -11465,8 +10979,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 55
+x 1320
+y 490
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11484,8 +10998,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 55
+x 1430
+y 490
 w 60
 h 20
 controlPv "$(P)$(R)SensorWidth"
@@ -11502,8 +11016,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 55
+x 1495
+y 490
 w 60
 h 20
 controlPv "$(P)$(R)SensorWidth_RBV"
@@ -11521,8 +11035,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 80
+x 1310
+y 515
 w 10
 h 20
 fgColor index 14
@@ -11554,8 +11068,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 80
+x 1320
+y 515
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11573,8 +11087,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 80
+x 1430
+y 515
 w 60
 h 20
 controlPv "$(P)$(R)SensorHeight"
@@ -11591,8 +11105,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 80
+x 1495
+y 515
 w 60
 h 20
 controlPv "$(P)$(R)SensorHeight_RBV"
@@ -11610,8 +11124,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 105
+x 1310
+y 540
 w 10
 h 20
 fgColor index 14
@@ -11643,8 +11157,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 105
+x 1320
+y 540
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11662,8 +11176,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 105
+x 1430
+y 540
 w 60
 h 20
 controlPv "$(P)$(R)WidthMax"
@@ -11680,8 +11194,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 105
+x 1495
+y 540
 w 60
 h 20
 controlPv "$(P)$(R)WidthMax_RBV"
@@ -11699,8 +11213,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 130
+x 1310
+y 565
 w 10
 h 20
 fgColor index 14
@@ -11732,8 +11246,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 130
+x 1320
+y 565
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11751,8 +11265,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 130
+x 1430
+y 565
 w 60
 h 20
 controlPv "$(P)$(R)HeightMax"
@@ -11769,8 +11283,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 130
+x 1495
+y 565
 w 60
 h 20
 controlPv "$(P)$(R)HeightMax_RBV"
@@ -11788,8 +11302,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 155
+x 1310
+y 590
 w 10
 h 20
 fgColor index 14
@@ -11821,8 +11335,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 155
+x 1320
+y 590
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11840,8 +11354,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 155
+x 1430
+y 590
 w 60
 h 20
 controlPv "$(P)$(R)Width"
@@ -11858,8 +11372,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 155
+x 1495
+y 590
 w 60
 h 20
 controlPv "$(P)$(R)Width_RBV"
@@ -11877,8 +11391,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 180
+x 1310
+y 615
 w 10
 h 20
 fgColor index 14
@@ -11910,8 +11424,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 180
+x 1320
+y 615
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -11929,8 +11443,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 180
+x 1430
+y 615
 w 60
 h 20
 controlPv "$(P)$(R)Height"
@@ -11947,8 +11461,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 180
+x 1495
+y 615
 w 60
 h 20
 controlPv "$(P)$(R)Height_RBV"
@@ -11966,8 +11480,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 205
+x 1310
+y 640
 w 10
 h 20
 fgColor index 14
@@ -11999,8 +11513,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 205
+x 1320
+y 640
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12018,8 +11532,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 205
+x 1430
+y 640
 w 60
 h 20
 controlPv "$(P)$(R)OffsetX"
@@ -12036,8 +11550,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 205
+x 1495
+y 640
 w 60
 h 20
 controlPv "$(P)$(R)OffsetX_RBV"
@@ -12055,8 +11569,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 230
+x 1310
+y 665
 w 10
 h 20
 fgColor index 14
@@ -12088,8 +11602,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 230
+x 1320
+y 665
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12107,8 +11621,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1690
-y 230
+x 1430
+y 665
 w 60
 h 20
 controlPv "$(P)$(R)OffsetY"
@@ -12125,8 +11639,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1755
-y 230
+x 1495
+y 665
 w 60
 h 20
 controlPv "$(P)$(R)OffsetY_RBV"
@@ -12144,8 +11658,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 255
+x 1310
+y 690
 w 10
 h 20
 fgColor index 14
@@ -12177,8 +11691,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 255
+x 1320
+y 690
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12196,8 +11710,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1690
-y 255
+x 1430
+y 690
 w 125
 h 20
 fgColor index 25
@@ -12216,8 +11730,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 280
+x 1310
+y 715
 w 10
 h 20
 fgColor index 14
@@ -12249,8 +11763,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 280
+x 1320
+y 715
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12268,8 +11782,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1690
-y 280
+x 1430
+y 715
 w 125
 h 20
 fgColor index 25
@@ -12288,8 +11802,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 305
+x 1310
+y 740
 w 10
 h 20
 fgColor index 14
@@ -12321,8 +11835,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 305
+x 1320
+y 740
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12340,8 +11854,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1690
-y 305
+x 1430
+y 740
 w 125
 h 20
 fgColor index 25
@@ -12360,8 +11874,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1570
-y 330
+x 1310
+y 765
 w 10
 h 20
 fgColor index 14
@@ -12393,8 +11907,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1580
-y 330
+x 1320
+y 765
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12412,8 +11926,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1690
-y 330
+x 1430
+y 765
 w 125
 h 20
 fgColor index 25
@@ -12426,6 +11940,150 @@ indicatorPv "$(P)$(R)TestImageSelecto_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties        
 
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 790
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=OutputMode: Sets the Output Mode of the Camera. The new setting is enabled when ,desc1=the power is turned off and then back on again. It is saved persistent directly ,desc2=when it is set. No UserSetSave is needed. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 790
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "OutputMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 790
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)OutputMode"
+indicatorPv "$(P)$(R)OutputMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1310
+y 815
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ScanMode: Mode how the image data is interpreted. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1320
+y 815
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ScanMode"
+}
+endObjectProperties   
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1430
+y 815
+w 125
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ScanMode"
+indicatorPv "$(P)$(R)ScanMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties        
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -12433,7 +12091,7 @@ major 4
 minor 0
 release 0
 x 1565
-y 370
+y 50
 w 255
 h 30
 lineColor index 14
@@ -12448,7 +12106,7 @@ major 4
 minor 1
 release 0
 x 1565
-y 360
+y 40
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -12469,7 +12127,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 375
+y 55
 w 10
 h 20
 fgColor index 14
@@ -12502,7 +12160,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 375
+y 55
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12521,7 +12179,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 375
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)TLParamsLocked"
@@ -12539,7 +12197,7 @@ major 10
 minor 0
 release 0
 x 1755
-y 375
+y 55
 w 60
 h 20
 controlPv "$(P)$(R)TLParamsLocked_RBV"
@@ -12558,7 +12216,7 @@ major 4
 minor 0
 release 0
 x 1565
-y 415
+y 95
 w 255
 h 155
 lineColor index 14
@@ -12573,7 +12231,7 @@ major 4
 minor 1
 release 0
 x 1565
-y 405
+y 85
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -12594,7 +12252,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 420
+y 100
 w 10
 h 20
 fgColor index 14
@@ -12627,7 +12285,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 420
+y 100
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12646,7 +12304,7 @@ major 4
 minor 0
 release 0
 x 1690
-y 420
+y 100
 w 125
 h 20
 fgColor index 25
@@ -12666,7 +12324,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 445
+y 125
 w 10
 h 20
 fgColor index 14
@@ -12699,7 +12357,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 445
+y 125
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12718,7 +12376,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 445
+y 125
 w 60
 h 20
 controlPv "$(P)$(R)ZoomFactor"
@@ -12736,7 +12394,7 @@ major 10
 minor 0
 release 0
 x 1755
-y 445
+y 125
 w 60
 h 20
 controlPv "$(P)$(R)ZoomFactor_RBV"
@@ -12755,7 +12413,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 470
+y 150
 w 10
 h 20
 fgColor index 14
@@ -12788,7 +12446,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 470
+y 150
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12807,7 +12465,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 470
+y 150
 w 60
 h 20
 controlPv "$(P)$(R)ZoomPosition"
@@ -12825,7 +12483,7 @@ major 10
 minor 0
 release 0
 x 1755
-y 470
+y 150
 w 60
 h 20
 controlPv "$(P)$(R)ZoomPosition_RBV"
@@ -12844,7 +12502,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 495
+y 175
 w 10
 h 20
 fgColor index 14
@@ -12877,7 +12535,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 495
+y 175
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12896,7 +12554,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 495
+y 175
 w 60
 h 20
 controlPv "$(P)$(R)ZoomPositionTarg"
@@ -12914,7 +12572,7 @@ major 10
 minor 0
 release 0
 x 1755
-y 495
+y 175
 w 60
 h 20
 controlPv "$(P)$(R)ZoomPositionTarg_RBV"
@@ -12933,7 +12591,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 520
+y 200
 w 10
 h 20
 fgColor index 14
@@ -12966,7 +12624,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 520
+y 200
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -12985,7 +12643,7 @@ major 4
 minor 0
 release 0
 x 1690
-y 520
+y 200
 w 125
 h 20
 fgColor index 25
@@ -13005,7 +12663,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 545
+y 225
 w 10
 h 20
 fgColor index 14
@@ -13038,7 +12696,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 545
+y 225
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13057,7 +12715,7 @@ major 4
 minor 0
 release 0
 x 1690
-y 545
+y 225
 w 125
 h 20
 fgColor index 25
@@ -13077,7 +12735,7 @@ major 4
 minor 0
 release 0
 x 1565
-y 585
+y 265
 w 255
 h 130
 lineColor index 14
@@ -13092,7 +12750,7 @@ major 4
 minor 1
 release 0
 x 1565
-y 575
+y 255
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -13113,7 +12771,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 590
+y 270
 w 10
 h 20
 fgColor index 14
@@ -13146,7 +12804,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 590
+y 270
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13165,7 +12823,7 @@ major 4
 minor 0
 release 0
 x 1690
-y 590
+y 270
 w 125
 h 20
 fgColor index 25
@@ -13188,7 +12846,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 615
+y 295
 w 10
 h 20
 fgColor index 14
@@ -13221,7 +12879,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 615
+y 295
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13240,7 +12898,7 @@ major 4
 minor 0
 release 0
 x 1690
-y 615
+y 295
 w 125
 h 20
 fgColor index 25
@@ -13263,7 +12921,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 640
+y 320
 w 10
 h 20
 fgColor index 14
@@ -13296,7 +12954,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 640
+y 320
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13315,7 +12973,7 @@ major 4
 minor 0
 release 0
 x 1690
-y 640
+y 320
 w 125
 h 20
 fgColor index 25
@@ -13338,7 +12996,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 665
+y 345
 w 10
 h 20
 fgColor index 14
@@ -13371,7 +13029,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 665
+y 345
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13390,7 +13048,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 665
+y 345
 w 60
 h 20
 controlPv "$(P)$(R)ZoomPlusSpeed"
@@ -13408,7 +13066,7 @@ major 10
 minor 0
 release 0
 x 1755
-y 665
+y 345
 w 60
 h 20
 controlPv "$(P)$(R)ZoomPlusSpeed_RBV"
@@ -13427,7 +13085,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 690
+y 370
 w 10
 h 20
 fgColor index 14
@@ -13460,7 +13118,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 690
+y 370
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13479,7 +13137,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 690
+y 370
 w 60
 h 20
 controlPv "$(P)$(R)ZoomMinusSpeed"
@@ -13497,7 +13155,7 @@ major 10
 minor 0
 release 0
 x 1755
-y 690
+y 370
 w 60
 h 20
 controlPv "$(P)$(R)ZoomMinusSpeed_RBV"
@@ -13516,7 +13174,7 @@ major 4
 minor 0
 release 0
 x 1565
-y 730
+y 410
 w 255
 h 30
 lineColor index 14
@@ -13531,7 +13189,7 @@ major 4
 minor 1
 release 0
 x 1565
-y 720
+y 400
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -13552,7 +13210,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 735
+y 415
 w 10
 h 20
 fgColor index 14
@@ -13585,7 +13243,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 735
+y 415
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13604,7 +13262,7 @@ major 4
 minor 0
 release 0
 x 1690
-y 735
+y 415
 w 125
 h 20
 fgColor index 25
@@ -13624,7 +13282,7 @@ major 4
 minor 0
 release 0
 x 1565
-y 775
+y 455
 w 255
 h 55
 lineColor index 14
@@ -13639,7 +13297,7 @@ major 4
 minor 1
 release 0
 x 1565
-y 765
+y 445
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -13660,7 +13318,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 780
+y 460
 w 10
 h 20
 fgColor index 14
@@ -13693,7 +13351,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 780
+y 460
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13712,7 +13370,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 780
+y 460
 w 125
 h 20
 controlPv "$(P)$(R)SerSendBuff_RBV"
@@ -13731,7 +13389,7 @@ major 4
 minor 2
 release 0
 x 1570
-y 805
+y 485
 w 10
 h 20
 fgColor index 14
@@ -13764,7 +13422,7 @@ major 4
 minor 1
 release 0
 x 1580
-y 805
+y 485
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13783,7 +13441,7 @@ major 10
 minor 0
 release 0
 x 1690
-y 805
+y 485
 w 60
 h 20
 controlPv "$(P)$(R)SerSendBytesCoun"
@@ -13801,7 +13459,7 @@ major 10
 minor 0
 release 0
 x 1755
-y 805
+y 485
 w 60
 h 20
 controlPv "$(P)$(R)SerSendBytesCoun_RBV"
@@ -13819,8 +13477,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1825
-y 50
+x 1565
+y 525
 w 255
 h 105
 lineColor index 14
@@ -13834,8 +13492,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1825
-y 40
+x 1565
+y 515
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -13855,8 +13513,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 55
+x 1570
+y 530
 w 10
 h 20
 fgColor index 14
@@ -13888,8 +13546,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 55
+x 1580
+y 530
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13907,8 +13565,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1950
-y 55
+x 1690
+y 530
 w 125
 h 20
 controlPv "$(P)$(R)SerBytesPending_RBV"
@@ -13926,8 +13584,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 80
+x 1570
+y 555
 w 10
 h 20
 fgColor index 14
@@ -13959,8 +13617,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 80
+x 1580
+y 555
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -13978,8 +13636,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1950
-y 80
+x 1690
+y 555
 w 125
 h 20
 fgColor index 25
@@ -14001,8 +13659,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 105
+x 1570
+y 580
 w 10
 h 20
 fgColor index 14
@@ -14034,8 +13692,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 105
+x 1580
+y 580
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14053,8 +13711,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1950
-y 105
+x 1690
+y 580
 w 125
 h 20
 controlPv "$(P)$(R)SerReceiveBytesC_RBV"
@@ -14072,8 +13730,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 130
+x 1570
+y 605
 w 10
 h 20
 fgColor index 14
@@ -14105,8 +13763,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 130
+x 1580
+y 605
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14124,8 +13782,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1950
-y 130
+x 1690
+y 605
 w 125
 h 20
 controlPv "$(P)$(R)SerReceiveBuff_RBV"
@@ -14143,8 +13801,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1825
-y 170
+x 1565
+y 645
 w 255
 h 155
 lineColor index 14
@@ -14158,8 +13816,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1825
-y 160
+x 1565
+y 635
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -14179,8 +13837,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 175
+x 1570
+y 650
 w 10
 h 20
 fgColor index 14
@@ -14212,8 +13870,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 175
+x 1580
+y 650
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14231,8 +13889,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1950
-y 175
+x 1690
+y 650
 w 60
 h 20
 controlPv "$(P)$(R)PayloadSize"
@@ -14249,8 +13907,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 2015
-y 175
+x 1755
+y 650
 w 60
 h 20
 controlPv "$(P)$(R)PayloadSize_RBV"
@@ -14268,8 +13926,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 200
+x 1570
+y 675
 w 10
 h 20
 fgColor index 14
@@ -14301,8 +13959,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 200
+x 1580
+y 675
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14320,8 +13978,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1950
-y 200
+x 1690
+y 675
 w 60
 h 20
 controlPv "$(P)$(R)GevMACAddress"
@@ -14338,8 +13996,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 2015
-y 200
+x 1755
+y 675
 w 60
 h 20
 controlPv "$(P)$(R)GevMACAddress_RBV"
@@ -14357,8 +14015,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 225
+x 1570
+y 700
 w 10
 h 20
 fgColor index 14
@@ -14390,8 +14048,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 225
+x 1580
+y 700
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14409,8 +14067,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1950
-y 225
+x 1690
+y 700
 w 125
 h 20
 controlPv "$(P)$(R)GevFirstURL_RBV"
@@ -14428,8 +14086,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 250
+x 1570
+y 725
 w 10
 h 20
 fgColor index 14
@@ -14461,8 +14119,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 250
+x 1580
+y 725
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14480,8 +14138,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 1950
-y 250
+x 1690
+y 725
 w 125
 h 20
 controlPv "$(P)$(R)GevSecondURL_RBV"
@@ -14499,8 +14157,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 275
+x 1570
+y 750
 w 10
 h 20
 fgColor index 14
@@ -14532,8 +14190,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 275
+x 1580
+y 750
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14551,8 +14209,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1950
-y 275
+x 1690
+y 750
 w 125
 h 20
 fgColor index 25
@@ -14571,8 +14229,8 @@ beginObjectProperties
 major 4
 minor 2
 release 0
-x 1830
-y 300
+x 1570
+y 775
 w 10
 h 20
 fgColor index 14
@@ -14604,8 +14262,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1840
-y 300
+x 1580
+y 775
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14623,8 +14281,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1950
-y 300
+x 1690
+y 775
 w 125
 h 20
 fgColor index 25
@@ -14644,7 +14302,491 @@ major 4
 minor 0
 release 0
 x 1825
-y 340
+y 50
+w 255
+h 155
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1825
+y 40
+w 150
+h 14
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Statistic  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1830
+y 55
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameBufferClearStatistic: Clear the Frame Buffer Statistic. Locked while grab ,desc1=is active. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1840
+y 55
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameBufferClearStatistic"
+}
+endObjectProperties   
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1950
+y 55
+w 125
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)FrameBufferClear.PROC"
+pressValue "1"
+onLabel "FrameBufferClearStatistic"
+offLabel "FrameBufferClearStatistic"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1830
+y 80
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameBufferBlocksDropped: Dropped Blocks ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1840
+y 80
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameBufferBlocksDropped"
+}
+endObjectProperties   
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1950
+y 80
+w 125
+h 20
+controlPv "$(P)$(R)FrameBufferBloc0_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1830
+y 105
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameBufferFifoDropped: Number of dropped blocks because FIFO was full. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1840
+y 105
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameBufferFifoDropped"
+}
+endObjectProperties   
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1950
+y 105
+w 125
+h 20
+controlPv "$(P)$(R)FrameBufferFifoD_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1830
+y 130
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameBufferResendSuccess: Successful Resend Requests. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1840
+y 130
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameBufferResendSuccess"
+}
+endObjectProperties   
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1950
+y 130
+w 125
+h 20
+controlPv "$(P)$(R)FrameBufferRese1_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1830
+y 155
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameBufferResendFailed: Number of failed resend requests. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1840
+y 155
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameBufferResendFailed"
+}
+endObjectProperties   
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1950
+y 155
+w 125
+h 20
+controlPv "$(P)$(R)FrameBufferRese0_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties        
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1830
+y 180
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FrameBufferBlocks: Number of blocks in descriptor FIFO. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties                
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1840
+y 180
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FrameBufferBlocks"
+}
+endObjectProperties   
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1950
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)FrameBufferBlock"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 2015
+y 180
+w 60
+h 20
+controlPv "$(P)$(R)FrameBufferBlock_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1825
+y 220
 w 255
 h 105
 lineColor index 14
@@ -14659,7 +14801,7 @@ major 4
 minor 1
 release 0
 x 1825
-y 330
+y 210
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -14680,7 +14822,7 @@ major 4
 minor 2
 release 0
 x 1830
-y 345
+y 225
 w 10
 h 20
 fgColor index 14
@@ -14713,7 +14855,7 @@ major 4
 minor 1
 release 0
 x 1840
-y 345
+y 225
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14732,7 +14874,7 @@ major 4
 minor 0
 release 0
 x 1950
-y 345
+y 225
 w 125
 h 20
 fgColor index 25
@@ -14752,7 +14894,7 @@ major 4
 minor 2
 release 0
 x 1830
-y 370
+y 250
 w 10
 h 20
 fgColor index 14
@@ -14785,7 +14927,7 @@ major 4
 minor 1
 release 0
 x 1840
-y 370
+y 250
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14804,7 +14946,7 @@ major 4
 minor 0
 release 0
 x 1950
-y 370
+y 250
 w 125
 h 20
 fgColor index 25
@@ -14827,7 +14969,7 @@ major 4
 minor 2
 release 0
 x 1830
-y 395
+y 275
 w 10
 h 20
 fgColor index 14
@@ -14860,7 +15002,7 @@ major 4
 minor 1
 release 0
 x 1840
-y 395
+y 275
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14879,7 +15021,7 @@ major 4
 minor 0
 release 0
 x 1950
-y 395
+y 275
 w 125
 h 20
 fgColor index 25
@@ -14902,7 +15044,7 @@ major 4
 minor 2
 release 0
 x 1830
-y 420
+y 300
 w 10
 h 20
 fgColor index 14
@@ -14935,7 +15077,7 @@ major 4
 minor 1
 release 0
 x 1840
-y 420
+y 300
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -14954,7 +15096,7 @@ major 4
 minor 0
 release 0
 x 1950
-y 420
+y 300
 w 125
 h 20
 fgColor index 25
@@ -14974,7 +15116,7 @@ major 4
 minor 0
 release 0
 x 1825
-y 460
+y 340
 w 255
 h 55
 lineColor index 14
@@ -14989,7 +15131,7 @@ major 4
 minor 1
 release 0
 x 1825
-y 450
+y 330
 w 150
 h 14
 font "arial-medium-r-12.0"
@@ -15010,7 +15152,7 @@ major 4
 minor 2
 release 0
 x 1830
-y 465
+y 345
 w 10
 h 20
 fgColor index 14
@@ -15043,7 +15185,7 @@ major 4
 minor 1
 release 0
 x 1840
-y 465
+y 345
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -15062,7 +15204,7 @@ major 10
 minor 0
 release 0
 x 1950
-y 465
+y 345
 w 60
 h 20
 controlPv "$(P)$(R)VPhase"
@@ -15080,7 +15222,7 @@ major 10
 minor 0
 release 0
 x 2015
-y 465
+y 345
 w 60
 h 20
 controlPv "$(P)$(R)VPhase_RBV"
@@ -15099,7 +15241,7 @@ major 4
 minor 2
 release 0
 x 1830
-y 490
+y 370
 w 10
 h 20
 fgColor index 14
@@ -15132,7 +15274,7 @@ major 4
 minor 1
 release 0
 x 1840
-y 490
+y 370
 w 110
 h 20
 font "arial-bold-r-10.0"
@@ -15151,7 +15293,7 @@ major 4
 minor 0
 release 0
 x 1950
-y 490
+y 370
 w 125
 h 20
 fgColor index 25
