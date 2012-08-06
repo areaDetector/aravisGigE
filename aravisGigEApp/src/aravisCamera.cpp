@@ -995,6 +995,8 @@ asynStatus aravisCamera::getBinning(int *binx, int *biny) {
 	} else {
 		*binx = arv_device_get_integer_feature_value (this->device, "BinningHorizontal");
 		*biny = arv_device_get_integer_feature_value (this->device, "BinningVertical");
+		if (*binx < 1) *binx = 1;
+		if (*biny < 1) *biny = 1;		
 		return asynSuccess;
 	}
 }
@@ -1294,7 +1296,12 @@ asynStatus aravisCamera::getNextFeature() {
 			status |= setDoubleParam(*index, floatValue);
 		} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_STRING) {
 			stringValue = arv_device_get_string_feature_value(this->device, featureName);
-			status |= setStringParam(*index, stringValue);
+			if (stringValue == NULL) {
+			    printf("Feature %s has NULL value\n", featureName);
+			    status = asynError;
+			} else {
+    			status |= setStringParam(*index, stringValue);
+    		}
 		} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_INT64) {
 			integerValue = arv_device_get_integer_feature_value (this->device, featureName);
 			if (*index == ADGain) {
