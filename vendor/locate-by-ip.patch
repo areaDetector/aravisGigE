@@ -1,75 +1,81 @@
 --- vendor/aravis/src/arvgvinterface.c	(revision 65781)
 +++ vendor/aravis/src/arvgvinterface.c	(working copy)
-@@ -312,6 +312,68 @@
+@@ -358,6 +358,74 @@
  	}
  }
  
 +static GInetAddress * arv_gv_interface_camera_locate(ArvGvInterface *gv_interface, GInetAddress *device_address) {
-+	GSList *iter;
++	ArvGvDiscoverSocketList *socket_list;
++	ArvGvcpPacket *packet;
 +	GInetAddress *interface_address = NULL;
++	char buffer[ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE];
++	GSList *iter;
++	size_t size;
++	int i, count;
++
++	socket_list = arv_gv_discover_socket_list_new ();
++
++	if (socket_list->n_sockets < 1) {
++		arv_gv_discover_socket_list_free (socket_list);
++		return interface_address;
++	}
++
++	/* Just read a random register from the camera socket */
++	packet = arv_gvcp_packet_new_read_register_cmd(ARV_GVBS_N_STREAM_CHANNELS_OFFSET, 0, &size);
 +	GSocketAddress *device_socket_address = g_inet_socket_address_new(device_address, ARV_GVCP_PORT);
-+	for (iter = gv_interface->priv->discover_infos_list; iter != NULL; iter = iter->next) {
-+		ArvGvInterfaceDiscoverInfos *infos = iter->data;
-+		ArvGvcpPacket *packet;
-+		size_t size;
-+		/* Just read a random register */
-+		packet = arv_gvcp_packet_new_read_register_cmd(ARV_GVBS_N_STREAM_CHANNELS_OFFSET, 0, &size);
-+		g_socket_send_to (infos->socket,
++
++	for (iter = socket_list->sockets; iter != NULL; iter = iter->next) {
++		ArvGvDiscoverSocket *socket = iter->data;
++		GError *error = NULL;
++		g_socket_send_to (socket->socket,
 +				  device_socket_address,
 +				  (const char *) packet, size,
-+				  NULL, NULL);
-+		arv_gvcp_packet_free (packet);
++				  NULL, &error);
++		if (error != NULL) {
++			arv_warning_interface ("[ArvGVInterface::arv_gv_interface_camera_locate] Error: %s", error->message);
++			g_error_free (error);
++		}
 +	}
-+	GPollFD *poll_fd;
-+	char buffer[ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE];
-+	int count;
-+	int i;
 +
-+	poll_fd = g_new (GPollFD, gv_interface->priv->n_discover_infos);
-+
-+	for (i = 0, iter = gv_interface->priv->discover_infos_list; iter != NULL; i++, iter = iter->next) {
-+		ArvGvInterfaceDiscoverInfos *infos = iter->data;
-+		poll_fd[i].fd = g_socket_get_fd (infos->socket);
-+		poll_fd[i].events =  G_IO_IN;
-+		poll_fd[i].revents = 0;
-+	}
++	arv_gvcp_packet_free (packet);
 +
 +	do {
-+		if (g_poll (poll_fd, gv_interface->priv->n_discover_infos,
-+				ARV_GV_INTERFACE_DISCOVERY_TIMEOUT_MS) == 0) {
-+			g_free (poll_fd);
-+			return NULL;
++		/* Now parse the result */
++		if (g_poll (socket_list->poll_fds, socket_list->n_sockets, ARV_GV_INTERFACE_DISCOVERY_TIMEOUT_MS) == 0) {
++			arv_gv_discover_socket_list_free (socket_list);
++			return interface_address;
 +		}
 +
-+		for (i = 0, iter = gv_interface->priv->discover_infos_list; iter != NULL; i++, iter = iter->next) {
-+			ArvGvInterfaceDiscoverInfos *infos = iter->data;
++		for (i = 0, iter = socket_list->sockets; iter != NULL; i++, iter = iter->next) {
++			ArvGvDiscoverSocket *socket = iter->data;
 +
 +			do {
-+				g_socket_set_blocking (infos->socket, FALSE);
-+				count = g_socket_receive (infos->socket, buffer, ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE,
++				g_socket_set_blocking (socket->socket, FALSE);
++				count = g_socket_receive (socket->socket, buffer, ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE,
 +							  NULL, NULL);
-+				g_socket_set_blocking (infos->socket, TRUE);
++				g_socket_set_blocking (socket->socket, TRUE);
 +
 +				if (count > 0) {
-+
 +					ArvGvcpPacket *packet = (ArvGvcpPacket *) buffer;
 +					if (g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_CMD) {
-+						interface_address = g_inet_socket_address_get_address
-+								(G_INET_SOCKET_ADDRESS (infos->interface_address));
-+						g_free (poll_fd);
++						interface_address = g_inet_socket_address_get_address(G_INET_SOCKET_ADDRESS (socket->interface_address));
++						g_object_ref(interface_address);
++						arv_gv_discover_socket_list_free (socket_list);
 +						return interface_address;
 +					}
 +				}
 +			} while (count > 0);
 +		}
 +	} while (1);
-+
++	arv_gv_discover_socket_list_free (socket_list);
++	return interface_address;
 +}
++
 +
  static ArvDevice *
  arv_gv_interface_open_device (ArvInterface *interface, const char *device_id)
  {
-@@ -335,6 +397,21 @@
+@@ -381,6 +449,21 @@
  			device_infos = g_hash_table_lookup (gv_interface->priv->devices_by_mac, device_id);
  	}
  
@@ -90,4 +96,5 @@
 +
  	if (device_infos == NULL)
  		return NULL;
+
  
