@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 504
-y 378
+x 506
+y 404
 w 390
 h 110
 font "arial-bold-r-12.0"
@@ -64,7 +64,7 @@ release 0
 x 5
 y 5
 w 58
-h 14
+h 13
 font "arial-medium-r-12.0"
 fgColor index 14
 bgColor index 5
@@ -405,6 +405,19 @@ indicatorPv "$(P)$(R)GETFEATURES_RBV"
 font "arial-bold-r-12.0"
 endObjectProperties
 
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 25
+w 175
+h 70
+
+beginGroup
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -419,12 +432,18 @@ font "arial-bold-r-18.0"
 fontAlign "center"
 fgColor index 20
 bgColor index 0
-visPv "$(P)$(R)CONNECTION.SEVR"
 visMin "3"
 visMax "4"
 value {
   "NOT CONNECTED"
 }
 border
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(R)CONNECTION.SEVR"
+visMin "3"
+visMax "4"
 endObjectProperties
 
