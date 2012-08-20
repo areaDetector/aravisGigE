@@ -146,6 +146,7 @@ private:
     int initialConnectDone;
 	GList *featureKeys;
 	unsigned int featureIndex;
+	int payload;
 };
 
 /** Called by epicsAtExit to shutdown camera */
@@ -174,7 +175,7 @@ static void destroyBuffer(gpointer data){
 static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
 	ArvBuffer *buffer;
 	int status;
-	buffer = arv_stream_timeout_pop_buffer(stream, 100000);
+	buffer = arv_stream_try_pop_buffer(stream);
 	if (buffer == NULL)	return;
 	if (buffer->status == ARV_BUFFER_STATUS_SUCCESS) {
         status = epicsMessageQueueTrySend(pPvt->msgQId,
@@ -306,6 +307,7 @@ asynStatus aravisCamera::makeCameraObject() {
 		return asynError;
 	}
 	arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), ARV_GV_DEVICE_GVSP_PACKET_SIZE_DEFAULT);
+//    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), 9000);
 	/* Store genicam */
 	this->genicam = arv_device_get_genicam (this->device);
 	if (this->genicam == NULL) {
@@ -370,9 +372,12 @@ asynStatus aravisCamera::connectToCamera() {
     status |= setIntegerParam(ADStatus, ADStatusIdle);    
 	/* configure the stream */
 	g_object_set (ARV_GV_STREAM (this->stream),
-			  "packet-timeout", 50000, //50ms
-			  "frame-retention", 200000, //200ms
+			  "packet-timeout", 20000, //20ms
+			  "frame-retention", 100000, //100ms
 			  NULL);
+    /*g_object_set (ARV_GV_STREAM (this->stream),
+						      "packet-resend", ARV_GV_STREAM_PACKET_RESEND_NEVER,
+						      NULL);*/
 	arv_stream_set_emit_signals (this->stream, TRUE);
 	g_signal_connect (this->stream, "new-buffer", G_CALLBACK (newBufferCallback), this);
 
@@ -685,7 +690,6 @@ void aravisCamera::report(FILE *fp, int details)
 asynStatus aravisCamera::allocBuffer() {
     const char *functionName = "allocBuffer";
     ArvBuffer *buffer;
-    int payload = arv_camera_get_payload(this->camera);
     NDArray *pRaw;
     int bufferDims[2] = {1,1};
 
@@ -697,7 +701,7 @@ asynStatus aravisCamera::allocBuffer() {
     	return asynError;
     }
 
-    pRaw = this->pNDArrayPool->alloc(2, bufferDims, NDInt8, payload, NULL);
+    pRaw = this->pNDArrayPool->alloc(2, bufferDims, NDInt8, this->payload, NULL);
     if (pRaw==NULL) {
         asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
                     "%s:%s: error allocating raw buffer\n",
@@ -705,7 +709,7 @@ asynStatus aravisCamera::allocBuffer() {
         return asynError;
     }
 
-    buffer = arv_buffer_new_full(payload, pRaw->pData, (void *)pRaw, destroyBuffer);
+    buffer = arv_buffer_new_full(this->payload, pRaw->pData, (void *)pRaw, destroyBuffer);
     arv_stream_push_buffer (this->stream, buffer);
     return asynSuccess;
 }
@@ -963,6 +967,7 @@ asynStatus aravisCamera::start() {
     setIntegerParam(ADStatus, ADStatusAcquire);
 
     /* fill the queue */
+    this->payload = arv_camera_get_payload(this->camera);
     for (int i=0; i<NRAW; i++) {
     	if (this->allocBuffer() != asynSuccess) {
 			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
