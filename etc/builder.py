@@ -24,7 +24,7 @@ class aravisCamera(_ADBase):
 
     # __init__ arguments
     ArgInfo = _ADBase.ArgInfo + _aravisCamera.ArgInfo + makeArgInfo(__init__,
-        ID      = Simple('Cam ID, <manufacturer>-<serial>, (e.g. Prosilica-02-2166A-06844)', str),    
+        ID      = Simple('Cam ip address, MAC address, or ID <manufacturer>-<serial>, (e.g. Prosilica-02-2166A-06844)', str),    
         CLASS   = Choice('Camera class for custom commands', ["AVT_Manta", "AVT_Manta_1_44", "AVT_Manta_1_44_4", "Prosilica_GC", "Baumer_TXG", "JAI_6740", "PGR_Flea3", "Sony_CVC_EH6300", "Baumer_HXG20"]),
         BUFFERS = Simple('Maximum number of NDArray buffers to be created for '
             'plugin callbacks', int),

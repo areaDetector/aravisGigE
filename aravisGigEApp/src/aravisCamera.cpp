@@ -31,7 +31,7 @@ extern "C" {
 }
 
 /* number of raw buffers in our queue */
-#define NRAW 10
+#define NRAW 20
 
 /* maximum number of custom features that we support */
 #define NFEATURES 1000
@@ -1307,7 +1307,8 @@ asynStatus aravisCamera::getNextFeature() {
 			} else {
     			status |= setStringParam(*index, stringValue);
     		}
-		} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_INT64) {
+		//} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(feature)) == G_TYPE_INT64) {
+		} else {
 			integerValue = arv_device_get_integer_feature_value (this->device, featureName);
 			if (*index == ADGain) {
 				/* Gain is sometimes an integer */
