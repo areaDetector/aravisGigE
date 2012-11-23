@@ -16,6 +16,7 @@ ifneq ($(GLIBPREFIX),)
 		ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib64/pkgconfig;
 	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))		
 		ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
+		ENVEXPORTS += export CFLAGS=-m32;
 	endif	
 endif
 
@@ -36,4 +37,4 @@ install: $(ARAVISMAK)
 include $(TOP)/configure/RULES
 
 $(TOP)/vendor/aravis-%/Makefile:
-	(mkdir -p $(TOP)/vendor/aravis-$(*F); cd $(TOP)/vendor/aravis-$(*F); $(ENVEXPORTS) sh ../aravis/configure $(CONFIGOPTIONS) && make && make install)
+	(mkdir -p $(TOP)/vendor/aravis-$(*F); cd $(TOP)/vendor/aravis-$(*F); $(ENVEXPORTS) sh ../aravis/configure $(CONFIGOPTIONS) && make && make install && chmod -R g+w .)
