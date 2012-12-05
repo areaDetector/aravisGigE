@@ -6,6 +6,107 @@
 #% macro, ADDR, Asyn Port address
 #% gui, $(PORT), edmtab, PSL_SCMOS.edl, P=$(P),R=$(R)
 
+####### Records overwritten from ADBase.template ##############################
+record(ao, "$(P)$(R)Gain")
+{
+   field(DISA, "1")
+}
+
+record(ai, "$(P)$(R)Gain_RBV")
+{
+   field(DISA, "1")
+}
+
+record(ao, "$(P)$(R)AcquirePeriod")
+{
+   field(DISA, "1")
+}
+
+record(ai, "$(P)$(R)AcquirePeriod_RBV")
+{
+   field(DISA, "1")
+}
+
+record(mbbo, "$(P)$(R)ColorMode")
+{
+   field(DISA, "1")
+}
+
+record(mbbi, "$(P)$(R)ColorMode_RBV")
+{
+   field(DISA, "1")
+}
+
+record(ai, "$(P)$(R)TimeRemaining_RBV")
+{
+   field(DISA, "1")
+}
+
+record(mbbo, "$(P)$(R)ImageMode")
+{
+   field(ZRST, "Multiple")
+   field(ZRVL, "1")
+   field(ONST, "Continuous")
+   field(ONVL, "2")
+   field(VAL,  "2")
+   field(TWST, "")
+   field(IVOA, "1")
+}
+
+record(mbbi, "$(P)$(R)ImageMode_RBV")
+{
+   field(ZRST, "Multiple")
+   field(ZRVL, "1")
+   field(ONST, "Continuous")
+   field(ONVL, "2")
+}
+
+record(ao, "$(P)$(R)AcquireTime")
+{
+   field(DTYP,"Async Soft Channel")
+   #field(PINI, "YES")
+   field(DTYP, "Soft Channel")
+   field(PREC, "3")
+   field(VAL,  "1.0")
+   field(DRVH, "65.0")
+   field(DRVL, "0.00005")
+   field(OUT, "$(P)$(R)AcquireTimeCalc.A CA")
+}
+
+# Transform the AcquireTime parameter in seconds
+# to the ExposureTimeRaw in microseconds
+record(calcout, "$(P)$(R)AcquireTimeCalc")
+{
+   field(DTYP,"Async Soft Channel")
+   field(CALC, "A*1000000")
+   #field(INPA, "$(P)$(R)AcquireTime CP")
+   field(OUT, "$(P)$(R)ExposureTimeRaw CA")
+   field(OOPT, "Every Time")
+   field(DOPT, "Use CALC")
+}
+
+record(longout, "$(P)$(R)ExposureTimeRaw") {
+  field(OMSL,  "closed_loop")
+  field(DOL, "$(P)$(R)AcquireTimeCalc.VAL CP")
+  field(DRVH, "65000000")
+  field(DRVL, "50")
+}
+
+record(ai, "$(P)$(R)AcquireTime_RBV")
+{
+   field(DTYP, "Raw Soft Channel")
+   field(INP,  "$(P)$(R)ExposureTimeRaw_RBV CP")
+   field(PREC, "3")
+   field(SCAN, "Passive")
+   field(PINI, "YES")
+   field(ASLO, "1e-06")
+   field(AOFF, "0")
+}
+
+
+####### End of overwritten records ############# ##############################
+
+
 record(stringin, "$(P)$(R)DeviceVendorName_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceVendorName")
