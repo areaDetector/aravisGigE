@@ -186,7 +186,7 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
     		arv_stream_push_buffer (stream, buffer);
         }
 	} else {
-        printf("Bad frame status: %d size: %d\n", buffer->status, buffer->size);
+        printf("Bad frame status: %d size: %llu\n", buffer->status, (unsigned long) buffer->size);
 		arv_stream_push_buffer (stream, buffer);
 	}
 }
@@ -754,6 +754,20 @@ void aravisCamera::callback() {
         }
 
 		this->lock();
+		
+		// A small check to ensure that frame callbacks are ignored after the
+		// user has pressed STOP.
+		// For instance the Photonic Sciences SCMOS camera produce 1-2 frames
+		// after calling the arv_camera_stop_acquisition()
+		int acquiring = 0;
+		getIntegerParam(ADAcquire, &acquiring);
+		if (not acquiring) {
+		    this->freeBufferAndUnlock(buffer);
+			asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+					"%s:%s: Received frame callback after commanding camera stop. Ignoring frame.\n",
+					driverName, functionName);
+		    continue;
+		}
 
 		/* Get the current parameters */
 		getIntegerParam(NDArrayCallbacks, &arrayCallbacks);
@@ -1110,6 +1124,13 @@ asynStatus aravisCamera::setGeometry() {
 
     /* Write binning and region information */
     if (status == 0) {
+        // Avoid devide-by-zero fault
+        if (binx <= 0) {
+            binx = 1; setIntegerParam(ADBinX, 1);
+        }
+        if (biny <= 0) {
+            biny = 1; setIntegerParam(ADBinY, 1);
+        }
     	this->setBinning(binx, biny);
     	arv_camera_set_region(this->camera, x, y, w/binx, h/biny);
     }
