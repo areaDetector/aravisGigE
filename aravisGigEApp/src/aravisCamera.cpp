@@ -691,7 +691,7 @@ asynStatus aravisCamera::allocBuffer() {
     const char *functionName = "allocBuffer";
     ArvBuffer *buffer;
     NDArray *pRaw;
-    int bufferDims[2] = {1,1};
+    size_t bufferDims[2] = {1,1};
 
     /* check stream exists */
     if (this->stream == NULL) {
@@ -879,7 +879,7 @@ void aravisCamera::callback() {
 
 		if (expected_size != buffer->size) {
 			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-						"%s:%s: w: %d, h: %d, size: %d, expected_size: %d\n",
+						"%s:%s: w: %d, h: %d, size: %zu, expected_size: %zu\n",
 						driverName, functionName, buffer->width, buffer->height, buffer->size, expected_size);
 			this->freeBufferAndUnlock(buffer);
 			continue;
@@ -1247,7 +1247,7 @@ asynStatus aravisCamera::setIntegerValue(const char *feature, epicsInt32 value, 
 		if (value != *rbv) {
 	    	asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
 	    				"%s:%s: value %d != rbv %d\n",
-	    				driverName, functionName, value, rbv);
+	    				driverName, functionName, value, *rbv);
 			return asynError;
 		}
 	}
@@ -1268,7 +1268,7 @@ asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, 
 		if (fabs(value - *rbv) > 0.001) {
 	    	asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
 	    				"%s:%s: value %f != rbv %f\n",
-	    				driverName, functionName, value, rbv);
+	    				driverName, functionName, value, *rbv);
 			return asynError;
 		}
 	}
