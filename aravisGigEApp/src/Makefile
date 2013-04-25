@@ -24,6 +24,11 @@ ifneq ($(GLIBPREFIX),)
 	USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
 	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
 		glib-2.0_DIR = $(GLIBPREFIX)/lib64
+
+		# On RHEL6 tools the glib is built into the lib dir rather than lib64
+		ifeq (RHEL6, $(findstring RHEL6, $(SYS_VER)))
+			glib-2.0_DIR = $(GLIBPREFIX)/lib
+		endif	
 	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
 		glib-2.0_DIR = $(GLIBPREFIX)/lib
 	endif	

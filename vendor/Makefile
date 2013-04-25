@@ -13,7 +13,12 @@ ARAVIS_LINUX_BINS = arv-tool-0.2
 ENVEXPORTS =
 ifneq ($(GLIBPREFIX),)
 	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-		ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib64/pkgconfig;
+		# On RHEL6 tools glib is just installed in a lib dir rather than lib64
+		ifeq (RHEL6, $(findstring RHEL6, $(SYS_VER)))	
+			ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
+		else
+			ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib64/pkgconfig;
+		endif
 	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))		
 		ENVEXPORTS += export PKG_CONFIG_PATH=$(GLIBPREFIX)/lib/pkgconfig;
 		ENVEXPORTS += export CFLAGS=-m32;
