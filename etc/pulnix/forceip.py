@@ -51,3 +51,4 @@ setup = forceip(CAMMAC, CAMIP, CAMMASK, CAMGW)
 sock.sendto(setup, ("255.255.255.255", GVCP))
 print "camera replies", struct.unpack(">HHHH", sock.recv(2048))
 os.system("ping -c 5 -s 32 %s" % CAMIP)
+print "You might have to run this script twice..."
