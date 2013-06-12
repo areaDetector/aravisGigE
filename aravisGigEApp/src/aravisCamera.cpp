@@ -177,7 +177,7 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
 	int status;
 	buffer = arv_stream_try_pop_buffer(stream);
 	if (buffer == NULL)	return;
-	if (buffer->status == ARV_BUFFER_STATUS_SUCCESS) {
+	if (buffer->status == ARV_BUFFER_STATUS_SUCCESS /*|| buffer->status == ARV_BUFFER_STATUS_MISSING_PACKETS*/) {
         status = epicsMessageQueueTrySend(pPvt->msgQId,
         		&buffer,
         		sizeof(&buffer));
@@ -367,9 +367,17 @@ asynStatus aravisCamera::connectToCamera() {
 					driverName, functionName);
 		return asynError;
     }
+	/* Check the tick frequency */
+	guint64 freq =  arv_gv_device_get_timestamp_tick_frequency(ARV_GV_DEVICE(this->device));
+	printf("Your tick frequency is %" G_GUINT64_FORMAT "\n", freq);
+	if (freq > 0) {
+		printf("So your timestamp resolution is %f ns\n", 1.e9/freq);
+	} else {
+		printf("So your camera doesn't provide timestamps. Using system clock instead\n");
+	}
     /* Make sure it's stopped */
     arv_camera_stop_acquisition(this->camera);
-    status |= setIntegerParam(ADStatus, ADStatusIdle);    
+    status |= setIntegerParam(ADStatus, ADStatusIdle);
 	/* configure the stream */
 	g_object_set (ARV_GV_STREAM (this->stream),
 			  "packet-timeout", 20000, //20ms
@@ -754,7 +762,7 @@ void aravisCamera::callback() {
         }
 
 		this->lock();
-		
+
 		// A small check to ensure that frame callbacks are ignored after the
 		// user has pressed STOP.
 		// For instance the Photonic Sciences SCMOS camera produce 1-2 frames
@@ -1015,7 +1023,7 @@ asynStatus aravisCamera::getBinning(int *binx, int *biny) {
 		*binx = arv_device_get_integer_feature_value (this->device, "BinningHorizontal");
 		*biny = arv_device_get_integer_feature_value (this->device, "BinningVertical");
 		if (*binx < 1) *binx = 1;
-		if (*biny < 1) *biny = 1;		
+		if (*biny < 1) *biny = 1;
 		return asynSuccess;
 	}
 }
@@ -1371,10 +1379,8 @@ asynStatus aravisCamera::tryAddFeature(int *ADIdx, const char *featureString) {
 extern "C" int aravisCameraConfig(const char *portName, const char *cameraName,
                                  int maxBuffers, size_t maxMemory, int priority, int stackSize)
 {
-    aravisCamera *pCamera
-        = new aravisCamera(portName, cameraName,
-                          maxBuffers, maxMemory, priority, stackSize);
-    pCamera = NULL;
+    new aravisCamera(portName, cameraName, maxBuffers, maxMemory,
+                     priority, stackSize);
     return(asynSuccess);
 }
 
