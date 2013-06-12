@@ -20,9 +20,9 @@ DBD += aravisCameraSupport.dbd
 
 # If glib is not in a standard place, tell the build system where to look
 ifneq ($(GLIBPREFIX),)
-	USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
 	USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
 	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
+		USR_INCLUDES += -I$(GLIBPREFIX)/lib64/glib-2.0/include
 		glib-2.0_DIR = $(GLIBPREFIX)/lib64
 
 		# On RHEL6 tools the glib is built into the lib dir rather than lib64
@@ -30,9 +30,10 @@ ifneq ($(GLIBPREFIX),)
 			glib-2.0_DIR = $(GLIBPREFIX)/lib
 		endif	
 	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
+		USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
 		glib-2.0_DIR = $(GLIBPREFIX)/lib
-	endif	
-endif	
+	endif
+endif
 
 # We need to link against aravis
 ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
