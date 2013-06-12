@@ -2,19 +2,25 @@
 <components arch="linux-x86">
 	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica_GC" ID="Allied Vision Technologies-02-2165A-06632" P="GC1020" PORT="GC1020.CAM" R=":CAM:" TIMEOUT="1"/>-->
 	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica_GC" ID="172.23.243.148" P="GC1020C" PORT="GC1020C.CAM" R=":CAM:" TIMEOUT="1"/>-->
-	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="AVT_Manta" ID="Allied Vision Technologies-00/30-503316488" P="MANTA" PORT="MANTA.CAM" R=":CAM:" TIMEOUT="1"/>-->
+	<aravisGigE.aravisCamera ADDR="0" CLASS="AVT_Manta" ID="Allied Vision Technologies-50-0503322702" P="MANTA" PORT="MANTA.CAM" R=":CAM:" TIMEOUT="1"/>
 	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Sony_CVC_EH6300" ID="STEMMER IMAGING GmbH-4-1215-0688" P="CVC" PORT="CVC.CAM" R=":CAM:" TIMEOUT="1"/>-->
 	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="Baumer_HXG20" ID="Baumer Optronic-0219322812" P="HXG" PORT="HXG.CAM" R=":CAM:" TIMEOUT="1"/>-->
-	<aravisGigE.aravisCamera ADDR="0" CLASS="PSL_SCMOS" ID="Photonic Science-zero" P="PSL" PORT="PSL.CAM" R=":CAM:" TIMEOUT="1"/>
+	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="PSL_SCMOS" ID="Photonic Science-zero" P="PSL" PORT="PSL.CAM" R=":CAM:" TIMEOUT="1"/>-->
+	<!--<aravisGigE.aravisCamera ADDR="0" BUFFERS="50" CLASS="PGR_Flea3" ID="Point Grey Research-11211667" P="FLEA3" PORT="FLEA3.CAM" R=":CAM" TIMEOUT="1"/>-->
+	<!--<aravisGigE.aravisCamera ADDR="0" CLASS="PGR_Blackfly_13E4C-CS" ID="Point Grey Research-12491302" P="BLACKFLY" PORT="BLACKFLY.CAM" R=":CAM" TIMEOUT="1"/>-->
 	<!--<areaDetector.NDColorConvert ADDR="0" Enabled="1" NDARRAY_ADDR="0" NDARRAY_PORT="CVC.CAM" P="CVC" PORT="CVC.CC1" R=":CC1:" TIMEOUT="1"/>-->
 	<!--<areaDetector.NDColorConvert ADDR="0" Enabled="1" NDARRAY_ADDR="0" NDARRAY_PORT="CVC.CC1" P="CVC" PORT="CVC.CC2" R=":CC2:" TIMEOUT="1"/>-->
 	<!--<areaDetector.NDColorConvert ADDR="0" Enabled="1" NDARRAY_ADDR="0" NDARRAY_PORT="GC1020C.CAM" P="GC1020C" PORT="GC1020C.CC" R=":CC:" TIMEOUT="1"/>-->
+	<!--<areaDetector.NDColorConvert ADDR="0" Enabled="1" NDARRAY_ADDR="0" NDARRAY_PORT="FLEA3.CAM" P="FLEA3" PORT="FLEA3.CC" R=":CC:" TIMEOUT="1"/>-->
+	<!--<areaDetector.NDColorConvert ADDR="0" Enabled="1" NDARRAY_ADDR="0" NDARRAY_PORT="BLACKFLY.CAM" P="BLACKFLY" PORT="BLACKFLY.CC" QUEUE="16" R=":CC:" TIMEOUT="1"/>-->
 	<!--<ffmpegServer.diagnosticPlugins CAM="GC1020.CAM" P="GC1020" PORTPREFIX="GC1020"/>-->
-	<!--<ffmpegServer.diagnosticPlugins CAM="GC1020C.CC" P="GC1020C" PORTPREFIX="GC1020C"/>-->
-	<!--<ffmpegServer.diagnosticPlugins CAM="MANTA.CAM" HIST_SIZE="65535" NELEMENTS="1228800" P="MANTA" PORTPREFIX="MANTA" XSIZE="1280" YSIZE="960"/>-->
+	<!--<ffmpegServer.diagnosticPlugins CAM="GC1020C.CAM" P="GC1020C" PORTPREFIX="GC1020C"/>-->
+	<ffmpegServer.diagnosticPlugins CAM="MANTA.CAM" HIST_SIZE="65535" NELEMENTS="1228800" P="MANTA" PORTPREFIX="MANTA" XSIZE="1280" YSIZE="960"/>
 	<!--<ffmpegServer.diagnosticPlugins CAM="CVC.CC2" NELEMENTS="2073600" P="CVC" PORTPREFIX="CVC" XSIZE="1920" YSIZE="1080"/>-->
 	<!--<ffmpegServer.diagnosticPlugins ARRFTVL="USHORT" ARRTYPE="Int16" CAM="HXG.CAM" NELEMENTS="2228224" P="HXG" PORTPREFIX="HXG" XSIZE="2048" YSIZE="1088"/>-->
-	<ffmpegServer.diagnosticPlugins CAM="PSL.CAM" P="PSL" PORTPREFIX="PSL"/>
+	<!--<ffmpegServer.diagnosticPlugins CAM="PSL.CAM" P="PSL" PORTPREFIX="PSL"/>-->
+	<!--<ffmpegServer.diagnosticPlugins ARRFTVL="UCHAR" ARRTYPE="Int8" CAM="FLEA3.CC" HIST_SIZE="256" HTTP_PORT="8090" NELEMENTS="1228800" P="FLEA3" PORTPREFIX="FLEA3" XSIZE="1280" YSIZE="960"/>-->
+	<!--<ffmpegServer.diagnosticPlugins ARRFTVL="UCHAR" CAM="BLACKFLY.CAM" HTTP_PORT="8090" NELEMENTS="1310720" P="BLACKFLY" PORTPREFIX="BLACKFLY" XSIZE="1280" YSIZE="1024"/>-->
 	<!--<EPICS_BASE.StartupCommand command="dbpf &quot;CVC:CC1:ColorModeOut&quot;, &quot;RGB1&quot;" post_init="True"/>-->
 	<!--<EPICS_BASE.StartupCommand command="dbpf &quot;CVC:OVER:NDArrayPort&quot;, &quot;CVC.CC1&quot;" post_init="True"/>-->
 	<!--<EPICS_BASE.StartupCommand command="dbpf &quot;GC1020C:CC1:ColorModeOut&quot;, &quot;RGB1&quot;" post_init="True"/>-->
