@@ -22,13 +22,15 @@ DBD += aravisCameraSupport.dbd
 ifneq ($(GLIBPREFIX),)
 	USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
 	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-		USR_INCLUDES += -I$(GLIBPREFIX)/lib64/glib-2.0/include
-		glib-2.0_DIR = $(GLIBPREFIX)/lib64
-
-		# On RHEL6 tools the glib is built into the lib dir rather than lib64
-		ifeq (RHEL6, $(findstring RHEL6, $(SYS_VER)))
+	    ifneq (,$(wildcard $(GLIBPREFIX)/lib64/glib-2.0))
+    	    # If these is a glibprefix/lib64/glib-2.0 dir then use this	    
+    		USR_INCLUDES += -I$(GLIBPREFIX)/lib64/glib-2.0/include
+	    	glib-2.0_DIR = $(GLIBPREFIX)/lib64
+	    else
+            # Assume it is in the lib directory
+    		USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include		
 			glib-2.0_DIR = $(GLIBPREFIX)/lib
-		endif	
+		endif
 	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
 		USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
 		glib-2.0_DIR = $(GLIBPREFIX)/lib
