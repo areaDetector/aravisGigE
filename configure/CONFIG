@@ -18,10 +18,8 @@ include $(CONFIG)/CONFIG
 
 ifeq ($(POSIX),YES)
 SYS_VER := RHEL$(shell lsb_release -rs | sed 's/\..*//')-$(shell uname -m)
-else
-SYS_VER := $(error windows stuff here instead)
-endif
 include $(TOP)/configure/RELEASE.$(SYS_VER)
+endif
 
 -include $(CONFIG)/CONFIG.Dls
 
