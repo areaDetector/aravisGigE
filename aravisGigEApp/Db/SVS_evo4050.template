@@ -1,0 +1,2301 @@
+# Macros:
+#% macro, P, Device Prefix
+#% macro, R, Device Suffix
+#% macro, PORT, Asyn Port name
+#% macro, TIMEOUT, Timeout
+#% macro, ADDR, Asyn Port address
+#% gui, $(PORT), edmtab, SVS_evo4050.edl, P=$(P),R=$(R)
+
+record(stringin, "$(P)$(R)DeviceVendorName_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceVendorName")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)DeviceModelName_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceModelName")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)DeviceManufactur_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceManufacturerInfo")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)DeviceVersion_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceVersion")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)DeviceID_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceID")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)DeviceUserID_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceUserID")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)DeviceScanType_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceScanType")
+  field(ZRST, "Areascan")
+  field(ZRVL, "0")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)DeviceScanType") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceScanType")
+  field(ZRST, "Areascan")
+  field(ZRVL, "0")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)DeviceTemperatur_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperatureSelector")
+  field(ZRST, "Mainboard")
+  field(ZRVL, "0")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)DeviceTemperatur") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperatureSelector")
+  field(ZRST, "Mainboard")
+  field(ZRVL, "0")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)DeviceTemperatu1_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperature")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)DeviceTemperatu1") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperature")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SensorWidth_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorWidth")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SensorWidth") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorWidth")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SensorHeight_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorHeight")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SensorHeight") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorHeight")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)OffsetX_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetX")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)OffsetX") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetX")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)OffsetY_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetY")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)OffsetY") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetY")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)Width_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Width")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)Width") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Width")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)Height_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Height")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)Height") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Height")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)WidthMax_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))WidthMax")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)WidthMax") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))WidthMax")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)HeightMax_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HeightMax")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)HeightMax") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HeightMax")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)PixelSize_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelSize")
+  field(ZRST, "Bpp8")
+  field(ZRVL, "0")
+  field(ONST, "Bpp12")
+  field(ONVL, "2")
+  field(TWST, "Bpp16")
+  field(TWVL, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)PixelSize") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelSize")
+  field(ZRST, "Bpp8")
+  field(ZRVL, "0")
+  field(ONST, "Bpp12")
+  field(ONVL, "2")
+  field(TWST, "Bpp16")
+  field(TWVL, "3")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)PixelFormat_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelFormat")
+  field(ZRST, "Mono8")
+  field(ZRVL, "0x01080001")
+  field(ONST, "Mono12Packed")
+  field(ONVL, "0x010c0006")
+  field(TWST, "Mono16")
+  field(TWVL, "0x01100007")
+  field(THST, "BayerGR8")
+  field(THVL, "0x01080008")
+  field(FRST, "BayerRG8")
+  field(FRVL, "0x01080009")
+  field(FVST, "BayerGB8")
+  field(FVVL, "0x0108000a")
+  field(SXST, "BayerBG8")
+  field(SXVL, "0x0108000b")
+  field(SVST, "BayerGR12Packed")
+  field(SVVL, "0x010c002a")
+  field(EIST, "BayerRG12Packed")
+  field(EIVL, "0x010c002b")
+  field(NIST, "BayerGB12Packed")
+  field(NIVL, "0x010c002c")
+  field(TEST, "BayerBG12Packed")
+  field(TEVL, "0x010c002d")
+  field(ELST, "BayerGR12")
+  field(ELVL, "0x01100010")
+  field(TVST, "BayerRG12")
+  field(TVVL, "0x01100011")
+  field(TTST, "BayerGB12")
+  field(TTVL, "0x01100012")
+  field(FTST, "BayerBG12")
+  field(FTVL, "0x01100013")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)PixelFormat") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelFormat")
+  field(ZRST, "Mono8")
+  field(ZRVL, "0x01080001")
+  field(ONST, "Mono12Packed")
+  field(ONVL, "0x010c0006")
+  field(TWST, "Mono16")
+  field(TWVL, "0x01100007")
+  field(THST, "BayerGR8")
+  field(THVL, "0x01080008")
+  field(FRST, "BayerRG8")
+  field(FRVL, "0x01080009")
+  field(FVST, "BayerGB8")
+  field(FVVL, "0x0108000a")
+  field(SXST, "BayerBG8")
+  field(SXVL, "0x0108000b")
+  field(SVST, "BayerGR12Packed")
+  field(SVVL, "0x010c002a")
+  field(EIST, "BayerRG12Packed")
+  field(EIVL, "0x010c002b")
+  field(NIST, "BayerGB12Packed")
+  field(NIVL, "0x010c002c")
+  field(TEST, "BayerBG12Packed")
+  field(TEVL, "0x010c002d")
+  field(ELST, "BayerGR12")
+  field(ELVL, "0x01100010")
+  field(TVST, "BayerRG12")
+  field(TVVL, "0x01100011")
+  field(TTST, "BayerGB12")
+  field(TTVL, "0x01100012")
+  field(FTST, "BayerBG12")
+  field(FTVL, "0x01100013")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)PixelColorFilter_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelColorFilter")
+  field(ZRST, "None")
+  field(ZRVL, "0")
+  field(ONST, "BayerRG")
+  field(ONVL, "1")
+  field(TWST, "BayerGR")
+  field(TWVL, "2")
+  field(THST, "BayerGB")
+  field(THVL, "3")
+  field(FRST, "BayerBG")
+  field(FRVL, "4")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)PixelColorFilter") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelColorFilter")
+  field(ZRST, "None")
+  field(ZRVL, "0")
+  field(ONST, "BayerRG")
+  field(ONVL, "1")
+  field(TWST, "BayerGR")
+  field(TWVL, "2")
+  field(THST, "BayerGB")
+  field(THVL, "3")
+  field(FRST, "BayerBG")
+  field(FRVL, "4")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)BinningHorizonta_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningHorizontal")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)BinningHorizonta") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningHorizontal")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)BinningVertical_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningVertical")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)BinningVertical") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningVertical")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)AcquisitionMode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionMode")
+  field(ZRST, "SingleFrame")
+  field(ZRVL, "0")
+  field(ONST, "MultiFrame")
+  field(ONVL, "1")
+  field(TWST, "Continuous")
+  field(TWVL, "2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)AcquisitionMode") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionMode")
+  field(ZRST, "SingleFrame")
+  field(ZRVL, "0")
+  field(ONST, "MultiFrame")
+  field(ONVL, "1")
+  field(TWST, "Continuous")
+  field(TWVL, "2")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)AcquisitionStart") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionStart")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)AcquisitionStop") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionStop")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)TriggerSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSelector")
+  field(ZRST, "AcquisitionStart")
+  field(ZRVL, "0")
+  field(ONST, "FrameStart")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)TriggerSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSelector")
+  field(ZRST, "AcquisitionStart")
+  field(ZRVL, "0")
+  field(ONST, "FrameStart")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)TriggerMode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerMode")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)TriggerMode") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerMode")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)TriggerSoftware") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSoftware")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)TriggerSource_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSource")
+  field(ZRST, "Software")
+  field(ZRVL, "0")
+  field(ONST, "Line1")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)TriggerSource") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSource")
+  field(ZRST, "Software")
+  field(ZRVL, "0")
+  field(ONST, "Line1")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)TriggerActivatio_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerActivation")
+  field(ZRST, "RisingEdge")
+  field(ZRVL, "0")
+  field(ONST, "FallingEdge")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)TriggerActivatio") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerActivation")
+  field(ZRST, "RisingEdge")
+  field(ZRVL, "0")
+  field(ONST, "FallingEdge")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)TriggerDelay_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerDelay")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)TriggerDelay") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerDelay")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)AcquisitionFram1_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameCount")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)AcquisitionFram1") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameCount")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)ExposureMode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureMode")
+  field(ZRST, "Timed")
+  field(ZRVL, "0")
+  field(ONST, "TriggerWidth")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)ExposureMode") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureMode")
+  field(ZRST, "Timed")
+  field(ZRVL, "0")
+  field(ONST, "TriggerWidth")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)AcquisitionFrame_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRate")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)AcquisitionFrame") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRate")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)ExposureTime_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureTime")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)ExposureTime") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureTime")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)ReadoutControl_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadoutControl")
+  field(ZRST, "disable")
+  field(ZRVL, "0")
+  field(ONST, "wait")
+  field(ONVL, "1")
+  field(TWST, "delay")
+  field(TWVL, "2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)ReadoutControl") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadoutControl")
+  field(ZRST, "disable")
+  field(ZRVL, "0")
+  field(ONST, "wait")
+  field(ONVL, "1")
+  field(TWST, "delay")
+  field(TWVL, "2")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)ReadoutControlNe") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadoutControlNext")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)ReadoutDelay_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadoutDelay")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)ReadoutDelay") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadoutDelay")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)GainSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainSelector")
+  field(ZRST, "All")
+  field(ZRVL, "0")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)GainSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainSelector")
+  field(ZRST, "All")
+  field(ZRVL, "0")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)Gain_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Gain")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)Gain") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Gain")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)BlackLevelSelect_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelSelector")
+  field(ZRST, "All")
+  field(ZRVL, "0")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)BlackLevelSelect") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelSelector")
+  field(ZRST, "All")
+  field(ZRVL, "0")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)BlackLevelRaw_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelRaw")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)BlackLevelRaw") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelRaw")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)GainAuto_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainAuto")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "Continuous")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)GainAuto") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainAuto")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "Continuous")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GainAutoLevel_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainAutoLevel")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GainAutoLevel") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainAutoLevel")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)BalanceRatioSele_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BalanceRatioSelector")
+  field(ZRST, "Red")
+  field(ZRVL, "0")
+  field(ONST, "Green")
+  field(ONVL, "1")
+  field(TWST, "Blue")
+  field(TWVL, "2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)BalanceRatioSele") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BalanceRatioSelector")
+  field(ZRST, "Red")
+  field(ZRVL, "0")
+  field(ONST, "Green")
+  field(ONVL, "1")
+  field(TWST, "Blue")
+  field(TWVL, "2")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)BalanceRatio_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BalanceRatio")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)BalanceRatio") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BalanceRatio")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)StrobeSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobeSelector")
+  field(ZRST, "Strobe0")
+  field(ZRVL, "0")
+  field(ONST, "Strobe1")
+  field(ONVL, "1")
+  field(TWST, "Strobe2")
+  field(TWVL, "2")
+  field(THST, "Strobe3")
+  field(THVL, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)StrobeSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobeSelector")
+  field(ZRST, "Strobe0")
+  field(ZRVL, "0")
+  field(ONST, "Strobe1")
+  field(ONVL, "1")
+  field(TWST, "Strobe2")
+  field(TWVL, "2")
+  field(THST, "Strobe3")
+  field(THVL, "3")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)StrobePolarity_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobePolarity")
+  field(ZRST, "positive")
+  field(ZRVL, "0")
+  field(ONST, "negative")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)StrobePolarity") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobePolarity")
+  field(ZRST, "positive")
+  field(ZRVL, "0")
+  field(ONST, "negative")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)StrobeDuration_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobeDuration")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)StrobeDuration") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobeDuration")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)StrobeDelay_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobeDelay")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)StrobeDelay") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))StrobeDelay")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)PWMEnable_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMEnable")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)PWMEnable") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMEnable")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)PWMMax_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMMax")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)PWMMax") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMMax")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)PWMChange0_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange0")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)PWMChange0") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange0")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)PWMChange1_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)PWMChange1") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange1")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)PWMChange2_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)PWMChange2") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange2")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)PWMChange3_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)PWMChange3") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PWMChange3")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqTrigger") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqTrigger")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SeqSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqSelector")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqSelector")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SeqCount_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqCount")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqCount") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqCount")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)SeqEnable_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqEnable")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)SeqEnable") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqEnable")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)SeqLoop_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqLoop")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)SeqLoop") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqLoop")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)DebounceDuratio0_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DebounceDuration")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DebounceDuratio0") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DebounceDuration")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)PrescaleDivisor_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PrescaleDivisor")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)PrescaleDivisor") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PrescaleDivisor")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SeqInterval_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqInterval")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqInterval") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqInterval")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SeqPulseAStart_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseAStart")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqPulseAStart") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseAStart")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SeqPulseAStop_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseAStop")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqPulseAStop") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseAStop")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SeqPulseBStart_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseBStart")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqPulseBStart") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseBStart")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)SeqPulseBStop_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseBStop")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)SeqPulseBStop") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SeqPulseBStop")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)PayloadSize_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PayloadSize")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)PayloadSize") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PayloadSize")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevVersionMajor_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMajor")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevVersionMajor") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMajor")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevVersionMinor_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMinor")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevVersionMinor") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMinor")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GevDeviceModeIsB_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeIsBigEndian")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevDeviceModeIsB") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeIsBigEndian")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)GevDeviceModeCha_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeCharacterSet")
+  field(ZRST, "UTF8")
+  field(ZRVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)GevDeviceModeCha") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeCharacterSet")
+  field(ZRST, "UTF8")
+  field(ZRVL, "1")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevInterfaceSele_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevInterfaceSelector")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevInterfaceSele") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevInterfaceSelector")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevMACAddress_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMACAddress")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevMACAddress") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMACAddress")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GevSupportedIPCo_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationLLA")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevSupportedIPCo") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationLLA")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GevSupportedIPC0_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationDHCP")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevSupportedIPC0") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationDHCP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GevSupportedIPC1_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationPersistentIP")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevSupportedIPC1") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationPersistentIP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevCurrentIPConf_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfiguration")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevCurrentIPConf") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfiguration")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GevCurrentIPCon0_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationLLA")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevCurrentIPCon0") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationLLA")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GevCurrentIPCon1_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationDHCP")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevCurrentIPCon1") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationDHCP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GevCurrentIPCon2_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationPersistentIP")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GevCurrentIPCon2") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationPersistentIP")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevCurrentIPAddr_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPAddress")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevCurrentIPAddr") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPAddress")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevCurrentSubnet_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentSubnetMask")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevCurrentSubnet") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentSubnetMask")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevCurrentDefaul_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentDefaultGateway")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevCurrentDefaul") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentDefaultGateway")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)GevFirstURL_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevFirstURL")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)GevSecondURL_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSecondURL")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevNumberOfInter_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevNumberOfInterfaces")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevNumberOfInter") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevNumberOfInterfaces")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevMessageChanne_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMessageChannelCount")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevMessageChanne") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMessageChannelCount")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevStreamChannel_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelCount")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevStreamChannel") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelCount")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevPersistentIPA_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentIPAddress")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevPersistentIPA") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentIPAddress")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevPersistentSub_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentSubnetMask")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevPersistentSub") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentSubnetMask")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevPersistentDef_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentDefaultGateway")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevPersistentDef") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentDefaultGateway")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)GevCCP_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCCP")
+  field(ZRST, "OpenAccess")
+  field(ZRVL, "0")
+  field(ONST, "ExclusiveAccess")
+  field(ONVL, "1")
+  field(TWST, "ControlAccess")
+  field(TWVL, "2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)GevCCP") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCCP")
+  field(ZRST, "OpenAccess")
+  field(ZRVL, "0")
+  field(ONST, "ExclusiveAccess")
+  field(ONVL, "1")
+  field(TWST, "ControlAccess")
+  field(TWVL, "2")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevHeartbeatTime_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevHeartbeatTimeout")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevHeartbeatTime") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevHeartbeatTimeout")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevSCPSPacketSiz_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSPacketSize")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevSCPSPacketSiz") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSPacketSize")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevSCPHostPort_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPHostPort")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevSCPHostPort") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPHostPort")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevSCDA_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCDA")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevSCDA") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCDA")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevSCPD_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPD")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevSCPD") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPD")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevStreamChanne0_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelSelector")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevStreamChanne0") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelSelector")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevTimestampTick_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampTickFrequency")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevTimestampTick") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampTickFrequency")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevTimestampCon0") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampControlLatch")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevTimestampCont") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampControlReset")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevTimestampCon1") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampControlLatchReset")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevTimestampValu_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampValue")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevTimestampValu") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampValue")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevMCPHostPort_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCPHostPort")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevMCPHostPort") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCPHostPort")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevMCDA_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCDA")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevMCDA") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCDA")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevMCTT_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCTT")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevMCTT") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCTT")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevMCRC_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCRC")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevMCRC") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCRC")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)GevMCSP_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCSP")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)GevMCSP") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCSP")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)UserSetSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetSelector")
+  field(ZRST, "Default")
+  field(ZRVL, "0")
+  field(ONST, "UserSet1")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)UserSetSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetSelector")
+  field(ZRST, "Default")
+  field(ZRVL, "0")
+  field(ONST, "UserSet1")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)UserSetLoad") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetLoad")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)UserSetSave") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetSave")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)LineSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSelector")
+  field(ZRST, "Line0")
+  field(ZRVL, "0")
+  field(ONST, "Line1")
+  field(ONVL, "1")
+  field(TWST, "Line2")
+  field(TWVL, "2")
+  field(THST, "Line3")
+  field(THVL, "3")
+  field(FRST, "Line4")
+  field(FRVL, "4")
+  field(FVST, "Line5")
+  field(FVVL, "5")
+  field(SXST, "Line6")
+  field(SXVL, "6")
+  field(SVST, "Line7")
+  field(SVVL, "7")
+  field(EIST, "Line8")
+  field(EIVL, "8")
+  field(NIST, "Line9")
+  field(NIVL, "9")
+  field(TEST, "Line10")
+  field(TEVL, "15")
+  field(ELST, "Line11")
+  field(ELVL, "16")
+  field(TVST, "Line12")
+  field(TVVL, "17")
+  field(TTST, "Line13")
+  field(TTVL, "18")
+  field(FTST, "Line14")
+  field(FTVL, "19")
+  field(FFST, "Line15")
+  field(FFVL, "10")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)LineSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSelector")
+  field(ZRST, "Line0")
+  field(ZRVL, "0")
+  field(ONST, "Line1")
+  field(ONVL, "1")
+  field(TWST, "Line2")
+  field(TWVL, "2")
+  field(THST, "Line3")
+  field(THVL, "3")
+  field(FRST, "Line4")
+  field(FRVL, "4")
+  field(FVST, "Line5")
+  field(FVVL, "5")
+  field(SXST, "Line6")
+  field(SXVL, "6")
+  field(SVST, "Line7")
+  field(SVVL, "7")
+  field(EIST, "Line8")
+  field(EIVL, "8")
+  field(NIST, "Line9")
+  field(NIVL, "9")
+  field(TEST, "Line10")
+  field(TEVL, "15")
+  field(ELST, "Line11")
+  field(ELVL, "16")
+  field(TVST, "Line12")
+  field(TVVL, "17")
+  field(TTST, "Line13")
+  field(TTVL, "18")
+  field(FTST, "Line14")
+  field(FTVL, "19")
+  field(FFST, "Line15")
+  field(FFVL, "10")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)LineMode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineMode")
+  field(ZRST, "Input")
+  field(ZRVL, "0")
+  field(ONST, "Output")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)LineMode") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineMode")
+  field(ZRST, "Input")
+  field(ZRVL, "0")
+  field(ONST, "Output")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)LineInverter_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineInverter")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)LineInverter") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineInverter")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)LineStatus_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatus")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)LineStatus") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatus")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)LineSource_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSource")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "userOutput0")
+  field(ONVL, "0x0300")
+  field(TWST, "userOutput1")
+  field(TWVL, "0x0301")
+  field(THST, "userOutput2")
+  field(THVL, "0x0302")
+  field(FRST, "userOutput3")
+  field(FRVL, "0x0303")
+  field(FVST, "userOutput4")
+  field(FVVL, "0x0304")
+  field(SXST, "Input0")
+  field(SXVL, "0x100")
+  field(SVST, "Input1")
+  field(SVVL, "0x101")
+  field(EIST, "Input2")
+  field(EIVL, "0x102")
+  field(NIST, "Input3")
+  field(NIVL, "0x103")
+  field(TEST, "Input4")
+  field(TEVL, "0x104")
+  field(ELST, "UartOut")
+  field(ELVL, "0x105")
+  field(TVST, "Strobe0")
+  field(TVVL, "0x106")
+  field(TTST, "Strobe1")
+  field(TTVL, "0x109")
+  field(FTST, "PWM0")
+  field(FTVL, "0x107")
+  field(FFST, "PWM1")
+  field(FFVL, "0x108")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)LineSource") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSource")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "userOutput0")
+  field(ONVL, "0x0300")
+  field(TWST, "userOutput1")
+  field(TWVL, "0x0301")
+  field(THST, "userOutput2")
+  field(THVL, "0x0302")
+  field(FRST, "userOutput3")
+  field(FRVL, "0x0303")
+  field(FVST, "userOutput4")
+  field(FVVL, "0x0304")
+  field(SXST, "Input0")
+  field(SXVL, "0x100")
+  field(SVST, "Input1")
+  field(SVVL, "0x101")
+  field(EIST, "Input2")
+  field(EIVL, "0x102")
+  field(NIST, "Input3")
+  field(NIVL, "0x103")
+  field(TEST, "Input4")
+  field(TEVL, "0x104")
+  field(ELST, "UartOut")
+  field(ELVL, "0x105")
+  field(TVST, "Strobe0")
+  field(TVVL, "0x106")
+  field(TTST, "Strobe1")
+  field(TTVL, "0x109")
+  field(FTST, "PWM0")
+  field(FTVL, "0x107")
+  field(FFST, "PWM1")
+  field(FFVL, "0x108")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)UserOutputSelect_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputSelector")
+  field(ZRST, "UserOutput0")
+  field(ZRVL, "0")
+  field(ONST, "UserOutput1")
+  field(ONVL, "1")
+  field(TWST, "UserOutput2")
+  field(TWVL, "2")
+  field(THST, "UserOutput3")
+  field(THVL, "3")
+  field(FRST, "UserOutput4")
+  field(FRVL, "4")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)UserOutputSelect") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputSelector")
+  field(ZRST, "UserOutput0")
+  field(ZRVL, "0")
+  field(ONST, "UserOutput1")
+  field(ONVL, "1")
+  field(TWST, "UserOutput2")
+  field(TWVL, "2")
+  field(THST, "UserOutput3")
+  field(THVL, "3")
+  field(FRST, "UserOutput4")
+  field(FRVL, "4")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)UserOutputValue_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValue")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)UserOutputValue") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValue")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)MFT_LENS_AVAILAB_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_LENS_AVAILABLE")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)MFT_LENS_AVAILAB") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_LENS_AVAILABLE")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(stringin, "$(P)$(R)MFT_LENS_NAME_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_LENS_NAME")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)MFT_FOCALLENGTH_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_FOCALLENGTH")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)MFT_FOCALLENGTH") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_FOCALLENGTH")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)MFT_FOCUS_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_FOCUS")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)MFT_FOCUS") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_FOCUS")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)MFT_APERTURE_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_APERTURE")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)MFT_APERTURE") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))MFT_APERTURE")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)DefectPixelCorr0_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrectionEnable_Control")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)DefectPixelCorr0") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrectionEnable_Control")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)DefectPixelCorr1_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrectionMark_Control")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "Mark")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)DefectPixelCorr1") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrectionMark_Control")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "Mark")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)DefectPixelCorr4_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_MapSelect")
+  field(ZRST, "factory")
+  field(ZRVL, "0")
+  field(ONST, "SVS")
+  field(ONVL, "1")
+  field(TWST, "custom")
+  field(TWVL, "2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)DefectPixelCorr4") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_MapSelect")
+  field(ZRST, "factory")
+  field(ZRVL, "0")
+  field(ONST, "SVS")
+  field(ONVL, "1")
+  field(TWST, "custom")
+  field(TWVL, "2")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)DefectPixelCorr9_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_OffsetX")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DefectPixelCorr9") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_OffsetX")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)DefectPixelCor11_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_OffsetY")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DefectPixelCor11") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_OffsetY")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)DefectPixelCorr6_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_MapSize")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DefectPixelCorr6") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_MapSize")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)DefectPixelCor13_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_MapIndex")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DefectPixelCor13") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_MapIndex")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)DefectPixelCor15_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_X")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DefectPixelCor15") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_X")
+  field(DISA, "0")
+}
+
+record(longin, "$(P)$(R)DefectPixelCor17_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_Y")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DefectPixelCor17") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_Y")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)DefectPixelCor19") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection_Delete")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)Shading_Control_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Shading_Control")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)Shading_Control") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Shading_Control")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "2")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)Shading_Status_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Shading_Status")
+  field(ZRST, "Shading_Error")
+  field(ZRVL, "0")
+  field(ONST, "Shading_Ready")
+  field(ONVL, "1")
+  field(TWST, "Shading_Dark")
+  field(TWVL, "2")
+  field(THST, "Shading_White")
+  field(THVL, "3")
+  field(FRST, "Shading_Save")
+  field(FRVL, "4")
+  field(FVST, "Shading_Init")
+  field(FVVL, "5")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)Shading_Status") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Shading_Status")
+  field(ZRST, "Shading_Error")
+  field(ZRVL, "0")
+  field(ONST, "Shading_Ready")
+  field(ONVL, "1")
+  field(TWST, "Shading_Dark")
+  field(TWVL, "2")
+  field(THST, "Shading_White")
+  field(THVL, "3")
+  field(FRST, "Shading_Save")
+  field(FRVL, "4")
+  field(FVST, "Shading_Init")
+  field(FVVL, "5")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)Shading_Get_Whit") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Shading_Get_White_Image")
+  field(DISA, "0")
+}
+
+record(longout, "$(P)$(R)Shading_Save_Ref") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Shading_Save_RefData")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)Noisefilter_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Noisefilter")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)Noisefilter") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Noisefilter")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)EventSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSelector")
+  field(ZRST, "SequenceDone")
+  field(ZRVL, "0x9000")
+  field(ONST, "AcquisitionError")
+  field(ONVL, "0x09001")
+  field(TWST, "FrameTransferSta")
+  field(TWVL, "0x09002")
+  field(THST, "FrameTransferEnd")
+  field(THVL, "0x09003")
+  field(FRST, "FrameTrigger")
+  field(FRVL, "0x09004")
+  field(FVST, "FrameStart")
+  field(FVVL, "0x09005")
+  field(SXST, "FrameEnd")
+  field(SXVL, "0x09006")
+  field(SVST, "ExposureStart")
+  field(SVVL, "0x09007")
+  field(EIST, "ExposureEnd")
+  field(EIVL, "0x09008")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)EventSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSelector")
+  field(ZRST, "SequenceDone")
+  field(ZRVL, "0x9000")
+  field(ONST, "AcquisitionError")
+  field(ONVL, "0x09001")
+  field(TWST, "FrameTransferSta")
+  field(TWVL, "0x09002")
+  field(THST, "FrameTransferEnd")
+  field(THVL, "0x09003")
+  field(FRST, "FrameTrigger")
+  field(FRVL, "0x09004")
+  field(FVST, "FrameStart")
+  field(FVVL, "0x09005")
+  field(SXST, "FrameEnd")
+  field(SXVL, "0x09006")
+  field(SVST, "ExposureStart")
+  field(SVVL, "0x09007")
+  field(EIST, "ExposureEnd")
+  field(EIVL, "0x09008")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)EventNotificatio_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventNotification")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)EventNotificatio") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventNotification")
+  field(ZRST, "Off")
+  field(ZRVL, "0")
+  field(ONST, "On")
+  field(ONVL, "1")
+  field(DISA, "0")
+}
+
