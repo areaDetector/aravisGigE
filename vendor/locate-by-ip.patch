@@ -1,6 +1,6 @@
 --- vendor/aravis/src/arvgvinterface.c	(revision 65781)
 +++ vendor/aravis/src/arvgvinterface.c	(working copy)
-@@ -358,6 +358,74 @@
+@@ -358,6 +358,75 @@
  	}
  }
  
@@ -57,7 +57,9 @@
 +
 +				if (count > 0) {
 +					ArvGvcpPacket *packet = (ArvGvcpPacket *) buffer;
-+					if (g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_CMD) {
++					if (g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_CMD ||
++					    g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_ACK) {
+
 +						interface_address = g_inet_socket_address_get_address(G_INET_SOCKET_ADDRESS (socket->interface_address));
 +						g_object_ref(interface_address);
 +						arv_gv_discover_socket_list_free (socket_list);

@@ -45,6 +45,8 @@ else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
 endif
 
 USR_LIBS += glib-2.0
+
+# TODO: should pick this up from the vendor directory
 USR_LIBS += aravis-0.2
 
 include $(TOP)/configure/RULES
