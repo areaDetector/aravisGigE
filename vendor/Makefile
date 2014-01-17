@@ -26,6 +26,7 @@ ifneq ($(GLIBPREFIX),)
 endif
 
 # install libs
+# TODO: shouldn't really do this, should get the aravisGgigeApp/src/Makefile to point to the vendor directory
 ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
 	BIN_INSTALLS_Linux  += $(addprefix ../aravis-linux-x86_64/bin/, $(ARAVIS_LINUX_BINS))
 	LIB_INSTALLS_Linux  += $(addprefix ../aravis-linux-x86_64/lib/, $(ARAVIS_LINUX_LIBS))
