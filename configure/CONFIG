@@ -16,13 +16,6 @@ endif
 CONFIG = $(RULES)/configure
 include $(CONFIG)/CONFIG
 
-ifeq ($(POSIX),YES)
-SYS_VER := RHEL$(shell lsb_release -rs | sed 's/\..*//')-$(shell uname -m)
-include $(TOP)/configure/RELEASE.$(SYS_VER)
-endif
-
--include $(CONFIG)/CONFIG.Dls
-
 # Override the Base definition:
 INSTALL_LOCATION = $(TOP)
 
