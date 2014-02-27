@@ -46,8 +46,8 @@ As this module is just a wrapper to aravis, it is not distributed with aravis, s
 
 You are now ready to build the module.
 
-  * Modify configure/RELEASE
-    * If you have glib >= 2.26 then comment out GLIBPREFIX, otherwise download and install glib and set that macro to the install prefix you used. If you are installing 64-bit then please make sure you configure and install glib with the option --libdir=$GLIBPREFIX/lib64
+  * Modify configure/RELEASE.local
+    * If you have glib >= 2.26 then comment out GLIBPREFIX, otherwise download and install glib and set the GLIBPREFIX macro to the install prefix you used. If you are installing 64-bit then please make sure you configure and install glib with the option --libdir=$GLIBPREFIX/lib64
     * Set AREADETECTOR to the path of areaDetector 1-6 or 1-7beta
   * Type make
   * Run bin/linux-x86/arv-tool-0.2 to see GigE visible devices
@@ -215,3 +215,21 @@ Build Instructions for example
     NDStdArraysConfigure("ARR1", 2, 0, "CAM1", 0, 0)
 </pre>
 
+Example RELEASE.local
+---------------------
+
+Used at Diamond:
+
+<pre>
+SUPPORT=/dls_sw/prod/R3.14.12.3/support
+WORK=/dls_sw/work/R3.14.12.3/support
+EPICS_BASE=/dls_sw/epics/R3.14.12.3/base
+
+GLIBPREFIX=/dls_sw/prod/tools/RHEL6-x86_64/glib/2-26-1/prefix
+
+# ASYN is needed for base classes 
+ASYN=$(SUPPORT)/asyn/4-22
+
+# ADCORE is areaDetector
+ADCORE=$(WORK)/ADCore
+</pre>
