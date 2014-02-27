@@ -13,6 +13,7 @@ set -e
 
 # remove dir if it already exists
 rm -rf ${HERE}/aravis
+rm -rf ${HERE}/vendor/aravis
 
 # Now get the the zip file
 wget -P "${HERE}" $SOURCE
