@@ -58,9 +58,9 @@
 <p>You are now ready to build the module.</p>
 
 <ul>
-<li>Modify configure/RELEASE
+<li>Modify configure/RELEASE.local
 <ul>
-<li>If you have glib >= 2.26 then comment out GLIBPREFIX, otherwise download and install glib and set that macro to the install prefix you used. If you are installing 64-bit then please make sure you configure and install glib with the option --libdir=$GLIBPREFIX/lib64</li>
+<li>If you have glib >= 2.26 then comment out GLIBPREFIX, otherwise download and install glib and set the GLIBPREFIX macro to the install prefix you used. If you are installing 64-bit then please make sure you configure and install glib with the option --libdir=$GLIBPREFIX/lib64</li>
 <li>Set AREADETECTOR to the path of areaDetector 1-6 or 1-7beta</li>
 </ul></li>
 <li>Type make</li>
@@ -253,4 +253,22 @@
 
     # NDStdArraysConfigure(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, maxMemory)
     NDStdArraysConfigure("ARR1", 2, 0, "CAM1", 0, 0)
+</pre>
+
+<h2>Example RELEASE.local</h2>
+
+<p>Used at Diamond:</p>
+
+<pre>
+SUPPORT=/dls_sw/prod/R3.14.12.3/support
+WORK=/dls_sw/work/R3.14.12.3/support
+EPICS_BASE=/dls_sw/epics/R3.14.12.3/base
+
+GLIBPREFIX=/dls_sw/prod/tools/RHEL6-x86_64/glib/2-26-1/prefix
+
+# ASYN is needed for base classes 
+ASYN=$(SUPPORT)/asyn/4-22
+
+# ADCORE is areaDetector
+ADCORE=$(WORK)/ADCore
 </pre>
