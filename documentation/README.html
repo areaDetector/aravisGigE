@@ -1,0 +1,256 @@
+<h1>aravisGigE EPICS Support Module </h1>
+
+<h2>Introduction</h2>
+
+<p>This module is a thin wrapper to the <a href="http://live.gnome.org/Aravis">aravis</a> library for industrial gigabit ethernet cameras which provide a Genicam interface, and an epics driver is provided for any parameter exposed in a category of its genicam XML file. A python script is included for creating databases and edm screens from the XML file too.</p>
+
+<p>Tested working cameras:</p>
+
+<ul>
+<li>AVT Manta series</li>
+<li>Prosilica GC series</li>
+<li>Baumer TXG series</li>
+<li>JAI Pulnix 6740 series</li>
+</ul>
+
+<p>Tested mostly working cameras:</p>
+
+<ul>
+<li>Sony CVC EH6300
+<ul>
+<li>1080p/25 mode works best, still get occasional dropped frame</li>
+<li>Using Zoom target seems to pause camera while zooming which then makes Aravis think the camera is disconnected. A reconnect fixes this</li>
+</ul></li>
+<li>Point Grey Research Flea3 and Blackfly
+<ul>
+<li>Needs increased mem buffers as detailed under "Known Bugs"</li>
+<li>Still get a number of dropped frames</li>
+</ul></li>
+</ul>
+
+<p>The documentation here is top level documentation on creating an IOC with an aravisCamera areaDetector driver:</p>
+
+<ul>
+<li>aravisCamera: areaDetector driver class</li>
+<li>aravisCamera.template: Basic template that should be instantiated for any camera</li>
+<li>Add-on templates with extra records for each camera type:
+<ul>
+<li>AVT<em>Manta.template</li>
+<li>Prosilica</em>GC.template</li>
+<li>Baumer<em>TXG.template</li>
+<li>JAI</em>6740.template</li>
+<li>PGR_Flea3.template</li>
+<li>Sony<em>CVC</em>EH6300.template</li>
+</ul></li>
+</ul>
+
+<p>If you need to add another type of similar camera, read the "Adding a new camera" section</p>
+
+<h2>Installation</h2>
+
+<p>As this module is just a wrapper to aravis, it is not distributed with aravis, so you need to download and compile aravis in order to use the module. After downloading and untarring aravisGigE, either:</p>
+
+<ul>
+<li>Run the bash script <code>install.sh</code> in the root of the module, or</li>
+<li>Download and unzip the <a href="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-0.1.15.tar.xz">aravis source</a> in the vendor directory of the module, renaming it to aravis</li>
+</ul>
+
+<p>You are now ready to build the module.</p>
+
+<ul>
+<li>Modify configure/RELEASE
+<ul>
+<li>If you have glib >= 2.26 then comment out GLIBPREFIX, otherwise download and install glib and set that macro to the install prefix you used. If you are installing 64-bit then please make sure you configure and install glib with the option --libdir=$GLIBPREFIX/lib64</li>
+<li>Set AREADETECTOR to the path of areaDetector 1-6 or 1-7beta</li>
+</ul></li>
+<li>Type make</li>
+<li>Run bin/linux-x86/arv-tool-0.2 to see GigE visible devices</li>
+<li>If your camera is not visible, check that it has an IP address on the same subnet</li>
+<li>If your camera is of a supported type, modify the example to use the correct database and screen, otherwise read the next section</li>
+</ul>
+
+<h2>Adding a new camera</h2>
+
+<ul>
+<li>Run <code>bin/linux-x86/arv-tool-0.2 -n "&lt;device_name&gt;" genicam &gt; "&lt;camera_model&gt;.xml"</code> to download the genicam xml data from the selected device cameras
+<ul>
+<li>E.g. <code>bin/linux-x86/arv-tool-0.2 -n "Allied Vision Technologies-50-0503318719" genicam &gt; AVT_Manta_G125B.xml</code></li>
+</ul></li>
+<li>Make sure the generated file doesn't have a space at the start of it</li>
+<li>Run <code>aravisGigEApp/src/makeDbAndEdl.py &lt;genicam_xml&gt; &lt;camera_name&gt;</code>
+<ul>
+<li>E.g. <code>aravisGigEApp/src/makeDbAndEdl.py AVT_Manta_G125B.xml AVT_Manta</code></li>
+</ul></li>
+<li>This should then create:
+<ul>
+<li><code>aravisGigEApp/Db/&lt;camera_name&gt;.template</code></li>
+<li><code>aravisGigEApp/opi/edl/&lt;camera_name&gt;.edl</code></li>
+<li><code>aravisGigEApp/opi/edl/&lt;camera_name&gt;-features.edl</code></li>
+</ul></li>
+<li>Once you have decided on the most useful features, copy them from <camera_name>-features.edl and paste them into <camera_name>.edl in order to create a useful summary screen</li>
+</ul>
+
+<h2>Known Bugs</h2>
+
+<ul>
+<li>Changing resolution or colour mode while acquiring may produce dropped frames, aravisGigE will allow it and inserts a 1 second sleep to try and make this operation robust, but it is better to stop the camera before changing resolution or colour mode</li>
+<li><code>pthread_attr_setstacksize error Invalid argument</code> error messages are caused by glib and can be ignored</li>
+<li>Please follow the section on sysctl in <a href="http://www.ptgrey.com/support/kb/index.asp?a=4&amp;q=354">this article</a> if you are getting large numbers of dropped frames</li>
+<li>If you start the IOC without a camera connected, you will not be able to get all its features if you reconnect to it later. This may be fixed in a later release</li>
+</ul>
+
+<h2>Build Instructions for example</h2>
+
+<p>IOCs built using these build instructions are available in iocs/ </p>
+
+<p>Build Instructions for example </p>
+
+<ul>
+<li>Add the dependencies to configure/RELEASE. </li>
+</ul>
+
+<pre>
+    ASYN=/dls_sw/prod/R3.14.12.3/support/asyn/4-21
+    BUSY=/dls_sw/prod/R3.14.12.3/support/busy/1-4dls1
+    AREADETECTOR=/dls_sw/prod/R3.14.12.3/support/areaDetector/1-9dls4
+    ARAVISGIGE=/scratch/ad/aravisGigE
+</pre>
+
+<ul>
+<li>Add the DBD dependencies to src/Makefile </li>
+</ul>
+
+<pre>
+    example_DBD += base.dbd
+    example_DBD += asyn.dbd
+    example_DBD += busySupport.dbd
+    example_DBD += ADSupport.dbd
+    example_DBD += NDPluginSupport.dbd
+    example_DBD += aravisCameraSupport.dbd
+</pre>
+
+<ul>
+<li>Add the LIBS dependencies to src/Makefile </li>
+</ul>
+
+<pre>
+    example_LIBS += aravisCamera
+    example_LIBS += NDPlugin
+    example_LIBS += ADBase
+    example_LIBS += netCDF
+    example_LIBS += cbfad
+    example_LIBS += NeXus
+    example_LIBS += hdf5
+    example_LIBS += sz
+    example_LIBS += PvAPI
+    example_LIBS += GraphicsMagick++
+    example_LIBS += GraphicsMagickWand
+    example_LIBS += GraphicsMagick
+    example_LIBS += busy
+    example_LIBS += asyn
+    example_SYS_LIBS += tiff
+    example_SYS_LIBS += jpeg
+    example_SYS_LIBS += z
+    example_SYS_LIBS += gomp
+    example_SYS_LIBS += X11
+    example_SYS_LIBS += xml2
+    example_SYS_LIBS += png12
+    example_SYS_LIBS += bz2
+    example_SYS_LIBS += Xext
+    example_SYS_LIBS += freetype
+</pre>
+
+<ul>
+<li>Use the template files to add records to the database. </li>
+</ul>
+
+<pre>
+    # Macros:
+    #  P        Device Prefix
+    #  R        Device Suffix
+    #  PORT     Asyn Port name
+    #  TIMEOUT  Timeout
+    #  ADDR     Asyn Port address
+    file $(AREADETECTOR)/db/ADBase.template
+    {
+    pattern { P, R, PORT, TIMEOUT, ADDR }
+        { "ARAVISCAM1", ":CAM:", "CAM1", "1", "0" }
+    }
+
+    # Macros:
+    #  P        Device Prefix
+    #  R        Device Suffix
+    #  PORT     Asyn Port name
+    #  TIMEOUT  Timeout
+    #  ADDR     Asyn Port address
+    file $(ARAVISGIGE)/db/aravisCamera.template
+    {
+    pattern { P, R, PORT, TIMEOUT, ADDR }
+        { "ARAVISCAM1", ":CAM:", "CAM1", "1", "0" }
+    }
+
+    # Macros:
+    #  P        Device Prefix
+    #  R        Device Suffix
+    #  PORT     Asyn Port name
+    #  TIMEOUT  Timeout
+    #  ADDR     Asyn Port address
+    file $(ARAVISGIGE)/db/AVT_Manta_1_44_4.template
+    {
+    pattern { P, R, PORT, TIMEOUT, ADDR }
+        { "ARAVISCAM1", ":CAM:", "CAM1", "1", "0" }
+    }
+
+    # Macros:
+    #  P             Device Prefix
+    #  R             Device Suffix
+    #  PORT          Asyn Port name
+    #  TIMEOUT       Timeout
+    #  ADDR          Asyn Port address
+    #  NDARRAY_PORT  Input Array Port
+    #  NDARRAY_ADDR  Input Array Address
+    #  Enabled       Plugin Enabled at startup?
+    file $(AREADETECTOR)/db/NDPluginBase.template
+    {
+    pattern { P, R, PORT, TIMEOUT, ADDR, NDARRAY_PORT, NDARRAY_ADDR, Enabled }
+        { "ARAVISCAM1", ":ARR:", "ARR1", "1", "0", "CAM1", "0", "1" }
+    }
+
+    # Macros:
+    #  P          Device Prefix
+    #  R          Device Suffix
+    #  PORT       Asyn Port name
+    #  TIMEOUT    Timeout
+    #  ADDR       Asyn Port address
+    #  TYPE       Asyn Type e.g. Int32
+    #  FTVL       Format, e.g. Int
+    #  NELEMENTS  Number of elements
+    file $(AREADETECTOR)/db/NDStdArrays.template
+    {
+    pattern { P, R, PORT, TIMEOUT, ADDR, TYPE, FTVL, NELEMENTS }
+        { "ARAVISCAM1", ":ARR:", "ARR1", "1", "0", "Int8", "UCHAR", "1442820" }
+    }
+</pre>
+
+<ul>
+<li>Add the startup commands to st.cmd </li>
+</ul>
+
+<pre>
+    # Loading libraries
+    # -----------------
+
+    # Device initialisation
+    # ---------------------
+
+    cd "$(TOP)"
+
+    dbLoadDatabase "dbd/example.dbd"
+    example_registerRecordDeviceDriver(pdbbase)
+
+    # aravisCameraConfig(portName, cameraName, maxBuffers, maxMemory)
+    aravisCameraConfig("CAM1", "Allied Vision Technologies-50-0503332222", 50, -1)
+
+    # NDStdArraysConfigure(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, maxMemory)
+    NDStdArraysConfigure("ARR1", 2, 0, "CAM1", 0, 0)
+</pre>
