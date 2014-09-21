@@ -1,6 +1,7 @@
---- vendor/aravis/src/arvgvinterface.c	(revision 65781)
-+++ vendor/aravis/src/arvgvinterface.c	(working copy)
-@@ -358,6 +358,75 @@
+diff -r -U3 vendor_orig/aravis/src/arvgvinterface.c vendor/aravis/src/arvgvinterface.c
+--- vendor_orig/aravis/src/arvgvinterface.c	2012-07-09 10:58:29.000000000 -0500
++++ vendor/aravis/src/arvgvinterface.c	2014-09-21 15:04:23.580825515 -0500
+@@ -358,6 +358,76 @@
  	}
  }
  
@@ -59,7 +60,7 @@
 +					ArvGvcpPacket *packet = (ArvGvcpPacket *) buffer;
 +					if (g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_CMD ||
 +					    g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_ACK) {
-
++
 +						interface_address = g_inet_socket_address_get_address(G_INET_SOCKET_ADDRESS (socket->interface_address));
 +						g_object_ref(interface_address);
 +						arv_gv_discover_socket_list_free (socket_list);
@@ -77,7 +78,7 @@
  static ArvDevice *
  arv_gv_interface_open_device (ArvInterface *interface, const char *device_id)
  {
-@@ -381,6 +449,21 @@
+@@ -381,6 +451,21 @@
  			device_infos = g_hash_table_lookup (gv_interface->priv->devices_by_mac, device_id);
  	}
  
@@ -98,9 +99,10 @@
 +
  	if (device_infos == NULL)
  		return NULL;
-
---- vendor/aravis/src/arvtool.c	(revision 96614)
-+++ vendor/aravis/src/arvtool.c	(working copy)
+ 
+diff -r -U3 vendor_orig/aravis/src/arvtool.c vendor/aravis/src/arvtool.c
+--- vendor_orig/aravis/src/arvtool.c	2012-06-28 10:35:07.000000000 -0500
++++ vendor/aravis/src/arvtool.c	2014-09-21 15:04:45.683657085 -0500
 @@ -145,7 +145,7 @@
  
  						if (ARV_IS_GC_STRING (feature))
@@ -110,4 +112,3 @@
  						else if (ARV_IS_GC_FLOAT (feature))
  							printf ("%s = %g (min:%g-max:%g)\n", tokens[0],
  								arv_gc_float_get_value (ARV_GC_FLOAT (feature), NULL),
-
