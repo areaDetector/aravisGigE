@@ -1,27 +1,20 @@
 < envPaths
 errlogInit(20000)
 
-dbLoadDatabase("$(TOP)/dbd/pilatusDetectorApp.dbd")
-pilatusDetectorApp_registerRecordDeviceDriver(pdbbase) 
+dbLoadDatabase("$(TOP)/dbd/aravisGigEApp.dbd")
+aravisGigEApp_registerRecordDeviceDriver(pdbbase) 
 
-epicsEnvSet("PREFIX", "13PIL1:")
-epicsEnvSet("PORT",   "PIL")
+epicsEnvSet("PREFIX", "13ARAV1:")
+epicsEnvSet("PORT",   "ARV1")
 epicsEnvSet("QSIZE",  "20")
-epicsEnvSet("XSIZE",  "487")
-epicsEnvSet("YSIZE",  "195")
+epicsEnvSet("XSIZE",  "1920")
+epicsEnvSet("YSIZE",  "2048")
 epicsEnvSet("NCHANS", "2048")
 
-###
-# Create the asyn port to talk to the Pilatus on port 41234.
-drvAsynIPPortConfigure("camserver","gse-pilatus1:41234")
-# Set the input and output terminators.
-asynOctetSetInputEos("camserver", 0, "\030")
-asynOctetSetOutputEos("camserver", 0, "\n")
-
-pilatusDetectorConfig("$(PORT)", "camserver", $(XSIZE), $(YSIZE), 0, 0)
+aravisCameraConfig("$(PORT)", "Prosilica-02-2131A-06202")
 dbLoadRecords("$(ADCORE)/db/ADBase.template", "P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
 dbLoadRecords("$(ADCORE)/db/NDFile.template", "P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
-dbLoadRecords("$(ADPILATUS)/db/pilatus.template","P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1,CAMSERVER_PORT=camserver")
+dbLoadRecords("$(ARAVISGIGE)/db/Prosilica_GC.template","P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1,CAMSERVER_PORT=camserver")
 
 # Create a standard arrays plugin
 NDStdArraysConfigure("Image1", 5, 0, "$(PORT)", 0, 0)
