@@ -1,0 +1,1061 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 990
+y 349
+w 390
+h 820
+font "arial-bold-r-12.0"
+ctlFont "arial-bold-r-12.0"
+btnFont "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 25
+ctlBgColor1 index 3
+ctlBgColor2 index 3
+topShadowColor index 1
+botShadowColor index 11
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 470
+w 390
+h 350
+lineColor index 5
+fill
+fillColor index 5
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 0
+w 390
+h 470
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "ADBase"
+sizeOfs 5
+numDsps 0
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 470
+w 390
+h 110
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "aravisCamera"
+sizeOfs 5
+numDsps 0
+noScroll
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 5
+y 790
+w 380
+h 25
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "more features..."
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "Sony_CVC_EH6300-features"
+}
+setPosition {
+  0 "parentWindow"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 595
+w 185
+h 180
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 585
+w 46
+h 15
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Zoom  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 600
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ZoomPlus: Starts the Zoom Drive to Zoom in (Tele) ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 600
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Zoom+"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 600
+w 85
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ZoomPlus.PROC"
+pressValue "1"
+onLabel "Zoom+"
+offLabel "Zoom+"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 625
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ZoomMinus: Starts the Zoom Drive to Zoom out (Wide). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 625
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Zoom-"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 625
+w 85
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ZoomMinus.PROC"
+pressValue "1"
+onLabel "Zoom-"
+offLabel "Zoom-"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 650
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ZoomStop: Stops the Zoom Drive . ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 650
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ZoomStop"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 650
+w 85
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ZoomStop.PROC"
+pressValue "1"
+onLabel "Stop"
+offLabel "Stop"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 675
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ZoomPlusSpeed: Zoom speed in plus direction (Tele).0(slow)->7(Fast). ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 675
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Zoom+ Speed"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 100
+y 675
+w 40
+h 20
+controlPv "$(P)$(R)ZoomPlusSpeed"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 145
+y 675
+w 40
+h 20
+controlPv "$(P)$(R)ZoomPlusSpeed_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 700
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ZoomMinusSpeed: Zoom speed in minus direction (Wide).0(slow)->7(Fast) ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 700
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Zoom- Speed"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 100
+y 700
+w 40
+h 20
+controlPv "$(P)$(R)ZoomMinusSpeed"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 145
+y 700
+w 40
+h 20
+controlPv "$(P)$(R)ZoomMinusSpeed_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 725
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ZoomPosition: Displays the current zoom position. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 725
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Position"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 725
+w 55
+h 20
+controlPv "$(P)$(R)ZoomPosition_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 70
+y 725
+w 55
+h 20
+controlPv "$(P)$(R)ZoomPositionTarg"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 200
+y 595
+w 185
+h 55
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 200
+y 585
+w 46
+h 15
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Focus  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 205
+y 625
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FocusOnePushAF: When a Trigger Command is sent; the lens moves to adjust the ,desc1=focus for the subject. The focus lens then holds that position until the next ,desc2=Trigger Command is input. FocusMode has to be set to manual. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 215
+y 625
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "OnePushAF"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 625
+w 100
+h 20
+fgColor index 25
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)FocusOnePushAF.PROC"
+pressValue "1"
+onLabel "OnePushAF"
+offLabel "OnePushAF"
+3d
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 205
+y 600
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=FocusMode: The minimum focus distance is 10 mm at the optical wide end (320; 300 ,desc1=and 290mm default depending on model) and 1500 mm (800mm 18x models) at the ,desc2=optical tele end; and is independent of the digital zoom. The Auto Focus (AF) ,desc3=function automatically adjusts the focus position to maximise the high frequency ,desc4=content of the picture in a centre measurement area; taking into consideration ,desc5=the high luminance and strong contrast components. "
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 215
+y 600
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "FocusMode"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 600
+w 100
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)FocusMode"
+indicatorPv "$(P)$(R)FocusMode_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 200
+y 670
+w 185
+h 55
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 200
+y 660
+w 64
+h 15
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 8
+value {
+  "  Exposure  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 205
+y 700
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Shutter: Sets the shutter speed. Available when ExposureAuto is set to Off or ,desc1=Shutter Priority Auto. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 215
+y 700
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Shutter"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 700
+w 120
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)Shutter"
+indicatorPv "$(P)$(R)Shutter_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 675
+w 120
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ExposureAuto"
+indicatorPv "$(P)$(R)ExposureAuto_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 215
+y 675
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Auto"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 205
+y 675
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ExposureAuto: A variety of AE functions are available for optimal output of ,desc1=subjects in lighting conditions that range from low to high. ,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 10
+y 750
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=ZoomDEnable: Enable/Disable the digital zoom. ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 750
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ZoomDEnable"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 750
+w 85
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ZoomDEnable"
+indicatorPv "$(P)$(R)ZoomDEnable_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
