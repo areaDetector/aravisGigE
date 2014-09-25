@@ -47,7 +47,4 @@ else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
 	USR_INCLUDES += -I$(TOP)/vendor/aravis-linux-x86/include/aravis-0.2
 endif
 
-# TODO: should pick this up from the vendor directory
-PROD_LIBS += aravis-0.2
-
 include $(TOP)/configure/RULES
