@@ -20,24 +20,24 @@ DBD += aravisCameraSupport.dbd
 
 # If glib is not in a standard place, tell the build system where to look
 ifneq ($(GLIBPREFIX),)
-       USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
-       ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-           ifneq (,$(wildcard $(GLIBPREFIX)/lib64/glib-2.0))
-           # If these is a glibprefix/lib64/glib-2.0 dir then use this     
-               USR_INCLUDES += -I$(GLIBPREFIX)/lib64/glib-2.0/include
-               glib-2.0_DIR = $(GLIBPREFIX)/lib64
-           else
-            # Assume it is in the lib directory
-               USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include            
-                       glib-2.0_DIR = $(GLIBPREFIX)/lib
-               endif
-       else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
-               USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
-               glib-2.0_DIR = $(GLIBPREFIX)/lib
-       endif
+	USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
+	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
+	    ifneq (,$(wildcard $(GLIBPREFIX)/lib64/glib-2.0))
+	    #If these is a glibprefix/lib64/glib-2.0 dir then use this
+		USR_INCLUDES += -I$(GLIBPREFIX)/lib64/glib-2.0/include
+		glib-2.0_DIR = $(GLIBPREFIX)/lib64
+	    else
+		#Assume it is in the lib directory
+		USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
+		glib-2.0_DIR = $(GLIBPREFIX)/lib
+	    endif
+	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
+	    USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
+	    glib-2.0_DIR = $(GLIBPREFIX)/lib
+	endif
 endif
 
- # We need to link against aravis
+# We need to link against aravis
 ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
 	USR_INCLUDES += -I$(TOP)/vendor/aravis-linux-x86_64/include/aravis-0.2
 else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
