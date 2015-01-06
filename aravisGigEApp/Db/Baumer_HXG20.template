@@ -8,49 +8,49 @@
 
 record(stringin, "$(P)$(R)DeviceVendorName_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceVendorName")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_DeviceVendorName")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(stringin, "$(P)$(R)DeviceModelName_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceModelName")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_DeviceModelName")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(stringin, "$(P)$(R)DeviceManufactur_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceManufacturerInfo")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_DeviceManufacturerInfo")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(stringin, "$(P)$(R)DeviceVersion_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceVersion")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_DeviceVersion")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(stringin, "$(P)$(R)DeviceID_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceID")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_DeviceID")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(stringin, "$(P)$(R)DeviceUserID_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceUserID")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_DeviceUserID")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)DeviceScanType_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceScanType")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceScanType")
   field(ZRST, "Areascan")
   field(ZRVL, "0")
   field(ONST, "Linescan")
@@ -61,7 +61,7 @@ record(mbbi, "$(P)$(R)DeviceScanType_RBV") {
 
 record(mbbo, "$(P)$(R)DeviceScanType") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceScanType")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceScanType")
   field(ZRST, "Areascan")
   field(ZRVL, "0")
   field(ONST, "Linescan")
@@ -71,7 +71,7 @@ record(mbbo, "$(P)$(R)DeviceScanType") {
 
 record(mbbi, "$(P)$(R)DeviceSensorType_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceSensorType")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceSensorType")
   field(ZRST, "CCD")
   field(ZRVL, "0")
   field(ONST, "CMOS")
@@ -82,7 +82,7 @@ record(mbbi, "$(P)$(R)DeviceSensorType_RBV") {
 
 record(mbbo, "$(P)$(R)DeviceSensorType") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceSensorType")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceSensorType")
   field(ZRST, "CCD")
   field(ZRVL, "0")
   field(ONST, "CMOS")
@@ -92,7 +92,7 @@ record(mbbo, "$(P)$(R)DeviceSensorType") {
 
 record(mbbi, "$(P)$(R)DeviceTemperatur_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperatureSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceTemperatureSelector")
   field(ZRST, "InHouse")
   field(ZRVL, "0")
   field(SCAN, "I/O Intr")
@@ -101,7 +101,7 @@ record(mbbi, "$(P)$(R)DeviceTemperatur_RBV") {
 
 record(mbbo, "$(P)$(R)DeviceTemperatur") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperatureSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceTemperatureSelector")
   field(ZRST, "InHouse")
   field(ZRVL, "0")
   field(DISA, "0")
@@ -109,7 +109,7 @@ record(mbbo, "$(P)$(R)DeviceTemperatur") {
 
 record(ai, "$(P)$(R)DeviceTemperatu1_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperature")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_DeviceTemperature")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -117,14 +117,14 @@ record(ai, "$(P)$(R)DeviceTemperatu1_RBV") {
 
 record(ao, "$(P)$(R)DeviceTemperatu1") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceTemperature")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_DeviceTemperature")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)DeviceClockSelec_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceClockSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceClockSelector")
   field(ZRST, "Sensor")
   field(ZRVL, "1")
   field(SCAN, "I/O Intr")
@@ -133,7 +133,7 @@ record(mbbi, "$(P)$(R)DeviceClockSelec_RBV") {
 
 record(mbbo, "$(P)$(R)DeviceClockSelec") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceClockSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceClockSelector")
   field(ZRST, "Sensor")
   field(ZRVL, "1")
   field(DISA, "0")
@@ -141,7 +141,7 @@ record(mbbo, "$(P)$(R)DeviceClockSelec") {
 
 record(ai, "$(P)$(R)DeviceClockFrequ_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceClockFrequency")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_DeviceClockFrequency")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -149,14 +149,14 @@ record(ai, "$(P)$(R)DeviceClockFrequ_RBV") {
 
 record(ao, "$(P)$(R)DeviceClockFrequ") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceClockFrequency")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_DeviceClockFrequency")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)DeviceSensorCloc_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceSensorClockFrequency")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceSensorClockFrequency")
   field(ZRST, "Mhz_48")
   field(ZRVL, "48000000")
   field(ONST, "Mhz_40")
@@ -171,7 +171,7 @@ record(mbbi, "$(P)$(R)DeviceSensorCloc_RBV") {
 
 record(mbbo, "$(P)$(R)DeviceSensorCloc") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DeviceSensorClockFrequency")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DeviceSensorClockFrequency")
   field(ZRST, "Mhz_48")
   field(ZRVL, "48000000")
   field(ONST, "Mhz_40")
@@ -185,163 +185,163 @@ record(mbbo, "$(P)$(R)DeviceSensorCloc") {
 
 record(longin, "$(P)$(R)ReadOutTime_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadOutTime")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReadOutTime")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ReadOutTime") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadOutTime")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReadOutTime")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)BoSpec0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSpec0")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSpec0")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BoSpec0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSpec0")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSpec0")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)SensorWidth_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorWidth")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_SensorWidth")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)SensorWidth") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorWidth")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_SensorWidth")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)SensorHeight_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorHeight")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_SensorHeight")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)SensorHeight") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorHeight")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_SensorHeight")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)Width_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Width")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_Width")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)Width") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Width")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_Width")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)Height_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Height")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_Height")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)Height") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Height")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_Height")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)OffsetX_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetX")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_OffsetX")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)OffsetX") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetX")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_OffsetX")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)OffsetY_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetY")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_OffsetY")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)OffsetY") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))OffsetY")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_OffsetY")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)BinningHorizonta_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningHorizontal")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BinningHorizontal")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BinningHorizonta") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningHorizontal")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BinningHorizontal")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)BinningVertical_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningVertical")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BinningVertical")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BinningVertical") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BinningVertical")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BinningVertical")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)DecimationHorizo_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DecimationHorizontal")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DecimationHorizontal")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)DecimationHorizo") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DecimationHorizontal")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DecimationHorizontal")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)DecimationVertic_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DecimationVertical")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DecimationVertical")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)DecimationVertic") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DecimationVertical")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DecimationVertical")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)ReverseX_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReverseX")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReverseX")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -350,7 +350,7 @@ record(bi, "$(P)$(R)ReverseX_RBV") {
 
 record(bo, "$(P)$(R)ReverseX") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReverseX")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReverseX")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -358,7 +358,7 @@ record(bo, "$(P)$(R)ReverseX") {
 
 record(bi, "$(P)$(R)ReverseY_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReverseY")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReverseY")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -367,7 +367,7 @@ record(bi, "$(P)$(R)ReverseY_RBV") {
 
 record(bo, "$(P)$(R)ReverseY") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReverseY")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReverseY")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -375,7 +375,7 @@ record(bo, "$(P)$(R)ReverseY") {
 
 record(mbbi, "$(P)$(R)PixelFormat_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelFormat")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_PixelFormat")
   field(ZRST, "Mono8")
   field(ZRVL, "17301505")
   field(ONST, "Mono10")
@@ -394,7 +394,7 @@ record(mbbi, "$(P)$(R)PixelFormat_RBV") {
 
 record(mbbo, "$(P)$(R)PixelFormat") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PixelFormat")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_PixelFormat")
   field(ZRST, "Mono8")
   field(ZRVL, "17301505")
   field(ONST, "Mono10")
@@ -412,7 +412,7 @@ record(mbbo, "$(P)$(R)PixelFormat") {
 
 record(mbbi, "$(P)$(R)TestImageSelecto_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TestImageSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TestImageSelector")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "GreyVerticalRamp")
@@ -427,7 +427,7 @@ record(mbbi, "$(P)$(R)TestImageSelecto_RBV") {
 
 record(mbbo, "$(P)$(R)TestImageSelecto") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TestImageSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TestImageSelector")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "GreyVerticalRamp")
@@ -441,7 +441,7 @@ record(mbbo, "$(P)$(R)TestImageSelecto") {
 
 record(mbbi, "$(P)$(R)SensorDigitizati_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorDigitizationTaps")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_SensorDigitizationTaps")
   field(ZRST, "Two")
   field(ZRVL, "0")
   field(ONST, "Four")
@@ -456,7 +456,7 @@ record(mbbi, "$(P)$(R)SensorDigitizati_RBV") {
 
 record(mbbo, "$(P)$(R)SensorDigitizati") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))SensorDigitizationTaps")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_SensorDigitizationTaps")
   field(ZRST, "Two")
   field(ZRVL, "0")
   field(ONST, "Four")
@@ -470,7 +470,7 @@ record(mbbo, "$(P)$(R)SensorDigitizati") {
 
 record(mbbi, "$(P)$(R)PartialScanEnabl_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PartialScanEnabled")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_PartialScanEnabled")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -481,7 +481,7 @@ record(mbbi, "$(P)$(R)PartialScanEnabl_RBV") {
 
 record(mbbo, "$(P)$(R)PartialScanEnabl") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PartialScanEnabled")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_PartialScanEnabled")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -491,7 +491,7 @@ record(mbbo, "$(P)$(R)PartialScanEnabl") {
 
 record(mbbi, "$(P)$(R)AcquisitionMode_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionMode")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_AcquisitionMode")
   field(ZRST, "Continuous")
   field(ZRVL, "0")
   field(SCAN, "I/O Intr")
@@ -500,7 +500,7 @@ record(mbbi, "$(P)$(R)AcquisitionMode_RBV") {
 
 record(mbbo, "$(P)$(R)AcquisitionMode") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionMode")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_AcquisitionMode")
   field(ZRST, "Continuous")
   field(ZRVL, "0")
   field(DISA, "0")
@@ -508,25 +508,25 @@ record(mbbo, "$(P)$(R)AcquisitionMode") {
 
 record(longout, "$(P)$(R)AcquisitionStart") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionStart")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_AcquisitionStart")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)AcquisitionStop") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionStop")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_AcquisitionStop")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)AcquisitionAbort") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionAbort")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_AcquisitionAbort")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)AcquisitionFrame_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRate")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_AcquisitionFrameRate")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -534,14 +534,14 @@ record(ai, "$(P)$(R)AcquisitionFrame_RBV") {
 
 record(ao, "$(P)$(R)AcquisitionFrame") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRate")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_AcquisitionFrameRate")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)AcquisitionFram0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRateEnable")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_AcquisitionFrameRateEnable")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -550,7 +550,7 @@ record(bi, "$(P)$(R)AcquisitionFram0_RBV") {
 
 record(bo, "$(P)$(R)AcquisitionFram0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))AcquisitionFrameRateEnable")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_AcquisitionFrameRateEnable")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -558,7 +558,7 @@ record(bo, "$(P)$(R)AcquisitionFram0") {
 
 record(ai, "$(P)$(R)ExposureTime_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureTime")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_ExposureTime")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -566,14 +566,14 @@ record(ai, "$(P)$(R)ExposureTime_RBV") {
 
 record(ao, "$(P)$(R)ExposureTime") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureTime")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_ExposureTime")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)TriggerSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerSelector")
   field(ZRST, "FrameStart")
   field(ZRVL, "0")
   field(SCAN, "I/O Intr")
@@ -582,7 +582,7 @@ record(mbbi, "$(P)$(R)TriggerSelector_RBV") {
 
 record(mbbo, "$(P)$(R)TriggerSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerSelector")
   field(ZRST, "FrameStart")
   field(ZRVL, "0")
   field(DISA, "0")
@@ -590,7 +590,7 @@ record(mbbo, "$(P)$(R)TriggerSelector") {
 
 record(mbbi, "$(P)$(R)TriggerMode_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerMode")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerMode")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -601,25 +601,23 @@ record(mbbi, "$(P)$(R)TriggerMode_RBV") {
 
 record(mbbo, "$(P)$(R)TriggerMode") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerMode")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerMode")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
   field(ONVL, "0")
   field(DISA, "0")
-  field(VAL, "1")
-  field(PINI, "YES")  
 }
 
 record(longout, "$(P)$(R)TriggerSoftware") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSoftware")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerSoftware")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)TriggerSource_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSource")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -638,7 +636,7 @@ record(mbbi, "$(P)$(R)TriggerSource_RBV") {
 
 record(mbbo, "$(P)$(R)TriggerSource") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerSource")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -656,7 +654,7 @@ record(mbbo, "$(P)$(R)TriggerSource") {
 
 record(mbbi, "$(P)$(R)TriggerActivatio_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerActivation")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerActivation")
   field(ZRST, "FallingEdge")
   field(ZRVL, "0")
   field(ONST, "RisingEdge")
@@ -667,7 +665,7 @@ record(mbbi, "$(P)$(R)TriggerActivatio_RBV") {
 
 record(mbbo, "$(P)$(R)TriggerActivatio") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerActivation")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerActivation")
   field(ZRST, "FallingEdge")
   field(ZRVL, "0")
   field(ONST, "RisingEdge")
@@ -677,7 +675,7 @@ record(mbbo, "$(P)$(R)TriggerActivatio") {
 
 record(mbbi, "$(P)$(R)TriggerOverlap_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerOverlap")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerOverlap")
   field(ZRST, "ReadOut")
   field(ZRVL, "0")
   field(SCAN, "I/O Intr")
@@ -686,7 +684,7 @@ record(mbbi, "$(P)$(R)TriggerOverlap_RBV") {
 
 record(mbbo, "$(P)$(R)TriggerOverlap") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerOverlap")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TriggerOverlap")
   field(ZRST, "ReadOut")
   field(ZRVL, "0")
   field(DISA, "0")
@@ -694,7 +692,7 @@ record(mbbo, "$(P)$(R)TriggerOverlap") {
 
 record(ai, "$(P)$(R)TriggerDelay_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerDelay")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_TriggerDelay")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -702,14 +700,14 @@ record(ai, "$(P)$(R)TriggerDelay_RBV") {
 
 record(ao, "$(P)$(R)TriggerDelay") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TriggerDelay")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_TriggerDelay")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)ExposureMode_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureMode")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ExposureMode")
   field(ZRST, "Timed")
   field(ZRVL, "0")
   field(ONST, "TriggerWidth")
@@ -722,7 +720,7 @@ record(mbbi, "$(P)$(R)ExposureMode_RBV") {
 
 record(mbbo, "$(P)$(R)ExposureMode") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ExposureMode")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ExposureMode")
   field(ZRST, "Timed")
   field(ZRVL, "0")
   field(ONST, "TriggerWidth")
@@ -734,7 +732,7 @@ record(mbbo, "$(P)$(R)ExposureMode") {
 
 record(mbbi, "$(P)$(R)ReadoutMode_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadoutMode")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReadoutMode")
   field(ZRST, "Sequential")
   field(ZRVL, "0")
   field(ONST, "Overlapped")
@@ -745,7 +743,7 @@ record(mbbi, "$(P)$(R)ReadoutMode_RBV") {
 
 record(mbbo, "$(P)$(R)ReadoutMode") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ReadoutMode")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ReadoutMode")
   field(ZRST, "Sequential")
   field(ZRVL, "0")
   field(ONST, "Overlapped")
@@ -755,7 +753,7 @@ record(mbbo, "$(P)$(R)ReadoutMode") {
 
 record(mbbi, "$(P)$(R)LineSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineSelector")
   field(ZRST, "Line0")
   field(ZRVL, "0")
   field(ONST, "Line1")
@@ -774,7 +772,7 @@ record(mbbi, "$(P)$(R)LineSelector_RBV") {
 
 record(mbbo, "$(P)$(R)LineSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineSelector")
   field(ZRST, "Line0")
   field(ZRVL, "0")
   field(ONST, "Line1")
@@ -792,7 +790,7 @@ record(mbbo, "$(P)$(R)LineSelector") {
 
 record(mbbi, "$(P)$(R)LineMode_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineMode")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineMode")
   field(ZRST, "Output")
   field(ZRVL, "0")
   field(ONST, "Input")
@@ -803,7 +801,7 @@ record(mbbi, "$(P)$(R)LineMode_RBV") {
 
 record(mbbo, "$(P)$(R)LineMode") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineMode")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineMode")
   field(ZRST, "Output")
   field(ZRVL, "0")
   field(ONST, "Input")
@@ -813,7 +811,7 @@ record(mbbo, "$(P)$(R)LineMode") {
 
 record(bi, "$(P)$(R)LineInverter_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineInverter")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineInverter")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -822,7 +820,7 @@ record(bi, "$(P)$(R)LineInverter_RBV") {
 
 record(bo, "$(P)$(R)LineInverter") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineInverter")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineInverter")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -830,7 +828,7 @@ record(bo, "$(P)$(R)LineInverter") {
 
 record(bi, "$(P)$(R)LineStatus_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatus")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineStatus")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -839,7 +837,7 @@ record(bi, "$(P)$(R)LineStatus_RBV") {
 
 record(bo, "$(P)$(R)LineStatus") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatus")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineStatus")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -847,20 +845,20 @@ record(bo, "$(P)$(R)LineStatus") {
 
 record(longin, "$(P)$(R)LineStatusAll_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatusAll")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineStatusAll")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)LineStatusAll") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineStatusAll")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineStatusAll")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)LineSource_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSource")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "ExposureActive")
@@ -899,7 +897,7 @@ record(mbbi, "$(P)$(R)LineSource_RBV") {
 
 record(mbbo, "$(P)$(R)LineSource") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineSource")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LineSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "ExposureActive")
@@ -937,7 +935,7 @@ record(mbbo, "$(P)$(R)LineSource") {
 
 record(mbbi, "$(P)$(R)UserOutputSelect_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserOutputSelector")
   field(ZRST, "UserOutput0")
   field(ZRVL, "0")
   field(ONST, "UserOutput1")
@@ -950,7 +948,7 @@ record(mbbi, "$(P)$(R)UserOutputSelect_RBV") {
 
 record(mbbo, "$(P)$(R)UserOutputSelect") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserOutputSelector")
   field(ZRST, "UserOutput0")
   field(ZRVL, "0")
   field(ONST, "UserOutput1")
@@ -962,7 +960,7 @@ record(mbbo, "$(P)$(R)UserOutputSelect") {
 
 record(bi, "$(P)$(R)UserOutputValue_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValue")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserOutputValue")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -971,7 +969,7 @@ record(bi, "$(P)$(R)UserOutputValue_RBV") {
 
 record(bo, "$(P)$(R)UserOutputValue") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValue")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserOutputValue")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -979,20 +977,20 @@ record(bo, "$(P)$(R)UserOutputValue") {
 
 record(longin, "$(P)$(R)UserOutputValueA_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValueAll")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserOutputValueAll")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)UserOutputValueA") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserOutputValueAll")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserOutputValueAll")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)LineDebouncerHig_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineDebouncerHighTimeAbs")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_LineDebouncerHighTimeAbs")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -1000,14 +998,14 @@ record(ai, "$(P)$(R)LineDebouncerHig_RBV") {
 
 record(ao, "$(P)$(R)LineDebouncerHig") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineDebouncerHighTimeAbs")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_LineDebouncerHighTimeAbs")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)LineDebouncerLow_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineDebouncerLowTimeAbs")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_LineDebouncerLowTimeAbs")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -1015,27 +1013,27 @@ record(ai, "$(P)$(R)LineDebouncerLow_RBV") {
 
 record(ao, "$(P)$(R)LineDebouncerLow") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LineDebouncerLowTimeAbs")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_LineDebouncerLowTimeAbs")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)FrameCounter_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameCounter")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_FrameCounter")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)FrameCounter") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))FrameCounter")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_FrameCounter")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)TimerSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TimerSelector")
   field(ZRST, "Timer1")
   field(ZRVL, "0")
   field(ONST, "Timer2")
@@ -1048,7 +1046,7 @@ record(mbbi, "$(P)$(R)TimerSelector_RBV") {
 
 record(mbbo, "$(P)$(R)TimerSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TimerSelector")
   field(ZRST, "Timer1")
   field(ZRVL, "0")
   field(ONST, "Timer2")
@@ -1060,7 +1058,7 @@ record(mbbo, "$(P)$(R)TimerSelector") {
 
 record(ai, "$(P)$(R)TimerDuration_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerDuration")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_TimerDuration")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -1068,14 +1066,14 @@ record(ai, "$(P)$(R)TimerDuration_RBV") {
 
 record(ao, "$(P)$(R)TimerDuration") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerDuration")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_TimerDuration")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)TimerDelay_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerDelay")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_TimerDelay")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -1083,14 +1081,14 @@ record(ai, "$(P)$(R)TimerDelay_RBV") {
 
 record(ao, "$(P)$(R)TimerDelay") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerDelay")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_TimerDelay")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)TimerTriggerSour_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerTriggerSource")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TimerTriggerSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -1119,7 +1117,7 @@ record(mbbi, "$(P)$(R)TimerTriggerSour_RBV") {
 
 record(mbbo, "$(P)$(R)TimerTriggerSour") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerTriggerSource")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TimerTriggerSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -1147,7 +1145,7 @@ record(mbbo, "$(P)$(R)TimerTriggerSour") {
 
 record(mbbi, "$(P)$(R)TimerTriggerActi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerTriggerActivation")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TimerTriggerActivation")
   field(ZRST, "AnyEdge")
   field(ZRVL, "1")
   field(ONST, "RisingEdge")
@@ -1160,7 +1158,7 @@ record(mbbi, "$(P)$(R)TimerTriggerActi_RBV") {
 
 record(mbbo, "$(P)$(R)TimerTriggerActi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TimerTriggerActivation")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TimerTriggerActivation")
   field(ZRST, "AnyEdge")
   field(ZRVL, "1")
   field(ONST, "RisingEdge")
@@ -1172,7 +1170,7 @@ record(mbbo, "$(P)$(R)TimerTriggerActi") {
 
 record(mbbi, "$(P)$(R)CounterSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterSelector")
   field(ZRST, "Counter1")
   field(ZRVL, "0")
   field(ONST, "Counter2")
@@ -1187,7 +1185,7 @@ record(mbbi, "$(P)$(R)CounterSelector_RBV") {
 
 record(mbbo, "$(P)$(R)CounterSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterSelector")
   field(ZRST, "Counter1")
   field(ZRVL, "0")
   field(ONST, "Counter2")
@@ -1201,7 +1199,7 @@ record(mbbo, "$(P)$(R)CounterSelector") {
 
 record(mbbi, "$(P)$(R)CounterEventSour_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterEventSource")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterEventSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -1230,7 +1228,7 @@ record(mbbi, "$(P)$(R)CounterEventSour_RBV") {
 
 record(mbbo, "$(P)$(R)CounterEventSour") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterEventSource")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterEventSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -1258,7 +1256,7 @@ record(mbbo, "$(P)$(R)CounterEventSour") {
 
 record(mbbi, "$(P)$(R)CounterEventActi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterEventActivation")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterEventActivation")
   field(ZRST, "RisingEdge")
   field(ZRVL, "2")
   field(ONST, "FallingEdge")
@@ -1271,7 +1269,7 @@ record(mbbi, "$(P)$(R)CounterEventActi_RBV") {
 
 record(mbbo, "$(P)$(R)CounterEventActi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterEventActivation")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterEventActivation")
   field(ZRST, "RisingEdge")
   field(ZRVL, "2")
   field(ONST, "FallingEdge")
@@ -1283,39 +1281,39 @@ record(mbbo, "$(P)$(R)CounterEventActi") {
 
 record(longin, "$(P)$(R)CounterValue_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterValue")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterValue")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)CounterValue") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterValue")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterValue")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)CounterValueAtRe_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterValueAtReset")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterValueAtReset")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)CounterValueAtRe") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterValueAtReset")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterValueAtReset")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)CounterReset") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterReset")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterReset")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)CounterResetSour_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterResetSource")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterResetSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -1344,7 +1342,7 @@ record(mbbi, "$(P)$(R)CounterResetSour_RBV") {
 
 record(mbbo, "$(P)$(R)CounterResetSour") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterResetSource")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterResetSource")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "Line0")
@@ -1372,7 +1370,7 @@ record(mbbo, "$(P)$(R)CounterResetSour") {
 
 record(mbbi, "$(P)$(R)CounterResetActi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterResetActivation")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterResetActivation")
   field(ZRST, "RisingEdge")
   field(ZRVL, "2")
   field(ONST, "FallingEdge")
@@ -1385,7 +1383,7 @@ record(mbbi, "$(P)$(R)CounterResetActi_RBV") {
 
 record(mbbo, "$(P)$(R)CounterResetActi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterResetActivation")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterResetActivation")
   field(ZRST, "RisingEdge")
   field(ZRVL, "2")
   field(ONST, "FallingEdge")
@@ -1397,20 +1395,20 @@ record(mbbo, "$(P)$(R)CounterResetActi") {
 
 record(longin, "$(P)$(R)CounterDuration_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterDuration")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterDuration")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)CounterDuration") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterDuration")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterDuration")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)CounterStatus_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterStatus")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterStatus")
   field(ZRST, "CounterActive")
   field(ZRVL, "0")
   field(ONST, "CounterCompleted")
@@ -1421,7 +1419,7 @@ record(mbbi, "$(P)$(R)CounterStatus_RBV") {
 
 record(mbbo, "$(P)$(R)CounterStatus") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))CounterStatus")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_CounterStatus")
   field(ZRST, "CounterActive")
   field(ZRVL, "0")
   field(ONST, "CounterCompleted")
@@ -1431,7 +1429,7 @@ record(mbbo, "$(P)$(R)CounterStatus") {
 
 record(mbbi, "$(P)$(R)EventSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventSelector")
   field(ZRST, "PrimaryApplicati")
   field(ZRVL, "0x0007")
   field(ONST, "Line0RisingEdge")
@@ -1470,7 +1468,7 @@ record(mbbi, "$(P)$(R)EventSelector_RBV") {
 
 record(mbbo, "$(P)$(R)EventSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventSelector")
   field(ZRST, "PrimaryApplicati")
   field(ZRVL, "0x0007")
   field(ONST, "Line0RisingEdge")
@@ -1508,7 +1506,7 @@ record(mbbo, "$(P)$(R)EventSelector") {
 
 record(mbbi, "$(P)$(R)EventNotificatio_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventNotification")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventNotification")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "GigEVisionEvent")
@@ -1519,7 +1517,7 @@ record(mbbi, "$(P)$(R)EventNotificatio_RBV") {
 
 record(mbbo, "$(P)$(R)EventNotificatio") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventNotification")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventNotification")
   field(ZRST, "Off")
   field(ZRVL, "0")
   field(ONST, "GigEVisionEvent")
@@ -1529,995 +1527,995 @@ record(mbbo, "$(P)$(R)EventNotificatio") {
 
 record(longin, "$(P)$(R)LostEventCounter_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LostEventCounter")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LostEventCounter")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)LostEventCounter") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LostEventCounter")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LostEventCounter")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)DiscardedEventCo_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DiscardedEventCounter")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DiscardedEventCounter")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)DiscardedEventCo") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DiscardedEventCounter")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DiscardedEventCounter")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventPrimaryApp0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventPrimaryApplicationSwitch")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventPrimaryApplicationSwitch")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventPrimaryApp0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventPrimaryApplicationSwitch")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventPrimaryApplicationSwitch")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventPrimaryApp1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventPrimaryApplicationSwitchTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventPrimaryApplicationSwitchTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventPrimaryApp1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventPrimaryApplicationSwitchTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventPrimaryApplicationSwitchTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine0Risin0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0RisingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0RisingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine0Risin0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0RisingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0RisingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine0Risin1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0RisingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0RisingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine0Risin1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0RisingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0RisingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine0Falli0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0FallingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0FallingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine0Falli0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0FallingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0FallingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine0Falli1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0FallingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0FallingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine0Falli1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine0FallingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine0FallingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine1Risin0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1RisingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1RisingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine1Risin0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1RisingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1RisingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine1Risin1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1RisingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1RisingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine1Risin1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1RisingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1RisingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine1Falli0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1FallingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1FallingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine1Falli0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1FallingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1FallingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine1Falli1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1FallingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1FallingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine1Falli1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine1FallingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine1FallingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine2Risin0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2RisingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2RisingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine2Risin0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2RisingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2RisingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine2Risin1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2RisingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2RisingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine2Risin1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2RisingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2RisingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine2Falli0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2FallingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2FallingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine2Falli0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2FallingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2FallingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine2Falli1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2FallingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2FallingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine2Falli1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine2FallingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine2FallingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine3Risin0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3RisingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3RisingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine3Risin0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3RisingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3RisingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine3Risin1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3RisingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3RisingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine3Risin1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3RisingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3RisingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine3Falli0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3FallingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3FallingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine3Falli0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3FallingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3FallingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine3Falli1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3FallingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3FallingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine3Falli1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine3FallingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine3FallingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine4Risin0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4RisingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4RisingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine4Risin0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4RisingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4RisingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine4Risin1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4RisingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4RisingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine4Risin1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4RisingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4RisingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine4Falli0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4FallingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4FallingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine4Falli0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4FallingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4FallingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine4Falli1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4FallingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4FallingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine4Falli1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine4FallingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine4FallingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine5Risin0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5RisingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5RisingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine5Risin0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5RisingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5RisingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine5Risin1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5RisingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5RisingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine5Risin1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5RisingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5RisingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine5Falli0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5FallingEdge")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5FallingEdge")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine5Falli0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5FallingEdge")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5FallingEdge")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLine5Falli1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5FallingEdgeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5FallingEdgeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLine5Falli1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLine5FallingEdgeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLine5FallingEdgeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventExposureSt0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureStart")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureStart")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventExposureSt0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureStart")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureStart")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventExposureSt1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureStartTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureStartTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventExposureSt1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureStartTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureStartTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventExposureEn0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureEnd")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureEnd")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventExposureEn0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureEnd")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureEnd")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventExposureEn1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureEndTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureEndTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventExposureEn1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventExposureEndTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventExposureEndTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventFrameStart_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameStart")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameStart")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventFrameStart") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameStart")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameStart")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventFrameStartT_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameStartTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameStartTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventFrameStartT") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameStartTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameStartTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventFrameEnd_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameEnd")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameEnd")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventFrameEnd") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameEnd")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameEnd")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventFrameEndTim_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameEndTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameEndTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventFrameEndTim") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventFrameEndTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventFrameEndTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTriggerRea0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerReady")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerReady")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTriggerRea0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerReady")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerReady")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTriggerRea1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerReadyTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerReadyTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTriggerRea1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerReadyTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerReadyTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTriggerOve0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerOverlapped")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerOverlapped")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTriggerOve0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerOverlapped")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerOverlapped")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTriggerOve1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerOverlappedTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerOverlappedTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTriggerOve1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerOverlappedTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerOverlappedTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTriggerSki0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerSkipped")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerSkipped")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTriggerSki0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerSkipped")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerSkipped")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTriggerSki1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerSkippedTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerSkippedTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTriggerSki1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTriggerSkippedTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTriggerSkippedTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventSoftware_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSoftware")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventSoftware")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventSoftware") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSoftware")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventSoftware")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventSoftwareTim_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSoftwareTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventSoftwareTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventSoftwareTim") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventSoftwareTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventSoftwareTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventAction1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction1")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction1")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventAction1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction1")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction1")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventAction1Time_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction1Timestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction1Timestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventAction1Time") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction1Timestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction1Timestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventAction2_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction2")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction2")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventAction2") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction2")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction2")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventAction2Time_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction2Timestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction2Timestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventAction2Time") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventAction2Timestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventAction2Timestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink0Up_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0Up")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0Up")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink0Up") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0Up")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0Up")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink0UpTime_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0UpTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0UpTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink0UpTime") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0UpTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0UpTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink0Down_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0Down")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0Down")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink0Down") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0Down")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0Down")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink0DownTi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0DownTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0DownTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink0DownTi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink0DownTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink0DownTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink1Up_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1Up")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1Up")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink1Up") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1Up")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1Up")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink1UpTime_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1UpTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1UpTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink1UpTime") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1UpTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1UpTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink1Down_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1Down")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1Down")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink1Down") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1Down")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1Down")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventLink1DownTi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1DownTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1DownTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventLink1DownTi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventLink1DownTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventLink1DownTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTimer1End_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer1End")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer1End")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTimer1End") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer1End")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer1End")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTimer1EndTi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer1EndTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer1EndTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTimer1EndTi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer1EndTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer1EndTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTimer2End_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer2End")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer2End")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTimer2End") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer2End")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer2End")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTimer2EndTi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer2EndTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer2EndTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTimer2EndTi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer2EndTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer2EndTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTimer3End_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer3End")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer3End")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTimer3End") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer3End")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer3End")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventTimer3EndTi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer3EndTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer3EndTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventTimer3EndTi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventTimer3EndTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventTimer3EndTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventCounter1En0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter1End")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter1End")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventCounter1En0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter1End")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter1End")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventCounter1En1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter1EndTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter1EndTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventCounter1En1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter1EndTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter1EndTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventCounter2En0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter2End")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter2End")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventCounter2En0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter2End")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter2End")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventCounter2En1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter2EndTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter2EndTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventCounter2En1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventCounter2EndTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventCounter2EndTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventGev_Event_0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGev_Event_Link_Speed_Change")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGev_Event_Link_Speed_Change")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventGev_Event_0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGev_Event_Link_Speed_Change")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGev_Event_Link_Speed_Change")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventGev_Event_1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGev_Event_Link_Speed_ChangeTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGev_Event_Link_Speed_ChangeTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventGev_Event_1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGev_Event_Link_Speed_ChangeTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGev_Event_Link_Speed_ChangeTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventGigEVision0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionError")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionError")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventGigEVision0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionError")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionError")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventGigEVision1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionErrorTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionErrorTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventGigEVision1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionErrorTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionErrorTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventEventLost_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventLost")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventLost")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventEventLost") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventLost")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventLost")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventEventLostTi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventLostTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventLostTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventEventLostTi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventLostTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventLostTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventEventDisca0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventDiscarded")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventDiscarded")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventEventDisca0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventDiscarded")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventDiscarded")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventEventDisca1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventDiscardedTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventDiscardedTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventEventDisca1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventEventDiscardedTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventEventDiscardedTimestamp")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventGigEVision2_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionHeartbeatTimeOut")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionHeartbeatTimeOut")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventGigEVision2") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionHeartbeatTimeOut")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionHeartbeatTimeOut")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)EventGigEVision3_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionHeartbeatTimeOutTimestamp")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionHeartbeatTimeOutTimestamp")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)EventGigEVision3") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))EventGigEVisionHeartbeatTimeOutTimestamp")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_EventGigEVisionHeartbeatTimeOutTimestamp")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)GainSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GainSelector")
   field(ZRST, "All")
   field(ZRVL, "0")
   field(ONST, "Red")
@@ -2534,7 +2532,7 @@ record(mbbi, "$(P)$(R)GainSelector_RBV") {
 
 record(mbbo, "$(P)$(R)GainSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GainSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GainSelector")
   field(ZRST, "All")
   field(ZRVL, "0")
   field(ONST, "Red")
@@ -2550,7 +2548,7 @@ record(mbbo, "$(P)$(R)GainSelector") {
 
 record(ai, "$(P)$(R)Gain_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Gain")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_Gain")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -2558,14 +2556,14 @@ record(ai, "$(P)$(R)Gain_RBV") {
 
 record(ao, "$(P)$(R)Gain") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Gain")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_Gain")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)BlackLevelSelect_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BlackLevelSelector")
   field(ZRST, "All")
   field(ZRVL, "0")
   field(SCAN, "I/O Intr")
@@ -2574,7 +2572,7 @@ record(mbbi, "$(P)$(R)BlackLevelSelect_RBV") {
 
 record(mbbo, "$(P)$(R)BlackLevelSelect") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BlackLevelSelector")
   field(ZRST, "All")
   field(ZRVL, "0")
   field(DISA, "0")
@@ -2582,20 +2580,20 @@ record(mbbo, "$(P)$(R)BlackLevelSelect") {
 
 record(longin, "$(P)$(R)BlackLevelRaw_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelRaw")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BlackLevelRaw")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BlackLevelRaw") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BlackLevelRaw")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BlackLevelRaw")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)Gamma_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Gamma")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_Gamma")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -2603,20 +2601,20 @@ record(ai, "$(P)$(R)Gamma_RBV") {
 
 record(ao, "$(P)$(R)Gamma") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))Gamma")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_Gamma")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)WhiteBalance") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))WhiteBalance")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_WhiteBalance")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)BrightnessCorrec_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BrightnessCorrection")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BrightnessCorrection")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -2627,7 +2625,7 @@ record(mbbi, "$(P)$(R)BrightnessCorrec_RBV") {
 
 record(mbbo, "$(P)$(R)BrightnessCorrec") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BrightnessCorrection")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BrightnessCorrection")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -2637,7 +2635,7 @@ record(mbbo, "$(P)$(R)BrightnessCorrec") {
 
 record(mbbi, "$(P)$(R)LUTSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTSelector")
   field(ZRST, "Luminance")
   field(ZRVL, "0")
   field(SCAN, "I/O Intr")
@@ -2646,7 +2644,7 @@ record(mbbi, "$(P)$(R)LUTSelector_RBV") {
 
 record(mbbo, "$(P)$(R)LUTSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTSelector")
   field(ZRST, "Luminance")
   field(ZRVL, "0")
   field(DISA, "0")
@@ -2654,7 +2652,7 @@ record(mbbo, "$(P)$(R)LUTSelector") {
 
 record(bi, "$(P)$(R)LUTEnable_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTEnable")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTEnable")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2663,7 +2661,7 @@ record(bi, "$(P)$(R)LUTEnable_RBV") {
 
 record(bo, "$(P)$(R)LUTEnable") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTEnable")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTEnable")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2671,33 +2669,33 @@ record(bo, "$(P)$(R)LUTEnable") {
 
 record(longin, "$(P)$(R)LUTIndex_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTIndex")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTIndex")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)LUTIndex") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTIndex")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTIndex")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)LUTValue_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTValue")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTValue")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)LUTValue") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LUTValue")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_LUTValue")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)DefectPixelCorre_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelCorrection")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2706,7 +2704,7 @@ record(bi, "$(P)$(R)DefectPixelCorre_RBV") {
 
 record(bo, "$(P)$(R)DefectPixelCorre") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelCorrection")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelCorrection")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2714,20 +2712,20 @@ record(bo, "$(P)$(R)DefectPixelCorre") {
 
 record(longin, "$(P)$(R)DefectPixelListI_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListIndex")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListIndex")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)DefectPixelListI") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListIndex")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListIndex")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)DefectPixelListE_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryActive")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListEntryActive")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2736,7 +2734,7 @@ record(bi, "$(P)$(R)DefectPixelListE_RBV") {
 
 record(bo, "$(P)$(R)DefectPixelListE") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryActive")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListEntryActive")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2744,72 +2742,72 @@ record(bo, "$(P)$(R)DefectPixelListE") {
 
 record(longin, "$(P)$(R)DefectPixelList0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryPosX")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListEntryPosX")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)DefectPixelList0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryPosX")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListEntryPosX")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)DefectPixelList1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryPosY")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListEntryPosY")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)DefectPixelList1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DefectPixelListEntryPosY")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_DefectPixelListEntryPosY")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)PayloadSize_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PayloadSize")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_PayloadSize")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)PayloadSize") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PayloadSize")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_PayloadSize")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevVersionMajor_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMajor")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevVersionMajor")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevVersionMajor") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMajor")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevVersionMajor")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevVersionMinor_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMinor")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevVersionMinor")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevVersionMinor") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevVersionMinor")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevVersionMinor")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)GevDeviceModeIsB_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeIsBigEndian")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevDeviceModeIsBigEndian")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2818,7 +2816,7 @@ record(bi, "$(P)$(R)GevDeviceModeIsB_RBV") {
 
 record(bo, "$(P)$(R)GevDeviceModeIsB") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeIsBigEndian")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevDeviceModeIsBigEndian")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2826,7 +2824,7 @@ record(bo, "$(P)$(R)GevDeviceModeIsB") {
 
 record(mbbi, "$(P)$(R)GevDeviceModeCha_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeCharacterSet")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevDeviceModeCharacterSet")
   field(ZRST, "UTF8")
   field(ZRVL, "1")
   field(SCAN, "I/O Intr")
@@ -2835,7 +2833,7 @@ record(mbbi, "$(P)$(R)GevDeviceModeCha_RBV") {
 
 record(mbbo, "$(P)$(R)GevDeviceModeCha") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevDeviceModeCharacterSet")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevDeviceModeCharacterSet")
   field(ZRST, "UTF8")
   field(ZRVL, "1")
   field(DISA, "0")
@@ -2843,33 +2841,33 @@ record(mbbo, "$(P)$(R)GevDeviceModeCha") {
 
 record(longin, "$(P)$(R)GevInterfaceSele_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevInterfaceSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevInterfaceSelector")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevInterfaceSele") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevInterfaceSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevInterfaceSelector")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevMACAddress_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMACAddress")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMACAddress")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevMACAddress") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMACAddress")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMACAddress")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)GevSupportedIPCo_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationLLA")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedIPConfigurationLLA")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2878,7 +2876,7 @@ record(bi, "$(P)$(R)GevSupportedIPCo_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedIPCo") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationLLA")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedIPConfigurationLLA")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2886,7 +2884,7 @@ record(bo, "$(P)$(R)GevSupportedIPCo") {
 
 record(bi, "$(P)$(R)GevSupportedIPC0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationDHCP")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedIPConfigurationDHCP")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2895,7 +2893,7 @@ record(bi, "$(P)$(R)GevSupportedIPC0_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedIPC0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationDHCP")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedIPConfigurationDHCP")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2903,7 +2901,7 @@ record(bo, "$(P)$(R)GevSupportedIPC0") {
 
 record(bi, "$(P)$(R)GevSupportedIPC1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationPersistentIP")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedIPConfigurationPersistentIP")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2912,7 +2910,7 @@ record(bi, "$(P)$(R)GevSupportedIPC1_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedIPC1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedIPConfigurationPersistentIP")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedIPConfigurationPersistentIP")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2920,7 +2918,7 @@ record(bo, "$(P)$(R)GevSupportedIPC1") {
 
 record(mbbi, "$(P)$(R)GevCurrentIPConf_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfiguration")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfiguration")
   field(ZRST, "PersistentIP")
   field(ZRVL, "4")
   field(ONST, "DHCP")
@@ -2933,7 +2931,7 @@ record(mbbi, "$(P)$(R)GevCurrentIPConf_RBV") {
 
 record(mbbo, "$(P)$(R)GevCurrentIPConf") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfiguration")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfiguration")
   field(ZRST, "PersistentIP")
   field(ZRVL, "4")
   field(ONST, "DHCP")
@@ -2945,7 +2943,7 @@ record(mbbo, "$(P)$(R)GevCurrentIPConf") {
 
 record(bi, "$(P)$(R)GevCurrentIPCon0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationLLA")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfigurationLLA")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2954,7 +2952,7 @@ record(bi, "$(P)$(R)GevCurrentIPCon0_RBV") {
 
 record(bo, "$(P)$(R)GevCurrentIPCon0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationLLA")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfigurationLLA")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2962,7 +2960,7 @@ record(bo, "$(P)$(R)GevCurrentIPCon0") {
 
 record(bi, "$(P)$(R)GevCurrentIPCon1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationDHCP")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfigurationDHCP")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2971,7 +2969,7 @@ record(bi, "$(P)$(R)GevCurrentIPCon1_RBV") {
 
 record(bo, "$(P)$(R)GevCurrentIPCon1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationDHCP")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfigurationDHCP")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2979,7 +2977,7 @@ record(bo, "$(P)$(R)GevCurrentIPCon1") {
 
 record(bi, "$(P)$(R)GevCurrentIPCon2_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationPersistentIP")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfigurationPersistentIP")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2988,7 +2986,7 @@ record(bi, "$(P)$(R)GevCurrentIPCon2_RBV") {
 
 record(bo, "$(P)$(R)GevCurrentIPCon2") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPConfigurationPersistentIP")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPConfigurationPersistentIP")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2996,138 +2994,138 @@ record(bo, "$(P)$(R)GevCurrentIPCon2") {
 
 record(longin, "$(P)$(R)GevCurrentIPAddr_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPAddress")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPAddress")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevCurrentIPAddr") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentIPAddress")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentIPAddress")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevCurrentSubnet_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentSubnetMask")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentSubnetMask")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevCurrentSubnet") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentSubnetMask")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentSubnetMask")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevCurrentDefaul_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentDefaultGateway")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentDefaultGateway")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevCurrentDefaul") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCurrentDefaultGateway")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCurrentDefaultGateway")
   field(DISA, "0")
 }
 
 record(stringin, "$(P)$(R)GevFirstURL_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevFirstURL")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_GevFirstURL")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(stringin, "$(P)$(R)GevSecondURL_RBV") {
   field(DTYP, "asynOctetRead")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSecondURL")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_GevSecondURL")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevNumberOfInter_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevNumberOfInterfaces")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevNumberOfInterfaces")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevNumberOfInter") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevNumberOfInterfaces")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevNumberOfInterfaces")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevPersistentIPA_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentIPAddress")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPersistentIPAddress")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevPersistentIPA") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentIPAddress")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPersistentIPAddress")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevPersistentSub_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentSubnetMask")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPersistentSubnetMask")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevPersistentSub") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentSubnetMask")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPersistentSubnetMask")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevPersistentDef_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentDefaultGateway")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPersistentDefaultGateway")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevPersistentDef") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPersistentDefaultGateway")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPersistentDefaultGateway")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevMessageChanne_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMessageChannelCount")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMessageChannelCount")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevMessageChanne") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMessageChannelCount")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMessageChannelCount")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevStreamChannel_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelCount")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevStreamChannelCount")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevStreamChannel") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelCount")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevStreamChannelCount")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)GevSupportedOpti_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsUserDefinedName")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsUserDefinedName")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3136,7 +3134,7 @@ record(bi, "$(P)$(R)GevSupportedOpti_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedOpti") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsUserDefinedName")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsUserDefinedName")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3144,7 +3142,7 @@ record(bo, "$(P)$(R)GevSupportedOpti") {
 
 record(bi, "$(P)$(R)GevSupportedOpt0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsSerialNumber")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsSerialNumber")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3153,7 +3151,7 @@ record(bi, "$(P)$(R)GevSupportedOpt0_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedOpt0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsSerialNumber")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsSerialNumber")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3161,7 +3159,7 @@ record(bo, "$(P)$(R)GevSupportedOpt0") {
 
 record(bi, "$(P)$(R)GevSupportedOpt1_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENTDATA")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsEVENTDATA")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3170,7 +3168,7 @@ record(bi, "$(P)$(R)GevSupportedOpt1_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedOpt1") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENTDATA")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsEVENTDATA")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3178,7 +3176,7 @@ record(bo, "$(P)$(R)GevSupportedOpt1") {
 
 record(bi, "$(P)$(R)GevSupportedOpt2_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENT")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsEVENT")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3187,7 +3185,7 @@ record(bi, "$(P)$(R)GevSupportedOpt2_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedOpt2") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsEVENT")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsEVENT")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3195,7 +3193,7 @@ record(bo, "$(P)$(R)GevSupportedOpt2") {
 
 record(bi, "$(P)$(R)GevSupportedOpt3_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsPACKETRESEND")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsPACKETRESEND")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3204,7 +3202,7 @@ record(bi, "$(P)$(R)GevSupportedOpt3_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedOpt3") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsPACKETRESEND")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsPACKETRESEND")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3212,7 +3210,7 @@ record(bo, "$(P)$(R)GevSupportedOpt3") {
 
 record(bi, "$(P)$(R)GevSupportedOpt4_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsWRITEMEM")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsWRITEMEM")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3221,7 +3219,7 @@ record(bi, "$(P)$(R)GevSupportedOpt4_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedOpt4") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsWRITEMEM")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsWRITEMEM")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3229,7 +3227,7 @@ record(bo, "$(P)$(R)GevSupportedOpt4") {
 
 record(bi, "$(P)$(R)GevSupportedOpt5_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsConcatenation")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsConcatenation")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3238,7 +3236,7 @@ record(bi, "$(P)$(R)GevSupportedOpt5_RBV") {
 
 record(bo, "$(P)$(R)GevSupportedOpt5") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSupportedOptionalCommandsConcatenation")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSupportedOptionalCommandsConcatenation")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3246,58 +3244,58 @@ record(bo, "$(P)$(R)GevSupportedOpt5") {
 
 record(longin, "$(P)$(R)GevHeartbeatTime_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevHeartbeatTimeout")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevHeartbeatTimeout")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevHeartbeatTime") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevHeartbeatTimeout")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevHeartbeatTimeout")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevTimestampTick_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampTickFrequency")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevTimestampTickFrequency")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevTimestampTick") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampTickFrequency")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevTimestampTickFrequency")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevTimestampCont") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampControlLatch")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevTimestampControlLatch")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevTimestampCon0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampControlReset")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevTimestampControlReset")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevTimestampValu_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampValue")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevTimestampValue")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevTimestampValu") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevTimestampValue")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevTimestampValue")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)GevGVCPPendingAc_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPPendingAck")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevGVCPPendingAck")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3306,7 +3304,7 @@ record(bi, "$(P)$(R)GevGVCPPendingAc_RBV") {
 
 record(bo, "$(P)$(R)GevGVCPPendingAc") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPPendingAck")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevGVCPPendingAck")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3314,7 +3312,7 @@ record(bo, "$(P)$(R)GevGVCPPendingAc") {
 
 record(bi, "$(P)$(R)GevGVCPHeartbeat_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPHeartbeatDisable")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevGVCPHeartbeatDisable")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3323,7 +3321,7 @@ record(bi, "$(P)$(R)GevGVCPHeartbeat_RBV") {
 
 record(bo, "$(P)$(R)GevGVCPHeartbeat") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPHeartbeatDisable")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevGVCPHeartbeatDisable")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3331,20 +3329,20 @@ record(bo, "$(P)$(R)GevGVCPHeartbeat") {
 
 record(longin, "$(P)$(R)GevGVCPPendingTi_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPPendingTimeout")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevGVCPPendingTimeout")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevGVCPPendingTi") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevGVCPPendingTimeout")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevGVCPPendingTimeout")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)GevCCP_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCCP")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCCP")
   field(ZRST, "OpenAccess")
   field(ZRVL, "0")
   field(ONST, "ControlAccess")
@@ -3357,7 +3355,7 @@ record(mbbi, "$(P)$(R)GevCCP_RBV") {
 
 record(mbbo, "$(P)$(R)GevCCP") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevCCP")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevCCP")
   field(ZRST, "OpenAccess")
   field(ZRVL, "0")
   field(ONST, "ControlAccess")
@@ -3369,124 +3367,124 @@ record(mbbo, "$(P)$(R)GevCCP") {
 
 record(longin, "$(P)$(R)GevPrimaryApplic_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPrimaryApplicationSocket")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPrimaryApplicationSocket")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevPrimaryApplic") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPrimaryApplicationSocket")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPrimaryApplicationSocket")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevPrimaryAppli0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPrimaryApplicationIPAddress")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPrimaryApplicationIPAddress")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevPrimaryAppli0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevPrimaryApplicationIPAddress")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevPrimaryApplicationIPAddress")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevMCPHostPort_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCPHostPort")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCPHostPort")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevMCPHostPort") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCPHostPort")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCPHostPort")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevMCDA_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCDA")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCDA")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevMCDA") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCDA")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCDA")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevMCTT_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCTT")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCTT")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevMCTT") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCTT")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCTT")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevMCRC_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCRC")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCRC")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevMCRC") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevMCRC")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevMCRC")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevStreamChanne0_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevStreamChannelSelector")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevStreamChanne0") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevStreamChannelSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevStreamChannelSelector")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevSCPInterfaceI_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPInterfaceIndex")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPInterfaceIndex")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevSCPInterfaceI") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPInterfaceIndex")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPInterfaceIndex")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevSCPHostPort_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPHostPort")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPHostPort")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevSCPHostPort") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPHostPort")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPHostPort")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)GevSCPSFireTestP_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSFireTestPacket")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSFireTestPacket")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3495,7 +3493,7 @@ record(bi, "$(P)$(R)GevSCPSFireTestP_RBV") {
 
 record(bo, "$(P)$(R)GevSCPSFireTestP") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSFireTestPacket")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSFireTestPacket")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3503,7 +3501,7 @@ record(bo, "$(P)$(R)GevSCPSFireTestP") {
 
 record(bi, "$(P)$(R)GevSCPSDoNotFrag_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSDoNotFragment")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSDoNotFragment")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3512,7 +3510,7 @@ record(bi, "$(P)$(R)GevSCPSDoNotFrag_RBV") {
 
 record(bo, "$(P)$(R)GevSCPSDoNotFrag") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSDoNotFragment")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSDoNotFragment")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3520,7 +3518,7 @@ record(bo, "$(P)$(R)GevSCPSDoNotFrag") {
 
 record(bi, "$(P)$(R)GevSCPSBigEndian_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSBigEndian")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSBigEndian")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3529,7 +3527,7 @@ record(bi, "$(P)$(R)GevSCPSBigEndian_RBV") {
 
 record(bo, "$(P)$(R)GevSCPSBigEndian") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSBigEndian")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSBigEndian")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3537,72 +3535,72 @@ record(bo, "$(P)$(R)GevSCPSBigEndian") {
 
 record(longin, "$(P)$(R)GevSCPSPacketSiz_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSPacketSize")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSPacketSize")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevSCPSPacketSiz") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPSPacketSize")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPSPacketSize")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevSCPD_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPD")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPD")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevSCPD") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCPD")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCPD")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevSCFTD_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCFTD")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCFTD")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevSCFTD") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCFTD")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCFTD")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevSCDA_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCDA")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCDA")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevSCDA") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevSCDA")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevSCDA")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)GevLinkSpeed_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevLinkSpeed")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevLinkSpeed")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)GevLinkSpeed") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevLinkSpeed")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevLinkSpeed")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)GevIPConfigurati_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevIPConfigurationStatus")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevIPConfigurationStatus")
   field(ZRST, "None")
   field(ZRVL, "0")
   field(ONST, "PersistentIP")
@@ -3619,7 +3617,7 @@ record(mbbi, "$(P)$(R)GevIPConfigurati_RBV") {
 
 record(mbbo, "$(P)$(R)GevIPConfigurati") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))GevIPConfigurationStatus")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_GevIPConfigurationStatus")
   field(ZRST, "None")
   field(ZRVL, "0")
   field(ONST, "PersistentIP")
@@ -3635,20 +3633,20 @@ record(mbbo, "$(P)$(R)GevIPConfigurati") {
 
 record(longin, "$(P)$(R)TLParamsLocked_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TLParamsLocked")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TLParamsLocked")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)TLParamsLocked") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))TLParamsLocked")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_TLParamsLocked")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)UserSetSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserSetSelector")
   field(ZRST, "Default")
   field(ZRVL, "0")
   field(ONST, "UserSet1")
@@ -3663,7 +3661,7 @@ record(mbbi, "$(P)$(R)UserSetSelector_RBV") {
 
 record(mbbo, "$(P)$(R)UserSetSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserSetSelector")
   field(ZRST, "Default")
   field(ZRVL, "0")
   field(ONST, "UserSet1")
@@ -3677,19 +3675,19 @@ record(mbbo, "$(P)$(R)UserSetSelector") {
 
 record(longout, "$(P)$(R)UserSetLoad") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetLoad")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserSetLoad")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)UserSetSave") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetSave")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserSetSave")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)UserSetDefaultSe_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetDefaultSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserSetDefaultSelector")
   field(ZRST, "Default")
   field(ZRVL, "0")
   field(ONST, "UserSet1")
@@ -3704,7 +3702,7 @@ record(mbbi, "$(P)$(R)UserSetDefaultSe_RBV") {
 
 record(mbbo, "$(P)$(R)UserSetDefaultSe") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))UserSetDefaultSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_UserSetDefaultSelector")
   field(ZRST, "Default")
   field(ZRVL, "0")
   field(ONST, "UserSet1")
@@ -3718,7 +3716,7 @@ record(mbbo, "$(P)$(R)UserSetDefaultSe") {
 
 record(bi, "$(P)$(R)ChunkModeActive_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkModeActive")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkModeActive")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3727,7 +3725,7 @@ record(bi, "$(P)$(R)ChunkModeActive_RBV") {
 
 record(bo, "$(P)$(R)ChunkModeActive") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkModeActive")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkModeActive")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3735,7 +3733,7 @@ record(bo, "$(P)$(R)ChunkModeActive") {
 
 record(mbbi, "$(P)$(R)ChunkSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkSelector")
   field(ZRST, "Image")
   field(ZRVL, "0")
   field(ONST, "FreeformatHeader")
@@ -3746,7 +3744,7 @@ record(mbbi, "$(P)$(R)ChunkSelector_RBV") {
 
 record(mbbo, "$(P)$(R)ChunkSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkSelector")
   field(ZRST, "Image")
   field(ZRVL, "0")
   field(ONST, "FreeformatHeader")
@@ -3756,7 +3754,7 @@ record(mbbo, "$(P)$(R)ChunkSelector") {
 
 record(bi, "$(P)$(R)ChunkEnable_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkEnable")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkEnable")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3765,7 +3763,7 @@ record(bi, "$(P)$(R)ChunkEnable_RBV") {
 
 record(bo, "$(P)$(R)ChunkEnable") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkEnable")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkEnable")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3773,59 +3771,59 @@ record(bo, "$(P)$(R)ChunkEnable") {
 
 record(longin, "$(P)$(R)ChunkOffsetX_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkOffsetX")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkOffsetX")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ChunkOffsetX") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkOffsetX")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkOffsetX")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ChunkOffsetY_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkOffsetY")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkOffsetY")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ChunkOffsetY") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkOffsetY")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkOffsetY")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ChunkWidth_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkWidth")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkWidth")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ChunkWidth") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkWidth")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkWidth")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ChunkHeight_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkHeight")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkHeight")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ChunkHeight") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkHeight")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkHeight")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)ChunkPixelFormat_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkPixelFormat")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkPixelFormat")
   field(ZRST, "Mono8")
   field(ZRVL, "17301505")
   field(ONST, "Mono10")
@@ -3844,7 +3842,7 @@ record(mbbi, "$(P)$(R)ChunkPixelFormat_RBV") {
 
 record(mbbo, "$(P)$(R)ChunkPixelFormat") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkPixelFormat")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkPixelFormat")
   field(ZRST, "Mono8")
   field(ZRVL, "17301505")
   field(ONST, "Mono10")
@@ -3862,7 +3860,7 @@ record(mbbo, "$(P)$(R)ChunkPixelFormat") {
 
 record(ai, "$(P)$(R)ChunkExposureTim_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkExposureTime")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_ChunkExposureTime")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -3870,14 +3868,14 @@ record(ai, "$(P)$(R)ChunkExposureTim_RBV") {
 
 record(ao, "$(P)$(R)ChunkExposureTim") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkExposureTime")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_ChunkExposureTime")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)ChunkBlackLevelS_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkBlackLevelSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkBlackLevelSelector")
   field(ZRST, "All")
   field(ZRVL, "0")
   field(SCAN, "I/O Intr")
@@ -3886,7 +3884,7 @@ record(mbbi, "$(P)$(R)ChunkBlackLevelS_RBV") {
 
 record(mbbo, "$(P)$(R)ChunkBlackLevelS") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkBlackLevelSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkBlackLevelSelector")
   field(ZRST, "All")
   field(ZRVL, "0")
   field(DISA, "0")
@@ -3894,7 +3892,7 @@ record(mbbo, "$(P)$(R)ChunkBlackLevelS") {
 
 record(ai, "$(P)$(R)ChunkBlackLevel_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkBlackLevel")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_ChunkBlackLevel")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -3902,79 +3900,79 @@ record(ai, "$(P)$(R)ChunkBlackLevel_RBV") {
 
 record(ao, "$(P)$(R)ChunkBlackLevel") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkBlackLevel")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_ChunkBlackLevel")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ChunkFrameID_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkFrameID")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkFrameID")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ChunkFrameID") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ChunkFrameID")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ChunkFrameID")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ActionDeviceKey_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionDeviceKey")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionDeviceKey")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ActionDeviceKey") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionDeviceKey")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionDeviceKey")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ActionSelector_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionSelector")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ActionSelector") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionSelector")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ActionGroupMask_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionGroupMask")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionGroupMask")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ActionGroupMask") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionGroupMask")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionGroupMask")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)ActionGroupKey_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionGroupKey")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionGroupKey")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)ActionGroupKey") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ActionGroupKey")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_ActionGroupKey")
   field(DISA, "0")
 }
 
 record(bi, "$(P)$(R)HDREnable_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HDREnable")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_HDREnable")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3983,7 +3981,7 @@ record(bi, "$(P)$(R)HDREnable_RBV") {
 
 record(bo, "$(P)$(R)HDREnable") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HDREnable")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_HDREnable")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -3991,20 +3989,20 @@ record(bo, "$(P)$(R)HDREnable") {
 
 record(longin, "$(P)$(R)HDRIndex_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HDRIndex")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_HDRIndex")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)HDRIndex") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HDRIndex")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_HDRIndex")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)HDRPotentialAbs_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HDRPotentialAbs")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_HDRPotentialAbs")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -4012,14 +4010,14 @@ record(ai, "$(P)$(R)HDRPotentialAbs_RBV") {
 
 record(ao, "$(P)$(R)HDRPotentialAbs") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HDRPotentialAbs")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_HDRPotentialAbs")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)BoSequencerEnabl_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerEnable")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerEnable")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -4030,7 +4028,7 @@ record(mbbi, "$(P)$(R)BoSequencerEnabl_RBV") {
 
 record(mbbo, "$(P)$(R)BoSequencerEnabl") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerEnable")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerEnable")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -4040,7 +4038,7 @@ record(mbbo, "$(P)$(R)BoSequencerEnabl") {
 
 record(mbbi, "$(P)$(R)BoSequencerStart_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerStart")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerStart")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -4051,7 +4049,7 @@ record(mbbi, "$(P)$(R)BoSequencerStart_RBV") {
 
 record(mbbo, "$(P)$(R)BoSequencerStart") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerStart")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerStart")
   field(ZRST, "On")
   field(ZRVL, "1")
   field(ONST, "Off")
@@ -4061,7 +4059,7 @@ record(mbbo, "$(P)$(R)BoSequencerStart") {
 
 record(bi, "$(P)$(R)BoSequencerIsRun_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerIsRunning")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerIsRunning")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -4070,7 +4068,7 @@ record(bi, "$(P)$(R)BoSequencerIsRun_RBV") {
 
 record(bo, "$(P)$(R)BoSequencerIsRun") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerIsRunning")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerIsRunning")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -4078,7 +4076,7 @@ record(bo, "$(P)$(R)BoSequencerIsRun") {
 
 record(mbbi, "$(P)$(R)BoSequencerMode_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerMode")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerMode")
   field(ZRST, "SingleStepTrigge")
   field(ZRVL, "1")
   field(ONST, "SingleStepTrigge")
@@ -4097,7 +4095,7 @@ record(mbbi, "$(P)$(R)BoSequencerMode_RBV") {
 
 record(mbbo, "$(P)$(R)BoSequencerMode") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerMode")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerMode")
   field(ZRST, "SingleStepTrigge")
   field(ZRVL, "1")
   field(ONST, "SingleStepTrigge")
@@ -4115,72 +4113,72 @@ record(mbbo, "$(P)$(R)BoSequencerMode") {
 
 record(longin, "$(P)$(R)BoSequencerSetNu_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerSetNumberOfSets")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerSetNumberOfSets")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BoSequencerSetNu") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerSetNumberOfSets")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerSetNumberOfSets")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)BoSequencerSetSe_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerSetSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerSetSelector")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BoSequencerSetSe") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerSetSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerSetSelector")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)BoSequencerLoops_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerLoops")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerLoops")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BoSequencerLoops") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerLoops")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerLoops")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)BoSequencerSetRe_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerSetRepeats")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerSetRepeats")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BoSequencerSetRe") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerSetRepeats")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerSetRepeats")
   field(DISA, "0")
 }
 
 record(longin, "$(P)$(R)BoSequencerFrame_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerFramesPerTrigger")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerFramesPerTrigger")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
 
 record(longout, "$(P)$(R)BoSequencerFrame") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerFramesPerTrigger")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerFramesPerTrigger")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)BoSequencerExpos_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerExposure")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_BoSequencerExposure")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -4188,14 +4186,14 @@ record(ai, "$(P)$(R)BoSequencerExpos_RBV") {
 
 record(ao, "$(P)$(R)BoSequencerExpos") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerExposure")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_BoSequencerExposure")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(ai, "$(P)$(R)BoSequencerGain_RBV") {
   field(DTYP, "asynFloat64")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerGain")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_BoSequencerGain")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
@@ -4203,14 +4201,14 @@ record(ai, "$(P)$(R)BoSequencerGain_RBV") {
 
 record(ao, "$(P)$(R)BoSequencerGain") {
   field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerGain")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_BoSequencerGain")
   field(PREC, "3")
   field(DISA, "0")
 }
 
 record(mbbi, "$(P)$(R)BoSequencerIOSel_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerIOSelector")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerIOSelector")
   field(ZRST, "SequencerOutput0")
   field(ZRVL, "0")
   field(ONST, "SequencerOutput1")
@@ -4223,7 +4221,7 @@ record(mbbi, "$(P)$(R)BoSequencerIOSel_RBV") {
 
 record(mbbo, "$(P)$(R)BoSequencerIOSel") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerIOSelector")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerIOSelector")
   field(ZRST, "SequencerOutput0")
   field(ZRVL, "0")
   field(ONST, "SequencerOutput1")
@@ -4235,7 +4233,7 @@ record(mbbo, "$(P)$(R)BoSequencerIOSel") {
 
 record(bi, "$(P)$(R)BoSequencerIOSta_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerIOStatus")
+  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerIOStatus")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -4244,7 +4242,7 @@ record(bi, "$(P)$(R)BoSequencerIOSta_RBV") {
 
 record(bo, "$(P)$(R)BoSequencerIOSta") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))BoSequencerIOStatus")
+  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_BoSequencerIOStatus")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")

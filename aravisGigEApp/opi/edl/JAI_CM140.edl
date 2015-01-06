@@ -1,0 +1,411 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 1065
+y 195
+w 390
+h 822
+font "arial-bold-r-12.0"
+ctlFont "arial-bold-r-12.0"
+btnFont "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 25
+ctlBgColor1 index 3
+ctlBgColor2 index 3
+topShadowColor index 1
+botShadowColor index 11
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 470
+w 390
+h 350
+lineColor index 5
+fill
+fillColor index 5
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 0
+w 390
+h 470
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "ADBase"
+sizeOfs 5
+numDsps 0
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 470
+w 390
+h 110
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "aravisCamera"
+sizeOfs 5
+numDsps 0
+noScroll
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 5
+y 790
+w 380
+h 25
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "more features..."
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "JAI_CM140-features"
+}
+setPosition {
+  0 "parentWindow"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 595
+w 180
+h 65
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 585
+w 59
+h 13
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 5
+value {
+  "Framerate"
+}
+autoSize
+border
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 10
+y 630
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=PartialScan: Partial Scan (Vertical) ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 20
+y 630
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Partial Scan"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 85
+y 630
+w 90
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)PartialScan"
+indicatorPv "$(P)$(R)PartialScan_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 10
+y 605
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=AcquisitionFrameRate: Acquisition Frame Rate ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 20
+y 605
+w 110
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Frame Rate"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 85
+y 605
+w 90
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)AcquisitionFrame"
+indicatorPv "$(P)$(R)AcquisitionFrame_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 195
+y 595
+w 190
+h 40
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 315
+y 605
+w 60
+h 20
+controlPv "$(P)$(R)GainRaw_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 250
+y 605
+w 60
+h 20
+controlPv "$(P)$(R)GainRaw"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 215
+y 605
+w 40
+h 20
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gain"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 205
+y 605
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GainRaw: Gain in Raw format ,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 195
+y 585
+w 28
+h 13
+font "arial-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 5
+value {
+  "Gain"
+}
+autoSize
+border
+endObjectProperties
+

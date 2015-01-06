@@ -38,20 +38,6 @@ def getText(node):
 lookup = {}
 # lookup from nodeName -> recordName
 records = {}
-# add ADBase names to avoid
-#ADNames = ["PortName", "Manufacturer", "Model", "MaxSizeX", "MaxSizeY", 
-#"DataType", "ColorMode", "BinX", "BinY", "MinX", "MinY", "SizeX", "SizeY",
-#"ReverseX", "ReverseY", "ArraySizeX", "ArraySizeY", "ArraySizeZ", "ArraySize",
-#"AcquireTime", "AcquirePeriod", "TimeRemaining", "Gain", "FrameType", 
-#"ImageMode", "TriggerMode", "NumExposures", "NumExposuresCounter", "NumImages",
-#"NumImagesCounter", "Acquire", "ArrayCounter", "ArrayRate", "DetectorState",
-#"ArrayCallbacks", "NDAttributesFile", "StatusMessage", "StringToServer",
-#"StringFromServer", "ReadStatus", "ShutterMode", "ShutterControl",
-#"ShutterStatus", "ShutterOpenDelay", "ShutterCloseDelay", "ShutterControlEPICS",
-#"ShutterFanout", "ShutterOpenEPICS", "ShutterCloseEPICS", "ShutterStatusEPICS",
-#"Temperature", "AsynIO", "PortName"]
-#for name in ADNames:
-#    records[name] = name
 categories = []
 
 # function to create a lookup table of nodes
@@ -141,7 +127,7 @@ for node in doneNodes:
     if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
         print 'record(longin, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'        
         print '}'
@@ -150,14 +136,14 @@ for node in doneNodes:
             continue        
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
         print '  field(DISA, "0")'
         print '}'
         print        
     elif node.nodeName in ["Boolean"]:
         print 'record(bi, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                        
@@ -168,7 +154,7 @@ for node in doneNodes:
             continue        
         print 'record(bo, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                                
         print '  field(DISA, "0")'
@@ -177,7 +163,7 @@ for node in doneNodes:
     elif node.nodeName in ["Float", "Converter", "SwissKnife"]:
         print 'record(ai, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynFloat64")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_%s")' % nodeName
         print '  field(PREC, "3")'        
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
@@ -187,7 +173,7 @@ for node in doneNodes:
             continue    
         print 'record(ao, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynFloat64")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_%s")' % nodeName
         print '  field(PREC, "3")'
         print '  field(DISA, "0")'
         print '}'
@@ -195,7 +181,7 @@ for node in doneNodes:
     elif node.nodeName in ["StringReg"]:
         print 'record(stringin, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynOctetRead")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
         print '}'
@@ -203,7 +189,7 @@ for node in doneNodes:
     elif node.nodeName in ["Command"]:
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
         print '  field(DISA, "0")'
         print '}'
         print         
@@ -224,7 +210,7 @@ for node in doneNodes:
                 i += 1                
         print 'record(mbbi, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
         print enumerations,
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
@@ -234,7 +220,7 @@ for node in doneNodes:
             continue        
         print 'record(mbbo, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
         print enumerations,       
         print '  field(DISA, "0")'
         print '}'
@@ -662,7 +648,7 @@ endGroup
 endObjectProperties
 
 """ %globals())
-edl_file.write(text)
+edl_file.write(text.encode('ascii', 'replace'))
 edl_file.write("""# (Exit Button)
 object activeExitButtonClass
 beginObjectProperties

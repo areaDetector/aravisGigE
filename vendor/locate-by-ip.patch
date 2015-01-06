@@ -1,6 +1,6 @@
---- vendor/aravis/src/arvgvinterface.c	(revision 65781)
-+++ vendor/aravis/src/arvgvinterface.c	(working copy)
-@@ -358,6 +358,75 @@
+--- vendor/aravis/src/arvgvinterface.c	2014-09-05 10:18:53.832678198 +0100
++++ vendor/aravis/src/arvgvinterface.c.new	2014-09-05 10:18:40.859432533 +0100
+@@ -398,6 +398,74 @@
  	}
  }
  
@@ -59,7 +59,6 @@
 +					ArvGvcpPacket *packet = (ArvGvcpPacket *) buffer;
 +					if (g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_CMD ||
 +					    g_ntohs (packet->header.command) == ARV_GVCP_COMMAND_READ_REGISTER_ACK) {
-
 +						interface_address = g_inet_socket_address_get_address(G_INET_SOCKET_ADDRESS (socket->interface_address));
 +						g_object_ref(interface_address);
 +						arv_gv_discover_socket_list_free (socket_list);
@@ -73,13 +72,12 @@
 +	return interface_address;
 +}
 +
-+
  static ArvDevice *
  arv_gv_interface_open_device (ArvInterface *interface, const char *device_id)
  {
-@@ -381,6 +449,21 @@
- 			device_infos = g_hash_table_lookup (gv_interface->priv->devices_by_mac, device_id);
- 	}
+@@ -417,6 +485,21 @@
+ 	} else
+ 		device_infos = g_hash_table_lookup (gv_interface->priv->devices, device_id);
  
 +	if (device_infos == NULL) {
 +	   /* This is probably an IP address */
@@ -98,16 +96,59 @@
 +
  	if (device_infos == NULL)
  		return NULL;
-
---- vendor/aravis/src/arvtool.c	(revision 96614)
-+++ vendor/aravis/src/arvtool.c	(working copy)
-@@ -145,7 +145,7 @@
  
- 						if (ARV_IS_GC_STRING (feature))
- 							printf ("%s = %s\n", tokens[0],
--								arv_gc_string_get_value (ARV_GC_STRING (feature), NULL));
-+								arv_gc_feature_node_get_value_as_string (ARV_GC_FEATURE_NODE (feature), NULL));
- 						else if (ARV_IS_GC_FLOAT (feature))
- 							printf ("%s = %g (min:%g-max:%g)\n", tokens[0],
- 								arv_gc_float_get_value (ARV_GC_FLOAT (feature), NULL),
-
+Index: vendor/aravis/src/arvbuffer.c
+===================================================================
+--- vendor/aravis/src/arvbuffer.c	(revision 119487)
++++ vendor/aravis/src/arvbuffer.c	(working copy)
+@@ -157,6 +157,25 @@
+ 	return buffer->priv->data;
+ }
+ 
++/**
++ * arv_buffer_get_user_data:
++ * @buffer: a #ArvBuffer
++ *
++ * Buffer user data accessor.
++ *
++ * Returns: a pointer to the user data specified in #arv_buffer_new_full.
++ *
++ * Since: 0.4.0
++ **/
++
++const void *
++arv_buffer_get_user_data (ArvBuffer *buffer)
++{
++	g_return_val_if_fail (ARV_IS_BUFFER (buffer), NULL);
++
++	return buffer->priv->user_data;
++}
++
+ typedef struct ARAVIS_PACKED_STRUCTURE {
+ 	guint32 id;
+ 	guint32 size;
+Index: vendor/aravis/src/arvbuffer.h
+===================================================================
+--- vendor/aravis/src/arvbuffer.h	(revision 119487)
++++ vendor/aravis/src/arvbuffer.h	(working copy)
+@@ -113,6 +113,7 @@
+ ArvBufferPayloadType	arv_buffer_get_payload_type	(ArvBuffer *buffer);
+ guint64			arv_buffer_get_timestamp	(ArvBuffer *buffer);
+ const void *		arv_buffer_get_data		(ArvBuffer *buffer, size_t *size);
++const void *		arv_buffer_get_user_data (ArvBuffer *buffer);
+ 
+ void			arv_buffer_get_image_region		(ArvBuffer *buffer, gint *x, gint *y, gint *width, gint *height);
+ gint			arv_buffer_get_image_width		(ArvBuffer *buffer);
+Index: vendor/aravis/src/arvstream.h
+===================================================================
+--- vendor/aravis/src/arvstream.h	(revision 119487)
++++ vendor/aravis/src/arvstream.h	(working copy)
+@@ -89,6 +89,8 @@
+ void 		arv_stream_set_emit_signals 		(ArvStream *stream, gboolean emit_signals);
+ gboolean 	arv_stream_get_emit_signals 		(ArvStream *stream);
+ 
++ArvBuffer * arv_stream_pop_input_buffer (ArvStream *stream);
++
+ G_END_DECLS
+ 
+ #endif

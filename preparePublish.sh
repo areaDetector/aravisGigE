@@ -1,2 +1,2 @@
 #!/bin/bash
-rm -rf aravis
+rm -rf vendor/aravis

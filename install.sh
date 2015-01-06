@@ -5,15 +5,14 @@
 
 # Variables telling us where to get things
 HERE="$(dirname "$0")"
-VERSION="0.1.15"
-SOURCE="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/aravis-${VERSION}.tar.xz"
+VERSION="0.3.5"
+SOURCE="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.3/aravis-${VERSION}.tar.xz"
 
 # fail if we can't do anything
 set -e
 
 # remove dir if it already exists
-rm -rf ${HERE}/aravis
-rm -rf ${HERE}/vendor/aravis
+rm -rf ${HERE}/aravis ${HERE}/vendor/aravis
 
 # Now get the the zip file
 wget -P "${HERE}" $SOURCE
