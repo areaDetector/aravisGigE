@@ -32,6 +32,9 @@ ifneq ($(GLIBPREFIX),)
 	endif
 endif
 
+USR_INCLUDES +=  -I$(GLIB_INC1)
+USR_INCLUDES +=  -I$(GLIB_INC2)
+
 # We need to link against aravis
 ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
 	USR_INCLUDES_Linux += -I$(TOP)/vendor/aravis-linux-x86_64/include/aravis-0.4
