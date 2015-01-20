@@ -42,25 +42,6 @@ record(ai, "$(P)$(R)TimeRemaining_RBV")
    field(DISA, "1")
 }
 
-record(mbbo, "$(P)$(R)ImageMode")
-{
-   field(ZRST, "Multiple")
-   field(ZRVL, "1")
-   field(ONST, "Continuous")
-   field(ONVL, "2")
-   field(VAL,  "2")
-   field(TWST, "")
-   field(IVOA, "1")
-}
-
-record(mbbi, "$(P)$(R)ImageMode_RBV")
-{
-   field(ZRST, "Multiple")
-   field(ZRVL, "1")
-   field(ONST, "Continuous")
-   field(ONVL, "2")
-}
-
 record(ao, "$(P)$(R)AcquireTime")
 {
    field(DTYP,"Async Soft Channel")

@@ -195,10 +195,12 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
                 &buffer,
                 sizeof(&buffer));
         if (status) {
+            // printf as pPvt->pasynUserSelf for asynPrint is protected
             printf("Message queue full, dropped buffer\n");
             arv_stream_push_buffer (stream, buffer);
         }
     } else {
+        // printf as pPvt->pasynUserSelf for asynPrint is protected
         printf("Bad frame status: %d size: %lu\n", buffer_status, size);
         arv_stream_push_buffer (stream, buffer);
     }
@@ -778,7 +780,8 @@ asynStatus aravisCamera::allocBuffer() {
     this->camera exists, lock not taken */
 void aravisCamera::run() {
     epicsTimeStamp lastFeatureGet, now;
-    int getFeatures;
+    int getFeatures, numImagesCounter, imageMode, numImages;
+    const char *functionName = "run";
     ArvBuffer *buffer;
 
     /* Wait for database to be up */
@@ -811,10 +814,22 @@ void aravisCamera::run() {
             /* Got a buffer, so lock up and process it */
             this->lock();
             this->processBuffer(buffer);
-
             /* free memory */
             g_object_unref(buffer);
-            if (this->stream != NULL) {
+            /* See if acquisition is done */
+            getIntegerParam(ADNumImages, &numImages);
+            getIntegerParam(ADNumImagesCounter, &numImagesCounter);
+            getIntegerParam(ADImageMode, &imageMode);
+            if ((imageMode == ADImageSingle) ||
+                ((imageMode == ADImageMultiple) &&
+                 (numImagesCounter >= numImages))) {
+            	this->stop();
+                // Want to make sure we're idle before we callback on ADAcquire
+                callParamCallbacks();
+                setIntegerParam(ADAcquire, 0);
+                asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+                      "%s:%s: acquisition completed\n", driverName, functionName);
+            } else {
                 /* Allocate the new raw buffer we use to compute images. */
                 this->allocBuffer();
             }
@@ -833,21 +848,7 @@ asynStatus aravisCamera::processBuffer(ArvBuffer *buffer) {
     guint64 n_completed_buffers, n_failures, n_underruns;
     NDArray *pRaw;
 
-    // A small check to ensure that frame callbacks are ignored after the
-    // user has pressed STOP.
-    // For instance the Photonic Sciences SCMOS camera produce 1-2 frames
-    // after calling the arv_camera_stop_acquisition()
-    int acquiring = 0;
-    getIntegerParam(ADAcquire, &acquiring);
-    if (not acquiring) {
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-                "%s:%s: Received frame callback after commanding camera stop. Ignoring frame.\n",
-                driverName, functionName);
-        return asynError;
-    }
-
     /* Get the current parameters */
-    getIntegerParam(NDArrayCallbacks, &arrayCallbacks);
     getIntegerParam(NDArrayCounter, &imageCounter);
     getIntegerParam(ADNumImages, &numImages);
     getIntegerParam(ADNumImagesCounter, &numImagesCounter);
@@ -992,18 +993,6 @@ asynStatus aravisCamera::processBuffer(ArvBuffer *buffer) {
         setDoubleParam(AravisUnderruns, (double) n_underruns);
     }
 
-    /* See if acquisition is done */
-    if ((imageMode == ADImageSingle) ||
-        ((imageMode == ADImageMultiple) &&
-         (numImagesCounter >= numImages))) {
-        this->stop();
-        // Want to make sure we're idle before we callback on ADAcquire
-        callParamCallbacks();
-        setIntegerParam(ADAcquire, 0);
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-              "%s:%s: acquisition completed\n", driverName, functionName);
-    }
-
     /* Call the callbacks to update any changes */
     callParamCallbacks();
     return asynSuccess;
@@ -1018,14 +1007,18 @@ asynStatus aravisCamera::stop() {
 }
 
 asynStatus aravisCamera::start() {
-    int imageMode;
+    int imageMode, numImages;
     const char *functionName = "start";
     asynStatus status = asynSuccess;
     
     // Set the image mode and counters
     getIntegerParam(ADImageMode, &imageMode);
+    getIntegerParam(ADNumImages, &numImages);
     if (imageMode == ADImageSingle) {
         arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_SINGLE_FRAME);
+    } else if (imageMode == ADImageMultiple && hasFeature("AcquisitionFrameCount")) {
+    	arv_device_set_string_feature_value(this->device, "AcquisitionMode", "MultiFrame");
+    	arv_device_set_integer_feature_value(this->device, "AcquisitionFrameCount", numImages);
     } else {
         arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
     }
@@ -1336,6 +1329,7 @@ asynStatus aravisCamera::getAllFeatures() {
 }
 
 asynStatus aravisCamera::getNextFeature() {
+    const char *functionName = "getNextFeature";
     int status = asynSuccess;
     const char *featureName;
     ArvGcNode *node;
@@ -1372,7 +1366,9 @@ asynStatus aravisCamera::getNextFeature() {
         } else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(node)) == G_TYPE_STRING) {
             stringValue = arv_device_get_string_feature_value(this->device, featureName);
             if (stringValue == NULL) {
-                printf("Feature %s has NULL value\n", featureName);
+                asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                            "%s:%s: Feature %s has NULL value\n",
+                            driverName, functionName, featureName);
                 status = asynError;
             } else {
                 status |= setStringParam(*index, stringValue);
