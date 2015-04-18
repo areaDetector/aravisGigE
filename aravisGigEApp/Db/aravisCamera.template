@@ -6,6 +6,8 @@
 #% macro, TIMEOUT, Timeout
 #% macro, ADDR, Asyn Port address
 
+include "ADBase.template"
+
 # All tags starting with gdatag are DLS specific for GDA
 # % gdatag, template, aravisCamera, $(PORT)_aravisCamera, $(PORT) aravisCamera class instance
 
