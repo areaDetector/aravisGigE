@@ -1,6 +1,6 @@
 #!/bin/env python
 import os, sys
-from xml.dom.minidom import parse
+from xml.dom.minidom import parseString
 from optparse import OptionParser
 
 # parse args
@@ -19,7 +19,15 @@ if len(args) != 2:
     parser.error("Incorrect number of arguments")
 
 # parse xml file to dom object
-xml_root = parse(args[0])
+genicam_lines = open(args[0]).readlines()
+try:
+    start_line = min(i for i in range(2) if genicam_lines[i].lstrip().startswith("<"))
+except:
+    print "Neither of these lines looks like valid XML:"
+    print "".join(genicam_lines[:2])
+    sys.exit(1)
+
+xml_root = parseString("".join(genicam_lines[start_line:]).lstrip())
 camera_name = args[1]
 prefix = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 db_filename = os.path.join(prefix, "Db", camera_name + ".template")
