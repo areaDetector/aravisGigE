@@ -1116,8 +1116,8 @@ asynStatus aravisCamera::getGeometry() {
     arv_camera_get_region(this->camera, &x, &y, &w, &h);
     setIntegerParam(ADMinX, x);
     setIntegerParam(ADMinY, y);
-    setIntegerParam(ADSizeX, w*binx);
-    setIntegerParam(ADSizeY, h*biny);
+    setIntegerParam(ADSizeX, w);
+    setIntegerParam(ADSizeY, h);
 
     /* Set sizes */
     if (colorMode == NDUInt16) bps = 2;
@@ -1175,7 +1175,7 @@ asynStatus aravisCamera::setGeometry() {
             biny = 1; setIntegerParam(ADBinY, 1);
         }
         this->setBinning(binx, biny);
-        arv_camera_set_region(this->camera, x, y, w/binx, h/biny);
+        arv_camera_set_region(this->camera, x, y, w, h);
     }
 
     /* Read back values */
