@@ -97,48 +97,6 @@
  	if (device_infos == NULL)
  		return NULL;
  
-Index: vendor/aravis/src/arvbuffer.c
-===================================================================
---- vendor/aravis/src/arvbuffer.c	(revision 119487)
-+++ vendor/aravis/src/arvbuffer.c	(working copy)
-@@ -157,6 +157,25 @@
- 	return buffer->priv->data;
- }
- 
-+/**
-+ * arv_buffer_get_user_data:
-+ * @buffer: a #ArvBuffer
-+ *
-+ * Buffer user data accessor.
-+ *
-+ * Returns: a pointer to the user data specified in #arv_buffer_new_full.
-+ *
-+ * Since: 0.4.0
-+ **/
-+
-+const void *
-+arv_buffer_get_user_data (ArvBuffer *buffer)
-+{
-+	g_return_val_if_fail (ARV_IS_BUFFER (buffer), NULL);
-+
-+	return buffer->priv->user_data;
-+}
-+
- typedef struct ARAVIS_PACKED_STRUCTURE {
- 	guint32 id;
- 	guint32 size;
-Index: vendor/aravis/src/arvbuffer.h
-===================================================================
---- vendor/aravis/src/arvbuffer.h	(revision 119487)
-+++ vendor/aravis/src/arvbuffer.h	(working copy)
-@@ -113,6 +113,7 @@
- ArvBufferPayloadType	arv_buffer_get_payload_type	(ArvBuffer *buffer);
- guint64			arv_buffer_get_timestamp	(ArvBuffer *buffer);
- const void *		arv_buffer_get_data		(ArvBuffer *buffer, size_t *size);
-+const void *		arv_buffer_get_user_data (ArvBuffer *buffer);
- 
- void			arv_buffer_get_image_region		(ArvBuffer *buffer, gint *x, gint *y, gint *width, gint *height);
- gint			arv_buffer_get_image_width		(ArvBuffer *buffer);
 Index: vendor/aravis/src/arvstream.h
 ===================================================================
 --- vendor/aravis/src/arvstream.h	(revision 119487)
@@ -152,3 +110,30 @@ Index: vendor/aravis/src/arvstream.h
  G_END_DECLS
  
  #endif
+
+
+diff --git a/vendor/aravis/src/arvrealtime.c b/vendor/aravis/src/arvrealtime.c
+index 94e24e7..ce14e7c 100644
+--- vendor/aravis/src/arvrealtime.c
++++ vendor/aravis/src/arvrealtime.c
+@@ -27,6 +27,7 @@
+ 
+ ***/
+ 
++#include <sched.h>
+ #include <arvrealtimeprivate.h>
+ #include <arvdebug.h>
+ #include <memory.h>
+diff --git a/vendor/aravis/tests/realtimetest.c b/vendor/aravis/tests/realtimetest.c
+index 73ccb64..a766821 100644
+--- vendor/aravis/tests/realtimetest.c
++++ vendor/aravis/tests/realtimetest.c
+@@ -26,6 +26,7 @@
+ 
+ #include <../src/arvrealtimeprivate.h>
+ 
++#include <sched.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+
