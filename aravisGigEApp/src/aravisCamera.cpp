@@ -321,6 +321,13 @@ asynStatus aravisCamera::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
                         driverName, functionName);
             return asynError;
         }
+        /* Check we have a feature */
+        if (!this->hasFeature(drvInfo+5)) {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                        "%s:%s: Parameter '%s' doesn't exist on camera\n",
+                        driverName, functionName, drvInfo + 5);
+            return asynError;
+        }
         /* Make parameter of the correct type and get initial value if camera is connected */
         char *feature = epicsStrDup(drvInfo + 5);
         switch(drvInfo[3]) {
