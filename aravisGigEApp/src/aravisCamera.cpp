@@ -213,13 +213,13 @@ static void controlLostCallback(ArvDevice *device, aravisCamera *pPvt) {
 
 /** Init hook that sets iocRunning flag */
 static void setIocRunningFlag(initHookState state) {
-	switch(state) {
-		case initHookAfterIocRunning:
-			iocRunning = 1;
-			break;
-		default:
-			break;
-	}
+    switch(state) {
+        case initHookAfterIocRunning:
+            iocRunning = 1;
+            break;
+        default:
+            break;
+    }
 }
 
 /** Constructor for aravisCamera; most parameters are simply passed to ADDriver::ADDriver.
@@ -241,14 +241,14 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
                0, 0, /* No interfaces beyond those set in ADDriver.cpp */
                0, 1, /* ASYN_CANBLOCK=0, ASYN_MULTIDEVICE=0, autoConnect=1 */
                priority, stackSize),
-	   camera(NULL),
-	   connectionValid(0),
-	   stream(NULL),
-	   device(NULL),
-	   genicam(NULL),
-	   featureKeys(NULL),
-	   payload(0),
-	   pollingLoop(*this, "aravisPoll", stackSize, epicsThreadPriorityHigh)
+       camera(NULL),
+       connectionValid(0),
+       stream(NULL),
+       device(NULL),
+       genicam(NULL),
+       featureKeys(NULL),
+       payload(0),
+       pollingLoop(*this, "aravisPoll", stackSize, epicsThreadPriorityHigh)
 {
     const char *functionName = "aravisCamera";
 
@@ -314,39 +314,46 @@ asynStatus aravisCamera::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
     // If parameter is of format ARVx_... where x is I for int, D for double, or S for string
     // then it is a camera parameter, so create it here
     if (findParam(drvInfo, &index) && strlen(drvInfo) > 5 && strncmp(drvInfo, "ARV", 3) == 0 && drvInfo[4] == '_') {
-    	/* Check we have allocated enough space */
-    	if (featureIndex > NFEATURES) {
-    		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-    					"%s:%s: Not enough space allocated to store all camera features, increase NFEATURES\n",
-    					driverName, functionName);
-    		return asynError;
-    	}
-    	/* Make parameter of the correct type and get initial value if camera is connected */
-    	char *feature = epicsStrDup(drvInfo + 5);
-    	switch(drvInfo[3]) {
-    	case 'I':
-    		createParam(drvInfo, asynParamInt32, &(this->features[featureIndex]));
-    		if (this->connectionValid == 1)
-    			setIntegerParam(this->features[featureIndex], arv_device_get_integer_feature_value(this->device, feature));
-    		break;
-    	case 'D':
-    		createParam(drvInfo, asynParamFloat64, &(this->features[featureIndex]));
-    		if (this->connectionValid == 1)
-    			setDoubleParam(this->features[featureIndex], arv_device_get_float_feature_value(this->device, feature));
-    		break;
-    	case 'S':
-    		createParam(drvInfo, asynParamOctet, &(this->features[featureIndex]));
-    		if (this->connectionValid == 1)
-    			setStringParam(this->features[featureIndex], arv_device_get_string_feature_value(this->device, feature));
-    		break;
-    	default:
-    		asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-    					"%s:%s: Expected ARVx_... where x is one of I, D or S. Got '%c'\n",
-    					driverName, functionName, drvInfo[4]);
-    		return asynError;
-    	}
-    	g_hash_table_insert(this->featureLookup, (gpointer) &(this->features[featureIndex]), (gpointer) feature);
-    	featureIndex++;
+        /* Check we have allocated enough space */
+        if (featureIndex > NFEATURES) {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                        "%s:%s: Not enough space allocated to store all camera features, increase NFEATURES\n",
+                        driverName, functionName);
+            return asynError;
+        }
+        /* Check we have a feature */
+        if (!this->hasFeature(drvInfo+5)) {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                        "%s:%s: Parameter '%s' doesn't exist on camera\n",
+                        driverName, functionName, drvInfo + 5);
+            return asynError;
+        }
+        /* Make parameter of the correct type and get initial value if camera is connected */
+        char *feature = epicsStrDup(drvInfo + 5);
+        switch(drvInfo[3]) {
+        case 'I':
+            createParam(drvInfo, asynParamInt32, &(this->features[featureIndex]));
+            if (this->connectionValid == 1)
+                setIntegerParam(this->features[featureIndex], arv_device_get_integer_feature_value(this->device, feature));
+            break;
+        case 'D':
+            createParam(drvInfo, asynParamFloat64, &(this->features[featureIndex]));
+            if (this->connectionValid == 1)
+                setDoubleParam(this->features[featureIndex], arv_device_get_float_feature_value(this->device, feature));
+            break;
+        case 'S':
+            createParam(drvInfo, asynParamOctet, &(this->features[featureIndex]));
+            if (this->connectionValid == 1)
+                setStringParam(this->features[featureIndex], arv_device_get_string_feature_value(this->device, feature));
+            break;
+        default:
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                        "%s:%s: Expected ARVx_... where x is one of I, D or S. Got '%c'\n",
+                        driverName, functionName, drvInfo[4]);
+            return asynError;
+        }
+        g_hash_table_insert(this->featureLookup, (gpointer) &(this->features[featureIndex]), (gpointer) feature);
+        featureIndex++;
     }
 
     // Now return baseclass result
@@ -786,7 +793,7 @@ void aravisCamera::run() {
 
     /* Wait for database to be up */
     while (!iocRunning) {
-    	epicsThreadSleep(0.1);
+        epicsThreadSleep(0.1);
     }
 
     /* Loop forever */
@@ -823,7 +830,7 @@ void aravisCamera::run() {
             if ((imageMode == ADImageSingle) ||
                 ((imageMode == ADImageMultiple) &&
                  (numImagesCounter >= numImages))) {
-            	this->stop();
+                this->stop();
                 // Want to make sure we're idle before we callback on ADAcquire
                 callParamCallbacks();
                 setIntegerParam(ADAcquire, 0);
@@ -1017,8 +1024,8 @@ asynStatus aravisCamera::start() {
     if (imageMode == ADImageSingle) {
         arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_SINGLE_FRAME);
     } else if (imageMode == ADImageMultiple && hasFeature("AcquisitionFrameCount")) {
-    	arv_device_set_string_feature_value(this->device, "AcquisitionMode", "MultiFrame");
-    	arv_device_set_integer_feature_value(this->device, "AcquisitionFrameCount", numImages);
+        arv_device_set_string_feature_value(this->device, "AcquisitionMode", "MultiFrame");
+        arv_device_set_integer_feature_value(this->device, "AcquisitionFrameCount", numImages);
     } else {
         arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
     }
