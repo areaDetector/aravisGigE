@@ -1,0 +1,1253 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 375
+y 1585
+w 400
+h 345
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 25
+ctlBgColor1 index 3
+ctlBgColor2 index 3
+topShadowColor index 1
+botShadowColor index 11
+title "CamType AVT_Manta"
+showGrid
+snapToGrid
+gridSize 4
+disableScroll
+endScreenProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 200
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StreamBytesPerSecond: Bandwidth allocation: the camera will consume up to this ,desc1=bandwidth; in bytes per second. You must set this value if multiple cameras ,desc2=share the same ethernet adapter; otherwise data will be lost. The sum of all ,desc3=StreamBytesPerSecond values of all cameras must not exceed the available ,desc4=bandwidth. ,desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 20
+y 200
+w 152
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "StreamBytesPerSecond"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 176
+y 200
+w 76
+h 20
+controlPv "$(P)$(R)StreamBytesPerSecond"
+font "helvetica-bold-r-12.0"
+fgColor index 25
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+changeValOnLoseFocus
+autoSelect
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 200
+w 76
+h 20
+controlPv "$(P)$(R)StreamBytesPerSecond_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 224
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=StreamFrameRateConstrain: When enabled; the frame rate of the camera is ,desc1=constrained by available bandwidth. When disabled; the camera can image faster ,desc2=than it can send data. ,desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 20
+y 224
+w 152
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "StreamFrameRateConstrain"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 176
+y 224
+w 80
+h 20
+fgColor index 25
+bgColor index 5
+inconsistentColor index 40
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)StreamFrameRateConstrain"
+indicatorPv "$(P)$(R)StreamFrameRateConstrain_RBV"
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 104
+y 272
+w 232
+h 20
+controlPv "$(P)$(R)DeviceFirmwareVe_RBV"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 272
+w 100
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "FirmwareVersion"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 32
+w 76
+h 20
+controlPv "$(P)$(R)COMPLETED_RBV"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 184
+y 32
+w 72
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Completed"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 56
+w 76
+h 20
+controlPv "$(P)$(R)FAILURES_RBV"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 184
+y 56
+w 72
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Failures"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 80
+w 76
+h 20
+controlPv "$(P)$(R)UNDERRUNS_RBV"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 184
+y 80
+w 72
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Underruns"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 32
+w 84
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Reset Cam"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 104
+y 32
+w 72
+h 20
+fgColor index 25
+onColor index 6
+offColor index 5
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)RESET.PROC"
+pressValue "1"
+onLabel "Reconnect"
+offLabel "Reconnect"
+3d
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 80
+w 84
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Left shift data"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 104
+y 80
+w 72
+h 20
+fgColor index 25
+bgColor index 5
+inconsistentColor index 40
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)LEFTSHIFT"
+indicatorPv "$(P)$(R)LEFTSHIFT_RBV"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 32
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Click this button if your camera stops communicating or acquiring.,desc1=It will do a reconnect,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 80
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=If set to Yes: 10 12 and 14 bit frames will be left shifted so they occupy the most,desc1=significant bits of the 16 bit frame,desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 56
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Set to Yes to get feature value updates periodically ,desc1=(never more than one feature every 5ms),desc2=Set to No if you are getting performance issues,desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 56
+w 84
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Get features"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 104
+y 56
+w 72
+h 20
+fgColor index 25
+bgColor index 5
+inconsistentColor index 40
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)GETFEATURES"
+indicatorPv "$(P)$(R)GETFEATURES_RBV"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 204
+y 4
+w 132
+h 24
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 204
+y 4
+w 132
+h 24
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 20
+bgColor index 0
+visMin "3"
+visMax "4"
+value {
+  "NOT CONNECTED"
+}
+border
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(R)CONNECTION.SEVR"
+visMin "3"
+visMax "4"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 4
+w 84
+h 24
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Camera Type"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 88
+y 4
+w 108
+h 24
+controlPv "$(P)$(R)CamType"
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+limitsFromDb
+nullColor index 25
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 152
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Frame timeout in us before giving up on image frame.,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 152
+w 84
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Frame Timeout"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 104
+y 152
+w 60
+h 20
+controlPv "$(P)$(R)FRAME_RETENTION"
+font "helvetica-medium-r-12.0"
+fgColor index 25
+fgAlarm
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+changeValOnLoseFocus
+autoSelect
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 104
+w 76
+h 20
+controlPv "$(P)$(R)RESENT_PKTS_RBV"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 184
+y 104
+w 72
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Resent Pkts"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 104
+w 84
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Packet Resend"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 104
+y 104
+w 72
+h 20
+fgColor index 25
+bgColor index 5
+inconsistentColor index 40
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)PKT_RESEND"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 104
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Enables code that requests resend of missing packets.,desc1='',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 260
+y 128
+w 76
+h 20
+controlPv "$(P)$(R)MISSING_PKTS_RBV"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 104
+y 128
+w 60
+h 20
+controlPv "$(P)$(R)PKT_TIMEOUT"
+font "helvetica-medium-r-12.0"
+fgColor index 25
+fgAlarm
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+changeValOnLoseFocus
+autoSelect
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 128
+w 84
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Packet Timeout"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 128
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=Packet timeout in us before requesting packet resend.,desc1='Must be greater than the inter-packet delay.',desc2='',desc3='',desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 184
+y 128
+w 72
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "Missing Pkts"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 128
+w 12
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 5
+useDisplayBg
+value {
+  "us"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 168
+y 152
+w 12
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 5
+useDisplayBg
+value {
+  "us"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 8
+y 296
+w 204
+h 24
+
+beginGroup
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 4
+y 296
+w 204
+h 24
+fgColor index 14
+bgColor index 3
+topShadowColor index 0
+botShadowColor index 14
+font "helvetica-medium-r-12.0"
+buttonLabel "             Model Specific        "
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "gigeScreens/camModel.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "P=$(P),R=$(R),IOC=$(IOC),EVR=$(EVR),CAM=$(CAM)"
+}
+replaceSymbols {
+  0 1
+}
+propagateMacros {
+  0 0
+}
+icon
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 28
+y 300
+w 175
+h 16
+controlPv "$(P)$(R)CamModel"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 0
+y 176
+w 16
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-medium-r-12.0"
+xPosOffset -100
+yPosOffset -148
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/aravisHelp.edl"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=GevSCPSPacketSize: This value sets the packet size in bytes for the selected ,desc1=stream channel. Excludes data leader and data trailer. (The last packet may be ,desc2=smaller because the packet size is not necessarily a multiple of the block size ,desc3=for the stream channel.) ,desc4='',desc5=''"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 20
+y 176
+w 124
+h 20
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+value {
+  "e-net Packet Size"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 152
+y 176
+w 80
+h 20
+controlPv "$(P)$(R)GevSCPSPacketSiz"
+font "helvetica-medium-r-12.0"
+fgColor index 25
+fgAlarm
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+changeValOnLoseFocus
+autoSelect
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 240
+y 176
+w 100
+h 20
+controlPv "$(P)$(R)GevSCPSPacketSiz_RBV"
+format "gfloat"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 244
+y 248
+w 92
+h 20
+controlPv "$(IOC):$(IF):TX"
+format "float"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 152
+y 248
+w 88
+h 20
+controlPv "$(IOC):$(IF):RX"
+format "float"
+font "helvetica-medium-r-12.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 12
+limitsFromDb
+nullColor index 40
+smartRefresh
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x -4
+y 248
+w 156
+h 20
+font "helvetica-medium-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+value {
+  "$(IF) eNet Traffix Rx/Tx"
+}
+endObjectProperties
+

@@ -1,0 +1,182 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 48
+y 1386
+w 436
+h 686
+font "helvetica-medium-r-12.0"
+ctlFont "helvetica-medium-r-12.0"
+btnFont "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 15
+ctlFgColor2 index 25
+ctlBgColor1 index 12
+ctlBgColor2 index 5
+topShadowColor index 1
+botShadowColor index 11
+title "eNet Bandwidth Help"
+showGrid
+snapToGrid
+gridSize 4
+endScreenProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 388
+y 12
+w 40
+h 24
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+label "EXIT"
+font "helvetica-medium-r-12.0"
+3d
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 32
+y 16
+w 348
+h 72
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 6
+value {
+  "The max bandwidth for a 1000BaseT gigabit ethernet"
+  "is 125MBps, so when using more than one gigabit"
+  "camera on the same network you need to be careful"
+  "to not exceed the network capacity."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 36
+y 240
+w 344
+h 428
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 6
+value {
+  "GenICam compliant cameras provide the following"
+  "controls which can be used to optimize performance."
+  ""
+  "   Packet Timeout"
+  "      PV is PKT_TIMEOUT"
+  "      This controls how long the driver should wait"
+  "      for a missing packet before the driver"
+  "      issues a resend request."
+  ""
+  "   Frame Timeout"
+  "      PV is FRAME_RETENTION"
+  "      This controls how long the driver should wait"
+  "      for a frame to receive all it's packets before"
+  "      the driver gives up on that frame."
+  ""
+  "   Packet Size"
+  "      PV is GevSCPSPacketSiz"
+  "      This controls how many bytes the camera should"
+  "      try to send in each packet.  Set it to 9000 if"
+  "      your network and host support jumbo packets."
+  ""
+  "   8ns TickDelays per pkt"
+  "      PV is GevSCPD"
+  "      Sets the delay in 8ns ticks between each packet"
+  "      that the camera sends."
+  ""
+}
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 16
+w 16
+h 72
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 6
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 96
+w 20
+h 136
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 6
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 36
+y 96
+w 344
+h 136
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 6
+value {
+  "Packet size should be set to the max supported by your"
+  "network.  Ideally this should be 9000 bytes."
+  ""
+  "For best performance connect each camera directly"
+  "to the same switch as the host.   Set the switch"
+  "to support jumbo 9K packets and also set"
+  "the host ethernet adapter to allow jumbo"
+  "9K packets."
+}
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 240
+w 20
+h 428
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 6
+endObjectProperties
+

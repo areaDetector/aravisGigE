@@ -1,0 +1,93 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 713
+y 157
+w 420
+h 820
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 15
+ctlFgColor2 index 25
+ctlBgColor1 index 12
+ctlBgColor2 index 5
+topShadowColor index 1
+botShadowColor index 11
+showGrid
+snapToGrid
+gridSize 4
+endScreenProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 4
+y 4
+w 408
+h 476
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "areaDetectorScreens/ADBase.edl"
+sizeOfs 0
+numDsps 0
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 4
+y 480
+w 408
+h 112
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "arvScreens/aravisCamera.edl"
+sizeOfs 0
+numDsps 0
+noScroll
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 4
+y 792
+w 408
+h 24
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-bold-r-14.0"
+buttonLabel "more features..."
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "arvScreens/Basler_acA1300-30gm-features.edl"
+}
+setPosition {
+  0 "parentWindow"
+}
+endObjectProperties
