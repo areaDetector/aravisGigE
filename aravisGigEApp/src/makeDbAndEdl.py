@@ -204,6 +204,7 @@ for node in doneNodes:
     elif node.nodeName in ["Enumeration"]:
         enumerations = ""
         i = 0
+        defaultVal = "0"
         epicsId = ["ZR", "ON", "TW", "TH", "FR", "FV", "SX", "SV", "EI", "NI", "TE", "EL", "TV", "TT", "FT", "FF"]
         for n in elements(node):
             if str(n.nodeName) == "EnumEntry":
@@ -214,7 +215,9 @@ for node in doneNodes:
                 enumerations += '  field(%sST, "%s")\n' %(epicsId[i], name[:16])
                 value = [x for x in elements(n) if str(x.nodeName) == "Value"]
                 assert value, "EnumEntry %s in node %s doesn't have a value" %(name, nodeName)                
-                enumerations += '  field(%sVL, "%s")\n' %(epicsId[i], getText(value[0]))                
+                if i == 0:
+                    defaultVal = getText(value[0])
+                enumerations += '  field(%sVL, "%s")\n' %(epicsId[i], getText(value[0]))
                 i += 1                
         print 'record(mbbi, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
@@ -229,6 +232,7 @@ for node in doneNodes:
         print 'record(mbbo, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
         print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(DOL,  "%s")' % defaultVal
         print enumerations,       
         print '  field(DISA, "0")'
         print '}'
