@@ -121,6 +121,60 @@ record(ai, "$(P)$(R)UNDERRUNS_RBV")
    field(SCAN, "I/O Intr")
 }
 
+# % gdatag, pv, ro, $(PORT)_aravisCamera, MISSING_PKTS_RBV, Readback for Missing Packet count
+record(longin, "$(P)$(R)MISSING_PKTS_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_MISSING_PKTS")
+   field(SCAN, "I/O Intr")
+   info( autosaveFields, "DESC HHSV HIHI HIGH HSV" )
+}
+
+# % gdatag, pv, ro, $(PORT)_aravisCamera, RESENT_PKTS_RBV, Readback for Resent Packet count
+record(longin, "$(P)$(R)RESENT_PKTS_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_RESENT_PKTS")
+   field(SCAN, "I/O Intr")
+   info( autosaveFields, "DESC HHSV HIHI HIGH HSV" )
+}
+
+record(mbbo, "$(P)$(R)PKT_RESEND")
+{
+   field(DESC, "Packet resend enable" )
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_PKT_RESEND")
+   field(ZRST, "Never")
+   field(ZRVL, "0")
+   field(ONST, "Always")
+   field(ONVL, "1")
+   field(VAL,  "1")
+   field(PINI, "1")
+   info( autosaveFields, "DESC ONSV SRSV PINI VAL" )
+}
+
+record(longout, "$(P)$(R)PKT_TIMEOUT")
+{
+   field(DESC, "Delay in us before packet resend request" )
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_PKT_TIMEOUT")
+   field(VAL,  "20000")
+   field(EGU,  "us")
+   field(PINI, "1")
+   info( autosaveFields, "DESC HHSV HIHI HIGH HSV LLSV LOLO LOW LSV PINI VAL" )
+}
+
+record(longout, "$(P)$(R)FRAME_RETENTION")
+{
+   field(DESC, "Frame timeout in us after last packet rcvd" )
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_FRAME_RETENTION")
+   field(VAL,  "100000")
+   field(EGU,  "us")
+   field(PINI, "1")
+   info( autosaveFields, "DESC HHSV HIHI HIGH HSV LLSV LOLO LOW LSV PINI VAL" )
+}
+
 record(longout, "$(P)$(R)RESET")
 {
    field(DTYP, "asynInt32")
