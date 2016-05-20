@@ -35,16 +35,25 @@ endif
 USR_INCLUDES +=  -I$(GLIB_INC1)
 USR_INCLUDES +=  -I$(GLIB_INC2)
 
-# We need to link against aravis
-ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-	USR_INCLUDES_Linux += -I$(TOP)/vendor/aravis-linux-x86_64/include/aravis-0.4
-else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
-	USR_INCLUDES_Linux += -I$(TOP)/vendor/aravis-linux-x86/include/aravis-0.4
+# Set aravis include and lib paths
+ifeq ($(ARAVISPREFIX),)
+	ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
+		ARAVISPREFIX = $(TOP)/vendor/aravis-linux-x86_64
+	else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
+		ARAVISPREFIX = $(TOP)/vendor/aravis-linux-x86
+	endif
+endif
+ifneq ($(ARAVISPREFIX),)
+	USR_INCLUDES += -I$(ARAVISPREFIX)/include/aravis-0.4
 endif
 
 USR_LIBS += glib-2.0
 
 # TODO: should pick this up from the vendor directory
 USR_LIBS += aravis-0.4
+
+# Install all libs to $(TOP)/lib/$(T_A) so ioc builds can find them easily
+LIB_INSTALLS += $(wildcard $(ARAVISPREFIX)/lib/lib*)
+LIB_INSTALLS += $(wildcard $(GLIBPREFIX)/lib/lib*)
 
 include $(TOP)/configure/RULES
