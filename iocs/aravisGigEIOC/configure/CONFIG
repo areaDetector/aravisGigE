@@ -21,6 +21,8 @@ INSTALL_LOCATION = $(TOP)
 
 # CONFIG_SITE files contain other build configuration settings
 include $(TOP)/configure/CONFIG_SITE
+-include $(TOP)/configure/CONFIG_SITE.local
+-include $(TOP)/../../../configure/CONFIG_SITE.local
 -include $(TOP)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).Common
 ifdef T_A
  -include $(TOP)/configure/CONFIG_SITE.Common.$(T_A)
