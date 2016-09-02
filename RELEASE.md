@@ -22,8 +22,11 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
-RX-Y (XXX-April-2015)
+R2-1 (20-May-2016)
 ----
 * First released version on github.
 * Changes for compatibility with ADCore R2-2.
+* Added support for PhotonFocus DR1
+* Update to aravis 0.3.7
+* Fix ROI size units to be binned pixels so it is consistent with ROI start
 
