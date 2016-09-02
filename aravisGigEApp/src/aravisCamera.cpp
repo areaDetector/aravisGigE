@@ -1435,8 +1435,8 @@ asynStatus aravisCamera::tryAddFeature(int *ADIdx, const char *featureString) {
 extern "C" int aravisCameraConfig(const char *portName, const char *cameraName,
                                  int maxBuffers, size_t maxMemory, int priority, int stackSize)
 {
-	if ( stackSize <= 0 )
-		stackSize = epicsThreadGetStackSize(epicsThreadStackMedium);
+    if (stackSize <= 0)
+        stackSize = epicsThreadGetStackSize(epicsThreadStackMedium);
     new aravisCamera(portName, cameraName, maxBuffers, maxMemory,
                      priority, stackSize);
     return(asynSuccess);
