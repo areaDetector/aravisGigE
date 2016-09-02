@@ -334,13 +334,13 @@ asynStatus aravisCamera::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
         case 'I':
             createParam(drvInfo, asynParamInt32, &(this->features[featureIndex]));
             if (this->connectionValid == 1) {
-    			ArvGcNode *featureNode = arv_device_get_feature(this->device, drvInfo + 5);
-				int			curValue	= 0;
-        		if ( !ARV_IS_GC_COMMAND(featureNode) ) {
-                	curValue = arv_device_get_integer_feature_value(this->device, feature);
-				}
+                ArvGcNode *featureNode = arv_device_get_feature(this->device, drvInfo + 5);
+                int         curValue    = 0;
+                if (!ARV_IS_GC_COMMAND(featureNode)) {
+                    curValue = arv_device_get_integer_feature_value(this->device, feature);
+                }
                 setIntegerParam(this->features[featureIndex], curValue);
-			}
+            }
             break;
         case 'D':
             createParam(drvInfo, asynParamFloat64, &(this->features[featureIndex]));
@@ -579,8 +579,8 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
     if (function == AravisReset) {
         status = this->connectToCamera();
     } else if (this->camera == NULL || this->connectionValid != 1) {
-		if ( rbv != value )
-			setIntegerParam(ADStatus, ADStatusDisconnected);
+        if (rbv != value)
+            setIntegerParam(ADStatus, ADStatusDisconnected);
         status = asynError;
     } else if (function == AravisConnection) {
         if (this->connectionValid != 1) status = asynError;
@@ -1293,9 +1293,9 @@ asynStatus aravisCamera::setIntegerValue(const char *feature, epicsInt32 value, 
                     driverName, functionName);
         return asynError;
     }
-	asynPrint(  this->pasynUserSelf, ASYN_TRACEIO_DRIVER,
-				"%s:%s: arv_device_set_integer_feature_value %s value %d\n",
-				driverName, functionName, feature, value );
+    asynPrint(  this->pasynUserSelf, ASYN_TRACEIO_DRIVER,
+                "%s:%s: arv_device_set_integer_feature_value %s value %d\n",
+                driverName, functionName, feature, value );
     arv_device_set_integer_feature_value (this->device, feature, value);
     if (rbv != NULL) {
         *rbv = arv_device_get_integer_feature_value (this->device, feature);
@@ -1312,25 +1312,25 @@ asynStatus aravisCamera::setIntegerValue(const char *feature, epicsInt32 value, 
 asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, epicsFloat64 *rbv) {
     const char *functionName = "setFloatValue";
     if (feature == NULL) {
-    	ArvGcNode *featureNode = arv_device_get_feature(this->device, feature);
+        ArvGcNode *featureNode = arv_device_get_feature(this->device, feature);
         *rbv = value;
-		if ( !ARV_IS_GC_COMMAND(featureNode) ) {
+        if (!ARV_IS_GC_COMMAND(featureNode)) {
         asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
                     "%s:%s: Cannot set float value of a NULL feature\n",
                     driverName, functionName);
         return asynError;
     }
-	asynPrint(  this->pasynUserSelf, ASYN_TRACEIO_DRIVER,
-				"%s:%s: arv_device_set_float_feature_value %s value %f\n",
-				driverName, functionName, feature, value );
+    asynPrint(  this->pasynUserSelf, ASYN_TRACEIO_DRIVER,
+                "%s:%s: arv_device_set_float_feature_value %s value %f\n",
+                driverName, functionName, feature, value );
     arv_device_set_float_feature_value (this->device, feature, value);
     if (rbv != NULL) {
         *rbv = arv_device_get_float_feature_value (this->device, feature);
     }
         if (fabs(value - *rbv) > 0.001) {
             asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-						"%s:%s: feature %s value %f != rbv %f\n",
-						driverName, functionName, feature, value, *rbv);
+                        "%s:%s: feature %s value %f != rbv %f\n",
+                        driverName, functionName, feature, value, *rbv);
             return asynError;
         }
     }
@@ -1398,7 +1398,7 @@ asynStatus aravisCamera::getNextFeature() {
                 status |= setStringParam(*index, stringValue);
             }
         //} else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(node)) == G_TYPE_INT64) {
-        } else if ( !ARV_IS_GC_COMMAND(node)) {
+        } else if (!ARV_IS_GC_COMMAND(node)) {
             integerValue = arv_device_get_integer_feature_value (this->device, featureName);
             if (*index == ADGain) {
                 /* Gain is sometimes an integer */
