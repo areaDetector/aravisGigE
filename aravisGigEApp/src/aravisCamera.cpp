@@ -205,14 +205,12 @@ static void destroyBuffer(gpointer data){
 static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
     ArvBuffer *buffer;
     int status;
-	static int	nConsecutiveBadFrames	= 0;
+    static int  nConsecutiveBadFrames   = 0;
     buffer = arv_stream_try_pop_buffer(stream);
     if (buffer == NULL)    return;
     ArvBufferStatus buffer_status = arv_buffer_get_status(buffer);
-    size_t  size = 0;
-    arv_buffer_get_data(buffer, &size);
     if (buffer_status == ARV_BUFFER_STATUS_SUCCESS /*|| buffer->status == ARV_BUFFER_STATUS_MISSING_PACKETS*/) {
-		nConsecutiveBadFrames = 0;
+        nConsecutiveBadFrames = 0;
         status = epicsMessageQueueTrySend(pPvt->msgQId,
                 &buffer,
                 sizeof(&buffer));
@@ -223,18 +221,17 @@ static void newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
         }
     } else {
         // printf as pPvt->pasynUserSelf for asynPrint is protected
-        printf("Bad frame status: %d size: %lu\n", buffer_status, size);
         arv_stream_push_buffer (stream, buffer);
 
-		nConsecutiveBadFrames++;
-		if ( nConsecutiveBadFrames < 10 )
-        	printf("Bad frame status: %s\n", ArvBufferStatusToString(buffer_status) );
-		else if ( ((nConsecutiveBadFrames-10) % 1000) == 0 ) {
-			static int	nBadFramesPrior	= 0;
-        	printf("Bad frame status: %s, %d msgs suppressed.\n", ArvBufferStatusToString(buffer_status),
-					nConsecutiveBadFrames - nBadFramesPrior );
-			nBadFramesPrior	= nConsecutiveBadFrames;
-		}
+        nConsecutiveBadFrames++;
+        if ( nConsecutiveBadFrames < 10 )
+            printf("Bad frame status: %s\n", ArvBufferStatusToString(buffer_status) );
+        else if ( ((nConsecutiveBadFrames-10) % 1000) == 0 ) {
+            static int  nBadFramesPrior = 0;
+            printf("Bad frame status: %s, %d msgs suppressed.\n", ArvBufferStatusToString(buffer_status),
+                    nConsecutiveBadFrames - nBadFramesPrior );
+            nBadFramesPrior = nConsecutiveBadFrames;
+        }
     }
 }
 
