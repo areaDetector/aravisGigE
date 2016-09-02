@@ -30,7 +30,7 @@ record(mbbo, "$(P)$(R)DataType")
    field(SXVL, "")
    field(SVST, "")
    field(SVVL, "")
-   info( autosaveFields, "VAL" )
+   info(autosaveFields, "VAL")
 }
 
 record(mbbi, "$(P)$(R)DataType_RBV")
@@ -75,7 +75,7 @@ record(mbbo, "$(P)$(R)ColorMode")
    field(SXVL, "")
    field(SVST, "")
    field(SVVL, "")
-   info( autosaveFields, "VAL" )
+   info(autosaveFields, "VAL")
 }
 
 record(mbbi, "$(P)$(R)ColorMode_RBV")
@@ -105,7 +105,7 @@ record(ai, "$(P)$(R)COMPLETED_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_COMPLETED")
    field(SCAN, "I/O Intr")
-   info( autosaveFields, "DESC LLSV LOLO LOW LSV" )
+   info(autosaveFields, "DESC LLSV LOLO LOW LSV")
 }
 
 # % gdatag, pv, ro, $(PORT)_aravisCamera, FAILURES_RBV, Readback for Frame Failures
@@ -114,7 +114,7 @@ record(ai, "$(P)$(R)FAILURES_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_FAILURES")
    field(SCAN, "I/O Intr")
-   info( autosaveFields, "DESC HHSV HIHI HIGH HSV" )
+   info(autosaveFields, "DESC HHSV HIHI HIGH HSV")
 }
 
 # % gdatag, pv, ro, $(PORT)_aravisCamera, UNDERRUNS_RBV, Readback for Frame Underruns
@@ -123,7 +123,7 @@ record(ai, "$(P)$(R)UNDERRUNS_RBV")
    field(DTYP, "asynFloat64")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_UNDERRUNS")
    field(SCAN, "I/O Intr")
-   info( autosaveFields, "DESC HHSV HIHI HIGH HSV" )
+   info(autosaveFields, "DESC HHSV HIHI HIGH HSV")
 }
 
 record(longout, "$(P)$(R)RESET")
@@ -148,7 +148,7 @@ record(bo, "$(P)$(R)GETFEATURES") {
   field(ONAM, "Yes")
   field(VAL,  "1")
   field(PINI, "YES")
-  info( autosaveFields, "DESC VAL" )
+  info(autosaveFields, "DESC VAL")
 }
 
 record(longout, "$(P)$(R)CONNECTION")
@@ -176,7 +176,7 @@ record(mbbi, "$(P)$(R)LEFTSHIFT_RBV") {
   field(ONST, "Yes")
   field(ONVL, "1")
   field(SCAN, "I/O Intr")
-  info( autosaveFields, "DESC ZRSV ONSV" )
+  info(autosaveFields, "DESC ZRSV ONSV")
 }
 
 ## If this is set to 1, then 10, 12 and 16 bit images will be left shifted 
@@ -188,7 +188,7 @@ record(mbbo, "$(P)$(R)LEFTSHIFT") {
   field(ZRVL, "0")
   field(ONST, "Yes")
   field(ONVL, "1")
-  info( autosaveFields, "DESC ZRSV ONSV VAL" )
+  info(autosaveFields, "DESC ZRSV ONSV VAL")
 }
 
 # unsupported fields
