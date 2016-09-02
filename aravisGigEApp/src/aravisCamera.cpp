@@ -889,6 +889,10 @@ asynStatus aravisCamera::processBuffer(ArvBuffer *buffer) {
     /* Put the frame number and time stamp into the buffer */
     pRaw->uniqueId = imageCounter;
     pRaw->timeStamp = arv_buffer_get_timestamp(buffer) / 1.e9;
+
+    /* Update the areaDetector timeStamp */
+    updateTimeStamp(&pRaw->epicsTS);
+
     /* Get any attributes that have been defined for this driver */
     this->getAttributes(pRaw->pAttributeList);
 
