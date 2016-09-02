@@ -73,7 +73,7 @@ Known Bugs
 
   * Changing resolution or colour mode while acquiring may produce dropped frames, aravisGigE will allow it and inserts a 1 second sleep to try and make this operation robust, but it is better to stop the camera before changing resolution or colour mode
   * `pthread_attr_setstacksize error Invalid argument` error messages are caused by glib and can be ignored
-  * Please follow the section on sysctl in [this article](http://www.ptgrey.com/support/kb/index.asp?a=4&q=354) if you are getting large numbers of dropped frames
+  * Please follow the section on sysctl in [this article](http://www.ptgrey.com/KB/10016) if you are getting large numbers of dropped frames
   * If you start the IOC without a camera connected, you will not be able to get all its features if you reconnect to it later. This may be fixed in a later release
 
 

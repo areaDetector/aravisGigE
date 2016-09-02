@@ -140,7 +140,7 @@ for node in doneNodes:
     if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
         print 'record(longin, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'        
         print '  info(autosaveFields, "%s")' % long_autosaveFields
@@ -150,7 +150,7 @@ for node in doneNodes:
             continue        
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s PINI VAL")' % long_autosaveFields
         print '}'
@@ -158,7 +158,7 @@ for node in doneNodes:
     elif node.nodeName in ["Boolean"]:
         print 'record(bi, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                        
@@ -170,7 +170,7 @@ for node in doneNodes:
             continue        
         print 'record(bo, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                                
         print '  field(DISA, "0")'
@@ -180,7 +180,7 @@ for node in doneNodes:
     elif node.nodeName in ["Float", "Converter", "SwissKnife"]:
         print 'record(ai, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynFloat64")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVD_%s")' % nodeName
         print '  field(PREC, "3")'        
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
@@ -191,7 +191,7 @@ for node in doneNodes:
             continue    
         print 'record(ao, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynFloat64")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVD_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVD_%s")' % nodeName
         print '  field(PREC, "3")'
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s PINI VAL")' % a_autosaveFields
@@ -200,7 +200,7 @@ for node in doneNodes:
     elif node.nodeName in ["StringReg"]:
         print 'record(stringin, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynOctetRead")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVS_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVS_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s")' % string_autosaveFields
@@ -209,7 +209,7 @@ for node in doneNodes:
     elif node.nodeName in ["Command"]:
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s")' % long_autosaveFields
         print '}'
@@ -231,7 +231,7 @@ for node in doneNodes:
                 i += 1                
         print 'record(mbbi, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print enumerations,
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
@@ -242,7 +242,7 @@ for node in doneNodes:
             continue        
         print 'record(mbbo, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print enumerations,       
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s PINI VAL")' % mbb_autosaveFields
@@ -262,6 +262,11 @@ h = 40
 x = 5
 y = 50
 text = ""
+defFontClass	= "arial"
+defFgColorCtrl	= 25
+defBgColorCtrl	= 3
+defFgColorMon	= 16
+defBgColorMon	= 10
 
 def quoteString(string):
     escape_list = ["\\","{","}",'"']
@@ -296,7 +301,7 @@ x %(x)d
 y %(laby)d
 w 150
 h 14
-font "arial-medium-r-12.0"
+font "%(defFontClass)s-medium-r-12.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 8
@@ -324,7 +329,7 @@ fgColor index 14
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-10.0"
+font "%(defFontClass)s-bold-r-10.0"
 xPosOffset -100
 yPosOffset -85
 useFocus
@@ -356,7 +361,7 @@ x %(nx)d
 y %(y)d
 w 110
 h 20
-font "arial-bold-r-10.0"
+font "%(defFontClass)s-bold-r-10.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -379,11 +384,11 @@ y %(y)d
 w 125
 h 20
 controlPv "$(P)$(R)%(recordName)s_RBV"
-fgColor index 16
+fgColor index %(defFgColorMon)d
 fgAlarm
-bgColor index 10
+bgColor index %(defBgColorMon)d
 fill
-font "arial-bold-r-12.0"
+font "%(defFontClass)s-bold-r-12.0"
 fontAlign "center"
 endObjectProperties        
 
@@ -401,11 +406,11 @@ y %(y)d
 w 60
 h 20
 controlPv "$(P)$(R)%(recordName)s"
-fgColor index 25
+fgColor index %(defFgColorCtrl)d
 fgAlarm
-bgColor index 3
+bgColor index %(defBgColorCtrl)d
 fill
-font "arial-bold-r-12.0"
+font "%(defFontClass)s-bold-r-12.0"
 endObjectProperties
 
 """ % globals()
@@ -422,11 +427,11 @@ y %(y)d
 w 60
 h 20
 controlPv "$(P)$(R)%(recordName)s_RBV"
-fgColor index 16
+fgColor index %(defFgColorMon)d
 fgAlarm
-bgColor index 10
+bgColor index %(defBgColorMon)d
 fill
-font "arial-bold-r-12.0"
+font "%(defFontClass)s-bold-r-12.0"
 fontAlign "center"
 endObjectProperties
 
@@ -443,14 +448,14 @@ x %(nx)d
 y %(y)d
 w 125
 h 20
-fgColor index 25
-bgColor index 3
+fgColor index %(defFgColorCtrl)d
+bgColor index %(defBgColorCtrl)d
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
 controlPv "$(P)$(R)%(recordName)s"
 indicatorPv "$(P)$(R)%(recordName)s_RBV"
-font "arial-bold-r-12.0"
+font "%(defFontClass)s-bold-r-12.0"
 endObjectProperties        
 
 """ % globals()
@@ -466,7 +471,7 @@ x %(nx)d
 y %(y)d
 w 125
 h 20
-fgColor index 25
+fgColor index %(defFgColorCtrl)d
 onColor index 3
 offColor index 3
 topShadowColor index 1
@@ -476,7 +481,7 @@ pressValue "1"
 onLabel "%(nodeName)s"
 offLabel "%(nodeName)s"
 3d
-font "arial-bold-r-12.0"
+font "%(defFontClass)s-bold-r-12.0"
 endObjectProperties
 
 """ % globals()
@@ -551,16 +556,16 @@ x 50
 y 50
 w %(w)d
 h %(h)d
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "%(defFontClass)s-bold-r-12.0"
+ctlFont "%(defFontClass)s-bold-r-12.0"
+btnFont "%(defFontClass)s-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
-ctlFgColor1 index 25
-ctlFgColor2 index 25
-ctlBgColor1 index 3
-ctlBgColor2 index 3
+ctlFgColor1 index %(defFgColorMon)d
+ctlFgColor2 index %(defFgColorCtrl)d
+ctlBgColor1 index %(defBgColorMon)d
+ctlBgColor2 index %(defBgColorCtrl)d
 topShadowColor index 1
 botShadowColor index 11
 title "%(camera_name)s features - $(P)$(R)"
@@ -632,7 +637,7 @@ x 0
 y 2
 w %(w)d
 h 24
-font "arial-bold-r-16.0"
+font "%(defFontClass)s-bold-r-16.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 48
@@ -687,7 +692,7 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 label "EXIT"
-font "arial-bold-r-14.0"
+font "%(defFontClass)s-bold-r-14.0"
 3d
 endObjectProperties
 """ % globals())
@@ -704,16 +709,16 @@ x 713
 y 157
 w 390
 h 820
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "%(defFontClass)s-bold-r-12.0"
+ctlFont "%(defFontClass)s-bold-r-12.0"
+btnFont "%(defFontClass)s-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
-ctlFgColor1 index 25
-ctlFgColor2 index 25
-ctlBgColor1 index 3
-ctlBgColor2 index 3
+ctlFgColor1 index %(defFgColorMon)d
+ctlFgColor2 index %(defFgColorCtrl)d
+ctlBgColor1 index %(defBgColorMon)d
+ctlBgColor2 index %(defBgColorCtrl)d
 topShadowColor index 1
 botShadowColor index 11
 showGrid
@@ -792,7 +797,7 @@ fgColor index 43
 bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
-font "arial-bold-r-14.0"
+font "%(defFontClass)s-bold-r-14.0"
 buttonLabel "more features..."
 numPvs 4
 numDsps 1
@@ -802,5 +807,5 @@ displayFileName {
 setPosition {
   0 "parentWindow"
 }
-endObjectProperties""" % camera_name)
+endObjectProperties""" % (camera_name, globals()) )
 

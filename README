@@ -11,3 +11,43 @@
 * update version number in documentation
 * find vendor -name .svn -prune -o -type d -exec ~tmc43/bin/set-svn-ignore {} \;
 * test and commit
+
+# When adding a new camera, you need to read it's xml feature file using arv-tool
+# This requires that you have both an appropriate version of arv-tool and glib in your path.
+# If you're building the aravis library in $(TOP)/vendor/aravis-$(T_A), arv-tool-0.4
+# will be found in $(TOP)/bin/$(T_A)/arv-tool-0.4
+
+# Then run arv-tool-0.4 to search for available genicam cameras
+# Each line gives the genicam device_name for each camera found on the current subnet
+% arv-tool-0.4
+Allied Vision Technologies-50-0503349286
+Basler-21664550
+
+# If you are not sure which camera is which you can use arv-tool to show features such as DeviceModelName
+% arv-tool-0.4 -n "Basler-21722087" control DeviceModelName
+Basler-21722087
+DeviceModelName = acA1300-60gmNIR
+
+# arv-tool can also be used to show all features on the camera
+% arv-tool-0.4 -n "Basler-21722087" features
+
+# Then run arv-tool-0.4 -n CAMERA_NAME genicam > CAMERA_NAME.xml
+# to fetch the xml feature spec
+# If arv-tool generates errors, check the line numbers in the error msgs
+# and fix any flaws in the generated xml.
+# (My first 2 Baslers both generated xml w/ 'bCustom"' instead of '"Custom"')
+% arv-tool-0.4 -n "Allied Vision Technologies-50-0503349286" genicam > Basler_acA1300-30gm.xml
+
+# Lastly, run the python script to create new db and edl files from the feature file
+% aravisGigEApp/src/makeDbAndEdl.py Basler_acA1300-30gm.xml Baslter_aca1300-30gm
+
+# Note: I found that different Basler camera models had identical xml feature files,
+# but different image dimensions.
+#
+# For EPICS, we need the camera's max height, width, and pixels per image
+# in order to allocate waveform records.
+# The xml feature file doesn't specify this, so you'll need to create a MODEL_NAME.env
+# file by hand to do this, using google or experimentation to determine the image size.
+# Setting these values too large wastes memory and network bandwidth, but can be
+# done temporarily so you can see what aravis queries when you run your ioc.
+
