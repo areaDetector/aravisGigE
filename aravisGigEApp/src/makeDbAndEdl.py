@@ -124,6 +124,12 @@ print '#% macro, ADDR, Asyn Port address, default=0'
 print '#%% gui, $(PORT), edmtab, %s.edl, P=$(P),R=$(R)' % camera_name
 print 
 
+a_autosaveFields        = 'DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU TSE PREC'
+b_autosaveFields        = 'DESC ZSV OSV TSE'
+long_autosaveFields     = 'DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV EGU TSE'
+mbb_autosaveFields      = 'DESC ZRSV ONSV TWSV THSV FRSV FVSV SXSV SVSV EISV NISV TESV ELSV TVSV TTSV FTSV FFSV TSE'
+string_autosaveFields   = 'DESC TSE'
+
 # for each node
 for node in doneNodes:
     nodeName = str(node.getAttribute("Name"))
@@ -137,6 +143,7 @@ for node in doneNodes:
         print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'        
+        print '  info(autosaveFields, "%s")' % long_autosaveFields
         print '}'
         print
         if ro:
@@ -145,6 +152,7 @@ for node in doneNodes:
         print '  field(DTYP, "asynInt32")'
         print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s PINI VAL")' % long_autosaveFields
         print '}'
         print        
     elif node.nodeName in ["Boolean"]:
@@ -155,6 +163,7 @@ for node in doneNodes:
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                        
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s")' % b_autosaveFields
         print '}'
         print
         if ro:
@@ -165,6 +174,7 @@ for node in doneNodes:
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                                
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s PINI VAL")' % b_autosaveFields
         print '}'
         print           
     elif node.nodeName in ["Float", "Converter", "SwissKnife"]:
@@ -174,6 +184,7 @@ for node in doneNodes:
         print '  field(PREC, "3")'        
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s")' % a_autosaveFields
         print '}'
         print    
         if ro:
@@ -183,6 +194,7 @@ for node in doneNodes:
         print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVD_%s")' % nodeName
         print '  field(PREC, "3")'
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s PINI VAL")' % a_autosaveFields
         print '}'
         print
     elif node.nodeName in ["StringReg"]:
@@ -191,6 +203,7 @@ for node in doneNodes:
         print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVS_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s")' % string_autosaveFields
         print '}'
         print
     elif node.nodeName in ["Command"]:
@@ -198,6 +211,7 @@ for node in doneNodes:
         print '  field(DTYP, "asynInt32")'
         print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s")' % long_autosaveFields
         print '}'
         print         
     elif node.nodeName in ["Enumeration"]:
@@ -221,6 +235,7 @@ for node in doneNodes:
         print enumerations,
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s")' % mbb_autosaveFields
         print '}'
         print
         if ro:
@@ -230,6 +245,7 @@ for node in doneNodes:
         print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
         print enumerations,       
         print '  field(DISA, "0")'
+        print '  info(autosaveFields, "%s PINI VAL")' % mbb_autosaveFields
         print '}'
         print          
     else:
