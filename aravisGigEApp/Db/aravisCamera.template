@@ -3,8 +3,8 @@
 #% macro, P, Device Prefix
 #% macro, R, Device Suffix
 #% macro, PORT, Asyn Port name
-#% macro, TIMEOUT, Timeout
-#% macro, ADDR, Asyn Port address
+#% macro, TIMEOUT, Timeout, default 1
+#% macro, ADDR, Asyn Port address, default 0
 
 include "ADBase.template"
 
@@ -30,6 +30,7 @@ record(mbbo, "$(P)$(R)DataType")
    field(SXVL, "")
    field(SVST, "")
    field(SVVL, "")
+   info(autosaveFields, "VAL")
 }
 
 record(mbbi, "$(P)$(R)DataType_RBV")
@@ -74,6 +75,7 @@ record(mbbo, "$(P)$(R)ColorMode")
    field(SXVL, "")
    field(SVST, "")
    field(SVVL, "")
+   info(autosaveFields, "VAL")
 }
 
 record(mbbi, "$(P)$(R)ColorMode_RBV")
@@ -101,36 +103,39 @@ record(mbbi, "$(P)$(R)ColorMode_RBV")
 record(ai, "$(P)$(R)COMPLETED_RBV")
 {
    field(DTYP, "asynFloat64")
-   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_COMPLETED")
+   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_COMPLETED")
    field(SCAN, "I/O Intr")
+   info(autosaveFields, "DESC LLSV LOLO LOW LSV")
 }
 
 # % gdatag, pv, ro, $(PORT)_aravisCamera, FAILURES_RBV, Readback for Frame Failures
 record(ai, "$(P)$(R)FAILURES_RBV")
 {
    field(DTYP, "asynFloat64")
-   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_FAILURES")
+   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_FAILURES")
    field(SCAN, "I/O Intr")
+   info(autosaveFields, "DESC HHSV HIHI HIGH HSV")
 }
 
 # % gdatag, pv, ro, $(PORT)_aravisCamera, UNDERRUNS_RBV, Readback for Frame Underruns
 record(ai, "$(P)$(R)UNDERRUNS_RBV")
 {
    field(DTYP, "asynFloat64")
-   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_UNDERRUNS")
+   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_UNDERRUNS")
    field(SCAN, "I/O Intr")
+   info(autosaveFields, "DESC HHSV HIHI HIGH HSV")
 }
 
 record(longout, "$(P)$(R)RESET")
 {
    field(DTYP, "asynInt32")
-   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_RESET")
+   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_RESET")
    field(FLNK, "$(P)$(R)CONNECTION")
 }
 
 record(bi, "$(P)$(R)GETFEATURES_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_GETFEATURES")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_GETFEATURES")
   field(SCAN, "I/O Intr")
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -138,17 +143,18 @@ record(bi, "$(P)$(R)GETFEATURES_RBV") {
 
 record(bo, "$(P)$(R)GETFEATURES") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_GETFEATURES")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_GETFEATURES")
   field(ZNAM, "No")
   field(ONAM, "Yes")
-  field(VAL, "1")
+  field(VAL,  "1")
   field(PINI, "YES")
+  info(autosaveFields, "DESC VAL")
 }
 
 record(longout, "$(P)$(R)CONNECTION")
 {
    field(DTYP, "asynInt32")
-   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_CONNECTION")
+   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_CONNECTION")
    field(VAL, "1")
    field(PINI, "1")
 }
@@ -164,23 +170,25 @@ record(calcout, "$(P)$(R)CHKCONN")
 
 record(mbbi, "$(P)$(R)LEFTSHIFT_RBV") {
   field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_LEFTSHIFT")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_LEFTSHIFT")
   field(ZRST, "No")
   field(ZRVL, "0")
   field(ONST, "Yes")
   field(ONVL, "1")
   field(SCAN, "I/O Intr")
+  info(autosaveFields, "DESC ZRSV ONSV")
 }
 
 ## If this is set to 1, then 10, 12 and 16 bit images will be left shifted 
 ## so that a pixel with maximum exposure = 2^16 no matter what the pixel format 
 record(mbbo, "$(P)$(R)LEFTSHIFT") {
   field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))ARAVIS_LEFTSHIFT")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_LEFTSHIFT")
   field(ZRST, "No")
   field(ZRVL, "0")
   field(ONST, "Yes")
   field(ONVL, "1")
+  info(autosaveFields, "DESC ZRSV ONSV VAL")
 }
 
 # unsupported fields
