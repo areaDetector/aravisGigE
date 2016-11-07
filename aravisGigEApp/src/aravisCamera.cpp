@@ -1108,9 +1108,6 @@ asynStatus aravisCamera::start() {
     getIntegerParam(ADNumImages, &numImages);
     if (imageMode == ADImageSingle) {
         arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_SINGLE_FRAME);
-    } else if (imageMode == ADImageMultiple && hasFeature("AcquisitionFrameCount")) {
-        arv_device_set_string_feature_value(this->device, "AcquisitionMode", "MultiFrame");
-        arv_device_set_integer_feature_value(this->device, "AcquisitionFrameCount", numImages);
     } else {
         arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
     }
