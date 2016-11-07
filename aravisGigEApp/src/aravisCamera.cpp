@@ -1099,18 +1099,9 @@ asynStatus aravisCamera::stop() {
 }
 
 asynStatus aravisCamera::start() {
-    int imageMode, numImages;
     const char *functionName = "start";
-    asynStatus status = asynSuccess;
-    
-    // Set the image mode and counters
-    getIntegerParam(ADImageMode, &imageMode);
-    getIntegerParam(ADNumImages, &numImages);
-    if (imageMode == ADImageSingle) {
-        arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_SINGLE_FRAME);
-    } else {
-        arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
-    }
+
+    arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
     setIntegerParam(ADNumImagesCounter, 0);
     setIntegerParam(ADStatus, ADStatusAcquire);
 
@@ -1127,7 +1118,7 @@ asynStatus aravisCamera::start() {
 
     // Start the camera acquiring
     arv_camera_start_acquisition (this->camera);
-    return status;
+    return asynSuccess;
 }
 
 asynStatus aravisCamera::getBinning(int *binx, int *biny) {
