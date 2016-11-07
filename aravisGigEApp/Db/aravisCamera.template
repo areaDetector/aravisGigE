@@ -171,7 +171,7 @@ record(longout, "$(P)$(R)PKT_TIMEOUT")
 
 record(longout, "$(P)$(R)FRAME_RETENTION")
 {
-   field(DESC, "Frame timeout in us after last packet rcvd")
+   field(DESC, "Frame timeout in us after last packet")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_FRAME_RETENTION")
    field(VAL,  "100000")
