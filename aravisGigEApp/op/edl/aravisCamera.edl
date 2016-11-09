@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 506
-y 404
+x 351
+y 433
 w 390
-h 110
+h 130
 font "arial-bold-r-12.0"
 ctlFont "arial-bold-r-12.0"
 btnFont "arial-bold-r-12.0"
@@ -34,7 +34,7 @@ release 0
 x 0
 y 0
 w 390
-h 110
+h 125
 lineColor index 5
 fill
 fillColor index 5
@@ -49,7 +49,7 @@ release 0
 x 5
 y 15
 w 380
-h 90
+h 110
 lineColor index 14
 fill
 fillColor index 3
@@ -60,7 +60,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 5
 w 58
@@ -99,7 +99,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 25
 w 75
@@ -137,7 +137,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 50
 w 75
@@ -175,7 +175,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 75
 w 75
@@ -194,7 +194,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 205
 y 75
 w 85
@@ -212,7 +212,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 290
 y 75
@@ -236,7 +236,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 205
 y 50
 w 85
@@ -274,7 +274,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
 x 195
 y 75
@@ -306,7 +306,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
 x 195
 y 50
@@ -338,7 +338,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
 x 195
 y 25
@@ -371,7 +371,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 205
 y 25
 w 85
@@ -423,7 +423,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 10
 y 25
 w 175
@@ -445,5 +445,76 @@ endGroup
 visPv "$(P)$(R)CONNECTION.SEVR"
 visMin "3"
 visMax "4"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 205
+y 100
+w 85
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "HW Img Mode"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 195
+y 100
+w 10
+h 20
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-10.0"
+xPosOffset -100
+yPosOffset -85
+useFocus
+buttonLabel "?"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "aravisHelp"
+}
+setPosition {
+  0 "button"
+}
+symbols {
+  0 "desc0=When this is On the image mode is set on the camera directly. On Off a software ,desc1=implementation is used.,desc2=Software implementation does not guarantee that only the configured number of ,desc3=acquisitions is triggered on the camera but it is faster and does not cap the ,desc4=number of frames in multiple mode with the register size on the camera.,desc5=''"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 290
+y 100
+w 90
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)HWIMAGEMODE"
+indicatorPv "$(P)$(R)HWIMAGEMODE_RBV"
+font "arial-bold-r-12.0"
 endObjectProperties
 

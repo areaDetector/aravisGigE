@@ -146,6 +146,7 @@ protected:
     int AravisLeftShift;
     int AravisConnection;
     int AravisGetFeatures;
+    int AravisHWImageMode;
     int AravisReset;
     #define LAST_ARAVIS_CAMERA_PARAM AravisReset
     int features[NFEATURES];
@@ -315,6 +316,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     createParam("ARAVIS_LEFTSHIFT",      asynParamInt32,   &AravisLeftShift);
     createParam("ARAVIS_CONNECTION",     asynParamInt32,   &AravisConnection);
     createParam("ARAVIS_GETFEATURES",    asynParamInt32,   &AravisGetFeatures);
+    createParam("ARAVIS_HWIMAGEMODE",    asynParamInt32,   &AravisHWImageMode);
     createParam("ARAVIS_RESET",          asynParamInt32,   &AravisReset);
 
     /* Set some initial values for other parameters */
@@ -331,6 +333,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     setIntegerParam(AravisPktTimeout, 20000);       // aravisGigE default 20ms
     setIntegerParam(AravisResentPkts, 0);
     setIntegerParam(AravisLeftShift, 1);
+    setIntegerParam(AravisHWImageMode, 0);
     setIntegerParam(AravisReset, 0);
     
     /* Enable the fake camera for simulations */
@@ -675,7 +678,8 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
             status = asynError;
         }
     } else if (function == AravisGetFeatures || function == AravisFrameRetention
-            || function == AravisPktResend   || function == AravisPktTimeout ) {
+            || function == AravisPktResend   || function == AravisPktTimeout 
+            || function == AravisHWImageMode) {
         /* just write the value for these as they get fetched via getIntegerParam when needed */
     } else if (function < FIRST_ARAVIS_CAMERA_PARAM) {
         /* If this parameter belongs to a base class call its method */
@@ -864,7 +868,7 @@ asynStatus aravisCamera::allocBuffer() {
     this->camera exists, lock not taken */
 void aravisCamera::run() {
     epicsTimeStamp lastFeatureGet, now;
-    int getFeatures, numImagesCounter, imageMode, numImages;
+    int getFeatures, numImagesCounter, imageMode, numImages, acquire;
     const char *functionName = "run";
     ArvBuffer *buffer;
 
@@ -897,25 +901,31 @@ void aravisCamera::run() {
         } else {
             /* Got a buffer, so lock up and process it */
             this->lock();
-            this->processBuffer(buffer);
-            /* free memory */
-            g_object_unref(buffer);
-            /* See if acquisition is done */
-            getIntegerParam(ADNumImages, &numImages);
-            getIntegerParam(ADNumImagesCounter, &numImagesCounter);
-            getIntegerParam(ADImageMode, &imageMode);
-            if ((imageMode == ADImageSingle) ||
-                ((imageMode == ADImageMultiple) &&
-                 (numImagesCounter >= numImages))) {
-                this->stop();
-                // Want to make sure we're idle before we callback on ADAcquire
-                callParamCallbacks();
-                setIntegerParam(ADAcquire, 0);
-                asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-                      "%s:%s: acquisition completed\n", driverName, functionName);
+            getIntegerParam(ADAcquire, &acquire);
+            if (acquire) {
+                this->processBuffer(buffer);
+                /* free memory */
+                g_object_unref(buffer);
+                /* See if acquisition is done */
+                getIntegerParam(ADNumImages, &numImages);
+                getIntegerParam(ADNumImagesCounter, &numImagesCounter);
+                getIntegerParam(ADImageMode, &imageMode);
+                if ((imageMode == ADImageSingle) ||
+                    ((imageMode == ADImageMultiple) &&
+                     (numImagesCounter >= numImages))) {
+                    this->stop();
+                    // Want to make sure we're idle before we callback on ADAcquire
+                    callParamCallbacks();
+                    setIntegerParam(ADAcquire, 0);
+                    asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+                          "%s:%s: acquisition completed\n", driverName, functionName);
+                } else {
+                    /* Allocate the new raw buffer we use to compute images. */
+                    this->allocBuffer();
+                }
             } else {
-                /* Allocate the new raw buffer we use to compute images. */
-                this->allocBuffer();
+                // We recieved a buffer that we didn't request
+                g_object_unref(buffer);
             }
             this->unlock();
         }
@@ -1099,9 +1109,23 @@ asynStatus aravisCamera::stop() {
 }
 
 asynStatus aravisCamera::start() {
+    int imageMode, numImages, hwImageMode;
     const char *functionName = "start";
+    
+    getIntegerParam(AravisHWImageMode, &hwImageMode);
+    getIntegerParam(ADImageMode, &imageMode);
 
-    arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
+    if (hwImageMode and imageMode != ADImageContinuous) {
+        if (imageMode == ADImageSingle) {
+            arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_SINGLE_FRAME);
+        } else if (imageMode == ADImageMultiple && hasFeature("AcquisitionFrameCount")) {
+            getIntegerParam(ADNumImages, &numImages);
+            arv_device_set_string_feature_value(this->device, "AcquisitionMode", "MultiFrame");
+            arv_device_set_integer_feature_value(this->device, "AcquisitionFrameCount", numImages);
+        }
+    } else {
+        arv_camera_set_acquisition_mode(this->camera, ARV_ACQUISITION_MODE_CONTINUOUS);
+    }
     setIntegerParam(ADNumImagesCounter, 0);
     setIntegerParam(ADStatus, ADStatusAcquire);
 
