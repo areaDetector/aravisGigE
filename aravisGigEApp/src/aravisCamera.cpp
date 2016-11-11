@@ -1390,28 +1390,26 @@ asynStatus aravisCamera::setIntegerValue(const char *feature, epicsInt32 value, 
 asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, epicsFloat64 *rbv) {
     const char *functionName = "setFloatValue";
     if (feature == NULL) {
-        ArvGcNode *featureNode = arv_device_get_feature(this->device, feature);
-        *rbv = value;
-        if (!ARV_IS_GC_COMMAND(featureNode)) {
-            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-                    "%s:%s: Cannot set float value of a NULL feature\n",
-                    driverName, functionName);
-            return asynError;
-        }
-        asynPrint(  this->pasynUserSelf, ASYN_TRACEIO_DRIVER,
-                "%s:%s: arv_device_set_float_feature_value %s value %f\n",
-                driverName, functionName, feature, value );
-        arv_device_set_float_feature_value (this->device, feature, value);
-        if (rbv != NULL) {
-            *rbv = arv_device_get_float_feature_value (this->device, feature);
-        }
-        if (fabs(value - *rbv) > 0.001) {
-            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-                    "%s:%s: feature %s value %f != rbv %f\n",
-                    driverName, functionName, feature, value, *rbv);
-            return asynError;
-        }
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+            "%s:%s: Cannot set float value of a NULL feature\n",
+            driverName, functionName);
+        return asynError;
     }
+
+    asynPrint(  this->pasynUserSelf, ASYN_TRACEIO_DRIVER,
+            "%s:%s: arv_device_set_float_feature_value %s value %f\n",
+            driverName, functionName, feature, value );
+    arv_device_set_float_feature_value (this->device, feature, value);
+    if (rbv != NULL) {
+        *rbv = arv_device_get_float_feature_value (this->device, feature);
+    }
+    if (fabs(value - *rbv) > 0.001) {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s:%s: feature %s value %f != rbv %f\n",
+                driverName, functionName, feature, value, *rbv);
+        return asynError;
+    }
+
     return asynSuccess;
 }
 
