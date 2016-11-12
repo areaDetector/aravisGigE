@@ -1402,14 +1402,13 @@ asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, 
     arv_device_set_float_feature_value (this->device, feature, value);
     if (rbv != NULL) {
         *rbv = arv_device_get_float_feature_value (this->device, feature);
+        if (fabs(value - *rbv) > 0.001) {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s: feature %s value %f != rbv %f\n",
+                    driverName, functionName, feature, value, *rbv);
+            return asynError;
+        }
     }
-    if (fabs(value - *rbv) > 0.001) {
-        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-                "%s:%s: feature %s value %f != rbv %f\n",
-                driverName, functionName, feature, value, *rbv);
-        return asynError;
-    }
-
     return asynSuccess;
 }
 
