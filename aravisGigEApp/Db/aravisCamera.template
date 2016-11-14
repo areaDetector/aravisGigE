@@ -245,6 +245,27 @@ record(mbbo, "$(P)$(R)LEFTSHIFT") {
   info(autosaveFields, "DESC ZRSV ONSV VAL")
 }
 
+record(bi, "$(P)$(R)HWIMAGEMODE_RBV") {
+  field(DESC, "Use HW register for acquisiton modes")
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_HWIMAGEMODE")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(SCAN, "I/O Intr")
+  info(autosaveFields, "DESC ZRSV ONSV")
+}
+
+## If this is set to 1, the acquisition mode is communicated to the
+## hardware, on zero a software based implementation is used
+record(bo, "$(P)$(R)HWIMAGEMODE") {
+  field(DESC, "Use HW register for image modes")
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_HWIMAGEMODE")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  info(autosaveFields, "DESC ZRSV ONSV VAL")
+}
+
 # unsupported fields
 record(bo, "$(P)$(R)ReverseX") {
   field(DISA, "1")
