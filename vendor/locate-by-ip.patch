@@ -1,5 +1,15 @@
 --- vendor/aravis/src/arvgvinterface.c	2014-09-05 10:18:53.832678198 +0100
 +++ vendor/aravis/src/arvgvinterface.c.new	2014-09-05 10:18:40.859432533 +0100
+@@ -39,6 +39,9 @@
+ #include <ifaddrs.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <netdb.h>
++#include <arpa/inet.h>
++
+ 
+ /* ArvGvDiscoverSocket implementation */
+ 
 @@ -398,6 +398,74 @@
  	}
  }
@@ -75,28 +85,52 @@
  static ArvDevice *
  arv_gv_interface_open_device (ArvInterface *interface, const char *device_id)
  {
-@@ -417,6 +485,21 @@
+@@ -417,8 +485,43 @@
  	} else
  		device_infos = g_hash_table_lookup (gv_interface->priv->devices, device_id);
  
-+	if (device_infos == NULL) {
-+	   /* This is probably an IP address */
-+	   device_address = g_inet_address_new_from_string(device_id);
-+	   if (device_address != NULL) {
-+		   /* Try and find an interface that the camera will respond on */
-+		   GInetAddress *interface_address = arv_gv_interface_camera_locate(gv_interface, device_address);
-+		   if (interface_address != NULL) {
-+			   device = arv_gv_device_new (interface_address, device_address);
-+			   g_object_unref (interface_address);
-+		   }
-+		   g_object_unref (device_address);
-+		   return device;
-+	   }
-+	}
+-	if (device_infos == NULL)
+-		return NULL;
++    if (device_infos == NULL) {
++        // Try if this is a hostname/IP address
++        struct addrinfo hints;
++        struct addrinfo *servinfo, *endpoint;
++        memset(&hints, 0, sizeof(hints));
++        hints.ai_family = AF_INET;
++        hints.ai_socktype = SOCK_STREAM;
 +
- 	if (device_infos == NULL)
- 		return NULL;
++        if (getaddrinfo(device_id, "http", &hints, &servinfo) != 0) {
++            freeaddrinfo(servinfo);
++            return NULL;
++        }
++
++        for (endpoint=servinfo; endpoint!=NULL; endpoint=endpoint->ai_next) {
++            char ipstr[INET_ADDRSTRLEN];
++            struct sockaddr_in *ip = (struct sockaddr_in *)endpoint->ai_addr;
++
++            inet_ntop(endpoint->ai_family, &ip->sin_addr, ipstr, sizeof(ipstr));
++
++            device_address = g_inet_address_new_from_string(ipstr);
++            if (device_address != NULL) {
++                /* Try and find an interface that the camera will respond on */
++                GInetAddress *interface_address = 
++                    arv_gv_interface_camera_locate(gv_interface, device_address);
++                if (interface_address != NULL) {
++                    device = arv_gv_device_new (interface_address, device_address);
++                    g_object_unref (interface_address);
++                }
++            }
++            g_object_unref (device_address);
++            if (device != NULL) {
++                break;
++            }
++        }
++        freeaddrinfo(servinfo);
++        return device;
++    }
  
+ 	device_address = _device_infos_to_ginetaddress (device_infos);
+ 	device = arv_gv_device_new (device_infos->interface_address, device_address);
 Index: vendor/aravis/src/arvstream.h
 ===================================================================
 --- vendor/aravis/src/arvstream.h	(revision 119487)
