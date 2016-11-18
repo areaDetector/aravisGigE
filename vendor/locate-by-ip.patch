@@ -1,16 +1,27 @@
 --- vendor/aravis/src/arvgvinterface.c	2014-09-05 10:18:53.832678198 +0100
 +++ vendor/aravis/src/arvgvinterface.c.new	2014-09-05 10:18:40.859432533 +0100
-@@ -39,6 +39,9 @@
+@@ -25,6 +25,7 @@
+  * @short_description: Gigabit ethernet camera interface
+  */
+ 
++#include <arpa/inet.h>
+ #include <arvgvinterface.h>
+ #include <arvgvdevice.h>
+ #include <arvgvcp.h>
+@@ -36,10 +37,12 @@
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <net/if.h>
++#include <netdb.h>
  #include <ifaddrs.h>
  #include <stdlib.h>
  #include <string.h>
-+#include <netdb.h>
-+#include <arpa/inet.h>
-+
  
++
  /* ArvGvDiscoverSocket implementation */
  
-@@ -398,6 +398,74 @@
+ typedef struct {
+@@ -398,6 +401,75 @@
  	}
  }
  
@@ -82,10 +93,11 @@
 +	return interface_address;
 +}
 +
++
  static ArvDevice *
- arv_gv_interface_open_device (ArvInterface *interface, const char *device_id)
+ _open_device (ArvInterface *interface, const char *device_id)
  {
-@@ -417,8 +485,43 @@
+@@ -417,8 +489,44 @@
  	} else
  		device_infos = g_hash_table_lookup (gv_interface->priv->devices, device_id);
  
@@ -128,6 +140,7 @@
 +        freeaddrinfo(servinfo);
 +        return device;
 +    }
++
  
  	device_address = _device_infos_to_ginetaddress (device_infos);
  	device = arv_gv_device_new (device_infos->interface_address, device_address);
