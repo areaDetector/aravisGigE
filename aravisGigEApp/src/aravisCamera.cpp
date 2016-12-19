@@ -446,6 +446,28 @@ asynStatus aravisCamera::makeCameraObject() {
                     driverName, functionName);
         return asynError;
     }
+
+    guint32 regval = -1;
+    asynStatus status = asynError;
+    if (arv_device_read_register(this->device, ARV_GVBS_CONTROL_CHANNEL_PRIVILEGE_OFFSET, &regval, NULL)) {
+        if (regval&ARV_GVBS_CONTROL_CHANNEL_PRIVILEGE_CONTROL) {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
+                        "%s:%s: In control of camera.\n",
+                        driverName, functionName);
+            printf("aravisCamera: I am in control\n");
+            status = asynSuccess;
+        } else {
+            asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                        "%s:%s: Another client has control of this camera.\n",
+                        driverName, functionName);
+        }
+    } else {
+        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+                    "%s:%s: Unable to read camera CONTROL_CHANNEL register.  Device not accessible.\n",
+                    driverName, functionName);
+    }
+    if (status) return status;
+
     // Make standard size packets
 //    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), ARV_GV_DEVICE_GVSP_PACKET_SIZE_DEFAULT);
     // Uncomment this line to set jumbo packets
