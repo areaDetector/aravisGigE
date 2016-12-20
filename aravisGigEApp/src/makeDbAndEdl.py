@@ -811,10 +811,10 @@ buttonLabel "more features..."
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "%s-features"
+  0 "%(camera_name)s-features"
 }
 setPosition {
   0 "parentWindow"
 }
-endObjectProperties""" % (camera_name, globals()) )
+endObjectProperties""" % globals() )
 
