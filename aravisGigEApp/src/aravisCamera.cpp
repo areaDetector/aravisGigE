@@ -288,7 +288,6 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     const char *functionName = "aravisCamera";
 
     /* glib initialisation */
-    g_thread_init (NULL);
     g_type_init ();
 
     /* Duplicate camera name so we can use it if we reconnect */
