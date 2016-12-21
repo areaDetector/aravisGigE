@@ -288,7 +288,6 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     const char *functionName = "aravisCamera";
 
     /* glib initialisation */
-    g_thread_init (NULL);
     g_type_init ();
 
     /* Duplicate camera name so we can use it if we reconnect */
@@ -518,7 +517,7 @@ asynStatus aravisCamera::connectToCamera() {
     const char *functionName = "connectToCamera";
     int status = asynSuccess;
     int w, h;
-    const char *vendor, *model;
+    const char *vendor, *model, *deviceID, *firmwareVersion;
 
     /* stop old camera if it exists */
     this->connectionValid = 0;
@@ -558,6 +557,10 @@ asynStatus aravisCamera::connectToCamera() {
     if (vendor) status |= setStringParam (ADManufacturer, vendor);
     model = arv_camera_get_model_name(this->camera);
     if (model) status |= setStringParam (ADModel, model);
+    deviceID = arv_camera_get_device_id(this->camera);
+    if (deviceID) status |= setStringParam (ADSerialNumber, deviceID);
+    firmwareVersion = arv_device_get_string_feature_value(this->device, "DeviceFirmwareVersion");
+    if (firmwareVersion) status |= setStringParam (ADFirmwareVersion, firmwareVersion);
 
     /* Get sensor size */
     arv_camera_get_sensor_size(this->camera, &w, &h);
