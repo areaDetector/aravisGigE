@@ -12,8 +12,8 @@ the driver supports, and the generated summary screen should be edited to make
 a more sensible summary. The Db file will be generated in:
   ../Db/<camera_name>.template
 and the edm files will be called:
-  ../opi/edl/<camera_name>.edl
-  ../opi/edl/<camera_name>-features.edl""")
+  ../op/edl/<camera_name>.edl
+  ../op/edl/<camera_name>-features.edl""")
 options, args = parser.parse_args()
 if len(args) != 2:
     parser.error("Incorrect number of arguments")
@@ -35,8 +35,8 @@ xml_root = parseString("".join(genicam_lines[start_line:]).lstrip())
 camera_name = args[1]
 prefix = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 db_filename = os.path.join(prefix, "Db", camera_name + ".template")
-edl_filename = os.path.join(prefix, "opi", "edl", camera_name + ".edl")
-edl_more_filename = os.path.join(prefix, "opi", "edl", camera_name + "-features.edl")
+edl_filename = os.path.join(prefix, "op", "edl", camera_name + ".edl")
+edl_more_filename = os.path.join(prefix, "op", "edl", camera_name + "-features.edl")
 
 # function to read element children of a node
 def elements(node):
@@ -811,10 +811,10 @@ buttonLabel "more features..."
 numPvs 4
 numDsps 1
 displayFileName {
-  0 "%s-features"
+  0 "%(camera_name)s-features"
 }
 setPosition {
   0 "parentWindow"
 }
-endObjectProperties""" % (camera_name, globals()) )
+endObjectProperties""" % globals() )
 
