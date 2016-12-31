@@ -187,39 +187,15 @@ record(longout, "$(P)$(R)RESET")
    field(FLNK, "$(P)$(R)CONNECTION")
 }
 
-record(bi, "$(P)$(R)GETFEATURES_RBV") {
-  field(DTYP, "asynInt32")
-  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_GETFEATURES")
-  field(SCAN, "I/O Intr")
-  field(ZNAM, "No")
-  field(ONAM, "Yes")
-}
-
-record(bo, "$(P)$(R)GETFEATURES") {
-  field(DTYP, "asynInt32")
-  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_GETFEATURES")
-  field(ZNAM, "No")
-  field(ONAM, "Yes")
-  field(VAL,  "1")
-  field(PINI, "YES")
-  info(autosaveFields, "DESC VAL")
-}
-
-record(longout, "$(P)$(R)CONNECTION")
+record(bi, "$(P)$(R)CONNECTION")
 {
    field(DTYP, "asynInt32")
-   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_CONNECTION")
-   field(VAL, "1")
-   field(PINI, "1")
-}
-
-record(calcout, "$(P)$(R)CHKCONN")
-{
-   field(SCAN, "1 second")
-   field(INPA, "$(P)$(R)CONNECTION.SEVR CP")
-   field(CALC, "A==0")
-   field(OOPT, "When Non-zero")
-   field(OUT,  "$(P)$(R)CONNECTION.PROC PP")
+   field(INP , "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARAVIS_CONNECTION")
+   field(SCAN, "I/O Intr")
+   field(ZNAM, "Disconnected")
+   field(ONAM, "Connected")
+   field(ZSV , "MAJOR")
+   alias("$(P)$(R)CONNECTION_RBV")
 }
 
 record(mbbi, "$(P)$(R)LEFTSHIFT_RBV") {
