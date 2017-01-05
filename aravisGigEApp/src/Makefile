@@ -18,6 +18,10 @@ TESTPROD_IOC += testcam
 testcam_SRCS += testcam.cpp
 testcam_LIBS += aravisCamera ADBase asyn dbCore Com
 
+TESTPROD_IOC += testimage
+testimage_SRCS += testimage.cpp
+testimage_LIBS += aravisCamera ADBase asyn dbCore Com
+
 LIBRARY_IOC += aravisCamera
 
 # The following are compiled and added to the support library
