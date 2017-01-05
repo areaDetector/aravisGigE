@@ -232,6 +232,8 @@ MAIN(testcam)
     }
     cam.reset();
 
+    arv_shutdown();
+
     testDiag("Exit");
     epicsExit(testDone());
     return 2; // not reached

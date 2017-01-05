@@ -245,6 +245,8 @@ MAIN(testimage)
     captureMultiple();
     captureContinuous();
 
+    arv_shutdown();
+
     epicsExit(testDone());
     return 2; // not reached
 }
