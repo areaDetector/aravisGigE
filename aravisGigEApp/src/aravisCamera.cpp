@@ -14,6 +14,7 @@
 #include <vector>
 #include <string>
 #include <deque>
+#include <limits>
 
 #include <stdarg.h>
 #include <math.h>
@@ -33,38 +34,8 @@
 #include <cantProceed.h>
 #include <initHooks.h>
 
-/* areaDetector includes */
-#include <ADDriver.h>
-
 #include "ghelper.h"
-
-struct NDArrayPtr {
-    NDArray *arr;
-    NDArrayPtr() :arr(0) {}
-    explicit NDArrayPtr(NDArray* arr) :arr(arr) {
-        if(!arr)
-            throw std::runtime_error("Failed to allocate NDArray");
-    }
-    NDArrayPtr(const NDArrayPtr& o) :arr(o.arr) {
-        if(arr) arr->reserve();
-    }
-    ~NDArrayPtr() { reset(); }
-    void reset(NDArray *p=0) {
-        if(arr) arr->release();
-        arr = p;
-    }
-    NDArray& operator*() const { return *arr; }
-    NDArray* operator->() const { return arr; }
-    NDArray* get() const { return arr; }
-    NDArray* release() {
-        NDArray *ret = arr;
-        arr = 0;
-        return ret;
-    }
-    void swap(NDArrayPtr& o) {
-        std::swap(arr, o.arr);
-    }
-};
+#include "adhelper.h"
 
 typedef epicsGuard<asynPortDriver> Guard;
 typedef epicsGuardRelease<asynPortDriver> UnGuard;
@@ -374,26 +345,6 @@ public:
     void dropConnection();
 
     void pushNDArray();
-    asynStatus allocBuffer();
-    asynStatus processBuffer(ArvBuffer *buffer);
-    asynStatus start();
-    asynStatus stop();    
-    asynStatus getBinningMode(const char *mode, int *binx, int *biny);
-    asynStatus setBinningMode(int binx, int biny, const char **mode);
-    asynStatus getGeometry();
-    asynStatus setGeometry();
-    void lookupColorMode(ArvPixelFormat fmt, int *colorMode, int *dataType, int *bayerFormat);
-    asynStatus lookupPixelFormat(int colorMode, int dataType, int bayerFormat, ArvPixelFormat *fmt);
-    asynStatus setIntegerValue(const char *feature, epicsInt32 value, epicsInt32 *rbv);
-    asynStatus setFloatValue(const char *feature, epicsFloat64 value, epicsFloat64 *rbv);
-    asynStatus connectToCamera();
-    asynStatus makeCameraObject();
-    asynStatus makeStreamObject();
-    asynStatus getAllFeatures();
-    asynStatus getNextFeature();
-    int hasEnumString(const char* feature, const char *value);
-    gboolean hasFeature(const char *feature);
-    asynStatus tryAddFeature(int *ADIdx, const char *featureString);
 
     typedef std::deque<GWrapper<ArvBuffer> > bufqueue_t;
     bufqueue_t bufqueue;
@@ -476,13 +427,16 @@ void aravisCamera::newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
             bool wakeup = false;
             {
                 Guard G(*pPvt);
+                wakeup = pPvt->bufqueue.empty();
 
                 if(pPvt->bufqueue.size()<NRAW) {
                     pPvt->bufqueue.push_back(buffer);
-                    wakeup = true;
+                    pPvt->trace("%s:%s have new frame%c\n",
+                                pPvt->portName, __FUNCTION__,
+                                wakeup ? '!' : '.');
+
                 } else {
-                    // printf as pPvt->pasynUserSelf for asynPrint is protected
-                    printf("Message queue full, dropped buffer\n");
+                    pPvt->error("%s:%s Message queue full, dropped buffer\n", pPvt->portName, __FUNCTION__);
                     arv_stream_push_buffer (stream, buffer.release());
                 }
             }
@@ -490,6 +444,7 @@ void aravisCamera::newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
             if(wakeup) pPvt->pollingEvent.signal();
 
         } else {
+            pPvt->error("%s:%s bad buffer\n", pPvt->portName, __FUNCTION__);
             // bad buffer
             //TODO: as of 0.5.6 aravis doesn't set ARV_BUFFER_STATUS_SIZE_MISMATCH
             //      when buffer size is too small.
@@ -497,14 +452,12 @@ void aravisCamera::newBufferCallback (ArvStream *stream, aravisCamera *pPvt) {
 
             arv_stream_push_buffer (stream, buffer.release());
 
-            // printf as pPvt->pasynUserSelf for asynPrint is protected
-
             nConsecutiveBadFrames++;
             if ( nConsecutiveBadFrames < 10 )
-                printf("Bad frame status: %s\n", ArvBufferStatusToString(buffer_status) );
+                pPvt->error("Bad frame status: %s\n", ArvBufferStatusToString(buffer_status) );
             else if ( ((nConsecutiveBadFrames-10) % 1000) == 0 ) {
                 static int  nBadFramesPrior = 0;
-                printf("Bad frame status: %s, %d msgs suppressed.\n", ArvBufferStatusToString(buffer_status),
+                pPvt->error("Bad frame status: %s, %d msgs suppressed.\n", ArvBufferStatusToString(buffer_status),
                         nConsecutiveBadFrames - nBadFramesPrior );
                 nBadFramesPrior = nConsecutiveBadFrames;
             }
@@ -808,11 +761,48 @@ void aravisCamera::run()
                 }
 
                 if(acquiring) {
-                    GWrapper<ArvBuffer> buf;
-                    buf.reset(arv_stream_try_pop_buffer(stream));
-                    if(buf) {
-                        pushNDArray(); // pre-emptively add a replacement for the used frame
-                        // have a new buffer
+                    while(target_state==Connected && bufqueue.empty()) {
+                        UnGuard U(G);
+                        pollingEvent.wait();
+                    }
+                    if(!bufqueue.empty()) {
+                        GWrapper<ArvBuffer> buf;
+                        bufqueue.front().swap(buf);
+                        bufqueue.pop_front();
+
+                        // if we control image stream, then decide if this is the last frame and stop
+                        int hwImageMode = 0;
+                        getIntegerParam(AravisHWImageMode, &hwImageMode);
+                        if(!hwImageMode) {
+                            int imageMode = ADImageSingle;
+                            getIntegerParam(ADImageMode, &imageMode);
+                            bool stopit = false;
+                            switch(imageMode) {
+                            case ADImageSingle:
+                                stopit = true;
+                                break;
+                            case ADImageMultiple:
+                            {
+                                int needed = 0, sofar = 0;
+                                getIntegerParam(ADNumImagesCounter, &sofar); // does not include this frame
+                                getIntegerParam(ADNumImages, &needed);
+                                stopit = sofar >= needed-1;
+                            }
+                                break;
+                            case ADImageContinuous:
+                                break;
+                            }
+                            if(stopit) {
+                                trace("%s:%s stop acquire from manual control\n", portName, __FUNCTION__);
+                                acquiring = false;
+                                doAcquireStop(G);
+                            }
+                        }
+
+                        if(stream)
+                            pushNDArray(); // pre-emptively add a replacement for the used frame
+
+                        trace("%s:%s handle new buffer %p\n", portName, __FUNCTION__, buf.get());
                         doHandleBuffer(G, buf);
                     }
                 }
@@ -885,18 +875,23 @@ void aravisCamera::runScanner()
                 bool userSetting = feat->userSetting;
                 unsigned nchanges = feat->nchanged;
 
-                int old_int, new_int = 0;
-                double old_flt, new_flt = 0.0;
+                // old/new value are in feature units
+                double old_val, new_val = 0.0;
                 std::string new_str;
 
                 // fetch current param value while locked
                 unsigned rbsts;
                 switch(feat->type) {
                 case asynParamInt32:
-                    rbsts = getIntegerParam(feat->param, &old_int);
+                {
+                    int old;
+                    rbsts = getIntegerParam(feat->param, &old);
+                    old_val = feat->asyn2arv(old);
+                }
                     break;
                 case asynParamFloat64:
-                    rbsts = getDoubleParam(feat->param, &old_flt);
+                    rbsts = getDoubleParam(feat->param, &old_val);
+                    old_val = feat->asyn2arv(old_val);
                     break;
                 case asynParamOctet:
                     rbsts = getStringParam(feat->param, old_str.size(), &old_str[0]);
@@ -916,7 +911,7 @@ void aravisCamera::runScanner()
                             // soft fail to a default
                             px = &pix_lookup_arr[0];
                         }
-                        old_int = px->fmt;
+                        old_val = feat->asyn2arv(px->fmt);
 
                     } else if(feat->param==XBinningMode) {
                         int x, y;
@@ -938,40 +933,35 @@ void aravisCamera::runScanner()
                     continue; // should not be hit
                 }
 
-                if(feat->type==asynParamFloat64 && ftype==Feature::Integer) {
-                    old_int = old_flt;
-                }
-
                 // read current value and update if userSetting and differs
                 GErrorHelper gerr;
                 bool changed = rbsts!=asynSuccess;
+
+                if(changed && userSetting) {
+                    error("%s:%s param %s marked as setting w/o a setting value\n", portName, __FUNCTION__, feat->activeName.c_str());
+                }
+
                 {
                     UnGuard U(G);
                     epicsGuard<epicsMutex> IO(arvLock);
 
                     switch(ftype) {
                     case Feature::Integer:
-                        old_int = feat->asyn2arv(old_int);
-                        new_int = arv_gc_integer_get_value(ARV_GC_INTEGER(node), gerr.get());
-                        changed|= !gerr && old_int!=new_int;
+                        new_val = arv_gc_integer_get_value(ARV_GC_INTEGER(node), gerr.get());
+                        changed|= !gerr && fabs(old_val-new_val) > 1e-10;
                         if(userSetting && changed && nchanges<3) {
                             // camera setting out of sync, push our value
-                            arv_gc_integer_set_value(ARV_GC_INTEGER(node), old_int, gerr.get());
+                            arv_gc_integer_set_value(ARV_GC_INTEGER(node), old_val, gerr.get());
                         }
-                        old_int = feat->arv2asyn(old_int);
-                        new_int = feat->arv2asyn(new_int);
                         break;
 
                     case Feature::Float:
-                        old_flt = feat->asyn2arv(old_flt);
-                        new_flt = arv_gc_float_get_value(ARV_GC_FLOAT(node), gerr.get());
-                        changed|= !gerr && old_flt!=new_flt;
+                        new_val = arv_gc_float_get_value(ARV_GC_FLOAT(node), gerr.get());
+                        changed|= !gerr && fabs(old_val-new_val) > 1e-10;
                         if(userSetting && changed && nchanges<3) {
                             // camera setting out of sync, push our value
-                            arv_gc_float_set_value(ARV_GC_FLOAT(node), old_flt, gerr.get());
+                            arv_gc_float_set_value(ARV_GC_FLOAT(node), old_val, gerr.get());
                         }
-                        old_flt = feat->arv2asyn(old_flt);
-                        new_flt = feat->arv2asyn(new_flt);
                         break;
 
                     case Feature::String:
@@ -1004,16 +994,15 @@ void aravisCamera::runScanner()
                         dropConnection();
                 }
 
-                if(feat->type==asynParamFloat64 && ftype==Feature::Integer) {
-                    new_flt = new_int;
-                }
-
                 if(userSetting) {
                     if(changed) {
                         if(feat->nchanged<3) {
                             feat->nchanged++;
                             trace("%s:%s pushed %s (%u)\n",
                                   portName, __FUNCTION__, feat->activeName.c_str(), feat->nchanged);
+                        } else if(feat->nchanged==3) {
+                            feat->nchanged++;
+                            error("%s:%s would push %s, but gave up\n", portName, __FUNCTION__, feat->activeName.c_str());
                         }
                     } else {
                         feat->nchanged = 0;
@@ -1024,19 +1013,19 @@ void aravisCamera::runScanner()
 
                     switch(feat->type) {
                     case asynParamInt32:
-                        trace("%s:%s pulled %s int %d -> %d\n",
+                        trace("%s:%s pulled %s int %g -> %g\n",
                               portName, __FUNCTION__, feat->activeName.c_str(),
-                              old_int, new_int);
-                        setIntegerParam(feat->param, new_int);
+                              old_val, new_val);
+                        setIntegerParam(feat->param, feat->arv2asyn(new_val));
                         break;
                     case asynParamFloat64:
-                        trace("%s:%s pulled %s flt %f -> %f\n",
+                        trace("%s:%s pulled %s flt %g -> %g\n",
                               portName, __FUNCTION__, feat->activeName.c_str(),
-                              old_flt, new_flt);
-                        setDoubleParam(feat->param, new_flt);
+                              old_val, new_val);
+                        setDoubleParam(feat->param, feat->arv2asyn(new_val));
                         break;
                     case asynParamOctet:
-                        trace("%s:%s pulled %s str %s -> %s\n",
+                        trace("%s:%s pulled %s str \"%s\" -> \"%s\"\n",
                               portName, __FUNCTION__, feat->activeName.c_str(),
                               &old_str[0], new_str.c_str());
                         setStringParam(feat->param, new_str.c_str());
@@ -1304,16 +1293,17 @@ void aravisCamera::doAcquireStart(Guard &G)
     GWrapper<ArvStream> strm;
     guint psize;
 
-    int imageMode, numImages, hwImageMode;
+    int imageMode = ADImageSingle,
+        numImages = 1,
+        hwImageMode = 0;
 
     getIntegerParam(AravisHWImageMode, &hwImageMode);
     getIntegerParam(ADImageMode, &imageMode);
     getIntegerParam(ADNumImages, &numImages);
 
-    setIntegerParam(ADNumImagesCounter, 0);
-    setIntegerParam(ADStatus, ADStatusAcquire);
-
-    epicsInt32      FrameRetention, PktResend, PktTimeout;
+    epicsInt32      FrameRetention = 200000,
+                    PktResend      = ARV_GV_STREAM_PACKET_RESEND_ALWAYS,
+                    PktTimeout     = 40000;
     getIntegerParam(AravisFrameRetention,  &FrameRetention);
     getIntegerParam(AravisPktResend,       &PktResend);
     getIntegerParam(AravisPktTimeout,      &PktTimeout);
@@ -1359,6 +1349,7 @@ void aravisCamera::doAcquireStart(Guard &G)
     }
 
     if(arv_device_get_status(device)!=ARV_DEVICE_STATUS_SUCCESS) {
+        error("%s:%s Failed to start acquire\n", portName, __FUNCTION__);
         dropConnection();
         return;
     }
@@ -1388,6 +1379,7 @@ void aravisCamera::doAcquireStart(Guard &G)
     setIntegerParam(ADNumImagesCounter, 0);
 
     callParamCallbacks();
+    trace("%s:%s acquiring\n", portName, __FUNCTION__);
 }
 
 void aravisCamera::doAcquireStop(Guard &G)
@@ -1906,8 +1898,8 @@ void aravisCamera::doHandleBuffer(Guard& G, GWrapper<ArvBuffer>& buffer)
         }
     }
 
-    /* Report statistics */
-    {
+    /* Report statistics unless stream already stoped (eg. single acquire) */
+    if(stream.get()) {
         //TODO: report this from scanner thread?
         guint64 n_completed_buffers, n_failures, n_underruns;
         arv_stream_get_statistics(stream, &n_completed_buffers, &n_failures, &n_underruns);
