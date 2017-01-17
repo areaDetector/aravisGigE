@@ -990,6 +990,7 @@ void aravisCamera::runScanner()
                         break;
 
                     case Feature::String:
+                        //TODO: handle return NULL
                         new_str = arv_gc_string_get_value(ARV_GC_STRING(node), gerr.get());
                         changed|= !gerr && strcmp(&old_str[0], new_str.c_str())!=0;
                         if(userSetting && changed && nchanges<3) {
@@ -1840,7 +1841,7 @@ void aravisCamera::report(FILE *fp, int details)
     fprintf(fp, "Aravis GigE detector %s\n", this->portName);
     try {
         Guard G(*this);
-        fprintf(fp, " State");
+        fprintf(fp, " Current State: ");
         switch(current_state) {
 #define SHOW(ST) case ST: fprintf(fp, " " #ST "\n"); break
         SHOW(Init);
@@ -1850,6 +1851,17 @@ void aravisCamera::report(FILE *fp, int details)
         SHOW(Shutdown);
 #undef SHOW
         }
+        fprintf(fp, " Target State: ");
+        switch(target_state) {
+#define SHOW(ST) case ST: fprintf(fp, " " #ST "\n"); break
+        SHOW(Init);
+        SHOW(RetryWait);
+        SHOW(Connecting);
+        SHOW(Connected);
+        SHOW(Shutdown);
+#undef SHOW
+        }
+        fprintf(fp, " Acquring: %c\n", stream.get() ? 'Y' : 'N');
 
     } CATCH(pasynUserSelf)
 
