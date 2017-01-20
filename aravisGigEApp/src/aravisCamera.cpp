@@ -304,6 +304,9 @@ public:
     //! flag requests a re-check of payload size due to possible changes
     bool payloadSizeCheck;
 
+    //! clear on init/disconnect, set when first feature scan completes
+    bool scanCompleted;
+
     GWrapper<ArvStream> stream;
     ArvDevice* device;
     ArvGc* genicam;
@@ -494,6 +497,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     ,cameraName(cameraName)
     ,payloadSize(0)
     ,payloadSizeCheck(false)
+    ,scanCompleted(false)
     ,target_state(Connecting)
     ,current_state(Init)
     ,pollingLoop(*this, "aravisPoll", stackSize, epicsThreadPriorityHigh)
@@ -773,7 +777,7 @@ void aravisCamera::run()
                     // stop acquiring
                     acquiring = false;
                     doAcquireStop(G);
-                } else if(!acquiring && acq) {
+                } else if(!acquiring && acq && scanCompleted) {
                     // start acquiring
                     doAcquireStart(G);
                     acquiring = true;
@@ -872,6 +876,8 @@ void aravisCamera::runScanner()
             sync_cnt = 0;
             setIntegerParam(AravisSyncd, sync_cnt);
             callParamCallbacks();
+
+            scanCompleted = false;
 
             UnGuard U(G);
             scannerEvent.wait();
@@ -1072,6 +1078,7 @@ void aravisCamera::runScanner()
 
                     callParamCallbacks();
 
+                    // short wait between each feature
                     {
                         UnGuard U(G);
                         scannerEvent.wait(0.01);
@@ -1089,6 +1096,11 @@ void aravisCamera::runScanner()
             callParamCallbacks();
             trace("%s:%s scanner complete %u\n", portName, __FUNCTION__, sync_cnt);
 
+            if(!scanCompleted)
+                pollingEvent.signal();
+            scanCompleted = true;
+
+            // longer wait between scans
             UnGuard U(G);
             scannerEvent.wait(0.1);
         }
@@ -1103,7 +1115,6 @@ void aravisCamera::doCleanup(Guard &G)
     /* Tell areaDetector it is no longer acquiring */
     setIntegerParam(AravisConnection, 0);
     setIntegerParam(ADStatus, ADStatusIdle);
-    setIntegerParam(ADAcquire, 0); //TODO wait for initial sync and then begin acquire automatically
 
     GWrapper<ArvCamera> cam;
     GWrapper<ArvStream> strm;
