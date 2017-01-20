@@ -315,6 +315,11 @@ public:
     } target_state,  // updated by various
       current_state; // updated only by worker thread
 
+    void setTargetState(state_t s) {
+        if(target_state!=Shutdown)
+            target_state = s;
+    }
+
     int AravisCompleted;
     #define FIRST_ARAVIS_CAMERA_PARAM AravisCompleted
     int AravisFailures;
@@ -709,7 +714,7 @@ void aravisCamera::run()
     bool acquiring = false;
     trace("%s: poller starting\n", portName);
 
-    while(current_state!=Shutdown) {
+    while(current_state!=Shutdown && target_state!=Shutdown) {
         try {
             switch(current_state) {
             case Init:
@@ -722,7 +727,7 @@ void aravisCamera::run()
                         setParamStatus(it->first, asynError);
                 }
                 callParamCallbacks();
-                target_state = Connecting;
+                setTargetState(Connecting);
                 break;
 
             case RetryWait:
@@ -733,11 +738,11 @@ void aravisCamera::run()
                 ok = !pollingEvent.wait(5.0);
             }
                 if(ok && target_state==RetryWait)
-                    target_state = Connecting;
+                    setTargetState(Connecting);
                 break;
 
             case Connecting:
-                target_state = Connected;
+                setTargetState(Connected);
                 acquiring = false;
                 doCleanup(G);
                 doConnect(G);
@@ -835,7 +840,7 @@ void aravisCamera::run()
         }catch(std::exception& e) {
             error("%s:%s: Error in worker: %s\n",
                   portName, __FUNCTION__, e.what());
-            target_state = RetryWait;
+            setTargetState(RetryWait);
         }
 
         if(current_state != target_state) {
@@ -1177,7 +1182,7 @@ void aravisCamera::doConnect(Guard& G)
     // if camera name not specified, then bail early
     if(cameraName.empty()) {
         trace("%s:%s no cameraName\n", portName, __FUNCTION__);
-        target_state = RetryWait;
+        setTargetState(RetryWait);
         return;
     }
 
@@ -1193,6 +1198,7 @@ void aravisCamera::doConnect(Guard& G)
         UnGuard U(G);
         epicsGuard<epicsMutex> IO(arvLock);
 
+        trace("%s:%s Connect camera \"%s\"\n", portName, __FUNCTION__, cameraName.c_str());
         cam.reset(arv_camera_new (cameraName.c_str()));
         if(!cam)
             throw std::runtime_error(cameraName+": No such camera");
@@ -1462,7 +1468,7 @@ void aravisCamera::dropConnection()
 {
     error("%s:%s\n", portName, __FUNCTION__);
     if(target_state!=Shutdown)
-        target_state = RetryWait;
+        setTargetState(RetryWait);
     pollingEvent.signal();
 }
 
@@ -1791,15 +1797,15 @@ asynStatus aravisCamera::writeOctet(asynUser *pasynUser, const char *value,
         setStringParam(function, value);
         cameraName.swap(name);
         if(target_state==Connected)
-            target_state = Connecting;
+            setTargetState(Connecting);
         else if(target_state!=Shutdown)
-            target_state = RetryWait;
+            setTargetState(RetryWait);
         dropConnection();
 
         *nActual = maxChars;
         status = asynSuccess;
 
-        trace("%s:%s change camera name \"%s\" -> \"%s\"",
+        trace("%s:%s change camera name \"%s\" -> \"%s\"\n",
               portName, __FUNCTION__, name.c_str(), cameraName.c_str());
 
     } else if(function < FIRST_ARAVIS_CAMERA_PARAM) {
