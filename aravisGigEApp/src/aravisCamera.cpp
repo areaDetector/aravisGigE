@@ -717,12 +717,12 @@ void aravisCamera::run()
         try {
             switch(current_state) {
             case Init:
-                // notify for lazily created parameters
+                // mark read-back parameters as INVALID
                 for(interestingFeatures_t::const_iterator it = interestingFeatures.begin(),
                                                          end = interestingFeatures.end();
                     it != end; ++it)
                 {
-                    if(it->first>=0)
+                    if(it->first>=0 && !it->second.userSetting)
                         setParamStatus(it->first, asynError);
                 }
                 callParamCallbacks();
@@ -962,8 +962,8 @@ void aravisCamera::runScanner()
 
                 bool forcestore = changed && userSetting;
                 if(forcestore) {
-                    error("%s:%s param %s marked as setting w/o a setting value.  Forcing to current value.\n",
-                          portName, __FUNCTION__, feat->activeName.c_str());
+                    error("%s:%s param %s (%d) marked as setting w/o a setting value.  Forcing to current value.\n",
+                          portName, __FUNCTION__, feat->activeName.c_str(), feat->param);
                 }
 
                 {
@@ -1529,11 +1529,12 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
 
         if(!feat->userSetting) {
             if(current_state==Init) {
-                trace("%s:%s mark as setting %s w/ %d\n",
-                      portName, __FUNCTION__, reasonName, (int)value);
+                trace("%s:%s mark as setting %s(%d) w/ %d\n",
+                      portName, __FUNCTION__, reasonName, function, (int)value);
                 feat->userSetting = true;
             } else {
-                error("%s:%s can't mark as setting %s after Init\n", portName, __FUNCTION__, feat->activeName.c_str());
+                error("%s:%s can't mark as setting %s(%d) w/ %d\n",
+                      portName, __FUNCTION__, reasonName, function, (int)value);
             }
         }
 
@@ -1562,12 +1563,12 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
         }
 
         status = setIntegerParam(function, value);
+        setParamStatus(function, asynSuccess);
 
         if(err) {
             error("Error setting %s : %s\n", feat->activeName.c_str(), err->message);
             status = asynError;
         } else {
-            setParamStatus(function, asynSuccess);
             payloadSizeCheck = true;
         }
 
@@ -1718,11 +1719,12 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
 
         if(!feat->userSetting) {
             if(current_state==Init) {
-                trace("%s:%s mark as setting %s w/ %f\n",
-                      portName, __FUNCTION__, feat->activeName.c_str(), value);
+                trace("%s:%s mark as setting %s(%d) w/ %f\n",
+                      portName, __FUNCTION__, reasonName, function, value);
                 feat->userSetting = true;
             } else {
-                error("%s:%s can't mark as setting %s after Init\n", portName, __FUNCTION__, feat->activeName.c_str());
+                error("%s:%s can't mark as setting %s(%d) w/ %f\n",
+                      portName, __FUNCTION__, reasonName, function, value);
             }
         }
 
@@ -1755,6 +1757,7 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
         }
 
         status = setDoubleParam(function, value);
+        setParamStatus(function, asynSuccess);
 
         if(err) {
             error("Error setting %s : %s\n", feat->activeName.c_str(), err->message);
@@ -1862,6 +1865,57 @@ void aravisCamera::report(FILE *fp, int details)
 #undef SHOW
         }
         fprintf(fp, " Acquring: %c\n", stream.get() ? 'Y' : 'N');
+
+        if(details==1) {
+            fprintf(fp, "Interesting features\n");
+            for(interestingFeatures_t::const_iterator it = interestingFeatures.begin(), end = interestingFeatures.end();
+                it != end; ++it)
+            {
+                const Feature& feat = it->second;
+
+                if(feat.param<0) continue; // skip specials
+
+                const char *name = "<Error>";
+                getParamName(feat.param, &name);
+
+                if(current_state!=Connected || feat.activeName.empty()) {
+                    fprintf(fp, "  %s (%d) <=> Not mapped\n", name, (int)feat.param);
+                    continue;
+                }
+
+                fprintf(fp, "  %s (%d) <=> %s ", name, (int)feat.param, feat.activeName.c_str());
+                asynStatus sts;
+                switch(feat.type) {
+                case asynParamInt32: {
+                    int val=0;
+                    sts = getIntegerParam(feat.param, &val);
+                    if(!sts)
+                        fprintf(fp, "int:%d\n", val);
+                }
+                    break;
+                case asynParamFloat64: {
+                    double val=0;
+                    sts = getDoubleParam(feat.param, &val);
+                    if(!sts)
+                        fprintf(fp, "flt:%g\n", val);
+                }
+                    break;
+                case asynParamOctet: {
+                    char buf[100];
+                    sts = getStringParam(feat.param, sizeof(buf)-1, buf);
+                    buf[99] = '\0';
+                    if(!sts)
+                        fprintf(fp, "str:\"%s\"\n", buf);
+                }
+                    break;
+                default:
+                    sts = asynError;
+                }
+
+                if(sts)
+                    fprintf(fp, "<Error>\n");
+            }
+        }
 
     } CATCH(pasynUserSelf)
 
