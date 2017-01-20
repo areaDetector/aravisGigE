@@ -982,8 +982,14 @@ void aravisCamera::runScanner()
                         break;
 
                     case Feature::String:
-                        //TODO: handle return NULL
-                        new_str = arv_gc_string_get_value(ARV_GC_STRING(node), gerr.get());
+                    {
+                        // I/O error results in NULL, std::string() sometimes uses strlen() which doesn't always check for NULL
+                        const char *nv = arv_gc_string_get_value(ARV_GC_STRING(node), gerr.get());
+                        if(nv)
+                            new_str = nv;
+                        else
+                            new_str.clear();
+                    }
                         changed|= !gerr && strcmp(&old_str[0], new_str.c_str())!=0;
                         if(userSetting && changed && nchanges<3) {
                             // camera setting out of sync, push our value
@@ -1108,7 +1114,7 @@ void aravisCamera::doCleanup(Guard &G)
         Feature * const feat = *it;
         if(feat->param<0 || feat->userSetting) continue;
 
-        setParamStatus(feat->param, asynError); //TODO asynParamUndefined?
+        setParamStatus(feat->param, asynError);
     }
 
     callParamCallbacks();
@@ -1238,7 +1244,6 @@ void aravisCamera::doConnect(Guard& G)
 
                 if(!node) continue;
 
-                //TODO handle magic parameters with asynParamNotDefined
                 /* type mapping asyn -> aravis (feature)
                  * int32   -> Integer or Command
                  * float64 -> Integer or Float
