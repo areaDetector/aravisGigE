@@ -1570,29 +1570,48 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
         const pix_lookup *px = pixel_by_info(mode, type, bayer);
         if(!px) {
             status = asynError;
-            setIntegerParam(function, rbv);
+            setIntegerParam(function, rbv); // restore previous
 
-        } else if(current_state==Connected) {
-            epicsGuard<epicsMutex> IO(arvLock);
-            //TODO: validate against PixelFormat enumerations
-
-            arv_camera_set_pixel_format(camera, px->fmt);
-            switch(arv_device_get_status(device)) {
-            case ARV_DEVICE_STATUS_SUCCESS:
-                status = asynSuccess;
-                break;
-            case ARV_DEVICE_STATUS_TIMEOUT:
-                dropConnection();
-                // fall through
-            default:
-                // attempting to set an unsupported format will land here
-                status = asynError;
-                error("%s:%s failed to set PixelFormat\n", portName, __FUNCTION__);
-            }
-            payloadSizeCheck = true;
-            setParamStatus(function, asynSuccess);
         } else {
-            status = asynSuccess;
+            guint nfmts = 0;
+            const gint64 *fmts = arv_camera_get_available_pixel_formats(camera, &nfmts);
+
+            bool match = false;
+            for(guint i=0; i<nfmts; i++) {
+                if(fmts[i]==px->fmt) {
+                    match = true;
+                    break;
+                }
+            }
+
+            if(!match) {
+                error("%s:%s selected format not supported\n", portName, __FUNCTION__);
+                status = asynError;
+                setIntegerParam(function, rbv); // restore previous
+
+            } else if(current_state==Connected) {
+                epicsGuard<epicsMutex> IO(arvLock);
+
+                arv_camera_set_pixel_format(camera, px->fmt);
+                switch(arv_device_get_status(device)) {
+                case ARV_DEVICE_STATUS_SUCCESS:
+                    status = asynSuccess;
+                    payloadSizeCheck = true;
+                    setParamStatus(function, asynSuccess);
+                    break;
+
+                case ARV_DEVICE_STATUS_TIMEOUT:
+                    dropConnection();
+                    // fall through
+                default:
+                    // attempting to set an unsupported format will land here
+                    status = asynError;
+                    error("%s:%s failed to set PixelFormat\n", portName, __FUNCTION__);
+                    break;
+                }
+            } else {
+                status = asynSuccess;
+            }
         }
 
     } else if (function == ADReverseX || function == ADReverseY || function == ADFrameType) {
