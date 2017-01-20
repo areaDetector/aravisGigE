@@ -939,6 +939,24 @@ void aravisCamera::runScanner()
                             // hum, we shouldn't have allowed this in writeInt32()
                             // soft fail to a default
                             px = &pix_lookup_arr[0];
+                        } else {
+                            guint nfmts = 0;
+
+                            const gint64 *fmts = arv_camera_get_available_pixel_formats(cam, &nfmts);
+
+                            bool match = false;
+                            for(guint i=0; i<nfmts; i++) {
+                                if(fmts[i]==px->fmt) {
+                                    match = true;
+                                    break;
+                                }
+                            }
+
+                            if(!match) {
+                                px = &pix_lookup_arr[0];
+                                error("%s:%s current pixel format not supported by camera.  Fallback to default\n",
+                                      portName, __FUNCTION__);
+                            }
                         }
                         old_val = feat->asyn2arv(px->fmt);
 
@@ -1648,8 +1666,9 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
             status = asynError;
             setIntegerParam(function, rbv); // restore previous
 
-        } else {
+        } else if (current_state==Connected) {
             guint nfmts = 0;
+
             const gint64 *fmts = arv_camera_get_available_pixel_formats(camera, &nfmts);
 
             bool match = false;
@@ -1665,7 +1684,7 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
                 status = asynError;
                 setIntegerParam(function, rbv); // restore previous
 
-            } else if(current_state==Connected) {
+            } else {
                 epicsGuard<epicsMutex> IO(arvLock);
 
                 arv_camera_set_pixel_format(camera, px->fmt);
@@ -1685,9 +1704,11 @@ asynStatus aravisCamera::writeInt32(asynUser *pasynUser, epicsInt32 value)
                     error("%s:%s failed to set PixelFormat\n", portName, __FUNCTION__);
                     break;
                 }
-            } else {
-                status = asynSuccess;
             }
+        } else {
+            // can't validate further when no camera connected.
+            // depend on scanner sync to handle this...
+            status = asynSuccess;
         }
 
     } else if (function == ADReverseX || function == ADReverseY || function == ADFrameType) {
