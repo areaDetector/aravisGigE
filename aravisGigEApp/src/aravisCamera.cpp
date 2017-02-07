@@ -315,6 +315,13 @@ public:
     } target_state,  // updated by various
       current_state; // updated only by worker thread
 
+    enum scanner_state_t {
+        ScanIdle,
+        ScanWait,
+        Scanning,
+        ScanShutdown
+    } scanner_state;
+
     void setTargetState(state_t s) {
         if(target_state!=Shutdown)
             target_state = s;
@@ -499,6 +506,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     ,scanCompleted(false)
     ,target_state(Connecting)
     ,current_state(Init)
+    ,scanner_state(ScanIdle)
     ,pollingLoop(*this, "aravisPoll", stackSize, epicsThreadPriorityHigh)
     ,scannerLoop(scanner, "aravisScan", stackSize, epicsThreadPriorityMedium)
 {
@@ -863,12 +871,13 @@ void aravisCamera::runScanner()
     std::vector<char> old_str(100);
 
     // we will hold a reference while unlocked
-    GWrapper<ArvCamera> cam;
     int sync_cnt = 0;
 
     while(target_state!=Shutdown) {
         if(current_state!=Connected) {
             trace("%s:%s scanner idle\n", portName, __FUNCTION__);
+            scanner_state = ScanIdle;
+            pollingEvent.signal();
 
             sync_cnt = 0;
             setIntegerParam(AravisSyncd, sync_cnt);
@@ -883,7 +892,9 @@ void aravisCamera::runScanner()
             trace("%s:%s scanner begin\n", portName, __FUNCTION__);
 
             // grab reference for use while locked
-            cam = camera;
+            GWrapper<ArvCamera> cam(camera);
+            scanner_state = Scanning;
+            pollingEvent.signal();
 
             for(activeFeatures_t::const_iterator it = activeFeatures.begin(),
                                                 end = activeFeatures.end();
@@ -1107,6 +1118,12 @@ void aravisCamera::runScanner()
                 }
             } // end activeFeatures loop
 
+            if(current_state!=Connected)
+                continue;
+
+            scanner_state = ScanWait;
+            pollingEvent.signal();
+
             setIntegerParam(AravisSyncd, ++sync_cnt);
             callParamCallbacks();
             trace("%s:%s scanner complete %u\n", portName, __FUNCTION__, sync_cnt);
@@ -1122,6 +1139,8 @@ void aravisCamera::runScanner()
     }
 
     trace("%s:%s scanner stop\n", portName, __FUNCTION__);
+    scanner_state = ScanIdle;
+    pollingEvent.signal();
 }
 
 void aravisCamera::doCleanup(Guard &G)
@@ -1155,6 +1174,13 @@ void aravisCamera::doCleanup(Guard &G)
 
     activeFeatures.clear();
 
+    while(scanner_state!=ScanIdle) {
+        trace("%s: wait for scanner to go idle\n", portName);
+        UnGuard U(G);
+        scannerEvent.signal();
+        pollingEvent.wait();
+    }
+
     {
         UnGuard U(G);
         epicsGuard<epicsMutex> IO(arvLock);
@@ -1165,7 +1191,13 @@ void aravisCamera::doCleanup(Guard &G)
         //  eg. to clear Control Priv. register
         strm.reset();
         cam.reset();
+        trace("%s: released camera\n", portName);
     }
+
+    assert(!cam.get());
+    assert(!strm.get());
+    assert(!camera.get());
+    assert(!stream.get());
 }
 
 /** Called by aravis when control signal is lost */
@@ -1233,6 +1265,7 @@ void aravisCamera::doConnect(Guard& G)
                 // all ok
             } else {
                 //TODO: read/print GevSCDA and GevSCPHostPort to give some clue who has control
+                error("Camera controlled by another client %x\n", (unsigned)regval);
                 throw std::runtime_error("Another client has control of this camera.");
             }
         } else {
