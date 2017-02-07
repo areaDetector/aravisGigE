@@ -138,6 +138,7 @@ MAIN(testcam)
 
         EPICS_EXPORT_PFUNC(aravisCameraRegister)();
 
+        testDiag("Direct connect for setup");
         cam.reset(arv_camera_new("Aravis-GV01"));
         if(!cam)
             testAbort("Can't get direct connection to camera");
@@ -147,6 +148,7 @@ MAIN(testcam)
 
         dev = NULL;
         cam.reset();
+        testDiag("Close direct connect");
 
         testDiag("Create port");
         if(aravisCameraConfig("DUT", "Aravis-GV01", 0, 0, 0, 0)!=asynSuccess)
@@ -182,7 +184,7 @@ MAIN(testcam)
         dev = NULL;
         cam.reset();
 
-        setString("ARAVIS_CAMNAME", "invalid");
+        setString("ARAVIS_CAMNAME", "");
         testDiag("Wait for disconnect");
         for(unsigned i=0; i<10; i++) {
             if(i==9)
@@ -195,6 +197,7 @@ MAIN(testcam)
 
         setupParams();
 
+        testDiag("Direct connect for setup");
         cam.reset(arv_camera_new("Aravis-GV01"));
         if(!cam)
             testAbort("Can't get direct connection to camera");
@@ -204,6 +207,7 @@ MAIN(testcam)
 
         dev = NULL;
         cam.reset();
+        testDiag("Close direct connect");
 
         testDiag("Start re-connect");
         setString("ARAVIS_CAMNAME", "Aravis-GV01");
