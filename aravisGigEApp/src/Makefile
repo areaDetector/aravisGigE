@@ -16,11 +16,11 @@ inspectcam_SRCS += inspectcam.cpp
 
 TESTPROD_IOC += testcam
 testcam_SRCS += testcam.cpp
-testcam_LIBS += aravisCamera ADBase asyn dbCore Com
+testcam_LIBS += aravisCamera ADBase asyn $(EPICS_BASE_IOC_LIBS)
 
 TESTPROD_IOC += testimage
 testimage_SRCS += testimage.cpp
-testimage_LIBS += aravisCamera ADBase asyn dbCore Com
+testimage_LIBS += aravisCamera ADBase asyn $(EPICS_BASE_IOC_LIBS)
 
 LIBRARY_IOC += aravisCamera
 
