@@ -261,3 +261,11 @@ record(longin, "$(P)$(R)NumExposuresCounter_RBV") {
 record(mbbo, "$(P)$(R)TriggerMode") {
   field(DISA, "1")
 }
+
+record(longout, "$(P)$(R)MTU") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_GevSCPSPacketSize")
+  field(VAL, "1500")
+  field(PINI, "YES")
+  info(autosaveFields, "DESC HHSV HIHI HIGH HSV LLSV LOLO LOW LSV PINI VAL")
+}
