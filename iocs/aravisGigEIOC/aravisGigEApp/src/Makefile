@@ -18,6 +18,7 @@ PROD_SRCS += $(PROD_NAME)_registerRecordDeviceDriver.cpp $(PROD_NAME)Main.cpp
 PROD_LIBS += aravisCamera
 PROD_LIBS += aravis-0.4
 PROD_SYS_LIBS += giomm-2.4
+PROD_SYS_LIBS += gio-2.0 gobject-2.0 gthread-2.0 glib-2.0
 
 include $(ADCORE)/ADApp/commonDriverMakefile
 
