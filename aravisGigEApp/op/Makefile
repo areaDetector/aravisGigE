@@ -1,7 +1,11 @@
 TOP = ../..
 include $(TOP)/configure/CONFIG
 
-DIRS += symbol
-DIRS += edl
+ADL_DIR = adl
+UI_DIR  = ui/autoconvert
+EDL_DIR = edl/autoconvert
+OPI_DIR = opi/autoconvert
 
-include $(TOP)/configure/RULES_DIRS
+include $(CONFIG)/RULES_DIRS
+
+-include $(SUPPORT)/configure/RULES_OPI
