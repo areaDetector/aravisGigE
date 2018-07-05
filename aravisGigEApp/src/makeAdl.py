@@ -460,7 +460,6 @@ for name, nodes in structure:
     headingY = y + 5
     headingX = x + 5
     headingWidth = boxWidth -10
-    print "boxHeight=", boxHeight
     text += make_box()
     y += 10 + headingHeight
     h = max(y, h)    
