@@ -32,12 +32,22 @@ R2-2 (30-June-2018)
   * Made ADDR=0 and TIMEOUT=1 be defaults
   * Added info tags for autosave
 * Updated edl files for all cameras
+* Added src/makeAdl.py to read a GeniCAM XML file and create medm adl screens.
+  It creates several reasonably sized screens, unlike the makeDbAndEdl.py which creates one very large edm screen.
+* Added op/Makefile to do autoconversions from adl to edl, opi, ui
+* New autoconverted opi files with better medm file and better converters
 * aravisGigEApp/src/Makefile
   * Simplified; user just sets GLIB_INCLUDE in CONFIG_SITE file; removed GLIBPREFIX code and merged GLIB_INC1 and GLIB_INC2 
     into GLIB_INCLUDE, because we now use addprefix to add the -I.
 * iocs/aravisGigEIOC/aravisGigEApp/src/Makefile
   * Add additional libraries from glib when linking so it works with static builds
-
+* TO DO BEFORE RELEASE:
+  * Merge Michael Davidsaver's pull request
+  * Test with Oryx camera
+  * Improve medm file.
+    * Make it call feature screens for specific camera using C macro.
+    * Only show PVs that the aravisGigE driver actually handles
+    * Add driver version and aravis version information in driver code
 
 R2-1 (20-May-2016)
 ----
