@@ -1,0 +1,4289 @@
+
+    file {
+    	name="/home/epics/devel/areaDetector-3-3-1/aravisGigE/aravisGigEApp/op/adl/aravisCamera.adl"
+    	version=030109
+    }
+    display {
+    	object {
+    		x=50
+    		y=50
+    		width=1465
+    		height=875
+    	}
+    	clr=14
+    	bclr=4
+    	cmap=""
+    	gridSpacing=5
+    	gridOn=0
+    	snapToGrid=0
+    }
+    "color map" {
+    	ncolors=65
+    	colors {
+    		ffffff,
+    		ececec,
+    		dadada,
+    		c8c8c8,
+    		bbbbbb,
+    		aeaeae,
+    		9e9e9e,
+    		919191,
+    		858585,
+    		787878,
+    		696969,
+    		5a5a5a,
+    		464646,
+    		2d2d2d,
+    		000000,
+    		00d800,
+    		1ebb00,
+    		339900,
+    		2d7f00,
+    		216c00,
+    		fd0000,
+    		de1309,
+    		be190b,
+    		a01207,
+    		820400,
+    		5893ff,
+    		597ee1,
+    		4b6ec7,
+    		3a5eab,
+    		27548d,
+    		fbf34a,
+    		f9da3c,
+    		eeb62b,
+    		e19015,
+    		cd6100,
+    		ffb0ff,
+    		d67fe2,
+    		ae4ebc,
+    		8b1a96,
+    		610a75,
+    		a4aaff,
+    		8793e2,
+    		6a73c1,
+    		4d52a4,
+    		343386,
+    		c7bb6d,
+    		b79d5c,
+    		a47e3c,
+    		7d5627,
+    		58340f,
+    		99ffff,
+    		73dfff,
+    		4ea5f9,
+    		2a63e4,
+    		0a00b8,
+    		ebf1b5,
+    		d4db9d,
+    		bbc187,
+    		a6a462,
+    		8b8239,
+    		73ff6b,
+    		52da3b,
+    		3cb420,
+    		289315,
+    		1a7309,
+    	}
+    }
+
+    rectangle {
+    	object {
+    		x=0
+    		y=4
+    		width=1465
+    		height=25
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    
+		text {
+			object {
+				x=0
+				y=5
+				width=1465
+				height=24
+			}
+			"basic attribute" {
+				clr=54
+			}
+			textix="PGR_BlackflyS_13Y3M Features Screen #2 - $(P)$(R)"
+			align="horiz. centered"
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=5
+    		y=40
+    		width=360
+    		height=830
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=10
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=10
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  DeviceControl1"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceScanType"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=70
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceScanType"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceVendorName"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=95
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceVendorName_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceModelName"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=120
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceModelName_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SensorDescription"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=145
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)SensorDescriptio_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceManufacturerInfo"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=170
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceManufactur_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=195
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceVersion"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=195
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceVersion_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=220
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceFirmwareVersion"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=220
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceFirmwareVe_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=245
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceSerialNumber"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=245
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceSerialNumb_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=270
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceID"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=270
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceID_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=295
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceUserID"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=295
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceUserID_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=320
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceTLType"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=320
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceTLType"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=345
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceTLVersionMajor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=345
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceTLVersionM"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=345
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceTLVersionM_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=370
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceTLVersionMinor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=370
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceTLVersion0"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=370
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceTLVersion0_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=395
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceMaxThroughput"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=395
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceMaxThrough"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=395
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceMaxThrough_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=420
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceLinkSpeed"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=420
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceLinkSpeed"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=420
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceLinkSpeed_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=445
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceLinkThroughputLimit"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=445
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceLinkThroug"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=445
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceLinkThroug_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=470
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceLinkBandwidthReserve"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=470
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceLinkBandwi"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=470
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceLinkBandwi_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=495
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceLinkCurrentThroughput"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=495
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceLinkCurren"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=495
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceLinkCurren_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=520
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceStreamChannelCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=520
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceStreamChan"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=520
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceStreamChan_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=545
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceEventChannelCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=545
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceEventChann"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=545
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceEventChann_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=570
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceCharacterSet"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=570
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceCharacterS"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=595
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceReset"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=235
+    		y=595
+    		width=125
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)DeviceReset.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="DeviceReset"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=620
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceIndicatorMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=620
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceIndicatorM"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=645
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceRegistersEndianness"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=645
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceRegistersE"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=670
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceTemperatureSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=670
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceTemperatur"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=695
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceTemperature"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=695
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceTemperatu1"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=695
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceTemperatu1_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=720
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TimestampReset"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=235
+    		y=720
+    		width=125
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)TimestampReset.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="TimestampReset"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=745
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TimestampLatch"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=235
+    		y=745
+    		width=125
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)TimestampLatch.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="TimestampLatch"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=770
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TimestampLatchValue"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=770
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)TimestampLatchVa"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=770
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)TimestampLatchVa_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=795
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DevicePowerSupplySelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=795
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DevicePowerSuppl"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=820
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PowerSupplyVoltage"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=820
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)PowerSupplyVolta"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=820
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)PowerSupplyVolta_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=845
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PowerSupplyCurrent"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=845
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)PowerSupplyCurre"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=845
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)PowerSupplyCurre_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=370
+    		y=40
+    		width=360
+    		height=155
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=375
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=375
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  DeviceControl2"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceUptime"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=70
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)DeviceUptime"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=70
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)DeviceUptime_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LinkUptime"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=95
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)LinkUptime"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=95
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)LinkUptime_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="EnumerationCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=120
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)EnumerationCount"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=120
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)EnumerationCount_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="FactoryReset"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=600
+    		y=145
+    		width=125
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)FactoryReset.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="FactoryReset"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MaxDeviceResetTime"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=170
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)MaxDeviceResetT0"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=170
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)MaxDeviceResetT0_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=370
+    		y=200
+    		width=360
+    		height=130
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=375
+    		y=205
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=375
+    		y=205
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  TransportLayerControl"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=230
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PayloadSize"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=230
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)PayloadSize"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=230
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)PayloadSize_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=255
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TLParamsLocked"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=255
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)TLParamsLocked"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=255
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)TLParamsLocked_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=280
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LinkErrorCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=280
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)LinkErrorCount"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=280
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)LinkErrorCount_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=375
+				y=305
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PacketResendRequestCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=600
+				y=305
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)PacketResendRequ"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=665
+				y=305
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)PacketResendRequ_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=735
+    		y=40
+    		width=360
+    		height=830
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=740
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=740
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  GigEVision1"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=70
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSupportedOptionSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=70
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSupportedOpti"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSupportedOption"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=95
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSupportedOpt0"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevInterfaceSelector"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=120
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevInterfaceSele"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=120
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevInterfaceSele_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevMACAddress"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=145
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevMACAddress"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=145
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevMACAddress_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=170
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevCurrentIPConfigurationLLA"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=170
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevCurrentIPConf"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=195
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevCurrentIPConfigurationDHCP"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=195
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevCurrentIPCon0"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=220
+				width=220
+				height=12
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevCurrentIPConfigurationPersistentIP"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=220
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevCurrentIPCon1"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=245
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevCurrentIPAddress"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=245
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevCurrentIPAddr"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=245
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevCurrentIPAddr_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=270
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevCurrentSubnetMask"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=270
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevCurrentSubnet"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=270
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevCurrentSubnet_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=295
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevCurrentDefaultGateway"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=295
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevCurrentDefaul"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=295
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevCurrentDefaul_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=320
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevFirstURL"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=965
+				y=320
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevFirstURL_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=345
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSecondURL"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=965
+				y=345
+				width=125
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSecondURL_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=370
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevNumberOfInterfaces"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=370
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevNumberOfInter"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=370
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevNumberOfInter_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=395
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevPersistentIPAddress"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=395
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevPersistentIPA"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=395
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevPersistentIPA_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=420
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevPersistentSubnetMask"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=420
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevPersistentSub"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=420
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevPersistentSub_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=445
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevPersistentDefaultGateway"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=445
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevPersistentDef"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=445
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevPersistentDef_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=470
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevHeartbeatTimeout"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=470
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevHeartbeatTime"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=470
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevHeartbeatTime_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=495
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevTimestampTickFrequency"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=495
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevTimestampTick"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=495
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevTimestampTick_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=520
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevGVCPPendingAck"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=520
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevGVCPPendingAc"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=545
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevGVCPHeartbeatDisable"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=545
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevGVCPHeartbeat"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=570
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevGVCPPendingTimeout"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=570
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevGVCPPendingTi"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=570
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevGVCPPendingTi_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=595
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevIEEE1588"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=595
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevIEEE1588"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=620
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevIEEE1588ClockAccuracy"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=620
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevIEEE1588Clock"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=645
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevIEEE1588Status"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=645
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevIEEE1588Statu"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=670
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevIEEE1588Mode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=670
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevIEEE1588Mode"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=695
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevCCP"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=965
+				y=695
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevCCP"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=720
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevMCPHostPort"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=720
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevMCPHostPort"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=720
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevMCPHostPort_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=745
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevMCDA"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=745
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevMCDA"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=745
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevMCDA_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=770
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevMCTT"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=770
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevMCTT"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=770
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevMCTT_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=795
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevMCRC"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=795
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevMCRC"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=795
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevMCRC_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=820
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevMCSP"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=820
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevMCSP"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=820
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevMCSP_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=740
+				y=845
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevStreamChannelSelector"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=965
+				y=845
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevStreamChannel"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1030
+				y=845
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevStreamChannel_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=1100
+    		y=40
+    		width=360
+    		height=330
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=1105
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=1105
+    		y=45
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  GigEVision2"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=70
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCCFGUnconditionalStreaming"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=70
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCCFGUncondit"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=95
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCCFGExtendedChunkData"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=95
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCCFGExtended"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPDirection"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=120
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPDirection"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=120
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSCPDirection_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPInterfaceIndex"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=145
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPInterfaceI"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=145
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSCPInterfaceI_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPHostPort"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=170
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPHostPort"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=170
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSCPHostPort_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=195
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPSFireTestPacket"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=195
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPSFireTestP"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=220
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPSDoNotFragment"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=220
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPSDoNotFrag"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=245
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPSBigEndian"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=245
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPSBigEndian"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=270
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPSPacketSize"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=270
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPSPacketSiz"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=270
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSCPSPacketSiz_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=295
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCPD"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=295
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCPD"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=295
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSCPD_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=320
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCDA"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=320
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCDA"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=320
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSCDA_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=345
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GevSCSP"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=345
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GevSCSP"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=345
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)GevSCSP_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=1100
+    		y=375
+    		width=360
+    		height=430
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=1105
+    		y=380
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=1105
+    		y=380
+    		width=350
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  SequencerControl"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=405
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=405
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerMode"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=430
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerConfigurationMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=430
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerConfigu"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=455
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerConfigurationValid"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=455
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerConfig0"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=480
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerConfigurationReset"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=1330
+    		y=480
+    		width=125
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)SequencerConfig1.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="SequencerConfigurationReset"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=505
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerFeatureSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=505
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerFeature"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=530
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerFeatureEnable"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=530
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerFeatu10"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=555
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerSetStart"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=555
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerSetStar"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=555
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)SequencerSetStar_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=580
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerSetActive"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=580
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerSetAct0"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=580
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)SequencerSetAct0_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=605
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerSetSelector"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=605
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerSetSele"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=605
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)SequencerSetSele_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=630
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerSetValid"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=630
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerSetVali"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=655
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerSetSave"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=1330
+    		y=655
+    		width=125
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)SequencerSetSave.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="SequencerSetSave"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=680
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerSetLoad"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=1330
+    		y=680
+    		width=125
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)SequencerSetLoad.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="SequencerSetLoad"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=705
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerPathSelector"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=705
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerPathSel"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=705
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)SequencerPathSel_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=730
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerTriggerSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=730
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerTrigger"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=755
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerTriggerActivation"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1330
+				y=755
+				width=125
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerTrigge0"
+				clr=14
+				bclr=51
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=1105
+				y=780
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SequencerSetNext"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1330
+				y=780
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)SequencerSetNext"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1395
+				y=780
+				width=60
+				height=20
+			}
+			monitor {
+				chan="$(P)$(R)SequencerSetNext_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
