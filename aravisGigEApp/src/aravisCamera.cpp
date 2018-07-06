@@ -32,7 +32,7 @@ extern "C" {
 }
 
 #define DRIVER_VERSION "2.2.0"
-#define ARAVIS_VERSION "0.4"
+#define ARAVIS_VERSION "0.4.1"
 
 /* number of raw buffers in our queue */
 #define NRAW 20
