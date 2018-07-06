@@ -61,7 +61,7 @@ Release Notes
   * Merge Michael Davidsaver's pull request?
   * Test with Oryx camera
 
-*** R2-1 (20-May-2016)
+### R2-1 (20-May-2016)
 ----
 * First released version on github.
 * Changes for compatibility with ADCore R2-2.
