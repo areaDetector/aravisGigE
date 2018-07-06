@@ -22,18 +22,34 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
-R2-2 (30-June-2018)
+### R2-2 (XXX-July-2018)
 ----
 * Requires areaDetector and ADCore R3-3-1
 * Update to aravis 0.4.1
 * Improved documentation in README
+* Added NDDriverVersion and ADSDKVersion to driver. ADSDKVersion is the aravis release.
+  Both of these must be manually updated for new releases of the driver or aravis.
 * aravisCamera.template
   * New records: MISSING_PKTS_RBV, PKT_RESEND, PKT_TIMEOUT, FRAME_RETENTION, HWIMAGEMODE, HWIMAGEMODE_RBV
   * Made ADDR=0 and TIMEOUT=1 be defaults
   * Added info tags for autosave
+* save/restore
+  * Added aravisCamera_settings.req for manual method of auto_settings.req files
+  * Added iocAravisGigE/auto_settings.req
 * Updated edl files for all cameras
-* Added src/makeAdl.py to read a GeniCAM XML file and create medm adl screens.
+* Added src/makeAdl.py to read a GeniCAM XML file and create medm adl feature screens.
   It creates several reasonably sized screens, unlike the makeDbAndEdl.py which creates one very large edm screen.
+* medm and autoconverted edm, caQtDM, and CSS-Boy screens
+  * aravisTop.adl  
+    * New top-level screen.  It loads aravisCamera.adl passing normal P and R macros but also
+      C macro which is the name of the camera.  This allows aravisCamera.adl to load the camera-specific feature screens.
+  * aravisCamera.adl  
+    * Removed PVs not supported by the aravis driver
+    * Added new PVs for ADCore 3-3.
+    * Added related display widgets for camera-specific features screens.
+    * Added related display widget for aravisMore.adl.
+  * aravisMore.adl
+    * New screen to for setup and statistics PVs
 * Added op/Makefile to do autoconversions from adl to edl, opi, ui
 * New autoconverted opi files with better medm file and better converters
 * aravisGigEApp/src/Makefile
@@ -42,14 +58,10 @@ R2-2 (30-June-2018)
 * iocs/aravisGigEIOC/aravisGigEApp/src/Makefile
   * Add additional libraries from glib when linking so it works with static builds
 * TO DO BEFORE RELEASE:
-  * Merge Michael Davidsaver's pull request
+  * Merge Michael Davidsaver's pull request?
   * Test with Oryx camera
-  * Improve medm file.
-    * Make it call feature screens for specific camera using C macro.
-    * Only show PVs that the aravisGigE driver actually handles
-    * Add driver version and aravis version information in driver code
 
-R2-1 (20-May-2016)
+*** R2-1 (20-May-2016)
 ----
 * First released version on github.
 * Changes for compatibility with ADCore R2-2.
