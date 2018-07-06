@@ -31,6 +31,9 @@ extern "C" {
     #include <arv.h>
 }
 
+#define DRIVER_VERSION "2.2.0"
+#define ARAVIS_VERSION "0.4"
+
 /* number of raw buffers in our queue */
 #define NRAW 20
 
@@ -319,6 +322,8 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     createParam("ARAVIS_RESET",          asynParamInt32,   &AravisReset);
 
     /* Set some initial values for other parameters */
+    setStringParam(NDDriverVersion, DRIVER_VERSION);
+    setStringParam(ADSDKVersion, ARAVIS_VERSION);
     setIntegerParam(ADReverseX, 0);
     setIntegerParam(ADReverseY, 0);
     setIntegerParam(ADImageMode, ADImageContinuous);
@@ -1474,7 +1479,7 @@ asynStatus aravisCamera::getNextFeature() {
         } else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(node)) == G_TYPE_STRING) {
             stringValue = arv_device_get_string_feature_value(this->device, featureName);
             if (stringValue == NULL) {
-                printf("aravisCamera: Feature %s has NULL value\n", featureName);
+                //printf("aravisCamera: Feature %s has NULL value\n", featureName);
                 status = asynError;
             } else {
                 status |= setStringParam(*index, stringValue);
