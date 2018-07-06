@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 149
-y 55
+x 575
+y 50
 w 715
-h 955
+h 950
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
@@ -24,64 +24,15 @@ snapToGrid
 gridSize 4
 endScreenProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 4
-w 714
-h 24
-lineColor rgb 55808 55808 55808
-fill
-fillColor rgb 55808 55808 55808
-lineWidth 0
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 0
-y 5
-w 715
-h 25
-font "helvetica-medium-r-18.0"
-fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor index 3
-useDisplayBg
-value {
-  "aravisGigE Camera - $(P)$(R)"
-}
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 38
-y 855
-w 298
-h 20
-
-beginGroup
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 38
-y 855
-w 220
+x 50
+y 860
+w 200
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
@@ -89,199 +40,9 @@ fgColor rgb 0 0 0
 bgColor index 3
 useDisplayBg
 value {
-  "I/O setup & statistics"
+  "Setup and statistics"
 }
 endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 35
-w 350
-h 340
-
-beginGroup
-
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 35
-w 350
-h 340
-fgColor rgb 0 0 0
-bgColor rgb 65280 65280 65280
-topShadowColor rgb 65280 65280 65280
-botShadowColor rgb 0 0 0
-displaySource "file"
-file "ADSetup.edl"
-sizeOfs 5
-numDsps 1
-displayFileName {
-  0 "ADSetup.edl"
-}
-noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 380
-w 350
-h 80
-
-beginGroup
-
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 380
-w 350
-h 80
-fgColor rgb 0 0 0
-bgColor rgb 65280 65280 65280
-topShadowColor rgb 65280 65280 65280
-botShadowColor rgb 0 0 0
-displaySource "file"
-file "ADPlugins.edl"
-sizeOfs 5
-numDsps 1
-displayFileName {
-  0 "ADPlugins.edl"
-}
-noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 360
-y 35
-w 350
-h 165
-
-beginGroup
-
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 360
-y 35
-w 350
-h 165
-fgColor rgb 0 0 0
-bgColor rgb 65280 65280 65280
-topShadowColor rgb 65280 65280 65280
-botShadowColor rgb 0 0 0
-displaySource "file"
-file "ADShutter.edl"
-sizeOfs 5
-numDsps 1
-displayFileName {
-  0 "ADShutter.edl"
-}
-noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 360
-y 670
-w 350
-h 110
-
-beginGroup
-
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 360
-y 670
-w 350
-h 110
-fgColor rgb 0 0 0
-bgColor rgb 65280 65280 65280
-topShadowColor rgb 65280 65280 65280
-botShadowColor rgb 0 0 0
-displaySource "file"
-file "ADAttrFile.edl"
-sizeOfs 5
-numDsps 1
-displayFileName {
-  0 "ADAttrFile.edl"
-}
-noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 465
-w 350
-h 385
-
-beginGroup
 
 # (Rectangle)
 object activeRectangleClass
@@ -308,7 +69,7 @@ release 0
 x 5
 y 465
 w 350
-h 385
+h 360
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
 lineWidth 0
@@ -320,9 +81,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 101
+x 145
 y 468
-w 159
+w 70
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -600,9 +361,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 49
+x 20
 y 610
-w 91
+w 120
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
@@ -620,9 +381,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 52
+x 30
 y 655
-w 88
+w 110
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
@@ -1034,9 +795,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 50
+x 40
 y 795
-w 90
+w 100
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
@@ -1072,54 +833,213 @@ newPos
 objType "controls"
 endObjectProperties
 
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 4
+w 714
+h 24
+lineColor rgb 55808 55808 55808
+fill
+fillColor rgb 55808 55808 55808
+lineWidth 0
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 36
-y 820
-w 104
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
+x 0
+y 5
+w 715
+h 25
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor rgb 2560 0 47104
 bgColor index 3
 useDisplayBg
 value {
-  "Bayer convert"
+  "aravisGigE Camera - $(P)$(R)"
 }
 endObjectProperties
 
-# (Text Monitor)
-object activeXTextDspClass:noedit
+# (Group)
+object activeGroupClass
 beginObjectProperties
 major 4
-minor 7
+minor 0
 release 0
-x 241
-y 821
-w 79
-h 18
-controlPv "$(P)$(R)BayerConvert_RBV"
-format "string"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
+x 5
+y 35
+w 350
+h 340
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 35
+w 350
+h 340
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
+displaySource "file"
+file "ADSetup.edl"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "ADSetup.edl"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
+visMin "A"
+visMax "1"
 endObjectProperties
 
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 380
+w 350
+h 80
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 380
+w 350
+h 80
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
+displaySource "file"
+file "ADPlugins.edl"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "ADPlugins.edl"
+}
+noScroll
+endObjectProperties
+
+endGroup
+
+visMin "A"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 35
+w 350
+h 165
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 360
+y 35
+w 350
+h 165
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
+displaySource "file"
+file "ADShutter.edl"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "ADShutter.edl"
+}
+noScroll
+endObjectProperties
+
+endGroup
+
+visMin "A"
+visMax "1"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 670
+w 350
+h 110
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 360
+y 670
+w 350
+h 110
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
+displaySource "file"
+file "ADAttrFile.edl"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "ADAttrFile.edl"
+}
+noScroll
+endObjectProperties
+
+endGroup
+
+visMin "A"
+visMax "1"
+endObjectProperties
 
 # (Group)
 object activeGroupClass
@@ -1176,9 +1096,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 467
+x 510
 y 208
-w 157
+w 70
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -1406,9 +1326,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 376
+x 366
 y 304
-w 160
+w 170
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
@@ -2053,18 +1973,26 @@ fastUpdate
 newPos
 objType "controls"
 endObjectProperties
-# (Group)
-object activeGroupClass
+
+# (Static Text)
+object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 38
-y 855
-w 298
+minor 1
+release 1
+x 10
+y 835
+w 240
 h 20
-
-beginGroup
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Camera-specific features"
+}
+endObjectProperties
 
 # (Related Display)
 object relatedDisplayClass
@@ -2072,9 +2000,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 266
-y 855
-w 70
+x 255
+y 860
+w 100
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -2085,10 +2013,10 @@ icon
 numPvs 2
 numDsps 1
 displayFileName {
-  0 prosilicaMore.edl
+  0 aravisMore.edl
 }
 menuLabel {
-  0 I/O setup & statistics
+  0 Setup and statistics
 }
 symbols {
   0 "P=$(P),R=$(R)"
@@ -2097,23 +2025,6 @@ replaceSymbols {
   0 1
 }
 endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 465
-w 350
-h 385
-
-beginGroup
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -2154,31 +2065,6 @@ controlPv "$(P)$(R)ColorMode"
 indicatorPv "$(P)$(R)ColorMode"
 font "helvetica-medium-r-12.0"
 endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 148
-y 820
-w 80
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)BayerConvert"
-indicatorPv "$(P)$(R)BayerConvert"
-font "helvetica-medium-r-12.0"
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -2384,5 +2270,69 @@ botShadowColor rgb 17920 17920 17920
 controlPv "$(P)$(R)WaitForPlugins"
 indicatorPv "$(P)$(R)WaitForPlugins"
 font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 255
+y 835
+w 100
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
+icon
+numPvs 18
+numDsps 9
+displayFileName {
+  0 $(C)-features.edl
+  1 $(C)-features_1.edl
+  2 $(C)-features_2.edl
+  3 $(C)-features_3.edl
+  4 $(C)-features_4.edl
+  5 $(C)-features_5.edl
+  6 $(C)-features_6.edl
+  7 $(C)-features_7.edl
+  8 $(C)-features_8.edl
+}
+menuLabel {
+  0 Features (custom)
+  1 Features #1
+  2 Features #2
+  3 Features #3
+  4 Features #4
+  5 Features #5
+  6 Features #6
+  7 Features #7
+  8 Features #8
+}
+symbols {
+  0 "P=$(P),R=$(R)"
+  1 "P=$(P),R=$(R)"
+  2 "P=$(P),R=$(R)"
+  3 "P=$(P),R=$(R)"
+  4 "P=$(P),R=$(R)"
+  5 "P=$(P),R=$(R)"
+  6 "P=$(P),R=$(R)"
+  7 "P=$(P),R=$(R)"
+  8 "P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+  6 1
+  7 1
+  8 1
+}
 endObjectProperties
 
