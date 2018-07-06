@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=527
-		y=62
+		x=575
+		y=50
 		width=715
 		height=950
 	}
@@ -86,6 +86,34 @@ display {
 		289315,
 		1a7309,
 	}
+}
+text {
+	object {
+		x=50
+		y=860
+		width=200
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Setup and statistics"
+	align="horiz. right"
+}
+"related display" {
+	object {
+		x=255
+		y=860
+		width=100
+		height=20
+	}
+	display[0] {
+		label="Setup and statistics"
+		name="aravisMore.adl"
+		args="P=$(P),R=$(R)"
+	}
+	clr=14
+	bclr=51
 }
 rectangle {
 	object {
@@ -641,74 +669,6 @@ text {
 	}
 	textix="aravisGigE Camera - $(P)$(R)"
 	align="horiz. centered"
-}
-"related display" {
-	object {
-		x=255
-		y=835
-		width=100
-		height=20
-	}
-	display[0] {
-		label="Features (custom)"
-		name="$(C)-features.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[1] {
-		label="Features #1"
-		name="$(C)-features_1.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[2] {
-		label="Features #2"
-		name="$(C)-features_2.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[3] {
-		label="Features #3"
-		name="$(C)-features_3.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[4] {
-		label="Features #4"
-		name="$(C)-features_4.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[5] {
-		label="Features #5"
-		name="$(C)-features_5.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[6] {
-		label="Features #6"
-		name="$(C)-features_6.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[7] {
-		label="Features #7"
-		name="$(C)-features_7.adl"
-		args="P=$(P),R=$(R)"
-	}
-	display[8] {
-		label="Features #8"
-		name="$(C)-features_8.adl"
-		args="P=$(P),R=$(R)"
-	}
-	clr=14
-	bclr=51
-}
-text {
-	object {
-		x=10
-		y=835
-		width=240
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Camera-specific features"
-	align="horiz. right"
 }
 composite {
 	object {
@@ -1432,4 +1392,72 @@ text {
 	format="string"
 	limits {
 	}
+}
+text {
+	object {
+		x=10
+		y=835
+		width=240
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Camera-specific features"
+	align="horiz. right"
+}
+"related display" {
+	object {
+		x=255
+		y=835
+		width=100
+		height=20
+	}
+	display[0] {
+		label="Features (custom)"
+		name="$(C)-features.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[1] {
+		label="Features #1"
+		name="$(C)-features_1.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[2] {
+		label="Features #2"
+		name="$(C)-features_2.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[3] {
+		label="Features #3"
+		name="$(C)-features_3.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[4] {
+		label="Features #4"
+		name="$(C)-features_4.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[5] {
+		label="Features #5"
+		name="$(C)-features_5.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[6] {
+		label="Features #6"
+		name="$(C)-features_6.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[7] {
+		label="Features #7"
+		name="$(C)-features_7.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[8] {
+		label="Features #8"
+		name="$(C)-features_8.adl"
+		args="P=$(P),R=$(R)"
+	}
+	clr=14
+	bclr=51
 }
