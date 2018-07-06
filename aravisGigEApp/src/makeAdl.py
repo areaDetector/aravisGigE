@@ -417,8 +417,8 @@ def write_adl_file(fileName):
 stdout = sys.stdout
     
 # Generate feature screens
-maxColumnsPerScreen = 4
-screenHeight = 850
+maxScreenWidth = 1500
+maxScreenHeight = 850
 headingHeight = 20
 labelWidth = 220
 maxLabelHeight = 20
@@ -442,10 +442,10 @@ fileNumber = 1
 for name, nodes in structure:
     # write box
     boxHeight = len(nodes) * 25 + 10 + maxLabelHeight
-    if (boxHeight + y > screenHeight):
+    if (y + boxHeight) > maxScreenHeight:
         y = 40
         numColumns += 1
-        if (numColumns > maxColumnsPerScreen):
+        if (w + boxWidth + 5) > maxScreenWidth:
             w += 10
             write_adl_file(adl_more_filename + "_" + str(fileNumber) + ".adl")
             numColumns = 1
