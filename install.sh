@@ -28,6 +28,6 @@ rm "${HERE}/$(basename $SOURCE)"
 mv "${HERE}/aravis-${VERSION}" "${HERE}/vendor/aravis"
 
 # patch aravis
-patch -d "${HERE}" -p0 < "${HERE}/vendor/locate-by-ip.patch"
+#patch -d "${HERE}" -p0 < "${HERE}/vendor/locate-by-ip.patch"
 
 echo "You can now type make to build this module"
