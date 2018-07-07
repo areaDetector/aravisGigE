@@ -32,7 +32,7 @@ extern "C" {
 }
 
 #define DRIVER_VERSION "2.2.0"
-#define ARAVIS_VERSION "0.4.1"
+#define ARAVIS_VERSION "0.5.13"
 
 /* number of raw buffers in our queue */
 #define NRAW 20
@@ -451,8 +451,8 @@ asynStatus aravisCamera::makeCameraObject() {
                     driverName, functionName);
         return asynError;
     }
-    // Make standard size packets
-    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), ARV_GV_DEVICE_GVSP_PACKET_SIZE_DEFAULT);
+    // Automatically determine optimum packet size
+    arv_gv_device_auto_packet_size(ARV_GV_DEVICE(this->device));
     // Uncomment this line to set jumbo packets
 //    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), 9000);
     /* Store genicam */
@@ -472,6 +472,7 @@ asynStatus aravisCamera::makeStreamObject() {
     
     /* remove old stream if it exists */
     if (this->stream != NULL) {
+        arv_stream_set_emit_signals (this->stream, FALSE);
         g_object_unref(this->stream);
         this->stream = NULL;
     }
