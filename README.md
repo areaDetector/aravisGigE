@@ -29,9 +29,9 @@ Tested mostly working cameras:
     * Needs increased mem buffers as detailed under "Known Bugs"
     * Still get a number of dropped frames
 
-The documentation here is top level documentation on creating an IOC with an aravisCamera areaDetector driver:
+The following is a summary of the files included in aravisGigE:
 
-  * aravisCamera: areaDetector driver class
+  * aravisCamera.cpp: areaDetector driver class
   * aravisCamera.template: Basic template that should be instantiated for any camera
   * Add-on templates with extra records for each camera type:
     * AVT_Manta.template
@@ -41,6 +41,15 @@ The documentation here is top level documentation on creating an IOC with an ara
     * PGR_Flea3.template
     * Sony_CVC_EH6300.template
     * Many more
+  * edl files
+     * aravisCamera.edl: Base screen that gets included in a camera-specific screen
+     * <camera-name>.edl: Python generated camera-specific top-level screen
+     * <camera-name>-features.edl: Python generated camera-specific screen with camera features.  Can be very large.
+  * adl files
+     * aravisCamera.adl: Base screen that works with any camera
+     * <camera-name>-features_[1,2,3..].adl: Python generated camera-specific screens with camera features. 
+       Multiple screens are generated so they are not too large.
+     * <camera-name>-features.adl  User-created screen that contains only the most important features.
 
 If you need to add a new camera, read the "Adding a new camera" section
 
