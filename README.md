@@ -67,10 +67,10 @@ You are now ready to build the module.
   * If you are not using this layout then you will need to edit aravisGigE/configure/RELEASE.local and aravisGigRE/configure/CONFIG_SITE to define things.
   * Type make
   * The first time make is run in the top-level aravisGigE directory it will build the aravis library and tools.  
-    It will install aravisGigE/bin/linux-x86_64/arv-tool-VERSION , whre VERSION is for example 0.6.
+    It will install aravisGigE/bin/linux-x86_64/arv-tool-VERSION , where VERSION is for example 0.6.
   * Run bin/linux-x86/arv-tool-VERSION to see GigE visible devices
   * If your camera is not visible, check that it has an IP address on the same subnet
-  * If your camera is of a supported type, modify the example IOC to use the correct database and screen, otherwise read the next section
+  * If your camera is of a supported type, modify the example IOC to use the correct database and screen, otherwise read the section on adding a new camera.
 
 System configuration
 --------------------
@@ -81,6 +81,7 @@ The following instructions were copied from a [Point Grey/FLIR KnowledgeBase art
 Increase the amount of memory Linux uses for receive buffers using the sysctl interface. 
 Whereas the system standard (default) and maximum values for this buffer default to 128 KB and 120 KB respectively, 
 increasing both of these parameters to 1 MB significantly improves image streaming results.
+
 Note: On some ARM boards, you may need to increase the receive buffer size to greater than 1 MB before noticing 
 improved streaming results. Increasing the buffer size can enhance receive performance, but it also uses more memory.
 
@@ -93,6 +94,7 @@ to the bottom of the /etc/sysctl.conf file:
 
 net.core.rmem_max=1048576
 net.core.rmem_default=1048576
+
 Once changes are persisted, they can be reloaded at any time by running the following command in sysctl:
 
 sudo sysctl -p
