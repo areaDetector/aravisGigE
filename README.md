@@ -174,9 +174,9 @@ Known Bugs
     This may be fixed in a later release.
 
 
-Build Instructions for example
+Build Instructions for example IOC
 ------------------------------
-IOCs built using these build instructions are available in iocs/ 
+An IOC built using these build instructions is available in iocs/aravisGigEIOC 
 
 * If you are using the standard areadDetector layout, with aravisGigE in a subdirectory of areaDetector, then edit the top-level areaDetector/configure files
   as described in [INSTALL_GUIDE.md](https://github.com/areaDetector/areaDetector/blob/master/INSTALL_GUIDE.md).
