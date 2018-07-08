@@ -5,7 +5,7 @@ Introduction
 ------------
 
 This module is a thin wrapper to the [aravis](http://live.gnome.org/Aravis) library for industrial 
-cameras the use the [GenICam standard(https://www.emva.org/standards-technology/genicam/).
+cameras the use the [GenICam standard](https://www.emva.org/standards-technology/genicam/).
 These include 1Gbit Ethernet, 10Gbit Ethernet, and USB3 cameras and detectors. 
 GenICam cameras contain an XML file that can be downloaded via a URL.  This XML file contains
 a description of all of the features that the camera supports, organized in categories.
