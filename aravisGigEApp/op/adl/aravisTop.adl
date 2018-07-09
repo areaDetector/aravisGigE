@@ -1,12 +1,12 @@
 
 file {
-	name="/home/epics/devel/areaDetector/aravisGigE/aravisGigEApp/op/adl/aravisTop.adl"
+	name="/home/epics/devel/areaDetector-3-3-2/aravisGigE/aravisGigEApp/op/adl/aravisTop.adl"
 	version=030109
 }
 display {
 	object {
-		x=171
-		y=78
+		x=161
+		y=70
 		width=225
 		height=70
 	}
@@ -111,6 +111,11 @@ text {
 		label="PGR BlackfyS 13Y3M"
 		name="aravisCamera.adl"
 		args="P=13ARV1:, R=cam1:, C=PGR_BlackflyS_13Y3M"
+	}
+	display[1] {
+		label="PGR Grasshopper3 23S6M"
+		name="aravisCamera.adl"
+		args="P=13ARV1:, R=cam1:, C=PGR_GS3_U3_23S6M"
 	}
 	clr=14
 	bclr=51
