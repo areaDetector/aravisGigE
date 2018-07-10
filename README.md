@@ -127,10 +127,10 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=1000"
 2. Update grub with these settings:
 
 On some older Linux systems:
-`sudo update-grub`
+sudo update-grub
 
 On Centos 7, for example:
-`sudo grub2-mkconfig -o /boot/grub2/grub.cfg`
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 3. Reboot and test a USB 3.1 camera.
 
