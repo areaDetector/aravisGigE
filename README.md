@@ -7,6 +7,10 @@ Introduction
 This module is a thin wrapper to the [aravis](http://live.gnome.org/Aravis) library for industrial 
 cameras the use the [GenICam standard](https://www.emva.org/standards-technology/genicam/).
 These include 1Gbit Ethernet, 10Gbit Ethernet, and USB3 cameras and detectors. 
+
+Support for USB3 cameras was added in R2-2 of this module, when it switched from aravis 0.4.1 to aravis 0.5.13.
+The module name aravisGigE is now a misnomer, but there are no plans to change the name.
+
 GenICam cameras contain an XML file that can be downloaded via a URL.  This XML file contains
 a description of all of the features that the camera supports, organized in categories.
 The aravisGigE driver can control any parameter exposed in this XML file. 
@@ -18,6 +22,7 @@ Tested working cameras:
   * Prosilica GC series
   * Baumer TXG series
   * JAI Pulnix 6740 series
+  * Point Grey Grasshopper3 USB series
   * Many more
 
 Tested mostly working cameras:
@@ -40,6 +45,7 @@ The following is a summary of the files included in aravisGigE:
     * JAI_6740.template
     * PGR_Flea3.template
     * Sony_CVC_EH6300.template
+    * PGR_U3_23Y6M.template
     * Many more
   * edl files
      * aravisCamera.edl: Base screen that gets included in a camera-specific screen
@@ -102,7 +108,7 @@ sudo sysctl -p
 ```
 
 To use USB3 cameras on Linux, the [Point Grey/FLIR KnowledgeBase article 10016](https://www.ptgrey.com/KB/10016) is helpful.
-It suggests the following:
+It suggests the following (with some minor edits):
 ```
 To set the maximum usbfs memory limit until the next reboot, run this command:
 $ sudo modprobe usbcore usbfs_memory_mb=1000
@@ -120,7 +126,11 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=1000"
 
 2. Update grub with these settings:
 
-$ sudo update-grub
+On some older Linux systems:
+`sudo update-grub`
+
+On Centos 7, for example:
+`sudo grub2-mkconfig -o /boot/grub2/grub.cfg`
 
 3. Reboot and test a USB 3.1 camera.
 
