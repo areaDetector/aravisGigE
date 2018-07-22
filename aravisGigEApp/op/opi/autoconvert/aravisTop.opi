@@ -81,7 +81,7 @@
           <C>PGR_BlackflyS_13Y3M</C>
         </macros>
         <mode>1</mode>
-        <description>PGR BlackfyS 13Y3M</description>
+        <description>PGR BlackflyS 13Y3M</description>
       </action>
       <action type="OPEN_DISPLAY">
         <path>aravisCamera.opi</path>
@@ -104,6 +104,17 @@
         </macros>
         <mode>1</mode>
         <description>FLIR Oryx 51S5M</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>aravisCamera.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>13ARV1:</P>
+          <R>cam1:</R>
+          <C>PGR_Blackfly_20E4C</C>
+        </macros>
+        <mode>1</mode>
+        <description>PGR Blackfly 20E4C</description>
       </action>
     </actions>
     <actions_from_pv>false</actions_from_pv>
