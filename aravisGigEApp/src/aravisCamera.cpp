@@ -1538,6 +1538,29 @@ asynStatus aravisCamera::getNextFeature() {
         } else if (ARV_IS_GC_ENUMERATION(node)) {
             integerValue = arv_device_get_integer_feature_value (this->device, featureName);
             status |= setIntegerParam(*index, integerValue);
+            // Generate enum choices because they might have changed
+            if ((!arv_gc_feature_node_is_available(ARV_GC_FEATURE_NODE(node), NULL)) ||
+                (arv_gc_feature_node_is_locked(ARV_GC_FEATURE_NODE(node), NULL))) {
+                char *enumStrings = epicsStrDup("N.A.");
+                int enumValues = 0;
+                int enumSeverities = 0;
+                doCallbacksEnum(&enumStrings, &enumValues, &enumSeverities, 1, *index, 0);
+            } else {
+                guint numEnums;
+                ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (node));
+                gint64 *arvEnumValues = arv_gc_enumeration_get_available_int_values(enumeration, &numEnums, NULL);
+                const char **enumStrings = arv_gc_enumeration_get_available_string_values(enumeration, &numEnums, NULL);
+                int *enumValues = new int[numEnums];
+                int *enumSeverities = new int[numEnums];
+                for (unsigned int i=0; i<numEnums; i++) {
+                    enumValues[i] = (int)arvEnumValues[i];
+                    enumSeverities[i] = 0;
+                }
+                doCallbacksEnum((char **)enumStrings, enumValues, enumSeverities, numEnums, *index, 0);
+                g_free(enumStrings);
+                delete [] enumValues; delete [] enumSeverities;
+            }
+            
         } else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(node)) == G_TYPE_DOUBLE) {
             floatValue = arv_device_get_float_feature_value (this->device, featureName);
             /* special cases for exposure and frame rate */
