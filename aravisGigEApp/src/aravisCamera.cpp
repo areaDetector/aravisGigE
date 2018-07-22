@@ -12,6 +12,7 @@
 /* System includes */
 #include <math.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 
 /* EPICS includes */
@@ -122,6 +123,8 @@ public:
     virtual asynStatus writeFloat64(asynUser *pasynUser, epicsFloat64 value);
     virtual asynStatus drvUserCreate(asynUser *pasynUser, const char *drvInfo,
                                      const char **pptypeName, size_t *psize);
+    virtual asynStatus readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[], 
+                                size_t nElements, size_t *nIn);
     void report(FILE *fp, int details);
 
     /* This is the method we override from epicsThreadRunable */
@@ -276,7 +279,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
                          int maxBuffers, size_t maxMemory, int priority, int stackSize)
 
     : ADDriver(portName, 1, NUM_ARAVIS_CAMERA_PARAMS, maxBuffers, maxMemory,
-               0, 0, /* No interfaces beyond those set in ADDriver.cpp */
+               asynEnumMask, asynEnumMask,
                0, 1, /* ASYN_CANBLOCK=0, ASYN_MULTIDEVICE=0, autoConnect=1 */
                priority, stackSize),
        camera(NULL),
@@ -826,6 +829,59 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
               "%s:writeFloat64: function=%d %s, value=%f\n",
               driverName, function, reasonName, value);
     return status;
+}
+
+asynStatus aravisCamera::readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[], 
+                                  size_t nElements, size_t *nIn)
+{
+    int function = pasynUser->reason;
+    guint numEnums;
+    unsigned int i;
+    char *featureName;
+    ArvGcNode *feature;
+    //static const char *functionName = "readEnum";
+
+    *nIn = 0;
+
+    /* If we have no camera, then just fail */
+    if (this->camera == NULL || this->connectionValid != 1) {
+        return asynError;
+    }
+    
+    featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
+    if (featureName == NULL) {
+        return asynError;
+    }
+    feature = arv_device_get_feature(this->device, featureName);
+    if (!ARV_IS_GC_ENUMERATION (feature)) {
+        return asynError;
+    }
+    if ((!arv_gc_feature_node_is_available(ARV_GC_FEATURE_NODE(feature), NULL)) ||
+        (arv_gc_feature_node_is_locked(ARV_GC_FEATURE_NODE(feature), NULL))) {
+        if (strings[0]) free(strings[0]);
+        strings[0] = epicsStrDup("N.A.");
+        values[0] = 0;
+        *nIn = 1;
+        return asynSuccess;
+    }
+    // There are a few enums we don't want to autogenerate the values
+    //    if ((function == SPConvertPixelFormat) ||
+    //        (function == ADImageMode)) {
+    //        return asynError;
+    //    }
+
+    ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (feature));
+    gint64 *enumValues = arv_gc_enumeration_get_available_int_values(enumeration, &numEnums, NULL);
+    const char **enumStrings = arv_gc_enumeration_get_available_string_values(enumeration, &numEnums, NULL);
+    for (i=0; ((i<numEnums) && (i<nElements)); i++) {
+        if (strings[i]) free(strings[i]);
+        strings[i] = epicsStrDup(enumStrings[i]);
+        values[i] = enumValues[i];
+        severities[i] = 0;
+        *nIn = i+1;
+    }
+    g_free(enumStrings);
+    return asynSuccess;
 }
 
 /** Report status of the driver.
