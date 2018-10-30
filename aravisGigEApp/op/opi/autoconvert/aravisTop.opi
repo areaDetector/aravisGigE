@@ -28,8 +28,8 @@
   <snap_to_geometry>false</snap_to_geometry>
   <widget_type>Display</widget_type>
   <width>225</width>
-  <x>171</x>
-  <y>78</y>
+  <x>161</x>
+  <y>70</y>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <auto_size>false</auto_size>
@@ -70,7 +70,7 @@
     <x>52</x>
     <y>6</y>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
         <path>aravisCamera.opi</path>
@@ -81,9 +81,43 @@
           <C>PGR_BlackflyS_13Y3M</C>
         </macros>
         <mode>1</mode>
-        <description>PGR BlackfyS 13Y3M</description>
+        <description>PGR BlackflyS 13Y3M</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>aravisCamera.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>13ARV1:</P>
+          <R>cam1:</R>
+          <C>PGR_GS3_U3_23S6M</C>
+        </macros>
+        <mode>1</mode>
+        <description>PGR Grasshopper3 23S6M</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>aravisCamera.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>13ARV1:</P>
+          <R>cam1:</R>
+          <C>FLIR_ORX_10G_51S5M</C>
+        </macros>
+        <mode>1</mode>
+        <description>FLIR Oryx 51S5M</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>aravisCamera.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>13ARV1:</P>
+          <R>cam1:</R>
+          <C>PGR_Blackfly_20E4C</C>
+        </macros>
+        <mode>1</mode>
+        <description>PGR Blackfly 20E4C</description>
       </action>
     </actions>
+    <actions_from_pv>false</actions_from_pv>
     <alarm_pulsing>false</alarm_pulsing>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <background_color>
@@ -93,7 +127,7 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <border_style>0</border_style>
+    <border_style>6</border_style>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
@@ -104,9 +138,8 @@
       <color red="0" green="0" blue="0" />
     </foreground_color>
     <height>20</height>
-    <image></image>
-    <name>Action Button</name>
-    <push_action_index>0</push_action_index>
+    <label></label>
+    <name>Menu Button</name>
     <pv_name></pv_name>
     <pv_value />
     <rules />
@@ -116,13 +149,12 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <scripts />
-    <style>0</style>
-    <text></text>
-    <toggle_button>false</toggle_button>
+    <show_down_arrow>false</show_down_arrow>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
+    <transparent>false</transparent>
     <visible>true</visible>
-    <widget_type>Action Button</widget_type>
+    <widget_type>Menu Button</widget_type>
     <width>120</width>
     <x>87</x>
     <y>37</y>

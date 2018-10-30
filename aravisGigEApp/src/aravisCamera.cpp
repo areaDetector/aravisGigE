@@ -12,6 +12,7 @@
 /* System includes */
 #include <math.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 
 /* EPICS includes */
@@ -32,7 +33,7 @@ extern "C" {
 }
 
 #define DRIVER_VERSION "2.2.0"
-#define ARAVIS_VERSION "0.4.1"
+#define ARAVIS_VERSION "0.5.13"
 
 /* number of raw buffers in our queue */
 #define NRAW 20
@@ -122,6 +123,8 @@ public:
     virtual asynStatus writeFloat64(asynUser *pasynUser, epicsFloat64 value);
     virtual asynStatus drvUserCreate(asynUser *pasynUser, const char *drvInfo,
                                      const char **pptypeName, size_t *psize);
+    virtual asynStatus readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[], 
+                                size_t nElements, size_t *nIn);
     void report(FILE *fp, int details);
 
     /* This is the method we override from epicsThreadRunable */
@@ -276,7 +279,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
                          int maxBuffers, size_t maxMemory, int priority, int stackSize)
 
     : ADDriver(portName, 1, NUM_ARAVIS_CAMERA_PARAMS, maxBuffers, maxMemory,
-               0, 0, /* No interfaces beyond those set in ADDriver.cpp */
+               asynEnumMask, asynEnumMask,
                0, 1, /* ASYN_CANBLOCK=0, ASYN_MULTIDEVICE=0, autoConnect=1 */
                priority, stackSize),
        camera(NULL),
@@ -291,7 +294,7 @@ aravisCamera::aravisCamera(const char *portName, const char *cameraName,
     const char *functionName = "aravisCamera";
 
     /* glib initialisation */
-    g_type_init ();
+    //g_type_init ();
 
     /* Duplicate camera name so we can use it if we reconnect */
     this->cameraName = epicsStrDup(cameraName);
@@ -451,10 +454,12 @@ asynStatus aravisCamera::makeCameraObject() {
                     driverName, functionName);
         return asynError;
     }
-    // Make standard size packets
-    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), ARV_GV_DEVICE_GVSP_PACKET_SIZE_DEFAULT);
-    // Uncomment this line to set jumbo packets
-//    arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), 9000);
+    if (ARV_IS_GV_DEVICE(this->device)) {
+        // Automatically determine optimum packet size
+        arv_gv_device_auto_packet_size(ARV_GV_DEVICE(this->device));
+        // Uncomment this line to set jumbo packets
+        //arv_gv_device_set_packet_size(ARV_GV_DEVICE(this->device), 9000);
+    }
     /* Store genicam */
     this->genicam = arv_device_get_genicam (this->device);
     if (this->genicam == NULL) {
@@ -472,6 +477,7 @@ asynStatus aravisCamera::makeStreamObject() {
     
     /* remove old stream if it exists */
     if (this->stream != NULL) {
+        arv_stream_set_emit_signals (this->stream, FALSE);
         g_object_unref(this->stream);
         this->stream = NULL;
     }
@@ -493,23 +499,26 @@ asynStatus aravisCamera::makeStreamObject() {
                     driverName, functionName);
         return asynError;
     }
-    /* configure the stream */
-    // Available stream options:
-    //  socket-buffer:      ARV_GV_STREAM_SOCKET_BUFFER_FIXED, ARV_GV_STREAM_SOCKET_BUFFER_AUTO, defaults to auto which follows arvgvbuffer size
-    //  socket-buffer-size: 64 bit int, Defaults to -1
-    //  packet-resend:      ARV_GV_STREAM_PACKET_RESEND_NEVER, ARV_GV_STREAM_PACKET_RESEND_ALWAYS, defaults to always
-    //  packet-timeout:     64 bit int, units us, ARV_GV_STREAM default 40000
-    //  frame-retention:    64 bit int, units us, ARV_GV_STREAM default 200000
-
-    epicsInt32      FrameRetention, PktResend, PktTimeout;
-    getIntegerParam(AravisFrameRetention,  &FrameRetention);
-    getIntegerParam(AravisPktResend,       &PktResend);
-    getIntegerParam(AravisPktTimeout,      &PktTimeout);
-    g_object_set (ARV_GV_STREAM (this->stream),
-              "packet-resend",      (guint64) PktResend,
-              "packet-timeout",     (guint64) PktTimeout,
-              "frame-retention",    (guint64) FrameRetention,
-              NULL);
+    
+    if (ARV_IS_GV_DEVICE(this->stream)) {
+        /* configure the stream */
+        // Available stream options:
+        //  socket-buffer:      ARV_GV_STREAM_SOCKET_BUFFER_FIXED, ARV_GV_STREAM_SOCKET_BUFFER_AUTO, defaults to auto which follows arvgvbuffer size
+        //  socket-buffer-size: 64 bit int, Defaults to -1
+        //  packet-resend:      ARV_GV_STREAM_PACKET_RESEND_NEVER, ARV_GV_STREAM_PACKET_RESEND_ALWAYS, defaults to always
+        //  packet-timeout:     64 bit int, units us, ARV_GV_STREAM default 40000
+        //  frame-retention:    64 bit int, units us, ARV_GV_STREAM default 200000
+    
+        epicsInt32      FrameRetention, PktResend, PktTimeout;
+        getIntegerParam(AravisFrameRetention,  &FrameRetention);
+        getIntegerParam(AravisPktResend,       &PktResend);
+        getIntegerParam(AravisPktTimeout,      &PktTimeout);
+        g_object_set (ARV_GV_STREAM (this->stream),
+                  "packet-resend",      (guint64) PktResend,
+                  "packet-timeout",     (guint64) PktTimeout,
+                  "frame-retention",    (guint64) FrameRetention,
+                  NULL);
+    }
 
     // Enable callback on new buffers
     arv_stream_set_emit_signals (this->stream, TRUE);
@@ -542,12 +551,14 @@ asynStatus aravisCamera::connectToCamera() {
     status |= setIntegerParam(ADStatus, ADStatusIdle);
     
     /* Check the tick frequency */
-    guint64 freq = arv_gv_device_get_timestamp_tick_frequency(ARV_GV_DEVICE(this->device));
-    printf("aravisCamera: Your tick frequency is %" G_GUINT64_FORMAT "\n", freq);
-    if (freq > 0) {
-        printf("So your timestamp resolution is %f ns\n", 1.e9/freq);
-    } else {
-        printf("So your camera doesn't provide timestamps. Using system clock instead\n");
+    if (ARV_IS_GV_DEVICE(this->device)) {
+        guint64 freq = arv_gv_device_get_timestamp_tick_frequency(ARV_GV_DEVICE(this->device));
+        printf("aravisCamera: Your tick frequency is %" G_GUINT64_FORMAT "\n", freq);
+        if (freq > 0) {
+            printf("So your timestamp resolution is %f ns\n", 1.e9/freq);
+        } else {
+            printf("So your camera doesn't provide timestamps. Using system clock instead\n");
+        }
     }
     
     /* Make the stream */
@@ -818,6 +829,59 @@ asynStatus aravisCamera::writeFloat64(asynUser *pasynUser, epicsFloat64 value)
               "%s:writeFloat64: function=%d %s, value=%f\n",
               driverName, function, reasonName, value);
     return status;
+}
+
+asynStatus aravisCamera::readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[], 
+                                  size_t nElements, size_t *nIn)
+{
+    int function = pasynUser->reason;
+    guint numEnums;
+    unsigned int i;
+    char *featureName;
+    ArvGcNode *feature;
+    //static const char *functionName = "readEnum";
+
+    *nIn = 0;
+
+    /* If we have no camera, then just fail */
+    if (this->camera == NULL || this->connectionValid != 1) {
+        return asynError;
+    }
+    
+    featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
+    if (featureName == NULL) {
+        return asynError;
+    }
+    feature = arv_device_get_feature(this->device, featureName);
+    if (!ARV_IS_GC_ENUMERATION (feature)) {
+        return asynError;
+    }
+    if ((!arv_gc_feature_node_is_available(ARV_GC_FEATURE_NODE(feature), NULL)) ||
+        (arv_gc_feature_node_is_locked(ARV_GC_FEATURE_NODE(feature), NULL))) {
+        if (strings[0]) free(strings[0]);
+        strings[0] = epicsStrDup("N.A.");
+        values[0] = 0;
+        *nIn = 1;
+        return asynSuccess;
+    }
+    // There are a few enums we don't want to autogenerate the values
+    //    if ((function == SPConvertPixelFormat) ||
+    //        (function == ADImageMode)) {
+    //        return asynError;
+    //    }
+
+    ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (feature));
+    gint64 *enumValues = arv_gc_enumeration_get_available_int_values(enumeration, &numEnums, NULL);
+    const char **enumStrings = arv_gc_enumeration_get_available_string_values(enumeration, &numEnums, NULL);
+    for (i=0; ((i<numEnums) && (i<nElements)); i++) {
+        if (strings[i]) free(strings[i]);
+        strings[i] = epicsStrDup(enumStrings[i]);
+        values[i] = enumValues[i];
+        severities[i] = 0;
+        *nIn = i+1;
+    }
+    g_free(enumStrings);
+    return asynSuccess;
 }
 
 /** Report status of the driver.
@@ -1093,10 +1157,12 @@ asynStatus aravisCamera::processBuffer(ArvBuffer *buffer) {
         setDoubleParam(AravisFailures, (double) n_failures);
         setDoubleParam(AravisUnderruns, (double) n_underruns);
 
-        guint64 n_resent_pkts, n_missing_pkts;
-        arv_gv_stream_get_statistics(ARV_GV_STREAM(this->stream), &n_resent_pkts, &n_missing_pkts);
-        setIntegerParam(AravisResentPkts,  (epicsInt32) n_resent_pkts);
-        setIntegerParam(AravisMissingPkts, (epicsInt32) n_missing_pkts);
+        if (ARV_IS_GV_DEVICE(this->stream)) {
+            guint64 n_resent_pkts, n_missing_pkts;
+            arv_gv_stream_get_statistics(ARV_GV_STREAM(this->stream), &n_resent_pkts, &n_missing_pkts);
+            setIntegerParam(AravisResentPkts,  (epicsInt32) n_resent_pkts);
+            setIntegerParam(AravisMissingPkts, (epicsInt32) n_missing_pkts);
+        }
     }
 
     /* Call the callbacks to update any changes */
@@ -1416,7 +1482,9 @@ asynStatus aravisCamera::setFloatValue(const char *feature, epicsFloat64 value, 
     arv_device_set_float_feature_value (this->device, feature, value);
     if (rbv != NULL) {
         *rbv = arv_device_get_float_feature_value (this->device, feature);
-        if (fabs(value - *rbv) > 0.001) {
+        epicsFloat64 denom = value;
+        if (denom == 0) denom = 1.0;
+        if (fabs((value - *rbv)/denom) > 0.001) {
             asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
                     "%s:%s: feature %s value %f != rbv %f\n",
                     driverName, functionName, feature, value, *rbv);
@@ -1442,7 +1510,7 @@ asynStatus aravisCamera::getAllFeatures() {
 }
 
 asynStatus aravisCamera::getNextFeature() {
-    const char *functionName = "getNextFeature";
+    //const char *functionName = "getNextFeature";
     int status = asynSuccess;
     const char *featureName;
     ArvGcNode *node;
@@ -1470,6 +1538,29 @@ asynStatus aravisCamera::getNextFeature() {
         } else if (ARV_IS_GC_ENUMERATION(node)) {
             integerValue = arv_device_get_integer_feature_value (this->device, featureName);
             status |= setIntegerParam(*index, integerValue);
+            // Generate enum choices because they might have changed
+            if ((!arv_gc_feature_node_is_available(ARV_GC_FEATURE_NODE(node), NULL)) ||
+                (arv_gc_feature_node_is_locked(ARV_GC_FEATURE_NODE(node), NULL))) {
+                char *enumStrings = epicsStrDup("N.A.");
+                int enumValues = 0;
+                int enumSeverities = 0;
+                doCallbacksEnum(&enumStrings, &enumValues, &enumSeverities, 1, *index, 0);
+            } else {
+                guint numEnums;
+                ArvGcEnumeration *enumeration = (ARV_GC_ENUMERATION (node));
+                gint64 *arvEnumValues = arv_gc_enumeration_get_available_int_values(enumeration, &numEnums, NULL);
+                const char **enumStrings = arv_gc_enumeration_get_available_string_values(enumeration, &numEnums, NULL);
+                int *enumValues = new int[numEnums];
+                int *enumSeverities = new int[numEnums];
+                for (unsigned int i=0; i<numEnums; i++) {
+                    enumValues[i] = (int)arvEnumValues[i];
+                    enumSeverities[i] = 0;
+                }
+                doCallbacksEnum((char **)enumStrings, enumValues, enumSeverities, numEnums, *index, 0);
+                g_free(enumStrings);
+                delete [] enumValues; delete [] enumSeverities;
+            }
+            
         } else if (arv_gc_feature_node_get_value_type(ARV_GC_FEATURE_NODE(node)) == G_TYPE_DOUBLE) {
             floatValue = arv_device_get_float_feature_value (this->device, featureName);
             /* special cases for exposure and frame rate */
@@ -1516,10 +1607,12 @@ asynStatus aravisCamera::getNextFeature() {
         status |= setDoubleParam(AravisCompleted, (double) n_completed_buffers);
         status |= setDoubleParam(AravisFailures, (double) n_failures);
         status |= setDoubleParam(AravisUnderruns, (double) n_underruns);
-        guint64 n_resent_pkts, n_missing_pkts;
-        arv_gv_stream_get_statistics(ARV_GV_STREAM(this->stream), &n_resent_pkts, &n_missing_pkts);
-        setIntegerParam(AravisResentPkts,  (epicsInt32) n_resent_pkts);
-        setIntegerParam(AravisMissingPkts, (epicsInt32) n_missing_pkts);
+        if (ARV_IS_GV_DEVICE(this->stream)) {
+            guint64 n_resent_pkts, n_missing_pkts;
+            arv_gv_stream_get_statistics(ARV_GV_STREAM(this->stream), &n_resent_pkts, &n_missing_pkts);
+            setIntegerParam(AravisResentPkts,  (epicsInt32) n_resent_pkts);
+            setIntegerParam(AravisMissingPkts, (epicsInt32) n_missing_pkts);
+        }
     }
 
     /* ensure we go back to the beginning */

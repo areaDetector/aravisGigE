@@ -201,8 +201,8 @@ def make_ro():
 			object {
 				x=%(nx)d
 				y=%(y)d
-				width=%(readbackWidth)d
-				height=%(readbackHeight)d
+				width=%(readonlyWidth)d
+				height=%(readonlyHeight)d
 			}
 			monitor {
 				chan="$(P)$(R)%(recordName)s_RBV"
@@ -221,8 +221,8 @@ def make_demand():
 			object {
 				x=%(nx)d
 				y=%(y)d
-				width=60
-				height=20
+				width=%(textEntryWidth)d
+				height=%(textEntryHeight)d
 			}
 			control {
 				chan="$(P)$(R)%(recordName)s"
@@ -240,8 +240,8 @@ def make_rbv():
 			object {
 				x=%(nx)d
 				y=%(y)d
-				width=%(textEntryWidth)d
-				height=%(textEntryHeight)d
+				width=%(readbackWidth)d
+				height=%(readbackHeight)d
 			}
 			monitor {
 				chan="$(P)$(R)%(recordName)s_RBV"
@@ -417,20 +417,22 @@ def write_adl_file(fileName):
 stdout = sys.stdout
     
 # Generate feature screens
-maxScreenWidth = 1500
+maxScreenWidth = 1600
 maxScreenHeight = 850
 headingHeight = 20
 labelWidth = 220
 maxLabelHeight = 20
-readbackWidth = 125
-readbackHeight = 20
+readonlyWidth = 150
+readonlyHeight = 18
+readbackWidth = 90
+readbackHeight = 18
 textEntryWidth = 60
 textEntryHeight = 20
-menuWidth = 125
+menuWidth = 150
 menuHeight = 20
-messageButtonWidth = 125
+messageButtonWidth = 150
 messageButtonHeight = 20
-boxWidth = 5 + labelWidth + 5 + readbackWidth + 5
+boxWidth = 5 + labelWidth + 5 + readonlyWidth + 5
 w = boxWidth
 h = 40
 x = 5

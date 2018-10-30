@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 171
-y 78
+x 161
+y 70
 w 225
 h 70
 font "helvetica-medium-r-18.0"
@@ -80,19 +80,31 @@ topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
 font "helvetica-medium-r-8.0"
 icon
-numPvs 2
-numDsps 1
+numPvs 8
+numDsps 4
 displayFileName {
   0 aravisCamera.edl
+  1 aravisCamera.edl
+  2 aravisCamera.edl
+  3 aravisCamera.edl
 }
 menuLabel {
-  0 PGR BlackfyS 13Y3M
+  0 PGR BlackflyS 13Y3M
+  1 PGR Grasshopper3 23S6M
+  2 FLIR Oryx 51S5M
+  3 PGR Blackfly 20E4C
 }
 symbols {
   0 "P=13ARV1:,R=cam1:,C=PGR_BlackflyS_13Y3M"
+  1 "P=13ARV1:,R=cam1:,C=PGR_GS3_U3_23S6M"
+  2 "P=13ARV1:,R=cam1:,C=FLIR_ORX_10G_51S5M"
+  3 "P=13ARV1:,R=cam1:,C=PGR_Blackfly_20E4C"
 }
 replaceSymbols {
   0 1
+  1 1
+  2 1
+  3 1
 }
 endObjectProperties
 

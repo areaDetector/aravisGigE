@@ -24,8 +24,18 @@ Release Notes
 
 ### R2-2 (XXX-July-2018)
 ----
-* Requires areaDetector and ADCore R3-3-1
-* Update to aravis 0.4.1
+* Requires areaDetector and ADCore R3-3-2
+* Update to aravis 0.5.13.  
+  * This version of aravis supports USB3 cameras in addition to GigE cameras.
+  * aravisGigE now supports USB3 cameras as well, so the name is now a bit misleading.
+    However, we don't plan to rename the driver or the repository.
+* aravisCamera.cpp
+  * Fixes so that it only calls the GigE specific functions if it is a GigE camera, not a USB3 camera.
+  * Changed the logic for looking at differences between the set and readback values of float64 parameters.
+    * Previously it checked that the fabs(value - rbv) > 0.001.
+      This was failing when the values were large and the relative difference was still small.
+      Now it looks for fabs((value - rbv)/value) > 0.001, i.e. it looks for 0.1% relative difference.
+      It protects against divide by 0.
 * Improved documentation in README
 * Added NDDriverVersion and ADSDKVersion to driver. ADSDKVersion is the aravis release.
   Both of these must be manually updated for new releases of the driver or aravis.

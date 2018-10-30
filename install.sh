@@ -5,8 +5,8 @@
 
 # Variables telling us where to get things
 HERE="$(dirname "$0")"
-VERSION="0.4.1"
-SOURCE="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.4/aravis-${VERSION}.tar.xz"
+VERSION="0.5.13"
+SOURCE="http://ftp.gnome.org/pub/GNOME/sources/aravis/0.5/aravis-${VERSION}.tar.xz"
 
 # fail if we can't do anything
 set -e
@@ -14,7 +14,7 @@ set -e
 # remove dir if it already exists
 rm -rf ${HERE}/aravis ${HERE}/vendor/aravis
 
-# Now get the the zip file
+# Now get the the tar file
 wget -P "${HERE}" $SOURCE
 
 # untar the source
@@ -28,6 +28,6 @@ rm "${HERE}/$(basename $SOURCE)"
 mv "${HERE}/aravis-${VERSION}" "${HERE}/vendor/aravis"
 
 # patch aravis
-patch -d "${HERE}" -p0 < "${HERE}/vendor/locate-by-ip.patch"
+#patch -d "${HERE}" -p0 < "${HERE}/vendor/locate-by-ip.patch"
 
 echo "You can now type make to build this module"
