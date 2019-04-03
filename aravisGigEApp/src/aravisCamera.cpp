@@ -1392,22 +1392,22 @@ asynStatus aravisCamera::readEnum(asynUser *pasynUser, char *strings[], int valu
     int function = pasynUser->reason;
     guint numEnums;
     unsigned int i;
-    char *featureName;
     ArvGcNode *feature;
     //static const char *functionName = "readEnum";
 
     *nIn = 0;
 
     /* If we have no camera, then just fail */
-    if (this->camera == NULL || this->connectionValid != 1) {
+    if (!camera || current_state != Connected) {
         return asynError;
     }
     
-    featureName = (char *) g_hash_table_lookup(this->featureLookup, &function);
-    if (featureName == NULL) {
+    interestingFeatures_t::iterator featit;
+    if ((featit = interestingFeatures.find(function)) == interestingFeatures.end()) {
         return asynError;
     }
-    feature = arv_device_get_feature(this->device, featureName);
+
+    feature = featit->second.activeNode;
     if (!ARV_IS_GC_ENUMERATION (feature)) {
         return asynError;
     }
