@@ -1,12 +1,12 @@
 
 file {
-	name="/home/epics/devel/areaDetector-3-3-2/aravisGigE/aravisGigEApp/op/adl/aravisTop.adl"
+	name="/home/epics/devel/areaDetector-3-5/aravisGigE/aravisGigEApp/op/adl/aravisTop.adl"
 	version=030109
 }
 display {
 	object {
-		x=161
-		y=70
+		x=151
+		y=65
 		width=225
 		height=70
 	}
@@ -126,6 +126,21 @@ text {
 		label="PGR Blackfly 20E4C"
 		name="aravisCamera.adl"
 		args="P=13ARV1:, R=cam1:, C=PGR_Blackfly_20E4C"
+	}
+	display[4] {
+		label="PGR Blackfly 50S5C"
+		name="aravisCamera.adl"
+		args="P=13ARV1:, R=cam1:, C=PGR_Blackfly_50S5C"
+	}
+	display[5] {
+		label="AVT Manta 507C"
+		name="aravisCamera.adl"
+		args="P=13ARV1:, R=cam1:, C=AVT_Manta_G507C"
+	}
+	display[6] {
+		label="FLIR BlackflyS 16S2M"
+		name="aravisCamera.adl"
+		args="P=13ARV1:, R=cam1:, C=FLIR_BFS_U3_16S2M"
 	}
 	clr=14
 	bclr=51

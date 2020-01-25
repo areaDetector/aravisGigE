@@ -28,8 +28,8 @@
   <snap_to_geometry>false</snap_to_geometry>
   <widget_type>Display</widget_type>
   <width>225</width>
-  <x>161</x>
-  <y>70</y>
+  <x>151</x>
+  <y>65</y>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <auto_size>false</auto_size>
@@ -115,6 +115,39 @@
         </macros>
         <mode>1</mode>
         <description>PGR Blackfly 20E4C</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>aravisCamera.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>13ARV1:</P>
+          <R>cam1:</R>
+          <C>PGR_Blackfly_50S5C</C>
+        </macros>
+        <mode>1</mode>
+        <description>PGR Blackfly 50S5C</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>aravisCamera.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>13ARV1:</P>
+          <R>cam1:</R>
+          <C>AVT_Manta_G507C</C>
+        </macros>
+        <mode>1</mode>
+        <description>AVT Manta 507C</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>aravisCamera.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>13ARV1:</P>
+          <R>cam1:</R>
+          <C>FLIR_BFS_U3_16S2M</C>
+        </macros>
+        <mode>1</mode>
+        <description>FLIR BlackflyS 16S2M</description>
       </action>
     </actions>
     <actions_from_pv>false</actions_from_pv>
