@@ -1283,10 +1283,6 @@ void aravisCamera::doConnect(Guard& G)
         if (arv_device_get_feature(dev, "AcquisitionFrameRateEnabled")) {
             arv_device_set_integer_feature_value (dev, "AcquisitionFrameRateEnabled", 1);
         }
-    deviceID = arv_camera_get_device_id(this->camera);
-    if (deviceID) status |= setStringParam (ADSerialNumber, deviceID);
-    firmwareVersion = arv_device_get_string_feature_value(this->device, "DeviceFirmwareVersion");
-    if (firmwareVersion) status |= setStringParam (ADFirmwareVersion, firmwareVersion);
 
         // map camera features to AD parameters
         trace("%s:%s mapping features\n", portName, __FUNCTION__);
