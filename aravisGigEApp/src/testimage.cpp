@@ -35,10 +35,10 @@ int aravisCameraConfig(const char *portName, const char *cameraName,
 
 namespace {
 
-struct NDImageListener : public asynPortClient
+struct NDImageListener : public asynParamClient
 {
     NDImageListener(const char *portName, int addr, const char *drvInfo, double timeout=DEFAULT_TIMEOUT)
-    : asynPortClient(portName, addr, asynGenericPointerType, drvInfo, timeout)
+    : asynParamClient(portName, addr, asynGenericPointerType, drvInfo, timeout)
     {
         pInterface_ = (asynGenericPointer *)pasynInterface_->pinterface;
         if (pasynGenericPointerSyncIO->connect(portName, addr, &pasynUserSyncIO_, drvInfo))
