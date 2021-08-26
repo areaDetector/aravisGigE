@@ -17,7 +17,7 @@ PROD_SRCS += $(PROD_NAME)_registerRecordDeviceDriver.cpp $(PROD_NAME)Main.cpp
 # Add locally compiled object code
 PROD_LIBS += aravisCamera
 PROD_LIBS += aravis-0.6
-PROD_SYS_LIBS += giomm-2.4
+#PROD_SYS_LIBS += giomm-2.4
 PROD_SYS_LIBS += gio-2.0 gobject-2.0 gthread-2.0 glib-2.0
 PROD_SYS_LIBS += usb-1.0
 
