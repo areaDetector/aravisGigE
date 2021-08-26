@@ -24,7 +24,7 @@ endif
 # install libs
 # TODO: shouldn't really do this, should get the aravisGgigeApp/src/Makefile to point to the vendor directory
 BIN_INSTALLS_Linux  += $(addprefix ../aravis-linux-x86_64/bin/, $(ARAVIS_LINUX_BINS))
-LIB_INSTALLS_Linux  += $(addprefix ../aravis-linux-x86_64/lib/, $(ARAVIS_LINUX_LIBS))
+LIB_INSTALLS_Linux  += $(addprefix ../aravis-linux-x86_64/lib64/, $(ARAVIS_LINUX_LIBS))
 ARAVISMAK = $(TOP)/vendor/aravis-linux-x86_64/Makefile	
 
 # depend on Makefile existing
