@@ -1,4 +1,5 @@
-**This support module is now archived. Please use https://github.com/areaDetector/ADAravis instead**
+This support module is now archived. Please use https://github.com/areaDetector/ADAravis instead
+================================================================================================
 
 aravisGigE EPICS Support Module 
 ===============================
